@@ -1,4 +1,4 @@
-// site-config.js — Display config for schooljaar.shoonyadance.com
+// site-config.js — Display config for schedule.shoonyadance.com
 // Derived from semester-config.json. Updated by Claude from teacher submissions.
 // Each page includes this via <script src="./data/site-config.js"></script>
 // and marks dynamic elements with data-cfg="key" attributes.

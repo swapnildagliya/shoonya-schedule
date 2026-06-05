@@ -501,8 +501,8 @@
   <header class="site-nav">
     <a class="site-nav__brand" href="https://www.shoonyadance.com">Shoonya</a>
     <nav class="site-nav__links" aria-label="Site navigation">
-      <a href="./schedule-landing.html" class="active" data-i18n="snav-schedule">Schedule</a>
-      <a href="https://schooljaar.shoonyadance.com/new-to-shoonya" data-i18n="snav-new">New here?</a>
+      <a href="/" class="active" data-i18n="snav-schedule">Schedule</a>
+      <a href="https://info.shoonyadance.com" data-i18n="snav-new">New here?</a>
       <a href="https://styles.shoonyadance.com/" data-i18n="snav-styles">All styles</a>
     </nav>
     <div class="lang-toggle" role="group" aria-label="Language">
@@ -541,7 +541,7 @@
   <section class="cards-wrap" aria-label="Semesters">
     <p class="cards-wrap__label" data-i18n="cards-label">Pick your semester</p>
 
-    <a class="card card--spring" id="card-spring" href="/schedule-spring-2026/">
+    <a class="card card--spring" id="card-spring" href="/schedule-spring-2026">
       <span class="card__chip" data-i18n="spring-chip">Spring</span>
       <div class="card__body">
         <div class="card__title" data-i18n="spring-title">Spring 2026</div>
@@ -550,7 +550,7 @@
       <span class="card__arrow" aria-hidden="true">→</span>
     </a>
 
-    <a class="card card--sep" id="card-sep" href="/schedule-sep-2026/">
+    <a class="card card--sep" id="card-sep" href="/schedule-sep-2026">
       <span class="card__chip" data-i18n="sep-chip">Sep</span>
       <div class="card__body">
         <div class="card__title" data-i18n="sep-title">Sep 2026 → Jan 2027</div>
@@ -566,7 +566,7 @@
       <div class="closing__kicker" data-i18n="closing-kicker">Next on stage</div>
       <h2 data-i18n="closing-h1">September brings <em>a new school year.</em></h2>
       <p class="closing__sub" data-i18n="closing-sub">Browse all 24 styles, find your slot, click through to register on the style page.</p>
-      <a class="closing__cta" href="/schedule-sep-2026/" data-i18n="closing-cta">browse the new school year →</a>
+      <a class="closing__cta" href="/schedule-sep-2026" data-i18n="closing-cta">browse the new school year →</a>
       <span class="closing__cta-meta" data-i18n="closing-meta">no account required to browse</span>
     </div>
   </section>
@@ -576,15 +576,15 @@
     <div class="footer__brand">Shoonya Dance Centre · Ghent</div>
     <nav class="footer__nav">
       <a href="https://www.shoonyadance.com" data-i18n="footer-home">home</a>
-      <a href="/schedule-sep-2026/" data-i18n="footer-schedule">schedule</a>
-      <a href="https://schooljaar.shoonyadance.com/new-to-shoonya" data-i18n="footer-new">new to shoonya</a>
+      <a href="/schedule-sep-2026" data-i18n="footer-schedule">schedule</a>
+      <a href="https://info.shoonyadance.com" data-i18n="footer-new">new to shoonya</a>
       <a href="https://styles.shoonyadance.com/" data-i18n="footer-styles">all styles</a>
       <a href="https://www.shoonyadance.com/about" data-i18n="footer-teachers">about</a>
       <a href="https://www.shoonyadance.com/contact" data-i18n="footer-contact">contact</a>
     </nav>
   </footer>
 
-  <script src="./data/site-config.js"></script>
+  <script src="/data/site-config.js"></script>
   <script>
     var _S = window.SHOONYA, _c = _S ? _S.cfg.counts : {}, _d = _S ? _S.display : {};
     /* ─────────────────────────────────────────────
@@ -821,12 +821,12 @@
 
       if (!isPast) {
         // Sem 1 milestones → the Sep schedule. Sem 2 milestones → the spring schedule.
-        if (m.id === 'trial-week-1' || m.id === 'sem-1-end') el.href = '/schedule-sep-2026/';
-        else if (m.id === 'trial-week-2' || m.id === 'school-year-end') el.href = '/schedule-spring-2026/';
+        if (m.id === 'trial-week-1' || m.id === 'sem-1-end') el.href = './schedule-sep-2026.html';
+        else if (m.id === 'trial-week-2' || m.id === 'school-year-end') el.href = './schedule-spring-2026.html';
         else if (m.type === 'open-house') el.href = m.id === 'open-house-1'
           ? 'https://www.shoonyadance.com/calendar/movement-without-borders-open-door-day-june-14th-'
           : 'https://www.shoonyadance.com/try-a-class';
-        else if (m.id === 'spring-end')   el.href = '/schedule-spring-2026/';
+        else if (m.id === 'spring-end')   el.href = './schedule-spring-2026.html';
       }
 
       const label = strings[m.labelKey] || m.id;
