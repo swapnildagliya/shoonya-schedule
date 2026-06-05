@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <!-- Bilingual via in-page JS toggle. External translation tools should skip. -->
+  <meta name="google" content="notranslate" />
+  <meta name="weglot-translate" content="no" />
+  <title>Schedule · Shoonya Dance Centre · Ghent</title>
+  <meta name="description" content="Choose your semester at Shoonya Dance Centre. September 2026 brings a new school year with 24 styles across 5 studios. Spring 2026 is in its final weeks." />
+  <link rel="canonical" href="https://schedule.shoonyadance.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Shoonya Dance Centre" />
+  <meta property="og:url" content="https://schedule.shoonyadance.com/" />
+  <meta property="og:title" content="Schedule · Shoonya Dance Centre · Ghent" />
+  <meta property="og:description" content="Choose your semester at Shoonya Dance Centre. September 2026 brings a new school year with 24 styles across 5 studios." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@shoonyadance" />
+  <meta name="twitter:title" content="Schedule · Shoonya Dance Centre · Ghent" />
+  <meta name="twitter:description" content="Choose your semester at Shoonya Dance Centre. September 2026 brings a new school year with 24 styles across 5 studios." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:           #1a1a1a;
+      --muted:         #5a5a5a;
+      --muted-soft:    #888;
+      --purple:        #B564F7;
+      --purple-deep:   #7E4FBF;
+      --purple-soft:   #F5ECFF;
+      --yellow:        #FBC70F;
+      --yellow-soft:   #FDF1B8;
+      --golden:        #FFCF5A;
+      --yellow-ink:    #6B4F00;
+      --salmon:        #F9D9C9;
+      --salmon-deep:   #C04A1F;
+      --salmon-ink:    #8A2F0E;
+      --border:        #e4e0db;
+      --bg:            #ffffff;
+      --hero-bg:       #000000;
+      --radius:        12px;
+      --radius-sm:     8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Skip-to-content (visible only on keyboard focus) */
+    .skip-link {
+      position: absolute; top: 0; left: 0;
+      transform: translateY(-100%);
+      background: var(--ink); color: #fff;
+      padding: .75rem 1.25rem;
+      font-weight: 700; font-size: .85rem; letter-spacing: .04em;
+      text-decoration: none;
+      z-index: 200;
+      border-radius: 0 0 6px 0;
+      transition: transform .15s;
+      font-family: 'PT Serif', serif;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--purple);
+      outline-offset: -2px;
+    }
+
+    body {
+      font-family: 'PT Serif', Georgia, serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+    :focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ── Site nav ──────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 200;
+      display: flex; align-items: center;
+      padding: 0 1.5rem; height: 52px;
+      background: #fff; border-bottom: 1px solid var(--border);
+    }
+    .site-nav__brand {
+      font-family: 'Marcellus', serif; font-size: .85rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none; margin-right: auto;
+    }
+    .site-nav__links {
+      display: flex; align-items: center; gap: 1.5rem; margin-right: 1.5rem;
+    }
+    .site-nav__links a {
+      font-size: .75rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      transition: color .15s; white-space: nowrap;
+    }
+    .site-nav__links a:hover, .site-nav__links a.active { color: var(--ink); }
+    .lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 99px; overflow: hidden; }
+    .lang-btn {
+      padding: .65rem 1rem; font-size: .72rem; font-weight: 700;
+      letter-spacing: .06em; border: none; background: none;
+      cursor: pointer; color: var(--muted); font-family: 'PT Serif', serif;
+    }
+    .lang-btn.active { background: #000; color: #fff; border-radius: 99px; }
+    @media (max-width: 540px) { .site-nav__links { display: none; } }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,.50), rgba(0,0,0,.50)), url('./images/social-event.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+    }
+    .hero__pill {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem 1rem;
+      border-radius: 99px;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Marcellus', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: .75rem;
+    }
+    .hero h1 em { color: var(--purple); font-style: italic; }
+    .hero__sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.72);
+      max-width: 560px;
+      margin: 0 auto 1.25rem;
+      line-height: 1.65;
+    }
+    .hero__year {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+    }
+
+    /* ── Page wrap ────────────────────────────────────────────── */
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Timeline section ─────────────────────────────────────── */
+    .timeline-wrap { padding: 4rem 1.5rem 5rem; background: var(--golden); }
+    .timeline-header {
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+    .timeline-header__kicker {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--purple-deep);
+      margin-bottom: .5rem;
+    }
+    .timeline-header h2 {
+      font-family: 'Marcellus', serif;
+      font-weight: 400;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      line-height: 1.15;
+      margin-bottom: .5rem;
+    }
+    .timeline-header h2 em { color: var(--purple); font-style: italic; }
+    .timeline-header__sub {
+      font-size: .95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 0 12px;
+    }
+    .timeline__rail {
+      position: absolute;
+      top: 48px; left: 0; right: 0;
+      height: 3px;
+      background: var(--border);
+      border-radius: 3px;
+    }
+    .timeline__rail-fill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      background: var(--purple);
+      border-radius: 3px;
+      transition: width .5s ease;
+    }
+    .timeline__nodes {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .timeline__node {
+      flex: 1 1 0;
+      text-align: center;
+      padding: 0 4px;
+      min-width: 0;
+      text-decoration: none;
+      color: inherit;
+    }
+    .timeline__dot {
+      display: block;
+      box-sizing: border-box;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--border);
+      margin: 8px auto 0;
+      position: relative;
+      transition: transform .15s, border-color .15s;
+    }
+    .timeline__node--past .timeline__dot {
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+    .timeline__node--past .timeline__dot::after {
+      content: '✓';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .timeline__node--now .timeline__dot {
+      background: var(--purple);
+      border-color: var(--purple);
+      box-shadow: 0 0 0 5px rgba(181,100,247,.22);
+      width: 18px; height: 18px;
+      margin-top: 7px;
+    }
+    .timeline__node--now { color: var(--purple-deep); }
+    .timeline__node--spring-end .timeline__dot { border-color: var(--salmon-deep); }
+    .timeline__node--open-house .timeline__dot { border-color: var(--yellow); background: #fffceb; }
+    .timeline__node--trial-week .timeline__dot { border-color: var(--ink); }
+    .timeline__node--sem-end    .timeline__dot { border-color: var(--purple); }
+    .timeline__node--year-end   .timeline__dot { border-color: var(--salmon-deep); background: #fff5ef; }
+
+    /* "Happening now" milestones get the pulsing purple highlight too */
+    .timeline__node--now:not(.timeline__node--synthetic) .timeline__dot {
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+    .timeline__node--now:not(.timeline__node--synthetic) .timeline__dot::after {
+      content: '';
+    }
+
+    .timeline__label {
+      display: block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-top: 14px;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .timeline__node--past .timeline__label { color: var(--muted-soft); }
+    .timeline__node--now .timeline__label  { color: var(--purple-deep); }
+    .timeline__date {
+      display: block;
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: 3px;
+      font-family: 'PT Serif', serif;
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 400;
+    }
+    a.timeline__node:hover .timeline__dot { transform: scale(1.1); }
+
+    /* ── Semester cards ───────────────────────────────────────── */
+    .cards-wrap { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 4rem; }
+    .cards-wrap__label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      margin-bottom: 1.25rem;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 36px 32px;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity .15s;
+    }
+    .card:last-child { margin-bottom: 0; }
+    .card:hover { opacity: .88; }
+    .card:hover .card__arrow { transform: translateX(4px); }
+
+    .card--spring { background: var(--salmon); }
+    .card--sep    { background: var(--purple-soft); }
+
+    .card__chip {
+      flex-shrink: 0;
+      background: var(--salmon-deep);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+    .card--sep .card__chip { background: var(--purple); }
+
+    .card__body { flex: 1 1 auto; min-width: 0; }
+    .card__title {
+      font-family: 'Marcellus', serif;
+      font-weight: 400;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+    .card__meta {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .card--spring .card__meta { color: var(--salmon-ink); }
+    .card--sep    .card__meta { color: var(--purple-deep); }
+
+    .card__arrow {
+      flex-shrink: 0;
+      font-size: 1.6rem;
+      font-family: 'Marcellus', serif;
+      transition: transform .15s;
+    }
+    .card--spring .card__arrow { color: var(--salmon-ink); }
+    .card--sep    .card__arrow { color: var(--purple-deep); }
+
+    .card--past { opacity: .55; pointer-events: none; }
+    .card--past .card__chip { background: var(--muted-soft); }
+
+    /* ── Closing CTA ──────────────────────────────────────────── */
+    .closing {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem;
+    }
+    .closing__band {
+      background: #000;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .closing__kicker {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: .75rem;
+    }
+    .closing h2 {
+      font-family: 'Marcellus', serif;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      line-height: 1.15;
+      margin-bottom: .75rem;
+    }
+    .closing h2 em { color: var(--purple); font-style: italic; }
+    .closing__sub {
+      font-size: .95rem;
+      color: rgba(255,255,255,.7);
+      max-width: 480px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.55;
+    }
+    .closing__cta {
+      display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .8rem 1.75rem;
+      border-radius: 6px;
+      transition: opacity .15s;
+    }
+    .closing__cta:hover { opacity: .88; }
+    .closing__cta-meta {
+      display: block;
+      font-size: .75rem;
+      color: rgba(255,255,255,.5);
+      margin-top: .9rem;
+      letter-spacing: .04em;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 1.5rem;
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem 1.5rem;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    .footer__brand { font-weight: 700; }
+    .footer__nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .footer__nav a { color: var(--muted); }
+    .footer__nav a:hover { color: var(--ink); }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .timeline { padding: 0; }
+      /* Mobile: rotate rail to vertical, anchored under the dot column */
+      .timeline__rail {
+        top: 8px;
+        bottom: 8px;
+        left: 11px;
+        right: auto;
+        width: 3px;
+        height: auto;
+      }
+      .timeline__rail-fill { display: none; }
+      .timeline__nodes {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 22px;
+      }
+      .timeline__node {
+        flex: none;
+        width: 100%;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        column-gap: 14px;
+        padding: 0;
+      }
+      .timeline__dot {
+        grid-row: 1 / 3;
+        margin: 2px 0 0;
+        justify-self: center;
+      }
+      .timeline__label { margin-top: 0; }
+      .timeline__date  { margin-top: 2px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 3rem 1rem 2.75rem; }
+      .timeline-wrap { padding: 2.75rem 1rem 2rem; }
+      .cards-wrap { padding: 3rem 1rem 3rem; }
+      .closing { padding: 0 1rem 4rem; }
+      .closing__band { padding: 2.5rem 1.25rem; }
+      .card { padding: 14px 16px; gap: 10px; }
+      .card__title { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip to content (accessibility — visible only on keyboard focus) -->
+  <a href="#main-content" class="skip-link" data-i18n="skip-link">Skip to content</a>
+
+  <header class="site-nav">
+    <a class="site-nav__brand" href="https://www.shoonyadance.com">Shoonya</a>
+    <nav class="site-nav__links" aria-label="Site navigation">
+      <a href="./schedule-landing.html" class="active" data-i18n="snav-schedule">Schedule</a>
+      <a href="https://schooljaar.shoonyadance.com/new-to-shoonya" data-i18n="snav-new">New here?</a>
+      <a href="https://styles.shoonyadance.com/" data-i18n="snav-styles">All styles</a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="nl">NL</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <header class="hero" id="main-content" tabindex="-1">
+    <div class="hero__pill" data-i18n="hero-pill">The dance year</div>
+    <h1 data-i18n="hero-h1">Where are you on <em>the calendar?</em></h1>
+    <p class="hero__sub" data-i18n="hero-sub">Two semesters, an open house, and a free trial week. Pick where to land.</p>
+    <span class="hero__year" data-cfg="schoolYearWide">2026 — 2027</span>
+  </header>
+
+  <!-- Timeline -->
+  <section class="timeline-wrap" id="timeline-section" aria-label="School year timeline">
+    <div class="timeline-header">
+      <div class="timeline-header__kicker" data-i18n="tl-kicker">Your year ahead</div>
+      <h2 data-i18n="tl-h2">A few <em>moments</em> in the year</h2>
+      <p class="timeline-header__sub" data-i18n="tl-sub">Where you are now, and what's next.</p>
+    </div>
+
+    <div class="timeline" id="timeline" aria-hidden="false">
+      <div class="timeline__rail">
+        <div class="timeline__rail-fill" id="rail-fill" style="width: 0%;"></div>
+      </div>
+      <div class="timeline__nodes" id="timeline-nodes">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Two compact semester cards -->
+  <section class="cards-wrap" aria-label="Semesters">
+    <p class="cards-wrap__label" data-i18n="cards-label">Pick your semester</p>
+
+    <a class="card card--spring" id="card-spring" href="/schedule-spring-2026/">
+      <span class="card__chip" data-i18n="spring-chip">Spring</span>
+      <div class="card__body">
+        <div class="card__title" data-i18n="spring-title">Spring 2026</div>
+        <div class="card__meta" id="spring-meta" data-i18n="spring-meta">running until 9 June · sem 2 of 2025-2026</div>
+      </div>
+      <span class="card__arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="card card--sep" id="card-sep" href="/schedule-sep-2026/">
+      <span class="card__chip" data-i18n="sep-chip">Sep</span>
+      <div class="card__body">
+        <div class="card__title" data-i18n="sep-title">Sep 2026 → Jan 2027</div>
+        <div class="card__meta" id="sep-meta" data-i18n="sep-meta">registration open · 24 styles · 22 teachers · 5 studios</div>
+      </div>
+      <span class="card__arrow" aria-hidden="true">→</span>
+    </a>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="closing" aria-label="Open the September schedule">
+    <div class="closing__band">
+      <div class="closing__kicker" data-i18n="closing-kicker">Next on stage</div>
+      <h2 data-i18n="closing-h1">September brings <em>a new school year.</em></h2>
+      <p class="closing__sub" data-i18n="closing-sub">Browse all 24 styles, find your slot, click through to register on the style page.</p>
+      <a class="closing__cta" href="/schedule-sep-2026/" data-i18n="closing-cta">browse the new school year →</a>
+      <span class="closing__cta-meta" data-i18n="closing-meta">no account required to browse</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__brand">Shoonya Dance Centre · Ghent</div>
+    <nav class="footer__nav">
+      <a href="https://www.shoonyadance.com" data-i18n="footer-home">home</a>
+      <a href="/schedule-sep-2026/" data-i18n="footer-schedule">schedule</a>
+      <a href="https://schooljaar.shoonyadance.com/new-to-shoonya" data-i18n="footer-new">new to shoonya</a>
+      <a href="https://styles.shoonyadance.com/" data-i18n="footer-styles">all styles</a>
+      <a href="https://www.shoonyadance.com/about" data-i18n="footer-teachers">about</a>
+      <a href="https://www.shoonyadance.com/contact" data-i18n="footer-contact">contact</a>
+    </nav>
+  </footer>
+
+  <script src="./data/site-config.js"></script>
+  <script>
+    var _S = window.SHOONYA, _c = _S ? _S.cfg.counts : {}, _d = _S ? _S.display : {};
+    /* ─────────────────────────────────────────────
+       Semester data — inlined from config/semester-config.json
+       so the page is self-contained for static hosting.
+       ─────────────────────────────────────────── */
+    const SEMESTERS = {
+      spring: {
+        startISO: '2026-02-10',
+        endISO:   '2026-06-09',
+        catchupEndISO: '2026-06-20',
+        totalSessions: 14,
+        openDoorDates: [
+          { dateISO: '2026-06-14', type: 'end-of-year' }
+        ],
+        freeTrial: null,
+        holidays: [
+          { startISO: '2026-02-16', endISO: '2026-02-22' },
+          { startISO: '2026-04-06', endISO: '2026-04-19' }
+        ]
+      },
+      sep: {
+        startISO: '2026-09-14',
+        endISO:   '2027-01-30',
+        totalSessions: 16,
+        openDoorDates: [
+          { dateISO: '2026-09-13', type: 'pre-semester' }
+        ],
+        freeTrial: { startISO: '2026-09-14', endISO: '2026-09-19' },
+        holidays: [
+          { startISO: '2026-11-01', endISO: '2026-11-08' },
+          { startISO: '2026-12-20', endISO: '2027-01-10' }
+        ]
+      },
+      spring2027: {
+        startISO: '2027-02-15',
+        endISO:   '2027-06-12',
+        catchupEndISO: '2027-06-19',
+        totalSessions: 15,
+        openDoorDates: [
+          { dateISO: '2027-01-31', type: 'pre-semester' },
+          { dateISO: '2027-06-13', type: 'end-of-year' }
+        ],
+        freeTrial: { startISO: '2027-02-15', endISO: '2027-02-20' },
+        holidays: [
+          { startISO: '2027-02-08', endISO: '2027-02-14' },
+          { startISO: '2027-03-28', endISO: '2027-04-11' }
+        ]
+      }
+    };
+
+    /* School year wraps in June 2027 — Sem 1 (Sep→Jan) + Sem 2 (Feb→Jun). */
+    const SCHOOL_YEAR_END_ISO = SEMESTERS.spring2027.endISO;
+
+    function sessionsElapsed(today, semester) {
+      const start = new Date(semester.startISO);
+      const end   = new Date(semester.endISO);
+      if (today < start) return 0;
+      if (today > end)   return semester.totalSessions;
+      const weeksSinceStart = Math.floor((today - start) / (7*24*60*60*1000));
+      let holidayWeeksElapsed = 0;
+      for (const h of semester.holidays) {
+        const hStart = new Date(h.startISO);
+        const hEnd   = new Date(h.endISO);
+        if (today >= hStart) {
+          const passedEnd = today < hEnd ? today : hEnd;
+          const days = Math.ceil((passedEnd - hStart) / (24*60*60*1000));
+          holidayWeeksElapsed += Math.ceil(days / 7);
+        }
+      }
+      return Math.min(semester.totalSessions, Math.max(0, weeksSinceStart - holidayWeeksElapsed));
+    }
+
+    /* ─────────────────────────────────────────────
+       Timeline milestones — fixed dates relative to the 2026-2027 year.
+       ─────────────────────────────────────────── */
+    /* Derived from SEMESTERS — keep in sync if you change a semester date.
+       Covers the full 2026-2027 school year:
+       Spring 2026 closes → Sem 1 (Sep→Jan) → Sem 2 (Feb→Jun) → year wraps.
+       Note: spring-end shows 13 Jun (visitor-facing semester wrap, day before
+       catchup week + open house). Classes themselves end 9 Jun per the config. */
+    const MILESTONES = [
+      { id: 'spring-end',     dateISO: '2026-06-13',                                                                                              type: 'spring-end',  labelKey: 'spring-end-label' },
+      { id: 'open-house-1',   dateISO: SEMESTERS.spring.openDoorDates[0].dateISO,                                                                 type: 'open-house',  labelKey: 'open-house-label' },
+      { id: 'open-house-2',   dateISO: SEMESTERS.sep.openDoorDates[0].dateISO,                                                                    type: 'open-house',  labelKey: 'open-house-label' },
+      { id: 'trial-week-1',   dateISO: SEMESTERS.sep.freeTrial.startISO,        endISO: SEMESTERS.sep.freeTrial.endISO,                           type: 'trial-week',  labelKey: 'trial-week-label' },
+      { id: 'sem-1-end',      dateISO: SEMESTERS.sep.endISO,                                                                                      type: 'sem-end',     labelKey: 'sem-1-end-label' },
+      { id: 'open-house-3',   dateISO: SEMESTERS.spring2027.openDoorDates[0].dateISO,                                                             type: 'open-house',  labelKey: 'open-house-label' },
+      { id: 'trial-week-2',   dateISO: SEMESTERS.spring2027.freeTrial.startISO, endISO: SEMESTERS.spring2027.freeTrial.endISO,                    type: 'trial-week',  labelKey: 'trial-week-label' },
+      { id: 'school-year-end',dateISO: SEMESTERS.spring2027.endISO,                                                                               type: 'year-end',    labelKey: 'school-year-end-label' },
+      { id: 'open-house-4',   dateISO: SEMESTERS.spring2027.openDoorDates[1].dateISO,                                                             type: 'open-house',  labelKey: 'open-house-label' }
+    ];
+
+    /* Auto-hide past milestones older than this many days, to keep the timeline forward-looking. */
+    const PAST_GRACE_DAYS = 30;
+
+    /* Year axis — for the rail-fill percentage. */
+    const YEAR_START = new Date('2026-02-09');
+    const YEAR_END   = new Date('2027-01-30');
+
+    /* ─────────────────────────────────────────────
+       Language strings.
+       ─────────────────────────────────────────── */
+    const LANDING_STRINGS = {
+      en: {
+        'hero-pill':      'The dance year',
+        'hero-h1':        'Where are you on <em>the calendar?</em>',
+        'hero-sub':       'Two semesters, an open house, and a free trial week. Pick where to land.',
+        'cards-label':    'Pick your semester',
+        'tl-kicker':      'Your year ahead',
+        'tl-h2':          'A few <em>moments</em> in the year',
+        'tl-sub':         'Where you are now, and what\'s next.',
+        'skip-link':           'Skip to content',
+        'snav-schedule':       'Schedule',
+        'snav-new':            'New here?',
+        'snav-styles':         'All styles',
+        'now-label':           'You are here',
+        'spring-end-label':    'Spring semester ends',
+        'open-house-label':    'Open House',
+        'trial-week-label':    'Free trial week',
+        'sem-1-end-label':     'Sem 1 ends',
+        'school-year-end-label':'School year ends',
+        'today':               'today',
+        'spring-chip':         'Spring',
+        'spring-title':        'Spring 2026',
+        'spring-meta':         'running until 13 June · sem 2 of 2025-2026',
+        'spring-meta-ended-pre-oh': 'season ended · Open House 14 June',
+        'spring-meta-ended':   'wrapped — see you in September',
+        'spring-meta-sessions': function(n) { return n + (n === 1 ? ' session left · final stretch' : ' sessions left · final stretch'); },
+        'sep-chip':            'Sep',
+        'sep-title':           'Sep 2026 → Jan 2027',
+        'sep-meta':            'registration open · ' + (_c.styles || 24) + ' styles · trial week ' + (_d.en ? _d.en.trial_week_short : '14–19 Sep 2026'),
+        'sep-meta-oh-today':   'Open House today · trial week ' + (_d.en ? _d.en.trial_week_short : '14–19 Sep 2026'),
+        'sep-meta-trial':      'trial week running · try any class free',
+        'sep-meta-running':    'school year in progress · live schedule',
+        'closing-kicker': 'Next on stage',
+        'closing-h1':     'September brings <em>a new school year.</em>',
+        'closing-sub':    'Browse all ' + (_c.styles || 24) + ' styles, find your slot, click through to register on the style page.',
+        'closing-cta':    'browse the new school year →',
+        'closing-meta':   'no account required to browse',
+        'footer-home':    'home',
+        'footer-schedule':'schedule',
+        'footer-new':     'new to shoonya',
+        'footer-styles':  'all styles',
+        'footer-teachers':'about',
+        'footer-contact': 'contact',
+        monthLabel: function(d) {
+          return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+        },
+        dateRangeLabel: function(d1, d2) {
+          const sameMonth = d1.getMonth() === d2.getMonth();
+          if (sameMonth) return d1.getDate() + '–' + d2.getDate() + ' ' + d1.toLocaleDateString('en-GB', { month: 'short' });
+          return d1.toLocaleDateString('en-GB', { day:'numeric', month:'short' }) + ' – ' + d2.toLocaleDateString('en-GB', { day:'numeric', month:'short' });
+        }
+      },
+      nl: {
+        'hero-pill':      'Het dansjaar',
+        'hero-h1':        'Waar sta jij op <em>de kalender?</em>',
+        'hero-sub':       'Twee semesters, een open deurdag, en een gratis proefweek. Kies waar je begint.',
+        'cards-label':    'Kies je semester',
+        'tl-kicker':      'Het jaar in beeld',
+        'tl-h2':          'Een paar <em>momenten</em> in het jaar',
+        'tl-sub':         'Waar je nu staat, en wat volgt.',
+        'skip-link':           'Naar inhoud',
+        'snav-schedule':       'Rooster',
+        'snav-new':            'Nieuw hier?',
+        'snav-styles':         'Alle stijlen',
+        'now-label':           'Je bent hier',
+        'spring-end-label':    'Lentesemester eindigt',
+        'open-house-label':    'Open Deurdag',
+        'trial-week-label':    'Gratis proefweek',
+        'sem-1-end-label':     'Sem 1 eindigt',
+        'school-year-end-label':'Schooljaar eindigt',
+        'today':               'vandaag',
+        'spring-chip':         'Lente',
+        'spring-title':        'Lente 2026',
+        'spring-meta':         'loopt tot 13 juni · sem 2 van 2025-2026',
+        'spring-meta-ended-pre-oh': 'lente afgelopen · Open Deurdag 14 juni',
+        'spring-meta-ended':   'afgesloten — tot september',
+        'spring-meta-sessions': function(n) { return n === 1 ? '1 sessie te gaan · laatste week' : (n + ' sessies te gaan · laatste weken'); },
+        'sep-chip':            'Sep',
+        'sep-title':           'Sep 2026 → Jan 2027',
+        'sep-meta':            'inschrijvingen open · ' + (_c.styles || 24) + ' stijlen · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
+        'sep-meta-oh-today':   'Open Deurdag vandaag · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
+        'sep-meta-trial':      'proefweek bezig · probeer elke les gratis',
+        'sep-meta-running':    'schooljaar bezig · live rooster',
+        'closing-kicker': 'Volgende op het podium',
+        'closing-h1':     'September brengt <em>een nieuw schooljaar.</em>',
+        'closing-sub':    'Bekijk alle ' + (_c.styles || 24) + ' stijlen, vind je tijdslot, en ga door naar de stijlpagina om je in te schrijven.',
+        'closing-cta':    'bekijk het nieuwe schooljaar →',
+        'closing-meta':   'geen account nodig om te bladeren',
+        'footer-home':    'home',
+        'footer-schedule':'rooster',
+        'footer-new':     'nieuw bij shoonya',
+        'footer-styles':  'alle stijlen',
+        'footer-teachers':'over ons',
+        'footer-contact': 'contact',
+        monthLabel: function(d) {
+          return d.toLocaleDateString('nl-BE', { day: 'numeric', month: 'short' });
+        },
+        dateRangeLabel: function(d1, d2) {
+          const sameMonth = d1.getMonth() === d2.getMonth();
+          if (sameMonth) return d1.getDate() + '–' + d2.getDate() + ' ' + d1.toLocaleDateString('nl-BE', { month: 'short' });
+          return d1.toLocaleDateString('nl-BE', { day:'numeric', month:'short' }) + ' – ' + d2.toLocaleDateString('nl-BE', { day:'numeric', month:'short' });
+        }
+      }
+    };
+
+    let landingLang = localStorage.getItem('shoonya-lang') || (navigator.language.startsWith('nl') ? 'nl' : 'en');
+
+    /* ─────────────────────────────────────────────
+       Compute state for a single milestone, given today.
+       Returns 'past' (entire event is over), 'now' (today is inside the event
+       range), or 'future' (event has not started yet).
+       Single-day events use dateISO for both start and end of the window.
+       ─────────────────────────────────────────── */
+    function milestoneState(m, today) {
+      const start = new Date(m.dateISO + 'T00:00:00');
+      const end   = new Date((m.endISO || m.dateISO) + 'T23:59:59');
+      if (today < start) return 'future';
+      if (today > end)   return 'past';
+      return 'now';
+    }
+
+    function buildTimelineNode(m, state, strings) {
+      const isPast = state === 'past';
+      const isNow  = state === 'now';
+      const isRange = !!(m.endISO && m.endISO !== m.dateISO);
+
+      const el = document.createElement(isPast ? 'div' : 'a');
+      el.className = 'timeline__node timeline__node--' + m.type
+        + (isPast ? ' timeline__node--past' : '')
+        + (isNow  ? ' timeline__node--now'  : '');
+
+      if (!isPast) {
+        // Sem 1 milestones → the Sep schedule. Sem 2 milestones → the spring schedule.
+        if (m.id === 'trial-week-1' || m.id === 'sem-1-end') el.href = '/schedule-sep-2026/';
+        else if (m.id === 'trial-week-2' || m.id === 'school-year-end') el.href = '/schedule-spring-2026/';
+        else if (m.type === 'open-house') el.href = m.id === 'open-house-1'
+          ? 'https://www.shoonyadance.com/calendar/movement-without-borders-open-door-day-june-14th-'
+          : 'https://www.shoonyadance.com/try-a-class';
+        else if (m.id === 'spring-end')   el.href = '/schedule-spring-2026/';
+      }
+
+      const label = strings[m.labelKey] || m.id;
+      const start = new Date(m.dateISO + 'T00:00:00');
+      const end   = isRange ? new Date(m.endISO + 'T00:00:00') : null;
+      const dateLabel = isRange ? strings.dateRangeLabel(start, end) : strings.monthLabel(start);
+
+      el.innerHTML =
+        '<span class="timeline__dot" aria-hidden="true"></span>' +
+        '<span class="timeline__label">' + label + '</span>' +
+        '<span class="timeline__date">' + dateLabel + '</span>';
+      return el;
+    }
+
+    /* ─────────────────────────────────────────────
+       Build the timeline. Live: re-runs on language change and on load.
+       Past milestones older than PAST_GRACE_DAYS are hidden to keep the
+       timeline forward-looking. If a milestone is currently happening
+       (today inside the date range), it acts as the "Now" node — no
+       synthetic node is inserted.
+       ─────────────────────────────────────────── */
+    function renderTimeline() {
+      const today   = new Date();
+      const strings = LANDING_STRINGS[landingLang];
+      const past = [], happening = [], future = [];
+
+      for (const m of MILESTONES) {
+        const state = milestoneState(m, today);
+        if (state === 'past') {
+          const end = new Date((m.endISO || m.dateISO) + 'T23:59:59');
+          const daysSince = (today - end) / (24 * 60 * 60 * 1000);
+          if (daysSince <= PAST_GRACE_DAYS) past.push(m);
+        } else if (state === 'now') {
+          happening.push(m);
+        } else {
+          future.push(m);
+        }
+      }
+
+      const container = document.getElementById('timeline-nodes');
+      container.innerHTML = '';
+
+      past.forEach(function(m) { container.appendChild(buildTimelineNode(m, 'past', strings)); });
+
+      if (happening.length > 0) {
+        // A milestone is happening — let it be the "Now" highlight, no synthetic node.
+        happening.forEach(function(m) { container.appendChild(buildTimelineNode(m, 'now', strings)); });
+      } else {
+        // No event in progress — insert a synthetic "you are here" marker.
+        const nowNode = document.createElement('div');
+        nowNode.className = 'timeline__node timeline__node--now timeline__node--synthetic';
+        nowNode.innerHTML =
+          '<span class="timeline__dot" aria-hidden="true"></span>' +
+          '<span class="timeline__label">' + strings['now-label'] + '</span>' +
+          '<span class="timeline__date">' + strings.monthLabel(today) + '</span>';
+        container.appendChild(nowNode);
+      }
+
+      future.forEach(function(m) { container.appendChild(buildTimelineNode(m, 'future', strings)); });
+
+      // Rail-fill: fill to the centre of the "Now" node so the bar lines up
+      // visually with the You-are-here marker (nodes are evenly spaced flex
+      // children, so position == DOM index, regardless of calendar gaps).
+      const totalNodes = past.length + Math.max(happening.length, 1) + future.length;
+      const nowIndex   = past.length + 0.5;
+      const pct = (nowIndex / totalNodes) * 100;
+      document.getElementById('rail-fill').style.width = pct + '%';
+
+      // Hide the whole section if every milestone is long past — the year's done.
+      const section = document.getElementById('timeline-section');
+      section.style.display = (past.length + happening.length + future.length === 0) ? 'none' : '';
+    }
+
+    /* ─────────────────────────────────────────────
+       Card meta is phase-aware. Each phase reads the canonical dates from
+       SEMESTERS so changing a date in the config above updates the copy.
+       ─────────────────────────────────────────── */
+    function applyDateBasedVisibility() {
+      const today   = new Date();
+      const strings = LANDING_STRINGS[landingLang];
+
+      const springStart    = new Date(SEMESTERS.spring.startISO + 'T00:00:00');
+      const springEnd      = new Date(SEMESTERS.spring.endISO   + 'T23:59:59');
+      const springOH       = new Date(SEMESTERS.spring.openDoorDates[0].dateISO + 'T23:59:59');
+
+      const sepOH          = new Date(SEMESTERS.sep.openDoorDates[0].dateISO + 'T00:00:00');
+      const sepOHEnd       = new Date(SEMESTERS.sep.openDoorDates[0].dateISO + 'T23:59:59');
+      const trialStart     = new Date(SEMESTERS.sep.freeTrial.startISO + 'T00:00:00');
+      const trialEnd       = new Date(SEMESTERS.sep.freeTrial.endISO   + 'T23:59:59');
+
+      // ─── Spring card ───────────────────────────────────────────────
+      const springCard = document.getElementById('card-spring');
+      const springMeta = document.getElementById('spring-meta');
+      springCard.classList.remove('card--past'); // reset on lang toggle
+
+      if (today < springStart) {
+        // Pre-spring (unlikely once spring 2026 begins, but covers historical view)
+        springMeta.textContent = strings['spring-meta'];
+      } else if (today <= springEnd) {
+        // Spring is still running — show sessions remaining
+        const elapsed   = sessionsElapsed(today, SEMESTERS.spring);
+        const remaining = Math.max(0, SEMESTERS.spring.totalSessions - elapsed);
+        const fn = strings['spring-meta-sessions'];
+        springMeta.textContent = fn ? fn(remaining) : (remaining + ' sessions left');
+        springMeta.dataset.remaining = remaining;
+      } else if (today <= springOH) {
+        // Classes done, the June open house is still ahead
+        springMeta.textContent = strings['spring-meta-ended-pre-oh'];
+      } else {
+        // Spring fully wrapped
+        springCard.classList.add('card--past');
+        springMeta.textContent = strings['spring-meta-ended'];
+      }
+
+      // ─── Sep card ──────────────────────────────────────────────────
+      const sepMeta = document.getElementById('sep-meta');
+      if (today >= sepOH && today <= sepOHEnd) {
+        sepMeta.textContent = strings['sep-meta-oh-today'];
+      } else if (today >= trialStart && today <= trialEnd) {
+        sepMeta.textContent = strings['sep-meta-trial'];
+      } else if (today > trialEnd) {
+        sepMeta.textContent = strings['sep-meta-running'];
+      } else {
+        sepMeta.textContent = strings['sep-meta'];
+      }
+    }
+
+    /* ─────────────────────────────────────────────
+       Language toggle.
+       ─────────────────────────────────────────── */
+    function applyLang(l) {
+      landingLang = l;
+      document.documentElement.lang = l;
+      const strings = LANDING_STRINGS[l];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        const key = el.getAttribute('data-i18n');
+        const v = strings[key];
+        if (v !== undefined && typeof v !== 'function') el.innerHTML = v;
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.dataset.lang === l);
+      });
+      localStorage.setItem('shoonya-lang', l);
+      renderTimeline();
+      applyDateBasedVisibility();
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
+    });
+
+
+    applyLang(landingLang);
+
+    /* ─────────────────────────────────────────────
+       postMessage height reporting for Squarespace iframe embed.
+       ─────────────────────────────────────────── */
+    function reportHeight() {
+      const h = document.documentElement.scrollHeight;
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'shoonya:height', height: h }, '*');
+      }
+    }
+    window.addEventListener('load', reportHeight);
+    window.addEventListener('resize', reportHeight);
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(reportHeight).observe(document.body);
+    }
+  </script>
+</body>
+</html>
