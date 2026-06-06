@@ -25,7 +25,7 @@
 
   <style>
     :root {
-      --ink:           #1a1a1a;
+      --ink:           #000000;
       --muted:         #5a5a5a;
       --muted-soft:    #888;
       --purple:        #B564F7;
@@ -40,8 +40,8 @@
       --border:        #e4e0db;
       --bg:            #ffffff;
       --hero-bg:       #000000;
-      --radius:        12px;
-      --radius-sm:     8px;
+      --radius:        0px;
+      --radius-sm:     0px;
 
       /* Studio palette (kept from previous design for student familiarity) */
       --studio-aakash-bg:     #E6F1FB; --studio-aakash-ink:     #0C447C;
@@ -56,18 +56,18 @@
     /* Skip-to-content (visible only on keyboard focus) */
     .opendeur-banner {
       display: flex; align-items: center; justify-content: center; gap: .75rem; flex-wrap: wrap;
-      background: var(--yellow, #FBC70F); color: var(--ink, #1a1a1a);
+      background: var(--yellow, #FBC70F); color: var(--ink, #000000);
       padding: .6rem 1.25rem;
       font-family: 'Inter', sans-serif; font-size: .82rem; font-weight: 600; letter-spacing: .03em;
       text-align: center; line-height: 1.4;
     }
     .opendeur-banner a {
-      color: var(--ink, #1a1a1a); text-decoration: underline; white-space: nowrap;
+      color: var(--ink, #000000); text-decoration: underline; white-space: nowrap;
       pointer-events: auto !important; cursor: pointer !important;
     }
     .opendeur-banner a, .opendeur-banner a:link, .opendeur-banner a:visited,
     .opendeur-banner a:hover, .opendeur-banner a:focus, .opendeur-banner a:active {
-      color: var(--ink, #1a1a1a) !important;
+      color: var(--ink, #000000) !important;
     }
     .skip-link {
       position: absolute; top: 0; left: 0;
