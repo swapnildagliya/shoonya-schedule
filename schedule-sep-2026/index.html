@@ -419,6 +419,41 @@
       letter-spacing: .06em;
       text-transform: uppercase;
     }
+    .slot__miniseries-tag {
+      display: inline-block;
+      vertical-align: 2px;
+      margin-left: 6px;
+      background: var(--purple);
+      color: #fff;
+      font-size: .58rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .slot__starter-tag {
+      display: inline-block;
+      vertical-align: 2px;
+      margin-left: 6px;
+      background: var(--salmon-deep);
+      color: #fff;
+      font-size: .58rem;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    /* Grid view: tag sits on its own compact line under the title (the title
+       <strong> truncates with ellipsis, so the tag can't live inside it). */
+    .studio-col__slot .studio-col__tag {
+      margin-left: 0;
+      margin-top: 2px;
+      font-size: .5rem;
+      padding: 0 4px;
+      vertical-align: baseline;
+    }
     .slot__meta {
       font-size: .8rem;
       color: var(--muted);
@@ -1229,7 +1264,9 @@
         beginnerLabel:  'Beginner',
         daysLabel:      (ns) => ns.length === 1 ? ns[0] : ns.length + ' days',
         searchLabel:    (q) => '"' + q + '"',
-        dropInTag:      'drop-in'
+        dropInTag:      'drop-in',
+        miniseriesTag:  'miniseries',
+        starterTag:     'starter series'
       },
       nl: {
         d:   { mon:'Ma',  tue:'Di',  wed:'Wo',  thu:'Do',  fri:'Vr',  sat:'Za' },
@@ -1261,7 +1298,9 @@
         beginnerLabel:  'Beginner',
         daysLabel:      (ns) => ns.length === 1 ? ns[0] : ns.length + ' dagen',
         searchLabel:    (q) => '"' + q + '"',
-        dropInTag:      'losse les'
+        dropInTag:      'losse les',
+        miniseriesTag:  'minireeks',
+        starterTag:     'starter series'
       }
     };
 
@@ -1532,6 +1571,24 @@
     }
 
     /* ─── List view (V3 day-rail + slot cards) ─────────────────── */
+    /* Slot tags shared by list + grid views. Style-keyed (whitespace/case-normalised),
+       NOT keyed on s.dropIn/isNew — the live publicSchedule feed emits only style/day/level,
+       so a flag-based tag would vanish on live data.
+         · drop-in        → Pilates / Dance & Fit / Wednesday Yoga (casual-attendance classes)
+         · miniseries     → Bachata Solo Style (time-bound 10-week Oct–Dec series)
+         · starter series → Bhangra + Indian Semi-Classical (4-week beginner on-ramp into L2) */
+    function slotTagDefs(s) {
+      const k = (s.style || '').replace(/\s+/g, '').toLowerCase();
+      const defs = [];
+      if (k === 'pilatesfordancers' || k === 'dance&fit' || (k === 'yoga' && s.day === 'wed'))
+        defs.push({ cls: 'slot__dropin-tag', text: UI[lang].dropInTag });
+      if (k.indexOf('bachatasolo') === 0)
+        defs.push({ cls: 'slot__miniseries-tag', text: UI[lang].miniseriesTag });
+      if (k.indexOf('bhangra') === 0 || k.indexOf('indiansemi') === 0)
+        defs.push({ cls: 'slot__starter-tag', text: UI[lang].starterTag });
+      return defs;
+    }
+
     function buildListForDay(daySlots, section, d) {
       const list = document.createElement('div');
       list.className = 'day-list';
@@ -1552,17 +1609,13 @@
         const titleEl = document.createElement('div');
         titleEl.className = 'slot__title' + (s.isNew ? ' slot__title--new' : '');
         titleEl.textContent = s.style + ' · ' + s.level;
-        // Drop-in tag only on the casual-attendance classes — Pilates for Dancers,
-        // Dance & Fit, and Wednesday Yoga (NOT Tuesday Yoga). Keyed on style+day,
-        // NOT s.dropIn (the live publicSchedule feed doesn't emit dropIn). Style is
-        // normalised so the sheet's "Dance&Fit" and canonical "Dance & Fit" match.
-        const _stKey = (s.style || '').replace(/\s+/g, '').toLowerCase();
-        if (_stKey === 'pilatesfordancers' || _stKey === 'dance&fit' || (_stKey === 'yoga' && s.day === 'wed')) {
+        // Slot tags (drop-in / miniseries / starter series) — shared with grid view.
+        slotTagDefs(s).forEach(function (def) {
           const tag = document.createElement('span');
-          tag.className = 'slot__dropin-tag';
-          tag.textContent = UI[lang].dropInTag;
+          tag.className = def.cls;
+          tag.textContent = def.text;
           titleEl.appendChild(tag);
-        }
+        });
 
         const metaEl = document.createElement('div');
         metaEl.className = 'slot__meta';
@@ -1689,6 +1742,9 @@
             s.style + ' ' + s.level + ' · ' + s.time + ' · ' + s.studioName);
           a.innerHTML =
             '<strong>' + s.style + ' · ' + s.level + '</strong>' +
+            slotTagDefs(s).map(function (def) {
+              return '<span class="' + def.cls + ' studio-col__tag">' + def.text + '</span>';
+            }).join('') +
             '<span class="slot-time">' + s.time + '</span>' +
             '<span class="slot-teacher">' + s.teacher + '</span>';
           col.appendChild(a);
