@@ -706,8 +706,8 @@
     /* Derived from SEMESTERS — keep in sync if you change a semester date.
        Covers the full 2026-2027 school year:
        Spring 2026 closes → Sem 1 (Sep→Jan) → Sem 2 (Feb→Jun) → year wraps.
-       Note: spring-end shows 13 Jun (visitor-facing semester wrap, day before
-       catchup week + open house). Classes themselves end 9 Jun per the config. */
+       Note: spring-end is 13 Jun — classes run through Sat 13 Jun, with the
+       open house + catchup week starting Sun 14 Jun. */
     const MILESTONES = [
       { id: 'spring-end',     dateISO: '2026-06-13',                                                                                              type: 'spring-end',  labelKey: 'spring-end-label' },
       { id: 'open-house-1',   dateISO: SEMESTERS.spring.openDoorDates[0].dateISO,                                                                 type: 'open-house',  labelKey: 'open-house-label' },
@@ -972,7 +972,10 @@
         const elapsed   = sessionsElapsed(today, SEMESTERS.spring);
         const remaining = Math.max(0, SEMESTERS.spring.totalSessions - elapsed);
         const fn = strings['spring-meta-sessions'];
-        springMeta.textContent = fn ? fn(remaining) : (remaining + ' sessions left');
+        // Never show a misleading "0 sessions left" while classes still run through
+        // 13 Jun (the count can hit 0 in the final week) — fall back to the
+        // "running until 13 June" line instead.
+        springMeta.textContent = (remaining > 0 && fn) ? fn(remaining) : strings['spring-meta'];
         springMeta.dataset.remaining = remaining;
       } else if (today <= springOH) {
         // Classes done, the June open house is still ahead

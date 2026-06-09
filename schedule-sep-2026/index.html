@@ -1285,7 +1285,7 @@
       { day:'mon', time:'21:00–22:00', style:'Raqs Sharqi', level:'L3', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
 
       // ─── Tuesday
-      { day:'tue', time:'17:30–18:30', style:'Pilates for Dancers', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/pilates-voor-dansers-gent' },
+      { day:'tue', time:'17:20–18:20', style:'Pilates for Dancers', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/pilates-voor-dansers-gent' },
       { day:'tue', time:'18:20–19:20', style:'Flamenco', level:'L2', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1', duration:60, category:'classical-technique' },
       { day:'tue', time:'18:30–19:30', style:'Bollyfolk', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
       { day:'tue', time:'19:00–20:00', style:'Bachata', level:'L1', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
@@ -1299,8 +1299,9 @@
       { day:'tue', time:'21:00–22:00', style:'Bachata', level:'L3', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
 
       // ─── Wednesday
-      { day:'wed', time:'10:00–11:00', style:'Dance & Fit', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/dance-fit-gent' },
-      { day:'wed', time:'11:00–12:00', style:'Pilates for Dancers', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/pilates-voor-dansers-gent' },
+      { day:'wed', time:'09:45–10:45', style:'Dance & Fit', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/dance-fit-gent' },
+      { day:'wed', time:'10:45–11:45', style:'Pilates for Dancers', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/pilates-voor-dansers-gent' },
+      { day:'wed', time:'17:20–18:20', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/yoga-lessen-in-gent' },
       { day:'wed', time:'18:30–19:30', style:'Bollyfolk', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
       { day:'wed', time:'18:30–19:40', style:'Tap Dance', level:'L2', teacher:'Teddy', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
       { day:'wed', time:'18:45–19:45', style:'Lindy Hop', level:'L1', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1', duration:60, category:'partner-social' },
@@ -1551,10 +1552,12 @@
         const titleEl = document.createElement('div');
         titleEl.className = 'slot__title' + (s.isNew ? ' slot__title--new' : '');
         titleEl.textContent = s.style + ' · ' + s.level;
-        // Drop-in tag only appears on the two casual-attendance classes —
-        // Pilates for Dancers and Dance & Fit. All other weekly classes are
-        // semester registrations and should never carry the drop-in label.
-        if (s.dropIn && (s.style === 'Pilates for Dancers' || s.style === 'Dance & Fit')) {
+        // Drop-in tag only on the casual-attendance classes — Pilates for Dancers,
+        // Dance & Fit, and Wednesday Yoga (NOT Tuesday Yoga). Keyed on style+day,
+        // NOT s.dropIn (the live publicSchedule feed doesn't emit dropIn). Style is
+        // normalised so the sheet's "Dance&Fit" and canonical "Dance & Fit" match.
+        const _stKey = (s.style || '').replace(/\s+/g, '').toLowerCase();
+        if (_stKey === 'pilatesfordancers' || _stKey === 'dance&fit' || (_stKey === 'yoga' && s.day === 'wed')) {
           const tag = document.createElement('span');
           tag.className = 'slot__dropin-tag';
           tag.textContent = UI[lang].dropInTag;
