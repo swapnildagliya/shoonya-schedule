@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
-  <!-- Bilingual via in-page JS toggle. External translation tools should skip. -->
   <meta name="google" content="notranslate" />
-  <meta name="weglot-translate" content="no" />
   <title>September 2026 schedule · Shoonya Dance Centre · Ghent</title>
   <meta name="description" content="Shoonya Dance Centre weekly class schedule for September 2026 — January 2027. Filter by day, level, teacher, or style." />
   <link rel="canonical" href="https://schedule.shoonyadance.com/schedule-sep-2026/" />
@@ -14,681 +12,348 @@
   <meta property="og:site_name" content="Shoonya Dance Centre" />
   <meta property="og:url" content="https://schedule.shoonyadance.com/schedule-sep-2026/" />
   <meta property="og:title" content="September 2026 Schedule · Shoonya Dance Centre · Ghent" />
-  <meta property="og:description" content="Weekly dance class schedule for September 2026 — January 2027. 24 styles, 5 studios. Filter by day, level, teacher, or style." />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:description" content="Weekly dance class schedule for September 2026 — January 2027. 24 styles, 22 teachers, 5 studios. Filter by day, level, teacher, or style." />
+  <meta property="og:image" content="https://schedule.shoonyadance.com/schedule-sep-2026/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The Shoonya company on stage at the season finale." />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@shoonyadance" />
   <meta name="twitter:title" content="September 2026 Schedule · Shoonya Dance Centre · Ghent" />
-  <meta name="twitter:description" content="Weekly dance class schedule for September 2026 — January 2027. 24 styles, 5 studios. Filter by day, level, teacher, or style." />
+  <meta name="twitter:description" content="Weekly dance class schedule for September 2026 — January 2027. 24 styles, 5 studios." />
+  <meta name="twitter:image" content="https://schedule.shoonyadance.com/schedule-sep-2026/assets/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --ink:           #000000;
-      --muted:         #5a5a5a;
-      --muted-soft:    #888;
-      --purple:        #B564F7;
-      --purple-deep:   #7E4FBF;
-      --purple-soft:   #F5ECFF;
-      --yellow:        #FBC70F;
-      --yellow-soft:   #FDF1B8;
-      --yellow-ink:    #6B4F00;
-      --salmon:        #F9D9C9;
-      --salmon-deep:   #C04A1F;
-      --salmon-ink:    #8A2F0E;
-      --border:        #e4e0db;
-      --bg:            #ffffff;
-      --hero-bg:       #000000;
-      --radius:        0px;
-      --radius-sm:     0px;
+      --ink:        #0b0a0c;        /* near-black brand ink */
+      --ink-true:   #000000;
+      --muted:      #6a6660;
+      --muted-soft: #9a958d;
+      --purple:     #B564F7;
+      --purple-deep:#7E4FBF;
+      --bg:         #FBFAF8;         /* warm off-white */
+      --surface:    #ffffff;
+      --line:       #e7e3dc;         /* hairline */
+      --line-soft:  #efece6;
+      --radius:     0px;             /* Shoonya: sharp corners */
 
-      /* Studio palette (kept from previous design for student familiarity) */
-      --studio-aakash-bg:     #E6F1FB; --studio-aakash-ink:     #0C447C;
-      --studio-ananta1-bg:    #EEEDFE; --studio-ananta1-ink:    #3C3489;
-      --studio-ananta2-bg:    #E1F5EE; --studio-ananta2-ink:    #085041;
-      --studio-artdeco1-bg:   #FAEEDA; --studio-artdeco1-ink:   #633806;
-      --studio-artdeco2-bg:   #FCE2E2; --studio-artdeco2-ink:   #6A1F1F;
+      /* Quiet studio device — muted dots only (no pastel fills) */
+      /* Harmonised studio set — muted, even saturation; families preserved
+         (Aakash blue · Ananta cool greens · Art Deco warm), none clashing with the purple accent */
+      --st-AKH: #5285b0;  /* Aakash    — blue   */
+      --st-AN1: #6e78c2;  /* Ananta 1  — indigo */
+      --st-AN2: #4f9c84;  /* Ananta 2  — green  */
+      --st-AD1: #c2974d;  /* Art Deco 1 — gold  */
+      --st-AD2: #c16c72;  /* Art Deco 2 — rose  */
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    /* Skip-to-content (visible only on keyboard focus) */
-    .opendeur-banner {
-      display: flex; align-items: center; justify-content: center; gap: .75rem; flex-wrap: wrap;
-      background: var(--yellow, #FBC70F); color: var(--ink, #000000);
-      padding: .6rem 1.25rem;
-      font-family: 'Inter', sans-serif; font-size: .82rem; font-weight: 600; letter-spacing: .03em;
-      text-align: center; line-height: 1.4;
-    }
-    .opendeur-banner a {
-      color: var(--ink, #000000); text-decoration: underline; white-space: nowrap;
-      pointer-events: auto !important; cursor: pointer !important;
-    }
-    .opendeur-banner a, .opendeur-banner a:link, .opendeur-banner a:visited,
-    .opendeur-banner a:hover, .opendeur-banner a:focus, .opendeur-banner a:active {
-      color: var(--ink, #000000) !important;
-    }
-    .skip-link {
-      position: absolute; top: 0; left: 0;
-      transform: translateY(-100%);
-      background: var(--ink); color: #fff;
-      padding: .75rem 1.25rem;
-      font-weight: 700; font-size: .85rem; letter-spacing: .04em;
-      text-decoration: none;
-      z-index: 200;
-      border-radius: 0 0 6px 0;
-      transition: transform .15s;
-      font-family: 'PT Serif', serif;
-    }
-    .skip-link:focus {
-      transform: translateY(0);
-      outline: 2px solid var(--purple);
-      outline-offset: -2px;
-    }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'PT Serif', Georgia, serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      background: var(--bg); color: var(--ink);
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
     :focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-    }
+    ::selection { background: rgba(181,100,247,.22); }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
-    /* ── Site nav ──────────────────────────────────────────────── */
-    .site-nav {
-      position: sticky; top: 0; z-index: 200;
-      display: flex; align-items: center;
-      padding: 0 1.5rem; height: 52px;
-      background: #fff; border-bottom: 1px solid var(--border);
-    }
-    .site-nav__brand {
-      font-family: 'Marcellus', serif; font-size: .85rem;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--ink); text-decoration: none; margin-right: auto;
-    }
-    .site-nav__links {
-      display: flex; align-items: center; gap: 1.5rem; margin-right: 1.5rem;
-    }
-    .site-nav__links a {
-      font-size: .75rem; font-weight: 700; letter-spacing: .06em;
-      text-transform: uppercase; color: var(--muted); text-decoration: none;
-      transition: color .15s; white-space: nowrap;
-    }
-    .site-nav__links a:hover, .site-nav__links a.active { color: var(--ink); }
-    .lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 99px; overflow: hidden; }
-    .lang-btn {
-      padding: .65rem 1rem; font-size: .72rem; font-weight: 700;
-      letter-spacing: .06em; border: none; background: none;
-      cursor: pointer; color: var(--muted); font-family: 'PT Serif', serif;
-    }
-    .lang-btn.active { background: #000; color: #fff; border-radius: 99px; }
-    @media (max-width: 540px) { .site-nav__links { display: none; } }
+    /* ── Skip link (a11y) ─────────────────────────────────── */
+    .skip-link { position: absolute; left: 1rem; top: -3.5rem; z-index: 300; background: var(--ink); color: #fff; padding: .6rem 1rem; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; transition: top .15s; }
+    .skip-link:focus { top: 1rem; outline: 2px solid var(--purple); outline-offset: 2px; }
 
-    /* Hero */
+    /* ── Open-house announcement bar (auto-rolls; hidden between events) ── */
+    .ohbanner { position: fixed; top: 0; left: 0; right: 0; z-index: 120; display: flex; align-items: center; justify-content: center; gap: .9rem; flex-wrap: wrap; padding: .5rem 1.25rem; background: var(--ink); color: #fff; font-size: .78rem; letter-spacing: .02em; line-height: 1.3; text-align: center; }
+    .ohbanner[hidden] { display: none; }
+    .ohbanner b { color: var(--purple); }
+    .ohbanner a { color: var(--purple); font-weight: 700; white-space: nowrap; }
+    .ohbanner a:hover { color: #fff; }
+
+    /* ── Nav ─────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: var(--banner-h, 0px); left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 1.15rem 2.2rem;
+      transition: background .35s, border-color .35s, padding .35s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(251,250,248,.9);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: .8rem 2.2rem;
+    }
+    .nav__brand {
+      font-family: 'Marcellus', serif; font-size: 1.05rem;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: #fff; margin-right: auto; transition: color .35s;
+    }
+    .nav.scrolled .nav__brand { color: var(--ink); }
+    .nav__links { display: flex; gap: 1.6rem; }
+    .nav__links a {
+      font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(255,255,255,.82);
+      transition: color .2s; position: relative; padding-bottom: 2px;
+    }
+    .nav__links a::after {
+      content: ''; position: absolute; left: 0; right: 100%; bottom: 0;
+      height: 1px; background: var(--purple); transition: right .25s;
+    }
+    .nav__links a:hover::after, .nav__links a.active::after { right: 0; }
+    .nav.scrolled .nav__links a { color: var(--muted); }
+    .nav.scrolled .nav__links a:hover, .nav.scrolled .nav__links a.active { color: var(--ink); }
+    .lang { display: flex; gap: .15rem; }
+    .lang button {
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+      padding: .3rem .55rem; color: rgba(255,255,255,.6);
+      font-family: 'PT Serif', serif; transition: color .2s;
+    }
+    .lang button.active { color: #fff; border-bottom: 1.5px solid var(--purple); }
+    .nav.scrolled .lang button { color: var(--muted-soft); }
+    .nav.scrolled .lang button.active { color: var(--ink); border-color: var(--purple); }
+    @media (max-width: 680px){ .nav__links{ display:none; } .nav{ padding:1rem 1.25rem; } .nav.scrolled{ padding:.7rem 1.25rem; } }
+
+    /* ── Hero ────────────────────────────────────────────── */
     .hero {
-      background: var(--hero-bg);
-      color: #fff;
-      padding: 4rem 1.5rem 3.5rem;
-      text-align: center;
+      position: relative; min-height: 100svh;
+      display: flex; align-items: flex-end;
+      padding: 0 2.2rem 5rem; overflow: hidden;
+      background: var(--ink-true);
     }
-    .hero__pill {
-      display: inline-block;
-      background: var(--purple); color: #fff;
-      font-size: .7rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      padding: .3rem 1rem; border-radius: 99px;
-      margin-bottom: 1rem;
+    .hero__img {
+      position: absolute; inset: 0;
+      background: url('assets/hero.jpg') center 40% / cover no-repeat;
+      animation: kenburns 26s ease-out forwards;
+      will-change: transform;
+    }
+    @keyframes kenburns { from { transform: scale(1.08); } to { transform: scale(1); } }
+    .hero__veil {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(100deg, rgba(0,0,0,.86) 0%, rgba(0,0,0,.55) 34%, rgba(0,0,0,.12) 66%, rgba(10,0,20,.40) 100%),
+        linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,0) 42%);
+    }
+    .hero__inner { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; width: 100%; }
+    .hero__eyebrow {
+      font-size: .76rem; font-weight: 700; letter-spacing: .26em;
+      text-transform: uppercase; color: var(--purple);
+      margin-bottom: 1.4rem;
     }
     .hero h1 {
-      font-family: 'Marcellus', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 400; line-height: 1.1;
-      margin-bottom: .75rem;
+      font-family: 'Marcellus', serif; font-weight: 400; color: #fff;
+      font-size: clamp(2.7rem, 7.5vw, 6rem); line-height: 1.02;
+      letter-spacing: -.01em; max-width: 14ch; margin-bottom: 1.5rem;
+      text-shadow: 0 2px 30px rgba(0,0,0,.45);
     }
-    .hero h1 em { color: var(--purple); font-style: italic; }
+    .hero h1 em { font-style: italic; color: var(--purple); }
     .hero__sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,.72);
-      max-width: 560px; margin: 0 auto 1.25rem;
-      line-height: 1.65;
+      font-size: clamp(1rem, 1.4vw, 1.18rem); color: rgba(255,255,255,.82);
+      max-width: 46ch; line-height: 1.6; margin-bottom: 2.2rem;
     }
-    .hero__chip {
-      display: inline-block;
-      background: var(--yellow); color: #1a1200;
-      font-size: .82rem; font-weight: 700;
-      padding: .45rem 1.1rem; border-radius: 99px;
-    }
-
-    /* Toolbar */
-    .toolbar {
-      position: sticky; top: 0; z-index: 50;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      padding: 14px 1.5rem;
-    }
-    .toolbar__inner { max-width: 1080px; margin: 0 auto; }
-
-    .search {
-      position: relative;
-      margin-bottom: 10px;
-    }
-    .search__icon {
-      position: absolute; left: 14px; top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted-soft); font-size: 16px;
-      pointer-events: none;
-    }
-    .search__input {
-      width: 100%;
-      padding: 10px 14px 10px 40px;
-      font: inherit;
-      font-size: 14px;
-      background: #fafafa;
-      border: 1px solid #d4d0c8;
-      border-radius: 8px;
-      transition: border-color .15s, background .15s;
-    }
-    .search__input:focus {
-      outline: 2px solid var(--purple);
-      outline-offset: 2px;
-      border-color: var(--purple);
-      background: #fff;
-    }
-    .search__clear {
-      position: absolute; right: 10px; top: 50%;
-      transform: translateY(-50%);
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      background: #e4e0db;
-      color: var(--muted);
-      display: none;
-      align-items: center; justify-content: center;
-      font-size: 14px; line-height: 1;
-    }
-    .search--has-value .search__clear { display: flex; }
-
-    .chips-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-    }
-    .chips-row__divider {
-      width: 1px;
-      height: 18px;
-      background: var(--border);
-      margin: 0 4px;
-    }
-    .chips-row__count {
-      margin-left: auto;
-      font-size: .8rem;
-      color: var(--muted-soft);
-      font-weight: 700;
-      letter-spacing: .02em;
-    }
-
-    /* View toggle (Grid / List) */
-    .view-toggle {
-      display: inline-flex;
-      border: 1px solid #d4d0c8;
-      border-radius: 6px;
-      overflow: hidden;
-      margin-left: 8px;
-    }
-    .view-toggle__btn {
-      padding: 5px 11px;
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--muted);
-      background: #fff;
-      font-family: 'PT Serif', serif;
-    }
-    .view-toggle__btn[aria-pressed="true"] {
-      background: var(--ink);
-      color: #fff;
-    }
-    .view-toggle__btn:not(:last-child) {
-      border-right: 1px solid #d4d0c8;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 6px 12px;
-      border-radius: 99px;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      border: 1px solid rgba(0,0,0,.18);
-      background: #fff;
-      color: var(--ink);
-      transition: background .15s, color .15s, border-color .15s;
-      font-family: 'PT Serif', serif;
-    }
-    .chip:hover { border-color: var(--ink); }
-    .chip[aria-pressed="true"] {
-      background: var(--ink);
-      color: #fff;
-      border-color: var(--ink);
-    }
-    .chip--intent[aria-pressed="true"] {
-      background: var(--purple);
-      border-color: var(--purple);
-    }
-    .chip--today {
-      box-shadow: inset 0 -2px 0 var(--yellow);
-    }
-
-    .active-strip {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-      padding: 8px 12px;
-      background: var(--purple-soft);
-      border-radius: 8px;
-      font-size: .82rem;
-      color: var(--purple-deep);
-    }
-    .active-strip strong { font-weight: 700; }
-    .active-strip__clear {
-      margin-left: auto;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--purple-deep);
-      text-decoration: underline;
-    }
-    .active-strip[hidden] { display: none; }
-
-    /* Schedule body */
-    .schedule {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
-    }
-
-    .day-section { margin-bottom: 2rem; }
-    .day-section:last-child { margin-bottom: 0; }
-
-    .day-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 9px 18px;
-      border-radius: 99px;
-      margin-bottom: 12px;
-    }
-    .day-pill__name {
-      font-family: 'Marcellus', serif;
-      font-size: 1.15rem;
-      line-height: 1;
-    }
-    .day-pill__count {
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      opacity: .85;
-    }
-
-    /* Day pill colours — mirror the overview day-circle convention */
-    .day-section--mon .day-pill { background: var(--purple);      color: #fff; }
-    .day-section--tue .day-pill { background: var(--yellow);      color: #1a1200; }
-    .day-section--wed .day-pill { background: var(--salmon-deep); color: #fff; }
-    .day-section--thu .day-pill { background: var(--ink);         color: var(--yellow); }
-    .day-section--fri .day-pill { background: var(--purple);      color: #fff; }
-    .day-section--sat .day-pill { background: var(--salmon-deep); color: #fff; }
-
-    .day-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .slot {
-      display: grid;
-      grid-template-columns: 84px 1fr auto;
-      align-items: center;
-      gap: 14px;
-      padding: 11px 14px;
-      background: #FAFAF8;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      color: inherit;
-      transition: background .15s, transform .15s;
-    }
-    .slot:hover {
-      background: #fff;
-      box-shadow: 0 1px 4px rgba(0,0,0,.05);
-      transform: translateX(2px);
-    }
-    .slot--faded {
-      opacity: .35;
-      pointer-events: none;
-    }
-    .slot__time {
-      font-family: 'Marcellus', serif;
-      font-size: 1rem;
-      color: var(--ink);
-      letter-spacing: 0;
-    }
-    .slot__main { min-width: 0; }
-    .slot__title {
-      font-weight: 700;
-      font-size: .92rem;
-      color: var(--ink);
-      margin-bottom: 1px;
-    }
-    .slot__title--new::after {
-      content: 'NEW';
-      display: inline-block;
-      vertical-align: 2px;
-      margin-left: 6px;
-      background: #ff6b4a;
-      color: #fff;
-      font-size: .58rem;
-      font-weight: 700;
-      padding: 1px 5px;
-      border-radius: 3px;
-      letter-spacing: .06em;
-    }
-    .slot__dropin-tag {
-      display: inline-block;
-      vertical-align: 2px;
-      margin-left: 6px;
-      background: var(--yellow);
-      color: #1a1200;
-      font-size: .58rem;
-      font-weight: 700;
-      padding: 1px 5px;
-      border-radius: 3px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-    .slot__miniseries-tag {
-      display: inline-block;
-      vertical-align: 2px;
-      margin-left: 6px;
-      background: var(--purple);
-      color: #fff;
-      font-size: .58rem;
-      font-weight: 700;
-      padding: 1px 5px;
-      border-radius: 3px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-    .slot__starter-tag {
-      display: inline-block;
-      vertical-align: 2px;
-      margin-left: 6px;
-      background: var(--salmon-deep);
-      color: #fff;
-      font-size: .58rem;
-      font-weight: 700;
-      padding: 1px 5px;
-      border-radius: 3px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-    /* Grid view: tag sits on its own compact line under the title (the title
-       <strong> truncates with ellipsis, so the tag can't live inside it). */
-    .studio-col__slot .studio-col__tag {
-      margin-left: 0;
-      margin-top: 2px;
-      font-size: .5rem;
-      padding: 0 4px;
-      vertical-align: baseline;
-    }
-    .slot__meta {
-      font-size: .8rem;
-      color: var(--muted);
-    }
-
-    .slot__studio {
-      flex-shrink: 0;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 4px 9px;
-      border-radius: 4px;
-      font-family: 'PT Serif', serif;
-      white-space: nowrap;
-    }
-    .studio-AKH { background: var(--studio-aakash-bg);   color: var(--studio-aakash-ink); }
-    .studio-AN1 { background: var(--studio-ananta1-bg);  color: var(--studio-ananta1-ink); }
-    .studio-AN2 { background: var(--studio-ananta2-bg);  color: var(--studio-ananta2-ink); }
-    .studio-AD1 { background: var(--studio-artdeco1-bg); color: var(--studio-artdeco1-ink); }
-    .studio-AD2 { background: var(--studio-artdeco2-bg); color: var(--studio-artdeco2-ink); }
-
-    .day-empty {
-      font-size: .85rem;
-      color: var(--muted-soft);
-      font-style: italic;
-      padding: 8px 14px;
-    }
-
-    /* Grid view (timetable: time axis × studio columns) */
-    .studio-grid-wrap { display: flex; flex-direction: column; gap: 0; }
-    .grid-gap-sep {
-      height: 18px;
-      position: relative;
-      margin: 4px 0;
-    }
-    .grid-gap-sep::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 56px; right: 0;
-      height: 1px;
-      background: repeating-linear-gradient(to right, var(--border) 0 6px, transparent 6px 12px);
-    }
-    .grid-gap-sep::after {
-      content: '⏸';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fff;
-      color: var(--muted-soft);
-      font-size: 10px;
-      padding: 0 8px;
-    }
-    .studio-grid {
-      display: grid;
-      grid-template-columns: 50px repeat(5, 1fr);
-      gap: 4px;
-      margin-top: 4px;
-    }
-    .studio-header {
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 6px 6px;
-      border-radius: 4px;
-      text-align: center;
-      font-family: 'PT Serif', serif;
-      white-space: nowrap;
-    }
-    .studio-header.studio-AKH { background: var(--studio-aakash-bg);   color: var(--studio-aakash-ink); }
-    .studio-header.studio-AN1 { background: var(--studio-ananta1-bg);  color: var(--studio-ananta1-ink); }
-    .studio-header.studio-AN2 { background: var(--studio-ananta2-bg);  color: var(--studio-ananta2-ink); }
-    .studio-header.studio-AD1 { background: var(--studio-artdeco1-bg); color: var(--studio-artdeco1-ink); }
-    .studio-header.studio-AD2 { background: var(--studio-artdeco2-bg); color: var(--studio-artdeco2-ink); }
-    .studio-header--time { background: transparent; color: var(--muted-soft); }
-    .time-gutter {
-      position: relative;
-    }
-    .time-label {
-      position: absolute;
-      font-size: .68rem;
-      color: var(--muted-soft);
-      width: 100%;
-      text-align: right;
-      padding-right: 6px;
-      white-space: nowrap;
-      transform: translateY(-50%);
-    }
-    .hour-line {
-      position: absolute;
-      left: -4px; right: 0;
-      height: 1px;
-      background: rgba(0,0,0,.06);
-    }
-    .studio-col {
-      position: relative;
-      background: #FAFAF8;
-      border-radius: 4px;
-    }
-    .studio-col__slot {
-      position: absolute;
-      left: 3px; right: 3px;
-      background: #fff;
-      border-radius: 4px;
-      padding: 5px 7px;
-      font-size: .72rem;
-      line-height: 1.25;
-      border: 1px solid rgba(0,0,0,.08);
-      text-decoration: none;
-      color: inherit;
-      overflow: hidden;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .studio-col__slot:hover {
-      transform: scale(1.02);
-      z-index: 2;
-    }
-    .studio-col__slot--faded { opacity: .25; pointer-events: none; }
-    .studio-col__slot strong {
-      display: block;
-      font-weight: 700;
-      font-size: .74rem;
-      color: var(--ink);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .studio-col__slot .slot-time {
-      display: block;
-      font-family: 'Marcellus', serif;
-      font-size: .72rem;
-      color: var(--muted);
-    }
-    .studio-col__slot .slot-teacher {
-      display: block;
-      font-size: .68rem;
-      color: var(--muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Mobile: hide grid view (impractical at < 720px) */
-    @media (max-width: 720px) {
-      .view-toggle { display: none; }
-      .studio-grid { display: none; }
-    }
-
-    /* Closing CTA + footer */
-    .closing-wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 4rem; }
-    .closing {
-      background: #000;
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 2.5rem 2rem;
-      text-align: center;
-    }
-    .closing__kicker {
-      display: block;
-      font-size: .72rem; font-weight: 700;
+    .hero__row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .btn-line {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-family: 'PT Serif', serif; font-size: .82rem; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase;
-      color: var(--purple); margin-bottom: .75rem;
+      padding: .95rem 1.9rem; color: #fff;
+      border: 1px solid rgba(255,255,255,.55); border-radius: var(--radius);
+      transition: background .3s, color .3s, border-color .3s;
     }
-    .closing h2 {
-      font-family: 'Marcellus', serif;
-      font-weight: 400;
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
-      line-height: 1.15;
-      margin-bottom: .75rem;
+    .btn-line:hover { background: var(--purple); border-color: var(--purple); color: #fff; }
+    .hero__trial {
+      font-size: .86rem; color: rgba(255,255,255,.9);
+      letter-spacing: .02em; border-left: 2px solid var(--purple); padding-left: 1rem;
     }
-    .closing h2 em { color: var(--purple); font-style: italic; }
-    .closing__sub {
-      font-size: .9rem;
-      color: rgba(255,255,255,.7);
-      max-width: 460px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.55;
+    .hero__scroll {
+      position: absolute; left: 50%; bottom: 1.6rem; transform: translateX(-50%);
+      z-index: 2; font-size: .64rem; letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(255,255,255,.6); animation: bob 2.4s ease-in-out infinite;
     }
-    .closing__btn {
-      display: inline-block;
-      background: var(--purple); color: #fff;
-      font-size: .82rem; font-weight: 700;
-      letter-spacing: .06em; text-transform: uppercase;
-      padding: .75rem 1.65rem;
-      border-radius: 6px;
-    }
-    .closing__btn:hover { opacity: .88; }
+    @keyframes bob { 0%,100%{ transform: translate(-50%,0);} 50%{ transform: translate(-50%,6px);} }
 
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 1.75rem 1.5rem;
-      max-width: 1080px; margin: 0 auto;
-      display: flex; justify-content: space-between;
-      flex-wrap: wrap; gap: .75rem 1.5rem;
-      font-size: .82rem; color: var(--muted);
+    /* ── Stat band ───────────────────────────────────────── */
+    .stats {
+      border-bottom: 1px solid var(--line);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      max-width: 1180px; margin: 0 auto;
     }
-    .footer__brand { font-weight: 700; }
-    .footer__nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    .footer__nav a { color: var(--muted); }
-    .footer__nav a:hover { color: var(--ink); }
+    .stat { padding: 3.4rem 1.5rem; text-align: center; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat__n { font-family: 'Marcellus', serif; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1; }
+    .stat__l { font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: .7rem; }
+    @media (max-width: 680px){ .stats{ grid-template-columns: repeat(2,1fr);} .stat:nth-child(2){border-right:0;} .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);} }
 
-    /* Legend */
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      font-size: .78rem;
-      color: var(--muted-soft);
+    /* ── Toolbar ─────────────────────────────────────────── */
+    .toolbar { position: sticky; top: 54px; z-index: 80; background: rgba(251,250,248,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .toolbar__in { max-width: 1180px; margin: 0 auto; padding: 1.1rem 2.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .search { position: relative; flex: 1 1 280px; min-width: 220px; }
+    .search input {
+      width: 100%; font: inherit; font-size: .98rem;
+      padding: .7rem .9rem .7rem 2.3rem;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); color: var(--ink); transition: border-color .2s;
     }
-    .legend__swatch {
-      display: inline-block;
-      width: 10px; height: 10px;
-      border-radius: 3px;
-      margin-right: 5px;
-      vertical-align: -1px;
+    .search input::placeholder { color: var(--muted-soft); }
+    .search input:focus { outline: none; border-color: var(--purple); }
+    .search__i { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); color: var(--muted-soft); font-size: 1rem; pointer-events: none; }
+    .chips { display: flex; gap: .4rem; flex-wrap: wrap; align-items: center; }
+    .chip {
+      font-family: 'PT Serif', serif; font-size: .74rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: .5rem .85rem; color: var(--muted);
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: var(--surface); transition: all .18s;
+    }
+    .chip:hover { border-color: var(--ink); color: var(--ink); }
+    .chip[aria-pressed="true"] { background: var(--purple); color: #fff; border-color: var(--purple); }
+    .chip--int[aria-pressed="true"] { background: var(--purple); border-color: var(--purple); }
+    .chip--today { box-shadow: inset 0 -2px 0 var(--purple); }
+    .chip--today[aria-pressed="true"] { box-shadow: none; }
+    .active-strip { flex-basis: 100%; display: flex; align-items: center; gap: .6rem; margin-top: .15rem; padding: .55rem .85rem; background: #F3EAFE; border-left: 3px solid var(--purple); font-size: .82rem; color: var(--purple-deep); }
+    .active-strip[hidden] { display: none; }
+    .active-strip__clear { margin-left: auto; font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--purple-deep); text-decoration: underline; }
+    .count { font-size: .78rem; font-weight: 700; letter-spacing: .04em; color: var(--muted-soft); margin-left: auto; white-space: nowrap; }
+    @media (max-width: 680px){ .count{ margin-left:0; width:100%; } }
+
+    /* ── Schedule ────────────────────────────────────────── */
+    .legend { display: flex; flex-wrap: wrap; gap: 1.3rem; align-items: center; margin-bottom: 1rem; font-size: .76rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .legend__item { display: flex; align-items: center; gap: .45rem; }
+    .legend .dot { width: 9px; height: 9px; }
+    .sched { max-width: 1180px; margin: 0 auto; padding: 6rem 2.2rem 2.5rem; }
+    .day { margin-bottom: 5.6rem; }
+    .day:last-child { margin-bottom: 0; }
+    .day__head { display: flex; align-items: baseline; gap: 1.2rem; margin-bottom: 1.8rem; }
+    .day__name { font-family: 'Marcellus', serif; font-size: clamp(1.9rem, 4vw, 2.9rem); line-height: 1; }
+    .day__count { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--purple-deep); white-space: nowrap; }
+    .day__rule { flex: 1; height: 1px; background: var(--line); align-self: center; }
+
+    .rows { display: flex; flex-direction: column; }
+    .row {
+      display: grid; grid-template-columns: 104px 1fr auto;
+      align-items: center; gap: 1.4rem;
+      padding: 1.4rem .5rem 1.4rem 1.15rem; border-bottom: 1px solid var(--line-soft);
+      border-left: 3px solid var(--rowmk, transparent);
+      color: inherit; transition: background .2s, padding-left .2s;
+    }
+    .row:first-child { border-top: 1px solid var(--line-soft); }
+    .row:hover { background: #fff; padding-left: 1.65rem; }
+    .row--faded { opacity: .28; }
+    .row__time { font-family: 'Marcellus', serif; font-size: 1.06rem; letter-spacing: .01em; color: var(--ink); white-space: nowrap; }
+    .row__time small { display: block; font-family: 'PT Serif', serif; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-soft); margin-top: 2px; }
+    .row__main { min-width: 0; }
+    .row__title { font-size: 1.4rem; font-weight: 700; line-height: 1.2; }
+    .row__title .ar { color: var(--muted-soft); opacity: 0; transition: opacity .2s, transform .2s; display: inline-block; margin-left: .35rem; }
+    .row:hover .row__title .ar { opacity: 1; transform: translateX(3px); }
+    .row__meta { font-size: .9rem; color: var(--muted); margin-top: 2px; }
+    .tag {
+      display: inline-block; font-size: .58rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; vertical-align: 2px;
+      margin-left: .5rem; padding: .12rem .42rem; border-radius: var(--radius);
+    }
+    .tag--new { background: var(--purple); color: #fff; }
+    .tag--mini { border: 1px solid var(--purple); color: var(--purple-deep); }
+    .tag--drop { border: 1px solid var(--line); color: var(--muted); }
+    .tag--starter { background: #F3EAFE; color: var(--purple-deep); }
+    .tt__tags { display: block; margin-top: 5px; line-height: 1.8; }
+    .tt__slot .tag { font-size: .52rem; margin: 0 4px 0 0; padding: 1px 5px; }
+    .row__studio { display: flex; align-items: center; gap: .5rem; justify-self: end; white-space: nowrap; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .row__studio span { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .ics-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; color: var(--muted-soft); cursor: pointer; border-radius: var(--radius); flex-shrink: 0; transition: color .15s, background .15s, opacity .15s; }
+    .ics-btn:hover, .ics-btn:focus-visible { color: var(--purple); background: #F3EAFE; }
+    .ics-btn svg { width: 15px; height: 15px; }
+    .ics-btn--grid { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; background: rgba(255,255,255,.9); border: 1px solid var(--line); }
+    .ics-btn--grid svg { width: 13px; height: 13px; }
+    @media (hover: hover) { .ics-btn { opacity: 0; } .row:hover .ics-btn, .tt__slot:hover .ics-btn, .ics-btn:focus-visible { opacity: 1; } }
+    .day-empty { font-size: .92rem; color: var(--muted-soft); font-style: italic; padding: 1rem .4rem; }
+
+    @media (max-width: 600px){
+      .sched { padding: 3rem 1.25rem 1.5rem; }
+      .row { grid-template-columns: 78px 1fr; gap: .9rem; padding: 1rem .2rem; }
+      .row__studio { grid-column: 2; justify-self: start; margin-top: .35rem; }
+      .row__title { font-size: 1.18rem; }
+      .row:hover { padding-left: .2rem; }
     }
 
-    /* Responsive */
-    @media (max-width: 640px) {
-      .hero { padding: 3rem 1rem 2.75rem; }
-      .toolbar { padding: 12px 1rem; }
-      .schedule { padding: 2rem 1rem 3rem; }
-      .closing-wrap { padding: 0 1rem 3rem; }
-      .closing { padding: 2rem 1.25rem; }
-      .slot {
-        grid-template-columns: 64px 1fr;
-        gap: 10px;
-      }
-      .slot__studio { grid-column: 2; justify-self: start; margin-top: 4px; }
-      .slot__time { font-size: .92rem; }
-      .slot__title { font-size: .88rem; }
+    /* ── View toggle ────────────────────────────────────── */
+    .view-toggle { display: inline-flex; margin-left: auto; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .view-toggle button { font-family:'PT Serif',serif; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.5rem .9rem; color:var(--muted); background:var(--surface); transition:all .18s; }
+    .view-toggle button[aria-pressed="true"] { background: var(--ink); color:#fff; }
+    .view-toggle button:not(:last-child){ border-right:1px solid var(--line); }
+    .toolbar__in .count { margin-left: .9rem; }
+    body[data-view="grid"] .view-list { display:none; }
+    body[data-view="list"] .view-grid { display:none; }
+
+    /* ── Timetable (grid view) ──────────────────────────── */
+    .gday { margin-bottom: 5rem; }
+    .gday:last-child { margin-bottom:0; }
+    .tt__heads { display:flex; gap:6px; padding-left:48px; margin-bottom:.7rem; }
+    .tt__shead { flex:1; min-width:0; display:flex; align-items:center; justify-content:center; gap:.4rem; font-size:.68rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); }
+    .tt { position:relative; padding-left:48px; }
+    .tt__cols { display:flex; gap:6px; }
+    .tt__col { position:relative; flex:1; min-width:0; border-left:1px solid var(--line-soft); }
+    .tt__hr { position:absolute; left:48px; right:0; height:1px; background:var(--line-soft); }
+    .tt__tlabel { position:absolute; left:0; width:42px; text-align:right; font-family:'Marcellus',serif; font-size:.62rem; color:var(--muted-soft); transform:translateY(-50%); }
+    .tt__brk { position:absolute; left:48px; right:0; display:flex; align-items:center; color:var(--muted-soft); font-size:.7rem; transform:translateY(-50%); }
+    .tt__brk::before, .tt__brk::after { content:''; flex:1; height:1px; background:repeating-linear-gradient(to right,var(--line) 0 5px,transparent 5px 10px); }
+    .tt__brk span { padding:0 .6rem; }
+    .tt__slot { position:absolute; left:3px; right:3px; display:flex; flex-direction:column; justify-content:center; background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--mk,var(--purple)); border-radius:var(--radius); padding:8px 11px; overflow:hidden; color:inherit; transition:box-shadow .15s; }
+    .tt__slot:hover { z-index:5; box-shadow:0 6px 18px rgba(0,0,0,.12); }
+    .tt__slot--faded { opacity:.16; pointer-events:none; }
+    .tt__slot .tm { display:block; font-family:'Marcellus',serif; font-size:.74rem; color:var(--muted); }
+    .tt__slot b { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; font-size:1.02rem; line-height:1.16; overflow:hidden; margin:2px 0; }
+    .tt__slot .tc { display:block; font-size:.72rem; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+    /* ── Accordion (mobile list) + responsive views ─────── */
+    .day__chev { font-size:.66rem; color:var(--muted-soft); transition:transform .25s; padding-left:.3rem; }
+    @media (min-width:721px){ .view-list .day .rows{ display:flex !important; } .day__chev{ display:none; } }
+    @media (max-width:720px){
+      .toolbar{ position: static; }
+      .view-toggle{ display:none; }
+      .view-grid{ display:none !important; }
+      .view-list{ display:block !important; }
+      .view-list .day__head{ cursor:pointer; user-select:none; }
+      .view-list .day.collapsed .rows{ display:none; }
+      .view-list .day.collapsed{ margin-bottom:1.3rem; }
+      .day.collapsed .day__chev{ transform:rotate(-90deg); }
     }
+
+    /* ── Reveal motion ──────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce){
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero__img { animation: none; transform: none; }
+      .hero__scroll { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── Closing ────────────────────────────────────────── */
+    .closing { background: var(--ink-true); color: #fff; padding: 6rem 2.2rem; text-align: center; }
+    .closing__in { max-width: 640px; margin: 0 auto; }
+    .closing__eyebrow { font-size: .74rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--purple); margin-bottom: 1.2rem; }
+    .closing h2 { font-family: 'Marcellus', serif; font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.12; margin-bottom: 1.1rem; }
+    .closing h2 em { font-style: italic; color: var(--purple); }
+    .closing p { font-size: 1rem; color: rgba(255,255,255,.72); margin-bottom: 2rem; line-height: 1.6; }
+    .closing .btn-line { color: #fff; border-color: rgba(255,255,255,.5); }
+    .closing .btn-line:hover { background: var(--purple); border-color: var(--purple); }
+
+    /* ── Footer ─────────────────────────────────────────── */
+    .footer { background: var(--ink-true); color: rgba(255,255,255,.7); padding: 0 2.2rem 3.5rem; }
+    .footer__in { max-width: 1180px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,.12); padding-top: 2.5rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; }
+    .footer__col { display: flex; flex-direction: column; gap: .75rem; }
+    .footer__mark { display: flex; align-items: center; gap: .8rem; font-family: 'Marcellus', serif; letter-spacing: .14em; text-transform: uppercase; font-size: .9rem; color: #fff; }
+    .footer__mark img { height: 20px; width: auto; opacity: .8; }
+    .footer__addr { font-size: .8rem; color: rgba(255,255,255,.5); letter-spacing: .03em; }
+    .footer__trial a { font-size: .82rem; color: var(--purple); letter-spacing: .02em; transition: color .2s; }
+    .footer__trial a:hover { color: #fff; }
+    .footer__nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer__nav a { font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); transition: color .2s; }
+    .footer__nav a:hover { color: #fff; }
   </style>
 <script type="application/ld+json">
 {
@@ -702,320 +367,809 @@
       "numberOfItems": 24,
       "itemListElement": [
         {
-          "@type": "ListItem", "position": 1,
+          "@type": "ListItem",
+          "position": 1,
           "item": {
             "@type": "Course",
             "name": "Argentine Tango",
             "description": "Thursdays 20:00–22:00 · Levels 1 and 2 · Teacher: Sergio & Gisela · Art Deco 1 and 2. Partner improvisation technique.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Sergio & Gisela" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/partner-social/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Sergio & Gisela"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/argentijnse-tango-danslessen-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 2,
+          "@type": "ListItem",
+          "position": 2,
           "item": {
             "@type": "Course",
             "name": "Bachata",
             "description": "Tuesdays 19:00–22:00 · Levels 1, 2 and 3 · Teacher: Alex (Lenka) · Art Deco 2. Dominican partner dance.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Alex (Lenka)" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/partner-social/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Alex (Lenka)"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/bachata-dance-classes-in-ghent"
           }
         },
         {
-          "@type": "ListItem", "position": 3,
+          "@type": "ListItem",
+          "position": 3,
           "item": {
             "@type": "Course",
             "name": "Bachata Solo Style",
             "description": "Thursdays 19:00–20:00 · Level 1 · Teacher: Ioanna · Ananta 2. Solo styling and technique without a partner. Miniseries format.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Ioanna" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/partner-social/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Ioanna"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/bachata-solo-style-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 4,
+          "@type": "ListItem",
+          "position": 4,
           "item": {
             "@type": "Course",
             "name": "Cuban Salsa",
             "description": "Mondays and Thursdays 19:00–22:00 · Levels 1–4 · Teacher: Alex (Ioanna) · Art Deco 2. Circular Cuban Casino style.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Alex (Ioanna)" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/partner-social/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Alex (Ioanna)"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/cuban-salsa-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 5,
+          "@type": "ListItem",
+          "position": 5,
           "item": {
             "@type": "Course",
             "name": "Kizomba",
             "description": "Wednesdays 19:00–22:00 · Levels 1, 2 and 3 · Teacher: Sonja KikiZomba · Art Deco 2. Slow, connected Angolan partner dance.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Sonja KikiZomba" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/partner-social/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Sonja KikiZomba"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/kizomba-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 6,
+          "@type": "ListItem",
+          "position": 6,
           "item": {
             "@type": "Course",
             "name": "Lindy Hop",
             "description": "Wednesdays 18:45–21:00 · Levels 1 and 2 · Teacher: Ann-Sofie · Art Deco 1. Authentic swing partner dance.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Ann-Sofie" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/partner-social/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Ann-Sofie"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/lindy-hop-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 7,
+          "@type": "ListItem",
+          "position": 7,
           "item": {
             "@type": "Course",
             "name": "Rueda de Casino",
             "description": "Thursdays 19:00–21:00 · Levels 1 and 2 · Teacher: Alex (Ioanna) · Art Deco 1. Group Cuban Salsa circle dance with a caller.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Alex (Ioanna)" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/partner-social/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Alex (Ioanna)"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/rueda-de-casino-danslessen-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 8,
+          "@type": "ListItem",
+          "position": 8,
           "item": {
             "@type": "Course",
             "name": "Ballet",
             "description": "Fridays 18:00–21:45 · Levels 1, 2 and 3 · Teacher: Shirley De Muer · Aakash studio. Classical ballet technique.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Shirley De Muer" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/classical-technique/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Shirley De Muer"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/ballet-voor-volwassenen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 9,
+          "@type": "ListItem",
+          "position": 9,
           "item": {
             "@type": "Course",
             "name": "Flamenco",
             "description": "Tuesdays 18:20–21:40 · Levels 1, 2 and 3 · Teacher: La Liz · Ananta 1. Spanish flamenco footwork and arm styling.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "La Liz" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/classical-technique/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "La Liz"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/flamenco-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 10,
+          "@type": "ListItem",
+          "position": 10,
           "item": {
             "@type": "Course",
             "name": "Indian Dance Technique",
             "description": "Tuesdays 20:40–21:40 · Open level · Teacher: Swapnil · Aakash studio. Foundational Indian dance vocabulary including posture, mudras, and rhythm.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Swapnil Dagliya" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/classical-technique/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Swapnil Dagliya"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/indian-dance-in-belgium"
           }
         },
         {
-          "@type": "ListItem", "position": 11,
+          "@type": "ListItem",
+          "position": 11,
           "item": {
             "@type": "Course",
             "name": "Indian Semi-Classical (Kathak)",
             "description": "Wednesdays 20:30–21:45 · Level 2 · Teacher: Swapnil · Aakash studio. North Indian Kathak-inspired dance blending footwork and expressive mime.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Swapnil Dagliya" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/classical-technique/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Swapnil Dagliya"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/kathak-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 12,
+          "@type": "ListItem",
+          "position": 12,
           "item": {
             "@type": "Course",
             "name": "Oriental Flow",
             "description": "Saturdays 10:30–12:00 · Level 1 · Teacher: Nathalie El Ghoul · Aakash studio. New — fluid contemporary Oriental dance technique.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Nathalie El Ghoul" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/classical-technique/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Nathalie El Ghoul"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/oriental-flow-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 13,
+          "@type": "ListItem",
+          "position": 13,
           "item": {
             "@type": "Course",
             "name": "Solo Jazz",
             "description": "Wednesdays 21:00–22:00 · Open level · Teacher: Ann-Sofie · Art Deco 1. American vernacular jazz dance with syncopated footwork.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Ann-Sofie" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/classical-technique/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Ann-Sofie"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/solo-jazz-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 14,
+          "@type": "ListItem",
+          "position": 14,
           "item": {
             "@type": "Course",
             "name": "Tap Dance",
             "description": "Mondays, Wednesdays and Thursdays · Levels 1–6 · Teachers: Lut, Jordan, Teddy, Alexandre · Ananta 1. Percussive tap technique across all levels.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
             "instructor": [
-              { "@type": "Person", "name": "Lut" },
-              { "@type": "Person", "name": "Jordan" },
-              { "@type": "Person", "name": "Teddy" },
-              { "@type": "Person", "name": "Alexandre" }
+              {
+                "@type": "Person",
+                "name": "Lut"
+              },
+              {
+                "@type": "Person",
+                "name": "Jordan"
+              },
+              {
+                "@type": "Person",
+                "name": "Teddy"
+              },
+              {
+                "@type": "Person",
+                "name": "Alexandre"
+              }
             ],
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/classical-technique/"
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/tapdans-lessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 15,
+          "@type": "ListItem",
+          "position": 15,
           "item": {
             "@type": "Course",
             "name": "African Congolese Dance",
             "description": "Saturdays 10:30–12:00 · Open level · Teacher: Joseph Saidi Simako · Ananta 1. Traditional Congolese dance rooted in West African rhythm.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Joseph Saidi Simako" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Joseph Saidi Simako"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/afrikaanse-congolese-dans-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 16,
+          "@type": "ListItem",
+          "position": 16,
           "item": {
             "@type": "Course",
             "name": "Bhangra",
             "description": "Wednesdays 19:30–20:30 · Level 2 · Teacher: Swapnil · Aakash studio. Vibrant Punjabi folk dance with high energy and big arm movements.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Swapnil Dagliya" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Swapnil Dagliya"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/bhangra-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 17,
+          "@type": "ListItem",
+          "position": 17,
           "item": {
             "@type": "Course",
             "name": "Bollyfolk",
             "description": "Tuesdays 18:30 and Wednesdays 18:30 · Open/L2 · Teacher: Swapnil · Aakash studio. Bollywood-meets-folk fusion choreography.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Swapnil Dagliya" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Swapnil Dagliya"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/bollyfolk-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 18,
+          "@type": "ListItem",
+          "position": 18,
           "item": {
             "@type": "Course",
             "name": "Bollywood",
             "description": "Thursdays 18:30–20:30 · Levels 2 and 3 · Teacher: Swapnil · Aakash studio. High-energy Indian film dance.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Swapnil Dagliya" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Swapnil Dagliya"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/bollywood-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 19,
+          "@type": "ListItem",
+          "position": 19,
           "item": {
             "@type": "Course",
             "name": "Burlesque",
             "description": "Mondays and Tuesdays 19:00–22:00 · Levels 1 and 2 · Teacher: Zoe Bizoe · Art Deco 1. Cabaret performance art and body confidence.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Zoe Bizoe" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Zoe Bizoe"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/burlesque-lessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 20,
+          "@type": "ListItem",
+          "position": 20,
           "item": {
             "@type": "Course",
             "name": "Cissy Ball",
             "description": "Mondays 20:30–22:00 · Open level · Teacher: Hendrik Lebon · Ananta 2. Ballroom-inspired community dance, expressive and inclusive.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Hendrik Lebon" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Hendrik Lebon"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/cissy-ball-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 21,
+          "@type": "ListItem",
+          "position": 21,
           "item": {
             "@type": "Course",
             "name": "Dance & Fit",
             "description": "Wednesdays 10:00–11:00 · Open level · Teacher: Lenka Badriyah · Aakash studio. New — dance-based fitness. Drop-in welcome.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Lenka Badriyah" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Lenka Badriyah"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/dance-fit-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 22,
+          "@type": "ListItem",
+          "position": 22,
           "item": {
             "@type": "Course",
             "name": "Pilates for Dancers",
             "description": "Tuesdays 17:30 and Wednesdays 11:00 · Open level · Teacher: Lenka Badriyah · Aakash studio. New — Pilates adapted for dancers. Drop-in welcome.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Lenka Badriyah" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Lenka Badriyah"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/pilates-voor-dansers-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 23,
+          "@type": "ListItem",
+          "position": 23,
           "item": {
             "@type": "Course",
             "name": "Raqs Sharqi (Belly Dance)",
             "description": "Mondays 19:00–22:00 · Levels 1, 2 and 3 · Teacher: Lenka Badriyah · Aakash studio. Egyptian belly dance tradition.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Lenka Badriyah" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Lenka Badriyah"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/raqs-sharqi-danslessen-in-gent"
           }
         },
         {
-          "@type": "ListItem", "position": 24,
+          "@type": "ListItem",
+          "position": 24,
           "item": {
             "@type": "Course",
             "name": "Yoga",
             "description": "Tuesdays 19:35–20:35 · Open level · Teacher: Swapnil · Aakash studio. Movement and breathwork supporting dancers' flexibility and mindfulness.",
-            "startDate": "2026-09-14", "endDate": "2027-01-30",
-            "instructor": { "@type": "Person", "name": "Swapnil Dagliya" },
-            "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" },
-            "location": { "@type": "Place", "name": "Shoonya Dance Centre", "address": { "@type": "PostalAddress", "streetAddress": "Stapelplein 41", "addressLocality": "Ghent", "postalCode": "9000", "addressCountry": "BE" } },
-            "courseMode": "onsite", "url": "https://styles.shoonyadance.com/culture-wellness/"
+            "startDate": "2026-09-14",
+            "endDate": "2027-01-30",
+            "instructor": {
+              "@type": "Person",
+              "name": "Swapnil Dagliya"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "Shoonya Dance Centre",
+              "url": "https://www.shoonyadance.com"
+            },
+            "location": {
+              "@type": "Place",
+              "name": "Shoonya Dance Centre",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stapelplein 41",
+                "addressLocality": "Ghent",
+                "postalCode": "9000",
+                "addressCountry": "BE"
+              }
+            },
+            "courseMode": "onsite",
+            "url": "https://www.shoonyadance.com/yoga-lessen-in-gent"
           }
         }
       ]
@@ -1038,7 +1192,10 @@
         "https://www.instagram.com/shoonyadance",
         "https://www.facebook.com/shoonyadance"
       ],
-      "isPartOf": { "@type": "WebSite", "url": "https://www.shoonyadance.com" }
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://www.shoonyadance.com"
+      }
     }
   ]
 }
@@ -1046,95 +1203,81 @@
 </head>
 <body>
 
-  <!-- Skip to content (accessibility — visible only on keyboard focus) -->
-  <a href="#main-content" class="skip-link" data-i18n="skip-link">Skip to content</a>
+  <div class="ohbanner" id="ohbanner" hidden></div>
+  <a href="#schedule" class="skip-link" data-i18n="skip">Skip to schedule</a>
 
-  <!-- Open Deurdag banner — auto-hides after June 14 2026 -->
-  <div class="opendeur-banner" id="opendeur-banner">
-    <span data-lang="en">✦ Open House · Sun 14 June · 10:00–17:00 · Free · No registration needed</span>
-    <span data-lang="nl" style="display:none">✦ Open Deurdag · zo 14 juni · 10:00–17:00 · Gratis · Geen inschrijving</span>
-    <a href="https://www.shoonyadance.com/calendar/movement-without-borders-open-door-day-june-14th-" target="_blank" rel="noopener noreferrer" data-lang-en="Full programme →" data-lang-nl="Volledig programma →">Full programme →</a>
-  </div>
-  <script>
-    (function() {
-      var b = document.getElementById('opendeur-banner');
-      if (b && new Date() > new Date('2026-06-14T23:59:00')) b.style.display = 'none';
-    })();
-  </script>
-
-  <header class="site-nav">
-    <a class="site-nav__brand" href="https://www.shoonyadance.com">Shoonya</a>
-    <nav class="site-nav__links" aria-label="Site navigation">
-      <a href="/" class="active" data-i18n="snav-schedule">Schedule</a>
+  <!-- Nav -->
+  <nav class="nav" id="nav" aria-label="Site">
+    <a class="nav__brand" href="https://www.shoonyadance.com">Shoonya</a>
+    <div class="nav__links">
+      <a href="#schedule" class="active" data-i18n="snav-schedule">Schedule</a>
       <a href="https://info.shoonyadance.com" data-i18n="snav-new">New here?</a>
       <a href="https://styles.shoonyadance.com/" data-i18n="snav-styles">All styles</a>
-    </nav>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="nl">NL</button>
     </div>
-  </header>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="nl">NL</button>
+    </div>
+  </nav>
 
   <!-- Hero -->
   <header class="hero">
-    <div class="hero__pill" data-i18n="hero-pill">Weekly schedule · 2026 / 2027</div>
-    <h1 data-i18n="hero-h1">Shoonya dance class schedule — <em>September 2026 to January 2027</em></h1>
-    <p class="hero__sub" data-i18n="hero-sub">A typical week at Shoonya. Search a style, teacher, or day; tap a slot for full details.</p>
-    <span class="hero__chip" data-i18n="hero-chip">✦ Free trial week · Sep 14–19, 2026</span>
+    <div class="hero__img" aria-hidden="true"></div>
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="hero__eyebrow" data-i18n="hero-eyebrow">Weekly schedule · Sept 2026 — Jan 2027</p>
+      <h1 data-i18n="hero-h1">A typical week <em>at Shoonya.</em></h1>
+      <p class="hero__sub" data-i18n="hero-sub">Twenty-four dance styles, twenty-two teachers, five studios — one floor in the heart of Ghent. Search a style, teacher or day below.</p>
+      <div class="hero__row">
+        <a class="btn-line" href="#schedule" data-i18n="hero-cta">See the schedule</a>
+        <span class="hero__trial" data-i18n="hero-trial">Free trial week · Sep 14–19, 2026</span>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true" data-i18n="hero-scroll">Scroll</div>
   </header>
+
+  <!-- Stats -->
+  <section class="stats" aria-label="At a glance">
+    <div class="stat reveal"><div class="stat__n">24</div><div class="stat__l" data-i18n="stat-styles">Styles</div></div>
+    <div class="stat reveal"><div class="stat__n">22</div><div class="stat__l" data-i18n="stat-teachers">Teachers</div></div>
+    <div class="stat reveal"><div class="stat__n">5</div><div class="stat__l" data-i18n="stat-studios">Studios</div></div>
+    <div class="stat reveal"><div class="stat__n">16</div><div class="stat__l" data-i18n="stat-weeks">Weeks / term</div></div>
+  </section>
 
   <!-- Toolbar -->
   <section class="toolbar" aria-label="Filters">
-    <div class="toolbar__inner">
-
-      <!-- Search -->
-      <div class="search" id="search-wrap">
-        <span class="search__icon" aria-hidden="true">⌕</span>
-        <input
-          type="text" id="search-input"
-          class="search__input"
-          autocomplete="off"
-          spellcheck="false"
-          aria-label="Search"
-        />
-        <button class="search__clear" id="search-clear" type="button" aria-label="Clear search">×</button>
+    <div class="toolbar__in">
+      <div class="search">
+        <span class="search__i" aria-hidden="true">⌕</span>
+        <input id="q" type="text" autocomplete="off" spellcheck="false" aria-label="Search" />
       </div>
-
-      <!-- Chips row: intent toggles + day chips + count + view toggle -->
-      <div class="chips-row" role="group" aria-label="Filter chips">
-        <button class="chip chip--intent" id="chip-beginner" type="button" aria-pressed="false" data-i18n-attr="aria-label" data-i18n="chip-beginner">✦ Beginner</button>
-        <span class="chips-row__divider" aria-hidden="true"></span>
-        <div id="day-chips" style="display:contents"></div>
-        <span class="chips-row__count" id="result-count" aria-live="polite"></span>
-        <div class="view-toggle" role="group" aria-label="View mode">
-          <button class="view-toggle__btn" id="view-grid" type="button" aria-pressed="true"  data-view="grid" data-i18n="view-grid">▦ Grid</button>
-          <button class="view-toggle__btn" id="view-list" type="button" aria-pressed="false" data-view="list" data-i18n="view-list">☰ List</button>
-        </div>
+      <div class="chips" role="group" aria-label="Day filter">
+        <button class="chip chip--int" id="beg" aria-pressed="false" data-i18n="chip-beg">Beginner</button>
+        <span id="daychips" style="display:contents"></span>
       </div>
-
-      <!-- Active-filter summary -->
+      <div class="view-toggle" role="group" aria-label="View">
+        <button id="v-grid" data-view="grid" aria-pressed="true"  data-i18n="v-grid">▦ Grid</button>
+        <button id="v-list" data-view="list" aria-pressed="false" data-i18n="v-list">☰ List</button>
+      </div>
+      <span class="count" id="count" aria-live="polite"></span>
       <div class="active-strip" id="active-strip" hidden>
         <span id="active-text"></span>
-        <button class="active-strip__clear" id="clear-all" type="button" data-i18n="clear-all">clear all</button>
+        <button class="active-strip__clear" id="clear-all" type="button" data-i18n="clearAll">Clear all</button>
       </div>
-
     </div>
   </section>
 
   <!-- Schedule -->
-  <main class="schedule" id="main-content" tabindex="-1" aria-label="Weekly schedule">
-    <!-- Legend -->
-    <div class="legend" aria-label="Studio legend">
-      <span><span class="legend__swatch" style="background:var(--studio-aakash-bg)"></span>Aakash</span>
-      <span><span class="legend__swatch" style="background:var(--studio-ananta1-bg)"></span>Ananta 1</span>
-      <span><span class="legend__swatch" style="background:var(--studio-ananta2-bg)"></span>Ananta 2</span>
-      <span><span class="legend__swatch" style="background:var(--studio-artdeco1-bg)"></span>Art Deco 1</span>
-      <span><span class="legend__swatch" style="background:var(--studio-artdeco2-bg)"></span>Art Deco 2</span>
+  <main class="sched" id="schedule" tabindex="-1">
+    <div class="legend" aria-label="Studios">
+      <span class="legend__item"><span class="dot" style="background:var(--st-AKH)"></span>Aakash</span>
+      <span class="legend__item"><span class="dot" style="background:var(--st-AN1)"></span>Ananta 1</span>
+      <span class="legend__item"><span class="dot" style="background:var(--st-AN2)"></span>Ananta 2</span>
+      <span class="legend__item"><span class="dot" style="background:var(--st-AD1)"></span>Art Deco 1</span>
+      <span class="legend__item"><span class="dot" style="background:var(--st-AD2)"></span>Art Deco 2</span>
     </div>
-
-    <div id="schedule-body">
-      <!-- Day sections rendered by JS -->
-      <noscript>
+    <div id="body">
+<noscript>
         <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:1rem;">
           <caption style="font-weight:bold;margin-bottom:.5rem;text-align:left;">Shoonya Dance Centre — Class Schedule September 2026 to January 2027</caption>
           <thead><tr style="text-align:left;border-bottom:2px solid #000;">
@@ -1206,804 +1349,530 @@
     </div>
   </main>
 
-  <!-- Closing CTA -->
-  <section class="closing-wrap">
-    <div class="closing">
-      <span class="closing__kicker" data-i18n="closing-kicker">Found your class?</span>
-      <h2 data-i18n="closing-h1">Want to know more about a <em>specific dance style?</em></h2>
-      <p class="closing__sub" data-i18n="closing-sub">Click a slot to jump to its style page — pricing, teacher bio, registration, all there.</p>
-      <a class="closing__btn" href="https://styles.shoonyadance.com/" data-i18n="closing-cta">browse all 24 styles →</a>
+  <!-- Closing -->
+  <section class="closing">
+    <div class="closing__in reveal">
+      <p class="closing__eyebrow" data-i18n="close-eyebrow">Found your class?</p>
+      <h2 data-i18n="close-h2">Every style has its own <em>home page.</em></h2>
+      <p data-i18n="close-sub">Tap any class to jump to its style page — pricing, teacher, registration, all in one place.</p>
+      <a class="btn-line" href="https://styles.shoonyadance.com/" data-i18n="close-cta">Browse all 24 styles →</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer__brand">Shoonya Dance Centre · Ghent</div>
-    <nav class="footer__nav" aria-label="Footer">
-      <a href="https://www.shoonyadance.com">home</a>
-      <a href="/" data-i18n="footer-landing">school year</a>
-      <a href="/schedule-spring-2026" data-i18n="footer-spring">spring 2026</a>
-      <a href="https://styles.shoonyadance.com/" data-i18n="footer-styles">all styles</a>
-    </nav>
+    <div class="footer__in reveal">
+      <div class="footer__col">
+        <div class="footer__mark">
+          <img src="assets/oo-mark-white.png" alt="" aria-hidden="true">
+          Shoonya Dance Centre
+          <img src="assets/oo-mark-white.png" alt="" aria-hidden="true">
+        </div>
+        <p class="footer__addr" data-i18n="f-addr">Stapelplein 41 · 9000 Ghent</p>
+        <p class="footer__trial"><a href="https://info.shoonyadance.com" data-i18n="f-trial">✦ New here? Free trial week · Sep 14–19, 2026 →</a></p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="https://www.shoonyadance.com" data-i18n="f-home">Home</a>
+        <a href="https://styles.shoonyadance.com/" data-i18n="f-styles">All styles</a>
+        <a href="https://info.shoonyadance.com" data-i18n="f-new">New here?</a>
+        <a href="/schedule-spring-2026/" data-i18n="f-spring">Spring 2026</a>
+        <a href="/school-year-2026-2027/" data-i18n="f-schoolyear">School year</a>
+        <a href="https://www.shoonyadance.com/contact" data-i18n="f-contact">Contact</a>
+      </nav>
+    </div>
   </footer>
 
-  <script src="../data/site-config.js"></script>
   <script>
-    var _S = window.SHOONYA, _c = _S ? _S.cfg.counts : {}, _d = _S ? _S.display : {};
-    /* ─── Language ──────────────────────────────────────────────── */
-    let lang = localStorage.getItem('shoonya-lang') || (navigator.language && navigator.language.startsWith('nl') ? 'nl' : 'en');
+  /* ─── Schedule data (verbatim from live page) ──────────── */
+  let SLOTS = [
+    { day:'mon', time:'18:00–19:10', style:'Tap Dance', level:'L3', teacher:'Lut', studio:'AN1', studioName:'Ananta 1' },
+    { day:'mon', time:'19:00–20:00', style:'Cuban Salsa', level:'L1', teacher:'Alex (Ioanna)', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'mon', time:'19:00–20:00', style:'Raqs Sharqi', level:'L1', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash' },
+    { day:'mon', time:'19:00–20:30', style:'Burlesque', level:'L1 early', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'mon', time:'19:15–20:25', style:'Tap Dance', level:'L2', teacher:'Jordan', studio:'AN1', studioName:'Ananta 1' },
+    { day:'mon', time:'20:00–21:00', style:'Cuban Salsa', level:'L2', teacher:'Alex (Ioanna)', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'mon', time:'20:00–21:00', style:'Raqs Sharqi', level:'L2', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash' },
+    { day:'mon', time:'20:30–21:40', style:'Tap Dance', level:'L1', teacher:'Jordan', studio:'AN1', studioName:'Ananta 1' },
+    { day:'mon', time:'20:30–22:00', style:'Burlesque', level:'L1 late', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'mon', time:'20:30–22:00', style:'Cissy Ball', level:'Open', teacher:'Hendrik Lebon', studio:'AN2', studioName:'Ananta 2' },
+    { day:'mon', time:'21:00–22:00', style:'Cuban Salsa', level:'L3', teacher:'Alex (Ioanna)', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'mon', time:'21:00–22:00', style:'Raqs Sharqi', level:'L3', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash' },
 
-    const UI = {
-      en: {
-        d:   { mon:'Mon',  tue:'Tue',  wed:'Wed',  thu:'Thu',  fri:'Fri',  sat:'Sat' },
-        dl:  { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday' },
-        today: '(today)',
-        'hero-pill':  'Weekly schedule · ' + (_S ? _S.cfg.schoolYear : '2026–2027'),
-        'hero-h1':    'Shoonya dance class schedule — <em>September 2026 to January 2027</em>',
-        'hero-sub':   'A typical week at Shoonya. Search a style, teacher, or day; tap a slot for full details.',
-        'hero-chip':  '✦ Free trial week · ' + (_d.en ? _d.en.trial_week_short : 'Sep 14–19, 2026'),
-        'chip-beginner': '✦ Beginner',
-        'view-grid':  '▦ Grid',
-        'view-list':  '☰ List',
-        'clear-all':  'clear all',
-        'skip-link':  'Skip to schedule',
-        'snav-schedule': 'Schedule',
-        'snav-new':      'New here?',
-        'snav-styles':   'All styles',
-        'search-placeholder': 'Search style, teacher, day, level…',
-        'closing-kicker': 'Found your class?',
-        'closing-h1':     'Want to know more about a <em>specific dance style?</em>',
-        'closing-sub':    'Click a slot to jump to its style page — pricing, teacher bio, registration, all there.',
-        'closing-cta':    'browse all ' + (_c.styles || 24) + ' styles →',
-        'footer-landing': 'school year', 'footer-spring': 'spring 2026', 'footer-styles': 'all styles',
-        countAll:      (n) => n + (n === 1 ? ' class' : ' classes'),
-        countFiltered: (n, t) => n + ' of ' + t,
-        noClasses:     'no classes match',
-        dayClasses:    (n) => n === 1 ? '1 class' : (n + ' classes'),
-        activeSummary: (parts) => '<strong>' + parts.length + ' filter' + (parts.length === 1 ? '' : 's') + '</strong> — ' + parts.join(', '),
-        beginnerLabel:  'Beginner',
-        daysLabel:      (ns) => ns.length === 1 ? ns[0] : ns.length + ' days',
-        searchLabel:    (q) => '"' + q + '"',
-        dropInTag:      'drop-in',
-        miniseriesTag:  'miniseries',
-        starterTag:     '+ 4-wk starter series'
-      },
-      nl: {
-        d:   { mon:'Ma',  tue:'Di',  wed:'Wo',  thu:'Do',  fri:'Vr',  sat:'Za' },
-        dl:  { mon:'Maandag', tue:'Dinsdag', wed:'Woensdag', thu:'Donderdag', fri:'Vrijdag', sat:'Zaterdag' },
-        today: '(vandaag)',
-        'hero-pill':  'Weekrooster · ' + (_S ? _S.cfg.schoolYear : '2026–2027'),
-        'hero-h1':    'Shoonya dansrooster — <em>september 2026 tot januari 2027</em>',
-        'hero-sub':   'Een typische week bij Shoonya. Zoek een stijl, leraar of dag; klik op een tijdslot voor details.',
-        'hero-chip':  '✦ Gratis proefweek · ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
-        'chip-beginner': '✦ Beginner',
-        'view-grid':  '▦ Rooster',
-        'view-list':  '☰ Lijst',
-        'clear-all':  'alles wissen',
-        'skip-link':  'Naar rooster',
-        'snav-schedule': 'Rooster',
-        'snav-new':      'Nieuw hier?',
-        'snav-styles':   'Alle stijlen',
-        'search-placeholder': 'Zoek stijl, leraar, dag, niveau…',
-        'closing-kicker': 'Les gevonden?',
-        'closing-h1':     'Wil je meer weten over een <em>specifieke dansstijl?</em>',
-        'closing-sub':    'Klik op een tijdslot voor de stijlpagina — prijzen, leraarsprofiel, inschrijving, alles daar.',
-        'closing-cta':    'bekijk alle ' + (_c.styles || 24) + ' stijlen →',
-        'footer-landing': 'schooljaar', 'footer-spring': 'lente 2026', 'footer-styles': 'alle stijlen',
-        countAll:      (n) => n + (n === 1 ? ' les' : ' lessen'),
-        countFiltered: (n, t) => n + ' van ' + t,
-        noClasses:     'geen lessen passen',
-        dayClasses:    (n) => n === 1 ? '1 les' : (n + ' lessen'),
-        activeSummary: (parts) => '<strong>' + parts.length + ' filter' + (parts.length === 1 ? '' : 's') + '</strong> — ' + parts.join(', '),
-        beginnerLabel:  'Beginner',
-        daysLabel:      (ns) => ns.length === 1 ? ns[0] : ns.length + ' dagen',
-        searchLabel:    (q) => '"' + q + '"',
-        dropInTag:      'losse les',
-        miniseriesTag:  'minireeks',
-        starterTag:     '+ 4-wk starter series'
-      }
-    };
+    { day:'tue', time:'17:20–18:20', style:'Pilates for Dancers', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/pilates-voor-dansers-gent' },
+    { day:'tue', time:'18:20–19:20', style:'Flamenco', level:'L2', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1' },
+    { day:'tue', time:'18:30–19:30', style:'Bollyfolk', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash' },
+    { day:'tue', time:'19:00–20:00', style:'Bachata', level:'L1', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'tue', time:'19:00–20:30', style:'Burlesque', level:'L2 early', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'tue', time:'19:30–20:30', style:'Flamenco', level:'L3', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1' },
+    { day:'tue', time:'19:35–20:35', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash' },
+    { day:'tue', time:'20:00–21:00', style:'Bachata', level:'L2', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'tue', time:'20:30–22:00', style:'Burlesque', level:'L2 late', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'tue', time:'20:40–21:40', style:'Flamenco', level:'L1', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1' },
+    { day:'tue', time:'20:40–21:40', style:'Indian Dance Technique', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash' },
+    { day:'tue', time:'21:00–22:00', style:'Bachata', level:'L3', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2' },
 
-    /* ─── APPS SCRIPT ENDPOINT ─────────────────────────────────── */
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwh9PSrNxMUkBaMayhyfnU3XDzL76khEm7RL932CJ83qqm7dTG9afA-WB1cZYKSrcs3/exec';
+    { day:'wed', time:'09:45–10:45', style:'Dance & Fit', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/dance-fit-gent' },
+    { day:'wed', time:'10:45–11:45', style:'Pilates for Dancers', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/pilates-voor-dansers-gent' },
+    { day:'wed', time:'17:20–18:20', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/yoga-lessen-in-gent' },
+    { day:'wed', time:'18:30–19:30', style:'Bollyfolk', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash' },
+    { day:'wed', time:'18:30–19:40', style:'Tap Dance', level:'L2', teacher:'Teddy', studio:'AN1', studioName:'Ananta 1' },
+    { day:'wed', time:'18:45–19:45', style:'Lindy Hop', level:'L1', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'wed', time:'19:00–20:00', style:'Kizomba', level:'L1', teacher:'Sonja KikiZomba', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'wed', time:'19:30–20:30', style:'Bhangra', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash' },
+    { day:'wed', time:'19:45–20:55', style:'Tap Dance', level:'L3', teacher:'Teddy', studio:'AN1', studioName:'Ananta 1' },
+    { day:'wed', time:'19:45–21:00', style:'Lindy Hop', level:'L2', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'wed', time:'20:00–21:00', style:'Kizomba', level:'L2', teacher:'Sonja KikiZomba', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'wed', time:'20:30–21:45', style:'Indian Semi-Classical', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash' },
+    { day:'wed', time:'21:00–22:00', style:'Solo Jazz', level:'Open', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'wed', time:'21:00–22:00', style:'Kizomba', level:'L3', teacher:'Sonja KikiZomba', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'wed', time:'21:00–22:10', style:'Tap Dance', level:'L1', teacher:'Teddy', studio:'AN1', studioName:'Ananta 1' },
 
-    /* ─── SLOT DATA (fallback — replaced by live fetch) ────────── */
-    const SLOTS_FALLBACK = [
-      // ─── Monday
-      { day:'mon', time:'18:00–19:10', style:'Tap Dance', level:'L3', teacher:'Lut', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
-      { day:'mon', time:'19:00–20:00', style:'Cuban Salsa', level:'L1', teacher:'Alex (Ioanna)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'mon', time:'19:00–20:00', style:'Raqs Sharqi', level:'L1', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
-      { day:'mon', time:'19:00–20:30', style:'Burlesque', level:'L1 early', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1', duration:90, category:'culture-wellness' },
-      { day:'mon', time:'19:15–20:25', style:'Tap Dance', level:'L2', teacher:'Jordan', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
-      { day:'mon', time:'20:00–21:00', style:'Cuban Salsa', level:'L2', teacher:'Alex (Ioanna)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'mon', time:'20:00–21:00', style:'Raqs Sharqi', level:'L2', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
-      { day:'mon', time:'20:30–21:40', style:'Tap Dance', level:'L1', teacher:'Jordan', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
-      { day:'mon', time:'20:30–22:00', style:'Burlesque', level:'L1 late', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1', duration:90, category:'culture-wellness' },
-      { day:'mon', time:'20:30–22:00', style:'Cissy Ball', level:'Open', teacher:'Hendrik Lebon', studio:'AN2', studioName:'Ananta 2', duration:90, category:'culture-wellness' },
-      { day:'mon', time:'21:00–22:00', style:'Cuban Salsa', level:'L3', teacher:'Alex (Ioanna)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'mon', time:'21:00–22:00', style:'Raqs Sharqi', level:'L3', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
+    { day:'thu', time:'18:30–19:30', style:'Bollywood', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash' },
+    { day:'thu', time:'18:30–19:40', style:'Tap Dance', level:'L4', teacher:'Alexandre', studio:'AN1', studioName:'Ananta 1' },
+    { day:'thu', time:'19:00–20:00', style:'Rueda de Casino', level:'L1', teacher:'Alex (Ioanna)', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'thu', time:'19:00–20:00', style:'Bachata Solo Style', level:'L1', teacher:'Ioanna', studio:'AN2', studioName:'Ananta 2', miniseries:true, href:'https://www.shoonyadance.com/bachata-solo-style-gent' },
+    { day:'thu', time:'19:30–20:30', style:'Bollywood', level:'L3', teacher:'Swapnil', studio:'AKH', studioName:'Aakash' },
+    { day:'thu', time:'19:45–20:55', style:'Tap Dance', level:'L5', teacher:'Alexandre', studio:'AN1', studioName:'Ananta 1' },
+    { day:'thu', time:'20:00–21:00', style:'Rueda de Casino', level:'L2', teacher:'Alex (Ioanna)', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'thu', time:'20:00–21:00', style:'Argentine Tango', level:'L1', teacher:'Sergio & Gisela', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'thu', time:'21:00–22:00', style:'Cuban Salsa', level:'L4', teacher:'Alex (Ioanna)', studio:'AD2', studioName:'Art Deco 2' },
+    { day:'thu', time:'21:00–22:00', style:'Argentine Tango', level:'L2', teacher:'Sergio & Gisela', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'thu', time:'21:00–22:10', style:'Tap Dance', level:'L6', teacher:'Alexandre', studio:'AN1', studioName:'Ananta 1' },
 
-      // ─── Tuesday
-      { day:'tue', time:'17:20–18:20', style:'Pilates for Dancers', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/pilates-voor-dansers-gent' },
-      { day:'tue', time:'18:20–19:20', style:'Flamenco', level:'L2', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1', duration:60, category:'classical-technique' },
-      { day:'tue', time:'18:30–19:30', style:'Bollyfolk', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
-      { day:'tue', time:'19:00–20:00', style:'Bachata', level:'L1', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'tue', time:'19:00–20:30', style:'Burlesque', level:'L2 early', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1', duration:90, category:'culture-wellness' },
-      { day:'tue', time:'19:30–20:30', style:'Flamenco', level:'L3', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1', duration:60, category:'classical-technique' },
-      { day:'tue', time:'19:35–20:35', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
-      { day:'tue', time:'20:00–21:00', style:'Bachata', level:'L2', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'tue', time:'20:30–22:00', style:'Burlesque', level:'L2 late', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1', duration:90, category:'culture-wellness' },
-      { day:'tue', time:'20:40–21:40', style:'Flamenco', level:'L1', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1', duration:60, category:'classical-technique' },
-      { day:'tue', time:'20:40–21:40', style:'Indian Dance Technique', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'classical-technique' },
-      { day:'tue', time:'21:00–22:00', style:'Bachata', level:'L3', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
+    { day:'fri', time:'18:00–19:00', style:'Ballet', level:'L1', teacher:'Shirley De Muer', studio:'AKH', studioName:'Aakash' },
+    { day:'fri', time:'19:00–20:15', style:'Ballet', level:'L2', teacher:'Shirley De Muer', studio:'AKH', studioName:'Aakash' },
+    { day:'fri', time:'20:15–21:45', style:'Ballet', level:'L3', teacher:'Shirley De Muer', studio:'AKH', studioName:'Aakash' },
 
-      // ─── Wednesday
-      { day:'wed', time:'09:45–10:45', style:'Dance & Fit', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/dance-fit-gent' },
-      { day:'wed', time:'10:45–11:45', style:'Pilates for Dancers', level:'Open', teacher:'Lenka Badriyah', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/pilates-voor-dansers-gent' },
-      { day:'wed', time:'17:20–18:20', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness', isNew:true, dropIn:true, href:'https://www.shoonyadance.com/yoga-lessen-in-gent' },
-      { day:'wed', time:'18:30–19:30', style:'Bollyfolk', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
-      { day:'wed', time:'18:30–19:40', style:'Tap Dance', level:'L2', teacher:'Teddy', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
-      { day:'wed', time:'18:45–19:45', style:'Lindy Hop', level:'L1', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1', duration:60, category:'partner-social' },
-      { day:'wed', time:'19:00–20:00', style:'Kizomba', level:'L1', teacher:'Sonja KikiZomba', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'wed', time:'19:30–20:30', style:'Bhangra', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
-      { day:'wed', time:'19:45–20:55', style:'Tap Dance', level:'L3', teacher:'Teddy', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
-      { day:'wed', time:'19:45–21:00', style:'Lindy Hop', level:'L2', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1', duration:75, category:'partner-social' },
-      { day:'wed', time:'20:00–21:00', style:'Kizomba', level:'L2', teacher:'Sonja KikiZomba', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'wed', time:'20:30–21:45', style:'Indian Semi-Classical', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:75, category:'classical-technique' },
-      { day:'wed', time:'21:00–22:00', style:'Solo Jazz', level:'Open', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1', duration:60, category:'classical-technique' },
-      { day:'wed', time:'21:00–22:00', style:'Kizomba', level:'L3', teacher:'Sonja KikiZomba', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'wed', time:'21:00–22:10', style:'Tap Dance', level:'L1', teacher:'Teddy', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
+    { day:'sat', time:'10:30–12:00', style:'African Congolese', level:'Open', teacher:'Joseph Saidi Simako', studio:'AN1', studioName:'Ananta 1' },
+    { day:'sat', time:'10:30–12:00', style:'Oriental Flow', level:'L1', teacher:'Nathalie El Ghoul', studio:'AKH', studioName:'Aakash', isNew:true, href:'https://www.shoonyadance.com/oriental-flow-gent' }
+  ];
 
-      // ─── Thursday
-      { day:'thu', time:'18:30–19:30', style:'Bollywood', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
-      { day:'thu', time:'18:30–19:40', style:'Tap Dance', level:'L4', teacher:'Alexandre', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
-      { day:'thu', time:'19:00–20:00', style:'Rueda de Casino', level:'L1', teacher:'Alex (Ioanna)', studio:'AD1', studioName:'Art Deco 1', duration:60, category:'partner-social' },
-      { day:'thu', time:'19:00–20:00', style:'Bachata Solo Style', level:'L1', teacher:'Ioanna', studio:'AN2', studioName:'Ananta 2', duration:60, category:'partner-social', href:'https://www.shoonyadance.com/bachata-solo-style-gent' },
-      { day:'thu', time:'19:30–20:30', style:'Bollywood', level:'L3', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', duration:60, category:'culture-wellness' },
-      { day:'thu', time:'19:45–20:55', style:'Tap Dance', level:'L5', teacher:'Alexandre', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
-      { day:'thu', time:'20:00–21:00', style:'Rueda de Casino', level:'L2', teacher:'Alex (Ioanna)', studio:'AD1', studioName:'Art Deco 1', duration:60, category:'partner-social' },
-      { day:'thu', time:'20:00–21:00', style:'Argentine Tango', level:'L1', teacher:'Sergio & Gisela', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'thu', time:'21:00–22:00', style:'Cuban Salsa', level:'L4', teacher:'Alex (Ioanna)', studio:'AD2', studioName:'Art Deco 2', duration:60, category:'partner-social' },
-      { day:'thu', time:'21:00–22:00', style:'Argentine Tango', level:'L2', teacher:'Sergio & Gisela', studio:'AD1', studioName:'Art Deco 1', duration:60, category:'partner-social' },
-      { day:'thu', time:'21:00–22:10', style:'Tap Dance', level:'L6', teacher:'Alexandre', studio:'AN1', studioName:'Ananta 1', duration:70, category:'classical-technique' },
+  const SLOTS_FALLBACK = SLOTS.slice();
+  // "New" is a flag the live feed doesn't emit — re-derive it (by style+day) so the New
+  // badge survives a live sync, the same way drop-in/miniseries/starter are style-keyed.
+  const NEW_KEYS = new Set(SLOTS_FALLBACK.filter(s => s.isNew).map(s => s.style + '|' + s.day));
 
-      // ─── Friday
-      { day:'fri', time:'18:00–19:00', style:'Ballet', level:'L1', teacher:'Shirley De Muer', studio:'AKH', studioName:'Aakash', duration:60, category:'classical-technique' },
-      { day:'fri', time:'19:00–20:15', style:'Ballet', level:'L2', teacher:'Shirley De Muer', studio:'AKH', studioName:'Aakash', duration:75, category:'classical-technique' },
-      { day:'fri', time:'20:15–21:45', style:'Ballet', level:'L3', teacher:'Shirley De Muer', studio:'AKH', studioName:'Aakash', duration:90, category:'classical-technique' },
+  const STYLE_HREFS = {
+    'Argentine Tango':'https://www.shoonyadance.com/argentijnse-tango-danslessen-gent',
+    'Bollywood':'https://www.shoonyadance.com/bollywood-danslessen-in-gent',
+    'Flamenco':'https://www.shoonyadance.com/flamenco-danslessen-in-gent',
+    'Bollyfolk':'https://www.shoonyadance.com/bollyfolk-danslessen-in-gent',
+    'Bachata':'https://www.shoonyadance.com/bachata-dance-classes-in-ghent',
+    'Burlesque':'https://www.shoonyadance.com/burlesque-lessen-in-gent',
+    'Yoga':'https://www.shoonyadance.com/yoga-lessen-in-gent',
+    'Indian Dance Technique':'https://www.shoonyadance.com/indian-dance-in-belgium',
+    'Dance & Fit':'https://www.shoonyadance.com/dance-fit-gent',
+    'Pilates for Dancers':'https://www.shoonyadance.com/pilates-voor-dansers-gent',
+    'Tap Dance':'https://www.shoonyadance.com/tapdans-lessen-in-gent',
+    'Lindy Hop':'https://www.shoonyadance.com/lindy-hop-danslessen-in-gent',
+    'Solo Jazz':'https://www.shoonyadance.com/solo-jazz-danslessen-in-gent',
+    'Kizomba':'https://www.shoonyadance.com/kizomba-danslessen-in-gent',
+    'Bhangra':'https://www.shoonyadance.com/bhangra-danslessen-in-gent',
+    'Indian Semi-Classical':'https://www.shoonyadance.com/kathak-danslessen-in-gent',
+    'Bachata Solo Style':'https://www.shoonyadance.com/bachata-solo-style-gent',
+    'Rueda de Casino':'https://www.shoonyadance.com/rueda-de-casino-danslessen-gent',
+    'Cuban Salsa':'https://www.shoonyadance.com/cuban-salsa-in-gent',
+    'Ballet':'https://www.shoonyadance.com/ballet-voor-volwassenen-in-gent',
+    'African Congolese':'https://www.shoonyadance.com/afrikaanse-congolese-dans-gent',
+    'Oriental Flow':'https://www.shoonyadance.com/oriental-flow-gent',
+    'Raqs Sharqi':'https://www.shoonyadance.com/raqs-sharqi-danslessen-in-gent',
+    'Cissy Ball':'https://www.shoonyadance.com/cissy-ball-danslessen-in-gent'
+  };
+  const styleHref = s => {
+    const strip = s.replace(/\s*\([^)]*\)/g, '').trim();  // "Raqs Sharqi (Belly Dance)" → "Raqs Sharqi"
+    return STYLE_HREFS[s] || STYLE_HREFS[strip]
+      || ('https://www.shoonyadance.com/' + strip.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
+  };
 
-      // ─── Saturday
-      { day:'sat', time:'10:30–12:00', style:'African Congolese', level:'Open', teacher:'Joseph Saidi Simako', studio:'AN1', studioName:'Ananta 1', duration:90, category:'culture-wellness' },
-      { day:'sat', time:'10:30–12:00', style:'Oriental Flow', level:'L1', teacher:'Nathalie El Ghoul', studio:'AKH', studioName:'Aakash', duration:90, category:'classical-technique', isNew:true, href:'https://www.shoonyadance.com/oriental-flow-gent' },
-    ];
+  const DAYS = ['mon','tue','wed','thu','fri','sat'];
 
-    let SLOTS = SLOTS_FALLBACK.slice();
-
-    const DAYS = [
-      { code:'mon' }, { code:'tue' }, { code:'wed' },
-      { code:'thu' }, { code:'fri' }, { code:'sat' }
-    ];
-
-    const STYLE_HREFS = {
-      'Argentine Tango':       'https://www.shoonyadance.com/argentijnse-tango-danslessen-gent',
-      'Kathak':                'https://www.shoonyadance.com/kathak-danslessen-in-gent',
-      'Bollywood':             'https://www.shoonyadance.com/bollywood-danslessen-in-gent',
-      'Flamenco':              'https://www.shoonyadance.com/flamenco-danslessen-in-gent',
-      'Bollyfolk':             'https://www.shoonyadance.com/bollyfolk-danslessen-in-gent',
-      'Bachata':               'https://www.shoonyadance.com/bachata-dance-classes-in-ghent',
-      'Burlesque':             'https://www.shoonyadance.com/burlesque-lessen-in-gent',
-      'Yoga':                  'https://www.shoonyadance.com/yoga-lessen-in-gent',
-      'Indian Dance Technique':'https://www.shoonyadance.com/indian-dance-in-belgium',
-      'Dance & Fit':           'https://www.shoonyadance.com/dance-fit-gent',
-      'Pilates for Dancers':   'https://www.shoonyadance.com/pilates-voor-dansers-gent',
-      'Tap Dance':             'https://www.shoonyadance.com/tapdans-lessen-in-gent',
-      'Lindy Hop':             'https://www.shoonyadance.com/lindy-hop-danslessen-in-gent',
-      'Solo Jazz':             'https://www.shoonyadance.com/solo-jazz-danslessen-in-gent',
-      'Kizomba':               'https://www.shoonyadance.com/kizomba-danslessen-in-gent',
-      'Bhangra':               'https://www.shoonyadance.com/bhangra-danslessen-in-gent',
-      'Indian Semi-Classical': 'https://www.shoonyadance.com/kathak-danslessen-in-gent',
-      'Bachata Solo Style':  'https://www.shoonyadance.com/bachata-solo-style-gent',
-      'Rueda de Casino':       'https://www.shoonyadance.com/rueda-de-casino-danslessen-gent',
-      'Cuban Salsa':           'https://www.shoonyadance.com/cuban-salsa-in-gent',
-      'Ballet':                'https://www.shoonyadance.com/ballet-voor-volwassenen-in-gent',
-      'African Congolese':     'https://www.shoonyadance.com/afrikaanse-congolese-dans-gent',
-      'Oriental Flow':         'https://www.shoonyadance.com/oriental-flow-gent',
-      'Raqs Sharqi':           'https://www.shoonyadance.com/raqs-sharqi-danslessen-in-gent',
-      'Cissy Ball':            'https://www.shoonyadance.com/cissy-ball-danslessen-in-gent'
-    };
-    function styleHref(style) {
-      if (STYLE_HREFS[style]) return STYLE_HREFS[style];
-      const slug = style.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      return 'https://www.shoonyadance.com/' + slug;
+  const UI = {
+    en: {
+      d:{mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat'},
+      dl:{mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday',fri:'Friday',sat:'Saturday'},
+      'snav-schedule':'Schedule','snav-new':'New here?','snav-styles':'All styles',
+      'hero-eyebrow':'Weekly schedule · Sept 2026 — Jan 2027',
+      'hero-h1':'A typical week <em>at Shoonya.</em>',
+      'hero-sub':'Twenty-four dance styles, twenty-two teachers, five studios — one floor in the heart of Ghent. Search a style, teacher or day below.',
+      'hero-cta':'See the schedule','hero-trial':'Free trial week · Sep 14–19, 2026','hero-scroll':'Scroll','trial-prefix':'Free trial week · ','ftrial-prefix':'✦ New here? Free trial week · ',
+      'stat-styles':'Styles','stat-teachers':'Teachers','stat-studios':'Studios','stat-weeks':'Weeks / term',
+      'chip-beg':'Beginner','v-grid':'▦ Grid','v-list':'☰ List','search-ph':'Search style, teacher, day, level…',
+      'close-eyebrow':'Found your class?','close-h2':'Every style has its own <em>home page.</em>',
+      'close-sub':'Tap any class to jump to its style page — pricing, teacher, registration, all in one place.',
+      'close-cta':'Browse all 24 styles →','f-home':'Home','f-styles':'All styles','f-new':'New here?','f-contact':'Contact','f-spring':'Spring 2026','f-schoolyear':'School year','f-addr':'Stapelplein 41 · 9000 Ghent','f-trial':'✦ New here? Free trial week · Sep 14–19, 2026 →','skip':'Skip to schedule',
+      ar:'→', cAll:n=>n+(n===1?' class':' classes'), cFil:(n,t)=>n+' of '+t, none:'No classes match',
+      dCount:n=>n===1?'1 class':n+' classes', tagNew:'New', tagMini:'Miniseries', tagDrop:'3 / 5-session pass', tagStarter:'+ Starter series', tagStarterTip:'First 4 weeks of the weekly class — a beginner on-ramp into Level 2.', tagMiniTip:'A short, time-bound series of a few weeks.', clearAll:'Clear all', today:'Today'
+    },
+    nl: {
+      d:{mon:'Ma',tue:'Di',wed:'Wo',thu:'Do',fri:'Vr',sat:'Za'},
+      dl:{mon:'Maandag',tue:'Dinsdag',wed:'Woensdag',thu:'Donderdag',fri:'Vrijdag',sat:'Zaterdag'},
+      'snav-schedule':'Rooster','snav-new':'Nieuw hier?','snav-styles':'Alle stijlen',
+      'hero-eyebrow':'Weekrooster · sep 2026 — jan 2027',
+      'hero-h1':'Een typische week <em>bij Shoonya.</em>',
+      'hero-sub':'Vierentwintig dansstijlen, tweeëntwintig leraren, vijf studio’s — één vloer in het hart van Gent. Zoek hieronder een stijl, leraar of dag.',
+      'hero-cta':'Bekijk het rooster','hero-trial':'Gratis proefweek · 14–19 sep 2026','hero-scroll':'Scroll','trial-prefix':'Gratis proefweek · ','ftrial-prefix':'✦ Nieuw hier? Gratis proefweek · ',
+      'stat-styles':'Stijlen','stat-teachers':'Leraren','stat-studios':'Studio’s','stat-weeks':'Weken / term',
+      'chip-beg':'Beginner','v-grid':'▦ Rooster','v-list':'☰ Lijst','search-ph':'Zoek stijl, leraar, dag, niveau…',
+      'close-eyebrow':'Les gevonden?','close-h2':'Elke stijl heeft zijn eigen <em>pagina.</em>',
+      'close-sub':'Klik op een les voor de stijlpagina — prijzen, leraar, inschrijving, alles op één plek.',
+      'close-cta':'Bekijk alle 24 stijlen →','f-home':'Home','f-styles':'Alle stijlen','f-new':'Nieuw hier?','f-contact':'Contact','f-spring':'Lente 2026','f-schoolyear':'Schooljaar','f-addr':'Stapelplein 41 · 9000 Gent','f-trial':'✦ Nieuw hier? Gratis proefweek · 14–19 sep 2026 →','skip':'Naar het rooster',
+      ar:'→', cAll:n=>n+(n===1?' les':' lessen'), cFil:(n,t)=>n+' van '+t, none:'Geen lessen passen',
+      dCount:n=>n===1?'1 les':n+' lessen', tagNew:'Nieuw', tagMini:'Minireeks', tagDrop:'3- of 5-beurtenkaart', tagStarter:'+ Starterreeks', tagStarterTip:'Eerste 4 weken van de wekelijkse les — instap voor beginners naar niveau 2.', tagMiniTip:'Een korte reeks van enkele weken.', clearAll:'Alles wissen', today:'Vandaag'
     }
+  };
 
-    function todayDayCode() {
-      const idx = (new Date().getDay() + 6) % 7; // 0 = Mon
-      return DAYS[idx] ? DAYS[idx].code : null;
-    }
+  let lang = localStorage.getItem('shoonya-lang') || (navigator.language && navigator.language.startsWith('nl') ? 'nl' : 'en');
+  let view = 'grid';
+  let activeDays = new Set();
+  let beginner = false;
+  let query = '';
 
-    /* ─── Filter + view state ──────────────────────────────────── */
-    const state = {
-      days: new Set(),       // {'mon','wed',…}
-      search: '',            // free-text
-      beginnerOnly: false,
-      view: 'grid',          // 'grid' | 'list' — grid is the desktop default
-      viewUserSet: false     // true once the user manually toggles or URL pins it
-    };
-    const AUTO_LIST_THRESHOLD = 12;  // switch grid → list when filtered results drop below this
+  const $ = s => document.querySelector(s);
+  const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  // Beginner = any Level 1 or Open Level class. Handles both the live-feed format
+  // ("Level 1", "Open Level") and the snapshot/legacy format ("L1", "L1 early", "Open").
+  const isBeginner = lv => { const s = String(lv).toLowerCase(); return /\bopen\b/.test(s) || /\blevel\s*1\b/.test(s) || /\bl1\b/.test(s) || /\bbeginner\b/.test(s); };
+  const toMin = t => { const [h,m] = t.split(':').map(Number); return h*60 + m; };
 
-    /* Mobile viewport: the timetable grid is impractical below 720px, so
-       force list view regardless of state. */
-    function isNarrow() { return window.matchMedia('(max-width: 720px)').matches; }
-    function effectiveView() { return isNarrow() ? 'list' : state.view; }
+  /* ── Add-to-calendar (.ics) — built from the feed's real slotDates, so it includes ONLY the
+        weeks the class actually runs (holiday/break weeks and teacher-skips are already absent). ── */
+  const ICS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="1.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M12 13v4M10 15h4"/></svg>';
+  function foldLine(l) { if (l.length <= 72) return l; let out = l.slice(0,72), rest = l.slice(72); while (rest.length > 71) { out += '\r\n ' + rest.slice(0,71); rest = rest.slice(71); } return out + '\r\n ' + rest; }
+  function downloadICS(s) {
+    const dates = s.slotDates || []; if (!dates.length) return;
+    const [start, end] = s.time.split('–');
+    const dt = (d, hm) => d.replace(/-/g,'') + 'T' + hm.replace(':','') + '00';
+    const e2 = v => String(v).replace(/([,;\\])/g, '\\$1').replace(/\n/g, '\\n');
+    const uid = (s.style+'-'+s.day+'-'+s.studio+'-'+start).toLowerCase().replace(/[^a-z0-9]+/g,'-') + '@schedule.shoonyadance.com';
+    const stamp = new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+    const L = [
+      'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shoonya Dance Centre//Schedule//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH',
+      'BEGIN:VTIMEZONE','TZID:Europe/Brussels',
+      'BEGIN:DAYLIGHT','TZOFFSETFROM:+0100','TZOFFSETTO:+0200','TZNAME:CEST','DTSTART:19700329T020000','RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU','END:DAYLIGHT',
+      'BEGIN:STANDARD','TZOFFSETFROM:+0200','TZOFFSETTO:+0100','TZNAME:CET','DTSTART:19701025T030000','RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU','END:STANDARD',
+      'END:VTIMEZONE',
+      'BEGIN:VEVENT',
+      'UID:' + uid,
+      'DTSTAMP:' + stamp,
+      'DTSTART;TZID=Europe/Brussels:' + dt(dates[0], start),
+      'DTEND;TZID=Europe/Brussels:' + dt(dates[0], end),
+      dates.length > 1 ? ('RDATE;TZID=Europe/Brussels:' + dates.slice(1).map(d => dt(d, start)).join(',')) : null,
+      'SUMMARY:' + e2(s.style + ' · Shoonya'),
+      'LOCATION:' + e2(s.studioName + ' · Shoonya Dance Centre, Stapelplein 41, 9000 Gent'),
+      'DESCRIPTION:' + e2(s.level + ' · with ' + s.teacher + '. Class times only — book your spot via ' + (s.href || styleHref(s.style))),
+      'END:VEVENT','END:VCALENDAR'
+    ].filter(Boolean).map(foldLine);
+    const blob = new Blob([L.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = (s.style + '-shoonya').toLowerCase().replace(/[^a-z0-9]+/g,'-') + '.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
 
-    /* Studios — for grid view (Sep 2026: 5 rooms, post-split) */
-    const STUDIOS = [
-      { code:'AKH', name:'Aakash' },
-      { code:'AN1', name:'Ananta 1' },
-      { code:'AN2', name:'Ananta 2' },
-      { code:'AD1', name:'Art Deco 1' },
-      { code:'AD2', name:'Art Deco 2' }
-    ];
-    const PX_PER_MIN = 1.4;
-    function toMinutes(t) {
-      const m = String(t).trim().match(/^(\d{1,2}):(\d{2})$/);
-      return m ? parseInt(m[1], 10) * 60 + parseInt(m[2], 10) : null;
-    }
-    function parseTimeRange(range) {
-      const parts = String(range).split(/[–-]/).map(s => s.trim());
-      return { startMin: toMinutes(parts[0]), endMin: toMinutes(parts[1]) };
-    }
+  /* ── Trial-week auto-roll — footer + hero show the NEXT upcoming free-trial week ── */
+  const TRIAL_WEEKS = [ { start:'2026-09-14', end:'2026-09-19' }, { start:'2027-02-15', end:'2027-02-20' } ];
+  const TW_MONTHS = { en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], nl:['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'] };
+  function nextTrialWeek() { const today = new Date().toISOString().slice(0,10); return TRIAL_WEEKS.find(w => w.end >= today) || TRIAL_WEEKS[TRIAL_WEEKS.length-1]; }
+  function trialLabel(lng) {
+    const w = nextTrialWeek(); if (!w) return '';
+    const a = w.start.split('-').map(Number), b = w.end.split('-').map(Number);
+    const m = TW_MONTHS[lng][a[1]-1];
+    return lng === 'nl' ? (a[2] + '–' + b[2] + ' ' + m + ' ' + a[0]) : (m + ' ' + a[2] + '–' + b[2] + ', ' + a[0]);
+  }
 
-    /* "Beginner-friendly" levels: L1, Foundation, Open, All Levels */
-    function isBeginnerFriendly(slot) {
-      const lvl = (slot.level || '').toLowerCase().trim();
-      if (!lvl) return false;
-      if (lvl === 'open') return true;
-      if (lvl.startsWith('l1')) return true;
-      if (lvl.indexOf('foundation') >= 0) return true;
-      if (lvl.indexOf('all levels') >= 0) return true;
-      return false;
-    }
+  /* ── Open-house banner — auto-rolls to the next open house; shows ≤35 days before, hides otherwise ── */
+  const OPEN_HOUSES = [
+    { date:'2026-06-14', time:'10:00–17:00', url:'https://www.shoonyadance.com/calendar/movement-without-borders-open-door-day-june-14th-' },
+    { date:'2026-09-13', url:'https://www.shoonyadance.com/calendar' },
+    { date:'2027-01-31', url:'https://www.shoonyadance.com/calendar' },
+    { date:'2027-06-13', url:'https://www.shoonyadance.com/calendar' }
+  ];
+  const WD = { en:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], nl:['zo','ma','di','wo','do','vr','za'] };
+  function renderOpenHouse() {
+    const el = document.getElementById('ohbanner'); if (!el) return;
+    const today = new Date().toISOString().slice(0,10);
+    const o = OPEN_HOUSES.find(x => x.date >= today);
+    const days = o ? Math.round((new Date(o.date+'T00:00:00Z') - new Date(today+'T00:00:00Z')) / 864e5) : 999;
+    if (!o || days > 35) { el.hidden = true; document.body.style.setProperty('--banner-h', '0px'); return; }
+    const m = o.date.split('-').map(Number);
+    const wd = WD[lang][new Date(o.date+'T00:00:00Z').getUTCDay()];
+    const dateStr = wd + ' ' + m[2] + ' ' + TW_MONTHS[lang][m[1]-1];
+    const title = lang==='nl' ? 'Open Deurdag' : 'Open House';
+    const free  = lang==='nl' ? 'Gratis · geen inschrijving' : 'Free · no booking needed';
+    const prog  = lang==='nl' ? 'Volledig programma →' : 'Full programme →';
+    el.innerHTML = `<span><b>✦</b> ${title} · ${dateStr}${o.time ? ' · ' + o.time : ''} · ${free}</span>` + (o.url ? ` <a href="${o.url}" target="_blank" rel="noopener">${prog}</a>` : '');
+    el.hidden = false;
+    document.body.style.setProperty('--banner-h', el.offsetHeight + 'px');
+  }
 
-    function matchesFilters(s) {
-      if (state.days.size > 0 && !state.days.has(s.day)) return false;
-      if (state.beginnerOnly && !isBeginnerFriendly(s)) return false;
-      if (state.search) {
-        const q = state.search.toLowerCase();
-        const haystack = (s.style + ' ' + s.level + ' ' + s.teacher + ' ' + (UI.en.dl[s.day] || '') + ' ' + (UI.nl.dl[s.day] || '') + ' ' + (UI.en.d[s.day] || '') + ' ' + (UI.nl.d[s.day] || '')).toLowerCase();
-        if (haystack.indexOf(q) === -1) return false;
-      }
-      return true;
-    }
+  const STUD = ['AKH','AN1','AN2','AD1','AD2'];
+  const STUD_NAME = { AKH:'Aakash', AN1:'Ananta 1', AN2:'Ananta 2', AD1:'Art Deco 1', AD2:'Art Deco 2' };
+  const _wd = ['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()];
+  const todayCode = DAYS.includes(_wd) ? _wd : 'mon';
 
-    /* ─── URL persistence ──────────────────────────────────────── */
-    function writeUrl() {
-      const p = new URLSearchParams();
-      if (state.days.size > 0) p.set('days', [...state.days].join(','));
-      if (state.search) p.set('q', state.search);
-      if (state.beginnerOnly) p.set('beginner', '1');
-      if (state.view !== 'grid') p.set('view', state.view);  // grid is default — omit param
-      const qs = p.toString();
-      const url = qs ? '?' + qs : location.pathname;
-      history.replaceState(null, '', url);
-    }
-    function readUrl() {
-      const p = new URLSearchParams(location.search);
-      const d = p.get('days');
-      if (d) d.split(',').forEach(x => { if (DAYS.some(dd => dd.code === x)) state.days.add(x); });
-      const q = p.get('q'); if (q) state.search = q;
-      if (p.get('beginner') === '1') state.beginnerOnly = true;
-      const v = p.get('view');
-      if (v === 'list' || v === 'grid') {
-        state.view = v;
-        state.viewUserSet = true;  // URL pinned a view → respect it, no auto-switch
-      }
-    }
-
-    /* ─── Render: toolbar chips ────────────────────────────────── */
-    const dayChipEls = {};
-    function buildDayChips() {
-      const wrap = document.getElementById('day-chips');
-      wrap.innerHTML = '';
-      const today = todayDayCode();
-      DAYS.forEach(d => {
-        const b = document.createElement('button');
-        b.className = 'chip' + (d.code === today ? ' chip--today' : '');
-        b.type = 'button';
-        b.setAttribute('aria-pressed', state.days.has(d.code) ? 'true' : 'false');
-        b.textContent = UI[lang].d[d.code];
-        if (d.code === today) {
-          const sr = document.createElement('span');
-          sr.className = 'sr-only';
-          sr.textContent = ' ' + UI[lang].today;
-          b.appendChild(sr);
-        }
-        b.addEventListener('click', () => {
-          if (state.days.has(d.code)) state.days.delete(d.code);
-          else state.days.add(d.code);
-          applyAll();
-        });
-        dayChipEls[d.code] = b;
-        wrap.appendChild(b);
-      });
-    }
-
-    /* ─── Render: schedule body ────────────────────────────────── */
-    const slotNodes = [];
-    const dayCountEls = {};
-
-    function buildSchedule() {
-      const body = document.getElementById('schedule-body');
-      body.innerHTML = '';
-      slotNodes.length = 0;
-      Object.keys(dayCountEls).forEach(k => delete dayCountEls[k]);
-
-      const useGrid = effectiveView() === 'grid';
-
-      DAYS.forEach(d => {
-        const daySlots = SLOTS.filter(s => s.day === d.code).slice().sort((a, b) => a.time.localeCompare(b.time));
-        if (daySlots.length === 0) return;
-
-        const section = document.createElement('section');
-        section.className = 'day-section day-section--' + d.code;
-        section.setAttribute('data-day', d.code);
-
-        // Header pill
-        const pill = document.createElement('div');
-        pill.className = 'day-pill';
-        const nameEl = document.createElement('span');
-        nameEl.className = 'day-pill__name';
-        nameEl.textContent = UI[lang].dl[d.code];
-        const countEl = document.createElement('span');
-        countEl.className = 'day-pill__count';
-        countEl.textContent = UI[lang].dayClasses(daySlots.length);
-        dayCountEls[d.code] = { totalCount: daySlots.length, el: countEl };
-        pill.appendChild(nameEl);
-        pill.appendChild(countEl);
-        section.appendChild(pill);
-
-        if (useGrid) section.appendChild(buildGridForDay(daySlots, section));
-        else         section.appendChild(buildListForDay(daySlots, section, d));
-
-        body.appendChild(section);
-      });
-    }
-
-    /* ─── List view (V3 day-rail + slot cards) ─────────────────── */
-    /* Slot tags shared by list + grid views. Style-keyed (whitespace/case-normalised),
-       NOT keyed on s.dropIn/isNew — the live publicSchedule feed emits only style/day/level,
-       so a flag-based tag would vanish on live data.
-         · drop-in        → Pilates / Dance & Fit / Wednesday Yoga (casual-attendance classes)
-         · miniseries     → Bachata Solo Style (time-bound 10-week Oct–Dec series)
-         · starter series → Bhangra + Indian Semi-Classical (4-week beginner on-ramp into L2) */
-    function slotTagDefs(s) {
-      const k = (s.style || '').replace(/\s+/g, '').toLowerCase();
-      const defs = [];
-      if (k === 'pilatesfordancers' || k === 'dance&fit' || (k === 'yoga' && s.day === 'wed'))
-        defs.push({ cls: 'slot__dropin-tag', text: UI[lang].dropInTag });
-      if (k.indexOf('bachatasolo') === 0)
-        defs.push({ cls: 'slot__miniseries-tag', text: UI[lang].miniseriesTag });
-      if (k.indexOf('bhangra') === 0 || k.indexOf('indiansemi') === 0)
-        defs.push({ cls: 'slot__starter-tag', text: UI[lang].starterTag });
-      return defs;
-    }
-
-    function buildListForDay(daySlots, section, d) {
-      const list = document.createElement('div');
-      list.className = 'day-list';
-      daySlots.forEach(s => {
-        const a = document.createElement('a');
-        a.className = 'slot studio-' + s.studio;
-        a.href = s.href || styleHref(s.style);
-        a.setAttribute('aria-label',
-          s.style + ' ' + s.level + ' · ' + UI[lang].dl[d.code] + ' ' + s.time + ' · ' + s.studioName);
-
-        const timeEl = document.createElement('span');
-        timeEl.className = 'slot__time';
-        timeEl.textContent = s.time;
-
-        const mainEl = document.createElement('div');
-        mainEl.className = 'slot__main';
-
-        const titleEl = document.createElement('div');
-        titleEl.className = 'slot__title' + (s.isNew ? ' slot__title--new' : '');
-        titleEl.textContent = s.style + ' · ' + s.level;
-        // Slot tags (drop-in / miniseries / starter series) — shared with grid view.
-        slotTagDefs(s).forEach(function (def) {
-          const tag = document.createElement('span');
-          tag.className = def.cls;
-          tag.textContent = def.text;
-          titleEl.appendChild(tag);
-        });
-
-        const metaEl = document.createElement('div');
-        metaEl.className = 'slot__meta';
-        metaEl.textContent = s.teacher + ' · ' + s.studioName;
-
-        mainEl.appendChild(titleEl);
-        mainEl.appendChild(metaEl);
-
-        const studioEl = document.createElement('span');
-        studioEl.className = 'slot__studio';
-        studioEl.textContent = s.studioName;
-
-        a.appendChild(timeEl);
-        a.appendChild(mainEl);
-        a.appendChild(studioEl);
-        list.appendChild(a);
-
-        slotNodes.push({ el: a, slot: s, daySection: section });
-      });
-      return list;
-    }
-
-    /* Cluster a day's slots into time windows separated by quiet gaps.
-       If two consecutive slots are more than GAP_THRESHOLD_MIN apart the
-       day splits into separate sub-grids so the timetable doesn't render
-       a huge empty middle (e.g. Wed morning Pilates → Wed evening classes). */
-    const GAP_THRESHOLD_MIN = 90;
-    function clusterWindows(parsed) {
-      if (parsed.length === 0) return [];
-      const sorted = parsed.slice().sort((a, b) => a.startMin - b.startMin);
-      const windows = [];
-      let cur = { startMin: sorted[0].startMin, endMin: sorted[0].endMin, slots: [sorted[0]] };
-      for (let i = 1; i < sorted.length; i++) {
-        const s = sorted[i];
-        if (s.startMin - cur.endMin > GAP_THRESHOLD_MIN) {
-          windows.push(cur);
-          cur = { startMin: s.startMin, endMin: s.endMin, slots: [s] };
-        } else {
-          cur.endMin = Math.max(cur.endMin, s.endMin);
-          cur.slots.push(s);
-        }
-      }
-      windows.push(cur);
-      return windows;
-    }
-
-    /* ─── Grid view (timetable: time axis × studio columns) ────── */
-    function buildGridForDay(daySlots, section) {
-      const parsed = daySlots
-        .map(s => Object.assign({}, s, parseTimeRange(s.time)))
-        .filter(s => s.startMin !== null && s.endMin !== null);
-      if (parsed.length === 0) return document.createElement('div');
-
-      const wrap = document.createElement('div');
-      wrap.className = 'studio-grid-wrap';
-
-      const windows = clusterWindows(parsed);
-      windows.forEach((win, idx) => {
-        if (idx > 0) {
-          const sep = document.createElement('div');
-          sep.className = 'grid-gap-sep';
-          sep.setAttribute('aria-hidden', 'true');
-          wrap.appendChild(sep);
-        }
-        wrap.appendChild(buildGridForWindow(win, section));
-      });
-      return wrap;
-    }
-
-    function buildGridForWindow(win, section) {
-      const startHour = Math.floor(win.startMin / 60);
-      const endHour   = Math.ceil(win.endMin / 60);
-      const totalHeight = Math.max((endHour - startHour) * 60 * PX_PER_MIN, 80);
-
-      const grid = document.createElement('div');
-      grid.className = 'studio-grid';
-      grid.style.gridTemplateColumns = '50px repeat(' + STUDIOS.length + ', 1fr)';
-
-      // Header row: time placeholder + studio names
-      const timeH = document.createElement('div');
-      timeH.className = 'studio-header studio-header--time';
-      timeH.textContent = '';
-      grid.appendChild(timeH);
-      STUDIOS.forEach(st => {
-        const h = document.createElement('div');
-        h.className = 'studio-header studio-' + st.code;
-        h.textContent = st.name;
-        grid.appendChild(h);
-      });
-
-      // Time gutter (left column)
-      const gutter = document.createElement('div');
-      gutter.className = 'time-gutter';
-      gutter.style.height = totalHeight + 'px';
-      for (let h = startHour; h <= endHour; h++) {
-        const lbl = document.createElement('div');
-        lbl.className = 'time-label';
-        lbl.textContent = String(h).padStart(2, '0') + ':00';
-        lbl.style.top = ((h - startHour) * 60 * PX_PER_MIN) + 'px';
-        gutter.appendChild(lbl);
-      }
-      grid.appendChild(gutter);
-
-      // Studio columns
-      STUDIOS.forEach(st => {
-        const col = document.createElement('div');
-        col.className = 'studio-col';
-        col.style.height = totalHeight + 'px';
-
-        for (let h = startHour + 1; h < endHour; h++) {
-          const line = document.createElement('div');
-          line.className = 'hour-line';
-          line.style.top = ((h - startHour) * 60 * PX_PER_MIN) + 'px';
-          col.appendChild(line);
-        }
-
-        win.slots.filter(s => s.studio === st.code).forEach(s => {
-          const a = document.createElement('a');
-          a.className = 'studio-col__slot';
-          a.href = s.href || styleHref(s.style);
-          a.style.top    = ((s.startMin - startHour * 60) * PX_PER_MIN) + 'px';
-          a.style.height = ((s.endMin - s.startMin) * PX_PER_MIN - 2) + 'px';
-          a.setAttribute('aria-label',
-            s.style + ' ' + s.level + ' · ' + s.time + ' · ' + s.studioName);
-          a.innerHTML =
-            '<strong>' + s.style + ' · ' + s.level + '</strong>' +
-            slotTagDefs(s).map(function (def) {
-              return '<span class="' + def.cls + ' studio-col__tag">' + def.text + '</span>';
-            }).join('') +
-            '<span class="slot-time">' + s.time + '</span>' +
-            '<span class="slot-teacher">' + s.teacher + '</span>';
-          col.appendChild(a);
-
-          slotNodes.push({ el: a, slot: s, daySection: section });
-        });
-
-        grid.appendChild(col);
-      });
-
-      return grid;
-    }
-
-    /* ─── Apply filters (no rebuild — just toggles fade class) ───── */
-    function applyFilters() {
-      let totalMatching = 0;
-      const perDayMatching = {};
-
-      slotNodes.forEach(({ el, slot }) => {
-        const ok = matchesFilters(slot);
-        // Both views: toggle the appropriate faded class
-        el.classList.toggle('slot--faded', !ok);
-        el.classList.toggle('studio-col__slot--faded', !ok);
-        if (ok) {
-          el.removeAttribute('aria-hidden');
-          el.removeAttribute('tabindex');
-          totalMatching++;
-          perDayMatching[slot.day] = (perDayMatching[slot.day] || 0) + 1;
-        } else {
-          el.setAttribute('aria-hidden', 'true');
-          el.setAttribute('tabindex', '-1');
-        }
-      });
-
-      // Hide whole day sections that have zero matches; show otherwise
-      DAYS.forEach(d => {
-        const info = dayCountEls[d.code];
-        if (!info) return;
-        const matchCount = perDayMatching[d.code] || 0;
-        const sec = document.querySelector('.day-section[data-day="' + d.code + '"]');
-        if (sec) sec.style.display = matchCount === 0 ? 'none' : '';
-        info.el.textContent = hasFilters()
-          ? matchCount + ' / ' + info.totalCount
-          : UI[lang].dayClasses(info.totalCount);
-      });
-
-      // Result count
-      const total = SLOTS.length;
-      const countEl = document.getElementById('result-count');
-      countEl.textContent = hasFilters()
-        ? UI[lang].countFiltered(totalMatching, total)
-        : UI[lang].countAll(total);
-
-      // Active filter summary
-      const parts = [];
-      if (state.search) parts.push(UI[lang].searchLabel(state.search));
-      if (state.beginnerOnly) parts.push(UI[lang].beginnerLabel);
-      if (state.days.size > 0) {
-        const dayNames = [...state.days].map(d => UI[lang].dl[d]);
-        parts.push(UI[lang].daysLabel(dayNames));
-      }
-      const strip = document.getElementById('active-strip');
-      const textEl = document.getElementById('active-text');
-      if (parts.length > 0) {
-        strip.hidden = false;
-        textEl.innerHTML = UI[lang].activeSummary(parts);
-      } else {
-        strip.hidden = true;
-        textEl.innerHTML = '';
-      }
-    }
-
-    function hasFilters() {
-      return state.days.size > 0 || state.search !== '' || state.beginnerOnly;
-    }
-
-    function updateChipStates() {
-      DAYS.forEach(d => {
-        if (dayChipEls[d.code]) dayChipEls[d.code].setAttribute('aria-pressed', state.days.has(d.code) ? 'true' : 'false');
-      });
-      document.getElementById('chip-beginner').setAttribute('aria-pressed', state.beginnerOnly ? 'true' : 'false');
-      document.getElementById('search-wrap').classList.toggle('search--has-value', state.search !== '');
-      const input = document.getElementById('search-input');
-      if (input.value !== state.search) input.value = state.search;
-      document.getElementById('view-grid').setAttribute('aria-pressed', state.view === 'grid' ? 'true' : 'false');
-      document.getElementById('view-list').setAttribute('aria-pressed', state.view === 'list' ? 'true' : 'false');
-    }
-
-    /* Decide whether view should auto-switch based on filter density.
-       Skipped entirely once the user has manually picked a view (or the URL
-       has pinned one). Grid is sparse with few results; list is denser. */
-    function autoSwitchView() {
-      if (state.viewUserSet) return;
-      const matching = SLOTS.filter(matchesFilters).length;
-      const filtersActive = hasFilters();
-      if (filtersActive && matching > 0 && matching < AUTO_LIST_THRESHOLD && state.view === 'grid') {
-        state.view = 'list';
-      } else if (!filtersActive && state.view === 'list') {
-        state.view = 'grid';
-      }
-    }
-
-    function applyAll() {
-      const prevView = state.view;
-      autoSwitchView();
-      if (state.view !== prevView) buildSchedule();
-      updateChipStates();
-      applyFilters();
-      writeUrl();
-    }
-
-    /* ─── Language ─────────────────────────────────────────────── */
-    function applyStaticLang() {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const val = UI[lang][key];
-        if (val !== undefined && typeof val !== 'function') el.innerHTML = val;
-      });
-      document.getElementById('search-input').setAttribute('placeholder', UI[lang]['search-placeholder']);
-      document.documentElement.lang = lang;
-      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-    }
-
-    function setLang(l) {
-      lang = l;
-      localStorage.setItem('shoonya-lang', l);
-      applyStaticLang();
-      buildDayChips();
-      buildSchedule();
-      applyAll();
-    }
-
-    /* ─── Init ─────────────────────────────────────────────────── */
-    readUrl();
-    applyStaticLang();
+  function applyChrome() {
+    const t = UI[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (t[k] != null) el.innerHTML = t[k];
+    });
+    $('#q').setAttribute('placeholder', t['search-ph']);
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     buildDayChips();
-    autoSwitchView();   // adjust view BEFORE first render if URL filters already narrow
-    buildSchedule();
-    applyAll();
+    // Auto-rolling free-trial week (overrides the static i18n value)
+    const tl = trialLabel(lang);
+    const ht = document.querySelector('.hero__trial'); if (ht) ht.textContent = t['trial-prefix'] + tl;
+    const ft = document.querySelector('.footer__trial a'); if (ft) ft.textContent = t['ftrial-prefix'] + tl + ' →';
+    renderOpenHouse();
+  }
 
-    // Search input
-    document.getElementById('search-input').addEventListener('input', e => {
-      state.search = e.target.value.trim();
-      applyAll();
-    });
-    document.getElementById('search-clear').addEventListener('click', () => {
-      state.search = '';
-      document.getElementById('search-input').value = '';
-      document.getElementById('search-input').focus();
-      applyAll();
-    });
-    document.getElementById('chip-beginner').addEventListener('click', () => {
-      state.beginnerOnly = !state.beginnerOnly;
-      applyAll();
-    });
-    document.getElementById('clear-all').addEventListener('click', () => {
-      state.days.clear();
-      state.search = '';
-      state.beginnerOnly = false;
-      document.getElementById('search-input').value = '';
-      applyAll();
-    });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => setLang(btn.dataset.lang));
-    });
+  function buildDayChips() {
+    const t = UI[lang];
+    $('#daychips').innerHTML = DAYS.map(d =>
+      `<button class="chip${d===todayCode?' chip--today':''}" data-day="${d}" aria-pressed="${activeDays.has(d)}">${t.d[d]}${d===todayCode?`<span class="sr-only"> (${t.today})</span>`:''}</button>`
+    ).join('');
+    $('#daychips').querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+      const d = b.dataset.day;
+      if (activeDays.has(d)) activeDays.delete(d); else activeDays.add(d);
+      b.setAttribute('aria-pressed', activeDays.has(d));
+      render();
+    }));
+  }
 
+  function match(s) {
+    if (beginner && !isBeginner(s.level)) return false;
+    if (!query) return true;
+    const hay = (s.style+' '+s.teacher+' '+s.level+' '+s.studioName+' '+UI[lang].dl[s.day]+' '+UI.en.dl[s.day]).toLowerCase();
+    return query.toLowerCase().split(/\s+/).every(tok => hay.includes(tok));
+  }
 
-    // View toggle (Grid / List) — manual click locks the choice, auto-switch off for this session
-    document.querySelectorAll('.view-toggle__btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (state.view === btn.dataset.view) return;
-        state.view = btn.dataset.view;
-        state.viewUserSet = true;
-        buildSchedule();
-        applyAll();
+  /* Slot tags — style-keyed (drop-in / miniseries / starter series), shared by list + grid.
+     Mirrors the live page so tags survive even if the data flags change.
+       · drop-in   → Pilates / Dance & Fit / Wednesday Yoga
+       · miniseries→ Bachata Solo Style
+       · starter   → Bhangra + Indian Semi-Classical (4-wk on-ramp into L2) */
+  function slotTagDefs(s) {
+    const k = (s.style || '').replace(/\s+/g, '').toLowerCase();
+    const t = UI[lang], defs = [];
+    if (k === 'pilatesfordancers' || k === 'dance&fit' || (k === 'yoga' && s.day === 'wed'))
+      defs.push({ cls: 'tag--drop', text: t.tagDrop });
+    if (k.indexOf('bachatasolo') === 0)
+      defs.push({ cls: 'tag--mini', text: t.tagMini, title: t.tagMiniTip });
+    if (k.indexOf('bhangra') === 0 || k.indexOf('indiansemi') === 0)
+      defs.push({ cls: 'tag--starter', text: t.tagStarter, title: t.tagStarterTip });
+    return defs;
+  }
+
+  /* ── List view (editorial) ───────────────────────────── */
+  function buildList(d) {
+    const t = UI[lang];
+    const slots = SLOTS.filter(s => s.day === d).sort((a,b) => a.time.localeCompare(b.time));
+    const vis = slots.filter(match);
+    const rows = slots.map(s => {
+      const faded = vis.includes(s) ? '' : ' row--faded';
+      let tags = '';
+      if (s.isNew) tags += `<span class="tag tag--new">${t.tagNew}</span>`;
+      slotTagDefs(s).forEach(d => { tags += `<span class="tag ${d.cls}"${d.title ? ` title="${d.title}"` : ''}>${d.text}</span>`; });
+      const [start, end] = s.time.split('–');
+      return `<a class="row${faded}" style="--rowmk:var(--st-${s.studio})" href="${s.href || styleHref(s.style)}" target="_blank" rel="noopener">
+        <span class="row__time">${start}<small>${end}</small></span>
+        <span class="row__main">
+          <span class="row__title">${esc(s.style)}${tags}<span class="ar">${t.ar}</span></span>
+          <span class="row__meta">${esc(s.level)} · ${esc(s.teacher)}</span>
+        </span>
+        <span class="row__studio">${(s.slotDates && s.slotDates.length) ? `<span class="ics-btn" role="button" tabindex="0" data-i="${SLOTS.indexOf(s)}" aria-label="Add to calendar (${s.slotDates.length} sessions)" title="Add to calendar · ${s.slotDates.length} sessions">${ICS_ICON}</span>` : ''}<span>${esc(s.studioName)}</span></span>
+      </a>`;
+    }).join('');
+    const collapsed = d === todayCode ? '' : ' collapsed';
+    return `<section class="day${collapsed}">
+      <div class="day__head">
+        <h2 class="day__name">${t.dl[d]}</h2>
+        <span class="day__count">${t.dCount(vis.length)}</span>
+        <span class="day__rule"></span>
+        <span class="day__chev" aria-hidden="true">▾</span>
+      </div>
+      <div class="rows">${rows || `<p class="day-empty">${t.none}</p>`}</div>
+    </section>`;
+  }
+
+  /* ── Grid view (time × studio timetable, with gap compression) ─ */
+  function buildGrid(d) {
+    const t = UI[lang];
+    const slots = SLOTS.filter(s => s.day === d).sort((a,b) => a.time.localeCompare(b.time));
+    const P = slots.map(s => { const [a,b] = s.time.split('–'); return { s, a, b, sMin: toMin(a), eMin: toMin(b) }; });
+
+    // merge intervals → segments with y-offsets, big empty gaps compressed
+    const PX = 1.8, GAP = 30;
+    const iv = P.map(p => [p.sMin, p.eMin]).sort((x,y) => x[0]-y[0]);
+    const merged = [];
+    iv.forEach(([a,b]) => { const last = merged[merged.length-1]; if (last && a <= last[1] + 1) last[1] = Math.max(last[1], b); else merged.push([a,b]); });
+    let y = 0; const segs = [];
+    merged.forEach((m,i) => { segs.push({ start:m[0], end:m[1], y }); y += (m[1]-m[0])*PX; if (i < merged.length-1) y += GAP; });
+    const H = y;
+    const mapY = min => { for (const sg of segs) if (min >= sg.start && min <= sg.end) return sg.y + (min - sg.start)*PX; let best = segs[0]; for (const sg of segs) if (sg.start <= min) best = sg; return best.y + (min - best.start)*PX; };
+
+    const visSet = new Set(slots.filter(match));
+    const heads = STUD.map(c => `<div class="tt__shead"><span class="dot" style="background:var(--st-${c})"></span>${STUD_NAME[c]}</div>`).join('');
+    const cols = STUD.map(c => {
+      const cards = P.filter(p => p.s.studio === c).map(p => {
+        const top = mapY(p.sMin), h = Math.max(mapY(p.eMin) - top - 5, 50);
+        const faded = visSet.has(p.s) ? '' : ' tt__slot--faded';
+        let tg = '';
+        if (p.s.isNew) tg += `<span class="tag tag--new">${t.tagNew}</span>`;
+        slotTagDefs(p.s).forEach(d => { tg += `<span class="tag ${d.cls}"${d.title ? ` title="${d.title}"` : ''}>${d.text}</span>`; });
+        const tagsLine = tg ? `<span class="tt__tags">${tg}</span>` : '';
+        const cal = (p.s.slotDates && p.s.slotDates.length) ? `<span class="ics-btn ics-btn--grid" role="button" tabindex="0" data-i="${SLOTS.indexOf(p.s)}" aria-label="Add to calendar (${p.s.slotDates.length} sessions)" title="Add to calendar · ${p.s.slotDates.length} sessions">${ICS_ICON}</span>` : '';
+        return `<a class="tt__slot${faded}" style="top:${top}px;height:${h}px;--mk:var(--st-${c})" href="${p.s.href || styleHref(p.s.style)}" target="_blank" rel="noopener">
+          ${cal}<span class="tm">${p.a}–${p.b}</span><b>${esc(p.s.style)}</b><span class="tc">${esc(p.s.level)} · ${esc(p.s.teacher)}</span>${tagsLine}</a>`;
+      }).join('');
+      return `<div class="tt__col">${cards}</div>`;
+    }).join('');
+
+    let marks = '';
+    segs.forEach(sg => { for (let h = Math.ceil(sg.start/60); h <= Math.floor(sg.end/60); h++) { const yy = mapY(h*60); marks += `<div class="tt__hr" style="top:${yy}px"></div><div class="tt__tlabel" style="top:${yy}px">${String(h).padStart(2,'0')}:00</div>`; } });
+    let breaks = '';
+    for (let i = 0; i < segs.length-1; i++) { const yy = segs[i].y + (segs[i].end - segs[i].start)*PX + GAP/2; breaks += `<div class="tt__brk" style="top:${yy}px"><span>⋯</span></div>`; }
+
+    return `<section class="gday">
+      <div class="day__head"><h2 class="day__name">${t.dl[d]}</h2><span class="day__count">${t.dCount(visSet.size)}</span><span class="day__rule"></span></div>
+      <div class="tt__heads">${heads}</div>
+      <div class="tt" style="height:${H}px">${marks}${breaks}<div class="tt__cols" style="height:${H}px">${cols}</div></div>
+    </section>`;
+  }
+
+  function render() {
+    const t = UI[lang];
+    const days = activeDays.size ? DAYS.filter(d => activeDays.has(d)) : DAYS;
+    const total = SLOTS.length;
+    const shown = SLOTS.filter(s => (!activeDays.size || activeDays.has(s.day)) && match(s)).length;
+    $('#body').innerHTML =
+      `<div class="view-grid">${days.map(buildGrid).join('')}</div>` +
+      `<div class="view-list">${days.map(buildList).join('')}</div>`;
+    $('#count').textContent = (beginner || query || activeDays.size) ? t.cFil(shown, total) : t.cAll(total);
+    document.querySelectorAll('.view-list .day__head').forEach(h =>
+      h.addEventListener('click', () => h.parentElement.classList.toggle('collapsed')));
+
+    // Active-filter summary + clear all
+    const parts = [];
+    if (beginner) parts.push(t['chip-beg']);
+    if (activeDays.size) parts.push(DAYS.filter(d => activeDays.has(d)).map(d => t.dl[d]).join(', '));
+    if (query) parts.push('“' + query + '”');
+    const strip = $('#active-strip');
+    if (parts.length) { $('#active-text').textContent = parts.join(' · '); strip.hidden = false; }
+    else strip.hidden = true;
+    writeHash();
+  }
+
+  /* Reveal-on-scroll */
+  let io;
+  function observeReveals() {
+    if (!io) io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+  }
+
+  /* ── Shareable / bookmarkable filter state in the URL hash (no visible UI) ── */
+  function writeHash() {
+    try {
+      const p = new URLSearchParams();
+      if (view !== 'grid') p.set('view', view);
+      if (beginner) p.set('beginner', '1');
+      if (activeDays.size) p.set('days', DAYS.filter(d => activeDays.has(d)).join(','));
+      if (query) p.set('q', query);
+      const s = p.toString();
+      history.replaceState(null, '', s ? ('#' + s) : (location.pathname + location.search));
+    } catch (_) { /* file:// may block replaceState — harmless */ }
+  }
+  function restoreFromHash() {
+    const p = new URLSearchParams(location.hash.slice(1));
+    view = p.get('view') === 'list' ? 'list' : 'grid';
+    beginner = p.get('beginner') === '1';
+    query = p.get('q') || '';
+    activeDays = new Set((p.get('days') || '').split(',').filter(d => DAYS.includes(d)));
+  }
+  function syncControls() {
+    $('#q').value = query;
+    $('#beg').setAttribute('aria-pressed', beginner);
+    document.body.dataset.view = view;
+    document.querySelectorAll('.view-toggle button').forEach(x => x.setAttribute('aria-pressed', x.dataset.view === view));
+  }
+
+  /* Wire up */
+  $('#q').addEventListener('input', e => { query = e.target.value.trim(); render(); });
+  $('#beg').addEventListener('click', () => { beginner = !beginner; $('#beg').setAttribute('aria-pressed', beginner); render(); });
+  $('#clear-all').addEventListener('click', () => {
+    beginner = false; $('#beg').setAttribute('aria-pressed', false);
+    activeDays.clear(); query = ''; $('#q').value = '';
+    buildDayChips(); render();
+  });
+  // Add-to-calendar (delegated; survives re-renders). The icon sits inside the row <a>,
+  // so preventDefault stops the row from navigating to the style page.
+  $('#body').addEventListener('click', e => {
+    const b = e.target.closest('.ics-btn'); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    const s = SLOTS[+b.dataset.i]; if (s && s.slotDates) downloadICS(s);
+  });
+  $('#body').addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const b = e.target.closest('.ics-btn'); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    const s = SLOTS[+b.dataset.i]; if (s && s.slotDates) downloadICS(s);
+  });
+  document.querySelectorAll('.view-toggle button').forEach(b => b.addEventListener('click', () => {
+    view = b.dataset.view; document.body.dataset.view = view;
+    document.querySelectorAll('.view-toggle button').forEach(x => x.setAttribute('aria-pressed', x.dataset.view === view));
+    writeHash();
+  }));
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => {
+    lang = b.dataset.lang; localStorage.setItem('shoonya-lang', lang); applyChrome(); render();
+  }));
+  const nav = $('#nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+  restoreFromHash();
+  applyChrome();      // builds day chips reflecting any restored day filter + i18n
+  syncControls();     // search value, Beginner state, view toggle + body[data-view]
+  render();
+  observeReveals();
+  addEventListener('hashchange', () => { restoreFromHash(); applyChrome(); syncControls(); render(); });
+
+  /* ── Live sync — replace the hardcoded snapshot with the published Master Schedule ── */
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwh9PSrNxMUkBaMayhyfnU3XDzL76khEm7RL932CJ83qqm7dTG9afA-WB1cZYKSrcs3/exec';
+  (async function syncLive() {
+    try {
+      const res = await fetch(APPS_SCRIPT_URL + '?action=publicSchedule&semester=' + encodeURIComponent('Semester 1 — 2026/2027'));
+      if (!res.ok) return;
+      const json = await res.json();
+      if (!json.ok || !Array.isArray(json.slots) || !json.slots.length) return;
+      const hhmm = s => { const m = String(s).match(/(\d{2}:\d{2}):\d{2}/); return m ? m[1] : s; };
+      const live = json.slots.map(s => {
+        const o = { day:s.day, time:hhmm(s.start)+'–'+hhmm(s.end), style:s.style, level:s.level, teacher:s.teacher, studio:s.studio, studioName:s.studioName };
+        if (s.isNew || NEW_KEYS.has(s.style + '|' + s.day)) o.isNew = true;
+        if (s.href) o.href = s.href;
+        if (Array.isArray(s.slotDates) && s.slotDates.length) o.slotDates = s.slotDates;
+        return o;
       });
-    });
+      const known = new Set(DAYS);
+      if (live.filter(s => known.has(s.day)).length < SLOTS_FALLBACK.length * 0.5) return;  // guard: keep snapshot if feed looks thin
+      const sig = a => a.length + '|' + a.map(s => s.day+s.time+s.style+s.level).join(',');
+      if (sig(live) === sig(SLOTS_FALLBACK)) return;  // identical — no re-render
+      const prev = SLOTS;
+      try { SLOTS = live; render(); } catch (_) { SLOTS = prev; render(); }  // roll back on render error
+    } catch (_) { /* offline / CORS — silent fallback to snapshot */ }
+  })();
 
-    // Resize listener — if viewport crosses the 720px threshold the effective
-    // view changes (mobile is forced to list). Re-render only when crossing.
-    let lastNarrow = isNarrow();
-    window.addEventListener('resize', () => {
-      const nowNarrow = isNarrow();
-      if (nowNarrow !== lastNarrow) {
-        lastNarrow = nowNarrow;
-        buildSchedule();
-        applyFilters();
-      }
-    });
-
-    /* ─── Live sync — replace fallback with Master Schedule fetch ─── */
-    (async function syncLive() {
-      try {
-        const url = APPS_SCRIPT_URL + '?action=publicSchedule&semester=' +
-                    encodeURIComponent('Semester 1 — 2026/2027');
-        const res  = await fetch(url);
-        if (!res.ok) return;
-        const json = await res.json();
-        if (!json.ok || !Array.isArray(json.slots) || json.slots.length === 0) return;
-
-        // API returns full Date strings like "Sat Dec 30 1899 19:00:00 GMT+0000 (...)"
-        // Extract just HH:MM to match fallback format "19:00–20:00"
-        const hhmm = str => { const m = String(str).match(/(\d{2}:\d{2}):\d{2}/); return m ? m[1] : str; };
-
-        const live = json.slots.map(s => {
-          const obj = {
-            day:        s.day,
-            time:       hhmm(s.start) + '–' + hhmm(s.end),
-            style:      s.style,
-            level:      s.level,
-            teacher:    s.teacher,
-            studio:     s.studio,
-            studioName: s.studioName,
-            duration:   s.duration,
-            category:   s.category
-          };
-          if (s.slotDates && s.slotDates.length) obj.slotDates = s.slotDates;
-          if (s.coTeachers && s.coTeachers.length) obj.coTeachers = s.coTeachers;
-          if (s.dropIn) obj.dropIn = true;
-          if (s.isNew)  obj.isNew  = true;
-          if (s.href)   obj.href   = s.href;
-          return obj;
-        });
-
-        // Skip if identical to fallback
-        const sig = arr => arr.length + '|' + arr.map(s => s.day + s.time + s.style + s.level).join(',');
-        if (sig(live) === sig(SLOTS_FALLBACK)) return;
-
-        // Guard: live data must have at least as many slots as fallback, and
-        // must contain slots for known days — otherwise keep fallback visible.
-        const knownDays = new Set(DAYS.map(d => d.code));
-        const renderable = live.filter(s => knownDays.has(s.day));
-        if (renderable.length < SLOTS_FALLBACK.length * 0.5) return;
-
-        const prev = SLOTS;
-        try {
-          SLOTS = live;
-          buildSchedule();
-          applyFilters();
-        } catch (_) {
-          SLOTS = prev;  // roll back on any render error
-          buildSchedule();
-          applyFilters();
-        }
-      } catch (_) { /* silent fallback */ }
-    })();
-
-    /* ─── postMessage height reporting for Squarespace iframe ─── */
-    function reportHeight() {
-      const h = document.documentElement.scrollHeight;
-      if (window.parent && window.parent !== window) {
-        window.parent.postMessage({ type: 'shoonya:height', height: h }, '*');
-      }
-    }
-    window.addEventListener('load', reportHeight);
-    window.addEventListener('resize', reportHeight);
-    if (typeof ResizeObserver !== 'undefined') {
-      new ResizeObserver(reportHeight).observe(document.body);
-    }
+  /* ── Height reporting for Squarespace iframe embedding ── */
+  function reportHeight() {
+    if (window.parent && window.parent !== window)
+      window.parent.postMessage({ type: 'shoonya:height', height: document.documentElement.scrollHeight }, '*');
+  }
+  addEventListener('load', reportHeight);
+  addEventListener('resize', reportHeight);
+  addEventListener('resize', renderOpenHouse, { passive: true });
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(reportHeight).observe(document.body);
   </script>
 </body>
 </html>
