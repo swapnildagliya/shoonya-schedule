@@ -1839,13 +1839,13 @@
   $('#body').addEventListener('click', e => {
     const b = e.target.closest('.ics-btn'); if (!b) return;
     e.preventDefault(); e.stopPropagation();
-    const s = SLOTS[+b.dataset.i]; if (s && s.slotDates) downloadICS(s);
+    const s = SLOTS[+b.dataset.i]; if (s) downloadICS(s);
   });
   $('#body').addEventListener('keydown', e => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
     const b = e.target.closest('.ics-btn'); if (!b) return;
     e.preventDefault(); e.stopPropagation();
-    const s = SLOTS[+b.dataset.i]; if (s && s.slotDates) downloadICS(s);
+    const s = SLOTS[+b.dataset.i]; if (s) downloadICS(s);
   });
   document.querySelectorAll('.view-toggle button').forEach(b => b.addEventListener('click', () => {
     view = b.dataset.view; document.body.dataset.view = view;
