@@ -149,8 +149,22 @@
       margin: 0 auto 1.25rem;
       line-height: 1.65;
     }
-    .hero__year {
+    .hero__cta {
       display: inline-block;
+      background: var(--purple);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .8rem 1.75rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      transition: opacity .15s, transform .15s;
+    }
+    .hero__cta:hover { opacity: .9; transform: translateY(-1px); }
+    .hero__year {
+      display: block;
       font-size: .72rem;
       font-weight: 700;
       letter-spacing: .16em;
@@ -376,7 +390,7 @@
     .closing {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 0 1.5rem 5rem;
+      padding: 3rem 1.5rem 5rem;   /* top gap = white separation between the yellow timeline and the black CTA band */
     }
     .closing__band {
       background: #000;
@@ -486,7 +500,7 @@
       .hero { padding: 3rem 1rem 2.75rem; }
       .timeline-wrap { padding: 2.75rem 1rem 2rem; }
       .cards-wrap { padding: 3rem 1rem 3rem; }
-      .closing { padding: 0 1rem 4rem; }
+      .closing { padding: 2.25rem 1rem 4rem; }
       .closing__band { padding: 2.5rem 1.25rem; }
       .card { padding: 14px 16px; gap: 10px; }
       .card__title { font-size: 1.05rem; }
@@ -558,28 +572,11 @@
     <div class="hero__pill" data-i18n="hero-pill">The dance year</div>
     <h1 data-i18n="hero-h1">What dance classes does Shoonya offer <em>this school year?</em></h1>
     <p class="hero__sub" data-i18n="hero-sub">Two semesters, an open house, and a free trial week. Pick where to land.</p>
+    <a class="hero__cta" href="/schedule-sep-2026" data-i18n="hero-cta">browse the september schedule →</a>
     <span class="hero__year" data-cfg="schoolYearWide">2026 — 2027</span>
   </header>
 
-  <!-- Timeline -->
-  <section class="timeline-wrap" id="timeline-section" aria-label="School year timeline">
-    <div class="timeline-header">
-      <div class="timeline-header__kicker" data-i18n="tl-kicker">Your year ahead</div>
-      <h2 data-i18n="tl-h2">When are the key <em>dates and deadlines</em> this school year?</h2>
-      <p class="timeline-header__sub" data-i18n="tl-sub">Where you are now, and what's next.</p>
-    </div>
-
-    <div class="timeline" id="timeline" aria-hidden="false">
-      <div class="timeline__rail">
-        <div class="timeline__rail-fill" id="rail-fill" style="width: 0%;"></div>
-      </div>
-      <div class="timeline__nodes" id="timeline-nodes">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Two compact semester cards -->
+  <!-- Two compact semester cards — above the timeline so the schedule is reachable fast (esp. mobile) -->
   <section class="cards-wrap" aria-label="Semesters">
     <p class="cards-wrap__label" data-i18n="cards-label">Pick your semester</p>
 
@@ -600,6 +597,24 @@
       </div>
       <span class="card__arrow" aria-hidden="true">→</span>
     </a>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline-wrap" id="timeline-section" aria-label="School year timeline">
+    <div class="timeline-header">
+      <div class="timeline-header__kicker" data-i18n="tl-kicker">Your year ahead</div>
+      <h2 data-i18n="tl-h2">When are the key <em>dates and deadlines</em> this school year?</h2>
+      <p class="timeline-header__sub" data-i18n="tl-sub">Where you are now, and what's next.</p>
+    </div>
+
+    <div class="timeline" id="timeline" aria-hidden="false">
+      <div class="timeline__rail">
+        <div class="timeline__rail-fill" id="rail-fill" style="width: 0%;"></div>
+      </div>
+      <div class="timeline__nodes" id="timeline-nodes">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
   </section>
 
   <!-- Closing CTA -->
@@ -735,6 +750,7 @@
         'hero-pill':      'The dance year',
         'hero-h1':        'What dance classes does Shoonya offer <em>this school year?</em>',
         'hero-sub':       'Two semesters, an open house, and a free trial week. Pick where to land.',
+        'hero-cta':       'browse the september schedule →',
         'cards-label':    'Pick your semester',
         'tl-kicker':      'Your year ahead',
         'tl-h2':          'When are the key <em>dates and deadlines</em> this school year?',
@@ -786,6 +802,7 @@
         'hero-pill':      'Het dansjaar',
         'hero-h1':        'Welke dansklassen biedt Shoonya aan <em>dit schooljaar?</em>',
         'hero-sub':       'Twee semesters, een open deurdag, en een gratis proefweek. Kies waar je begint.',
+        'hero-cta':       'bekijk het septemberrooster →',
         'cards-label':    'Kies je semester',
         'tl-kicker':      'Het jaar in beeld',
         'tl-h2':          'Wanneer zijn de <em>belangrijke data</em> dit schooljaar?',
@@ -963,6 +980,7 @@
       const springCard = document.getElementById('card-spring');
       const springMeta = document.getElementById('spring-meta');
       springCard.classList.remove('card--past'); // reset on lang toggle
+      springCard.style.display = ''; // reset on lang toggle
 
       if (today < springStart) {
         // Pre-spring (unlikely once spring 2026 begins, but covers historical view)
@@ -981,9 +999,8 @@
         // Classes done, the June open house is still ahead
         springMeta.textContent = strings['spring-meta-ended-pre-oh'];
       } else {
-        // Spring fully wrapped
-        springCard.classList.add('card--past');
-        springMeta.textContent = strings['spring-meta-ended'];
+        // Spring fully wrapped — hide entirely; only the upcoming semester is useful now.
+        springCard.style.display = 'none';
       }
 
       // ─── Sep card ──────────────────────────────────────────────────

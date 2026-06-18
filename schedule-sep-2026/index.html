@@ -263,20 +263,35 @@
     .row__studio { display: flex; align-items: center; gap: .5rem; justify-self: end; white-space: nowrap; }
     .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .row__studio span { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-    .ics-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; color: var(--muted-soft); cursor: pointer; border-radius: var(--radius); flex-shrink: 0; transition: color .15s, background .15s, opacity .15s; }
+    /* Grid-view: small visible icon (space-constrained card); always shown, no hover-gating. */
+    .ics-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; color: var(--muted-soft); cursor: pointer; border-radius: var(--radius); flex-shrink: 0; transition: color .15s, background .15s; }
     .ics-btn:hover, .ics-btn:focus-visible { color: var(--purple); background: #F3EAFE; }
     .ics-btn svg { width: 15px; height: 15px; }
-    .ics-btn--grid { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; background: rgba(255,255,255,.9); border: 1px solid var(--line); }
+    .ics-btn--grid { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; background: rgba(255,255,255,.92); border: 1px solid var(--line); color: var(--muted); }
     .ics-btn--grid svg { width: 13px; height: 13px; }
-    @media (hover: hover) { .ics-btn { opacity: 0; } .row:hover .ics-btn, .tt__slot:hover .ics-btn, .ics-btn:focus-visible { opacity: 1; } }
+
+    /* List-view: visible pill button — always shown, won't be confused with row tap target. */
+    .ics-cal {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .42rem .7rem; min-height: 32px;
+      font-family: 'PT Serif', serif; font-size: .72rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--muted); background: var(--surface);
+      border: 1px solid var(--line); border-radius: 99px;
+      cursor: pointer; white-space: nowrap; flex-shrink: 0;
+      transition: color .15s, background .15s, border-color .15s;
+    }
+    .ics-cal:hover, .ics-cal:focus-visible { color: var(--purple-deep); background: #F3EAFE; border-color: var(--purple); }
+    .ics-cal svg { width: 13px; height: 13px; }
     .day-empty { font-size: .92rem; color: var(--muted-soft); font-style: italic; padding: 1rem .4rem; }
 
     @media (max-width: 600px){
       .sched { padding: 3rem 1.25rem 1.5rem; }
       .row { grid-template-columns: 78px 1fr; gap: .9rem; padding: 1rem .2rem; }
-      .row__studio { grid-column: 2; justify-self: start; margin-top: .35rem; }
+      .row__studio { grid-column: 2; justify-self: start; margin-top: .35rem; flex-wrap: wrap; }
       .row__title { font-size: 1.18rem; }
       .row:hover { padding-left: .2rem; }
+      .ics-cal { padding: .38rem .6rem; font-size: .68rem; }
     }
 
     /* ── View toggle ────────────────────────────────────── */
@@ -1501,7 +1516,8 @@
       'close-sub':'Tap any class to jump to its style page — pricing, teacher, registration, all in one place.',
       'close-cta':'Browse all 24 styles →','f-home':'Home','f-styles':'All styles','f-new':'New here?','f-contact':'Contact','f-spring':'Spring 2026','f-schoolyear':'School year','f-addr':'Stapelplein 41 · 9000 Ghent','f-trial':'✦ New here? Free trial week · Sep 14–19, 2026 →','skip':'Skip to schedule',
       ar:'→', cAll:n=>n+(n===1?' class':' classes'), cFil:(n,t)=>n+' of '+t, none:'No classes match',
-      dCount:n=>n===1?'1 class':n+' classes', tagNew:'New', tagMini:'Miniseries', tagDrop:'3 / 5-session pass', tagStarter:'+ Starter series', tagStarterTip:'First 4 weeks of the weekly class — a beginner on-ramp into Level 2.', tagMiniTip:'A short, time-bound series of a few weeks.', clearAll:'Clear all', today:'Today'
+      dCount:n=>n===1?'1 class':n+' classes', tagNew:'New', tagMini:'Miniseries', tagDrop:'3 / 5-session pass', tagStarter:'+ Starter series', tagStarterTip:'First 4 weeks of the weekly class — a beginner on-ramp into Level 2.', tagMiniTip:'A short, time-bound series of a few weeks.', clearAll:'Clear all', today:'Today',
+      icsLabel:n=>'Add to calendar · '+n+(n===1?' session':' sessions'), icsShort:'+ Calendar'
     },
     nl: {
       d:{mon:'Ma',tue:'Di',wed:'Wo',thu:'Do',fri:'Vr',sat:'Za'},
@@ -1517,7 +1533,8 @@
       'close-sub':'Klik op een les voor de stijlpagina — prijzen, leraar, inschrijving, alles op één plek.',
       'close-cta':'Bekijk alle 24 stijlen →','f-home':'Home','f-styles':'Alle stijlen','f-new':'Nieuw hier?','f-contact':'Contact','f-spring':'Lente 2026','f-schoolyear':'Schooljaar','f-addr':'Stapelplein 41 · 9000 Gent','f-trial':'✦ Nieuw hier? Gratis proefweek · 14–19 sep 2026 →','skip':'Naar het rooster',
       ar:'→', cAll:n=>n+(n===1?' les':' lessen'), cFil:(n,t)=>n+' van '+t, none:'Geen lessen passen',
-      dCount:n=>n===1?'1 les':n+' lessen', tagNew:'Nieuw', tagMini:'Minireeks', tagDrop:'3- of 5-beurtenkaart', tagStarter:'+ Starterreeks', tagStarterTip:'Eerste 4 weken van de wekelijkse les — instap voor beginners naar niveau 2.', tagMiniTip:'Een korte reeks van enkele weken.', clearAll:'Alles wissen', today:'Vandaag'
+      dCount:n=>n===1?'1 les':n+' lessen', tagNew:'Nieuw', tagMini:'Minireeks', tagDrop:'3- of 5-beurtenkaart', tagStarter:'+ Starterreeks', tagStarterTip:'Eerste 4 weken van de wekelijkse les — instap voor beginners naar niveau 2.', tagMiniTip:'Een korte reeks van enkele weken.', clearAll:'Alles wissen', today:'Vandaag',
+      icsLabel:n=>'Toevoegen aan agenda · '+n+(n===1?' sessie':' sessies'), icsShort:'+ Agenda'
     }
   };
 
@@ -1567,26 +1584,36 @@
     const [start, end] = s.time.split('–');
     const dt = (d, hm) => d.replace(/-/g,'') + 'T' + hm.replace(':','') + '00';
     const e2 = v => String(v).replace(/([,;\\])/g, '\\$1').replace(/\n/g, '\\n');
-    const uid = (s.style+'-'+s.day+'-'+s.studio+'-'+start).toLowerCase().replace(/[^a-z0-9]+/g,'-') + '@schedule.shoonyadance.com';
+    const baseSlug = (s.style+'-'+s.day+'-'+s.studio+'-'+start).toLowerCase().replace(/[^a-z0-9]+/g,'-');
     const stamp = new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+    const summary  = e2(s.style + ' · Shoonya');
+    const location = e2(s.studioName + ' · Shoonya Dance Centre, Stapelplein 41, 9000 Gent');
+    const descr    = e2(s.level + ' · with ' + s.teacher + '. Class times only — book your spot via ' + (s.href || styleHref(s.style)));
     const L = [
       'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shoonya Dance Centre//Schedule//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH',
       'BEGIN:VTIMEZONE','TZID:Europe/Brussels',
       'BEGIN:DAYLIGHT','TZOFFSETFROM:+0100','TZOFFSETTO:+0200','TZNAME:CEST','DTSTART:19700329T020000','RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU','END:DAYLIGHT',
       'BEGIN:STANDARD','TZOFFSETFROM:+0200','TZOFFSETTO:+0100','TZNAME:CET','DTSTART:19701025T030000','RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU','END:STANDARD',
-      'END:VTIMEZONE',
-      'BEGIN:VEVENT',
-      'UID:' + uid,
-      'DTSTAMP:' + stamp,
-      'DTSTART;TZID=Europe/Brussels:' + dt(dates[0], start),
-      'DTEND;TZID=Europe/Brussels:' + dt(dates[0], end),
-      dates.length > 1 ? ('RDATE;TZID=Europe/Brussels:' + dates.slice(1).map(d => dt(d, start)).join(',')) : null,
-      'SUMMARY:' + e2(s.style + ' · Shoonya'),
-      'LOCATION:' + e2(s.studioName + ' · Shoonya Dance Centre, Stapelplein 41, 9000 Gent'),
-      'DESCRIPTION:' + e2(s.level + ' · with ' + s.teacher + '. Class times only — book your spot via ' + (s.href || styleHref(s.style))),
-      'END:VEVENT','END:VCALENDAR'
-    ].filter(Boolean).map(foldLine);
-    const blob = new Blob([L.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+      'END:VTIMEZONE'
+    ];
+    // One VEVENT per session — universally compatible (Apple/Google/Outlook one-shot import all
+    // expand this correctly; DTSTART+RDATE silently drops occurrences in several apps).
+    dates.forEach((d, i) => {
+      L.push(
+        'BEGIN:VEVENT',
+        'UID:' + baseSlug + '-' + d.replace(/-/g,'') + '@schedule.shoonyadance.com',
+        'DTSTAMP:' + stamp,
+        'DTSTART;TZID=Europe/Brussels:' + dt(d, start),
+        'DTEND;TZID=Europe/Brussels:' + dt(d, end),
+        'SUMMARY:' + summary,
+        'LOCATION:' + location,
+        'DESCRIPTION:' + descr,
+        'END:VEVENT'
+      );
+    });
+    L.push('END:VCALENDAR');
+    const folded = L.map(foldLine);
+    const blob = new Blob([folded.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = (s.style + '-shoonya').toLowerCase().replace(/[^a-z0-9]+/g,'-') + '.ics';
@@ -1701,13 +1728,15 @@
       if (s.isNew) tags += `<span class="tag tag--new">${t.tagNew}</span>`;
       slotTagDefs(s).forEach(d => { tags += `<span class="tag ${d.cls}"${d.title ? ` title="${d.title}"` : ''}>${d.text}</span>`; });
       const [start, end] = s.time.split('–');
+      const calLabel = t.icsLabel(sd.length);
+      const calBtn = sd.length ? `<span class="ics-cal" role="button" tabindex="0" data-i="${SLOTS.indexOf(s)}" aria-label="${calLabel}" title="${calLabel}">${ICS_ICON}<span>${t.icsShort}</span></span>` : '';
       return `<a class="row${faded}" style="--rowmk:var(--st-${s.studio})" href="${s.href || styleHref(s.style)}" target="_blank" rel="noopener">
         <span class="row__time">${start}<small>${end}</small></span>
         <span class="row__main">
           <span class="row__title">${esc(s.style)}${tags}<span class="ar">${t.ar}</span></span>
           <span class="row__meta">${esc(s.level)} · ${esc(s.teacher)}</span>
         </span>
-        <span class="row__studio">${sd.length ? `<span class="ics-btn" role="button" tabindex="0" data-i="${SLOTS.indexOf(s)}" aria-label="Add to calendar (${sd.length} sessions)" title="Add to calendar · ${sd.length} sessions">${ICS_ICON}</span>` : ''}<span>${esc(s.studioName)}</span></span>
+        <span class="row__studio">${calBtn}<span>${esc(s.studioName)}</span></span>
       </a>`;
     }).join('');
     const collapsed = d === todayCode ? '' : ' collapsed';
@@ -1837,13 +1866,13 @@
   // Add-to-calendar (delegated; survives re-renders). The icon sits inside the row <a>,
   // so preventDefault stops the row from navigating to the style page.
   $('#body').addEventListener('click', e => {
-    const b = e.target.closest('.ics-btn'); if (!b) return;
+    const b = e.target.closest('.ics-btn, .ics-cal'); if (!b) return;
     e.preventDefault(); e.stopPropagation();
     const s = SLOTS[+b.dataset.i]; if (s) downloadICS(s);
   });
   $('#body').addEventListener('keydown', e => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
-    const b = e.target.closest('.ics-btn'); if (!b) return;
+    const b = e.target.closest('.ics-btn, .ics-cal'); if (!b) return;
     e.preventDefault(); e.stopPropagation();
     const s = SLOTS[+b.dataset.i]; if (s) downloadICS(s);
   });
