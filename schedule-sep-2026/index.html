@@ -1640,7 +1640,9 @@
   // Past dates pruned — the banner picks the first entry >= today, so stale ones are
   // inert, but leaving them makes the array read as if June were still upcoming.
   const OPEN_HOUSES = [
-    { date:'2026-09-13', time:'10:00–17:00', url:'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-13-september' },
+    // programme:true only once the full timetable is actually published on the event
+    // page — otherwise the link promises a programme that is not there yet.
+    { date:'2026-09-13', time:'10:00–17:00', programme:false, url:'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-13-september' },
     { date:'2027-01-31', url:'https://www.shoonyadance.com/calendar' },
     { date:'2027-06-13', url:'https://www.shoonyadance.com/calendar' }
   ];
@@ -1656,7 +1658,9 @@
     const dateStr = wd + ' ' + m[2] + ' ' + TW_MONTHS[lang][m[1]-1];
     const title = lang==='nl' ? 'Opendeurdag' : 'Open House';
     const free  = lang==='nl' ? 'Gratis · geen inschrijving' : 'Free · no booking needed';
-    const prog  = lang==='nl' ? 'Volledig programma →' : 'Full programme →';
+    const prog  = o.programme
+      ? (lang==='nl' ? 'Volledig programma →' : 'Full programme →')
+      : (lang==='nl' ? 'Meer info →'          : 'More info →');
     el.innerHTML = `<span><b>✦</b> ${title} · ${dateStr}${o.time ? ' · ' + o.time : ''} · ${free}</span>` + (o.url ? ` <a href="${o.url}" target="_blank" rel="noopener">${prog}</a>` : '');
     el.hidden = false;
     document.body.style.setProperty('--banner-h', el.offsetHeight + 'px');
