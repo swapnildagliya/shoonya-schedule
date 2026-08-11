@@ -339,6 +339,13 @@
       transition: opacity .15s;
     }
     .card:last-child { margin-bottom: 0; }
+    /* The spring card is hidden by default and revealed by applyDateBasedVisibility()
+       only while the spring semester is still relevant. It used to ship visible and
+       get hidden after the script ran, which flashed an ended semester on every load
+       — and left it permanently visible if the script never ran. Hidden-by-default is
+       the safe failure mode: worst case a visitor misses a card that is out of date
+       anyway. Do not give #card-spring a display value here. */
+    #card-spring { display: none; }
     .card:hover { opacity: .88; }
     .card:hover .card__arrow { transform: translateX(4px); }
 
@@ -801,7 +808,7 @@
       nl: {
         'hero-pill':      'Het dansjaar',
         'hero-h1':        'Welke dansklassen biedt Shoonya aan <em>dit schooljaar?</em>',
-        'hero-sub':       'Twee semesters, een open deurdag, en een gratis proefweek. Kies waar je begint.',
+        'hero-sub':       'Twee semesters, een Opendeurdag, en een gratis proefweek. Kies waar je begint.',
         'hero-cta':       'bekijk het septemberrooster →',
         'cards-label':    'Kies je semester',
         'tl-kicker':      'Het jaar in beeld',
@@ -813,7 +820,7 @@
         'snav-styles':         'Alle stijlen',
         'now-label':           'Je bent hier',
         'spring-end-label':    'Lentesemester eindigt',
-        'open-house-label':    'Open Deurdag',
+        'open-house-label':    'Opendeurdag',
         'trial-week-label':    'Gratis proefweek',
         'sem-1-end-label':     'Sem 1 eindigt',
         'school-year-end-label':'Schooljaar eindigt',
@@ -821,13 +828,13 @@
         'spring-chip':         'Lente',
         'spring-title':        'Lente 2026',
         'spring-meta':         'loopt tot 13 juni · sem 2 van 2025-2026',
-        'spring-meta-ended-pre-oh': 'lente afgelopen · Open Deurdag 14 juni',
+        'spring-meta-ended-pre-oh': 'lente afgelopen · Opendeurdag 14 juni',
         'spring-meta-ended':   'afgesloten — tot september',
         'spring-meta-sessions': function(n) { return n === 1 ? '1 sessie te gaan · laatste week' : (n + ' sessies te gaan · laatste weken'); },
         'sep-chip':            'Sep',
         'sep-title':           'Sep 2026 → Jan 2027',
         'sep-meta':            'inschrijvingen open · ' + (_c.styles || 24) + ' stijlen · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
-        'sep-meta-oh-today':   'Open Deurdag vandaag · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
+        'sep-meta-oh-today':   'Opendeurdag vandaag · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
         'sep-meta-trial':      'proefweek bezig · probeer elke les gratis',
         'sep-meta-running':    'schooljaar bezig · live rooster',
         'closing-kicker': 'Volgende op het podium',
@@ -882,9 +889,12 @@
         // Sem 1 milestones → the Sep schedule. Sem 2 milestones → the spring schedule.
         if (m.id === 'trial-week-1' || m.id === 'sem-1-end') el.href = './schedule-sep-2026.html';
         else if (m.id === 'trial-week-2' || m.id === 'school-year-end') el.href = './schedule-spring-2026.html';
+        // June 14 is past, so that node renders as a div and never takes an href.
+        // The September Opendeurdag points at its own calendar event, not the
+        // generic /try-a-class page.
         else if (m.type === 'open-house') el.href = m.id === 'open-house-1'
           ? 'https://www.shoonyadance.com/calendar/movement-without-borders-open-door-day-june-14th-'
-          : 'https://www.shoonyadance.com/try-a-class';
+          : 'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-13-september';
         else if (m.id === 'spring-end')   el.href = './schedule-spring-2026.html';
       }
 
@@ -980,7 +990,9 @@
       const springCard = document.getElementById('card-spring');
       const springMeta = document.getElementById('spring-meta');
       springCard.classList.remove('card--past'); // reset on lang toggle
-      springCard.style.display = ''; // reset on lang toggle
+      // Hidden by default in CSS. Decide here, then apply once at the end — so the
+      // card is only ever painted when it has actually earned its place.
+      let showSpring = true;
 
       if (today < springStart) {
         // Pre-spring (unlikely once spring 2026 begins, but covers historical view)
@@ -999,9 +1011,11 @@
         // Classes done, the June open house is still ahead
         springMeta.textContent = strings['spring-meta-ended-pre-oh'];
       } else {
-        // Spring fully wrapped — hide entirely; only the upcoming semester is useful now.
-        springCard.style.display = 'none';
+        // Spring fully wrapped — stay hidden; only the upcoming semester is useful now.
+        showSpring = false;
       }
+
+      springCard.style.display = showSpring ? 'flex' : 'none';
 
       // ─── Sep card ──────────────────────────────────────────────────
       const sepMeta = document.getElementById('sep-meta');

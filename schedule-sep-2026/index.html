@@ -1637,9 +1637,10 @@
   }
 
   /* ── Open-house banner — auto-rolls to the next open house; shows ≤35 days before, hides otherwise ── */
+  // Past dates pruned — the banner picks the first entry >= today, so stale ones are
+  // inert, but leaving them makes the array read as if June were still upcoming.
   const OPEN_HOUSES = [
-    { date:'2026-06-14', time:'10:00–17:00', url:'https://www.shoonyadance.com/calendar/movement-without-borders-open-door-day-june-14th-' },
-    { date:'2026-09-13', url:'https://www.shoonyadance.com/calendar' },
+    { date:'2026-09-13', time:'10:00–17:00', url:'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-13-september' },
     { date:'2027-01-31', url:'https://www.shoonyadance.com/calendar' },
     { date:'2027-06-13', url:'https://www.shoonyadance.com/calendar' }
   ];
@@ -1653,7 +1654,7 @@
     const m = o.date.split('-').map(Number);
     const wd = WD[lang][new Date(o.date+'T00:00:00Z').getUTCDay()];
     const dateStr = wd + ' ' + m[2] + ' ' + TW_MONTHS[lang][m[1]-1];
-    const title = lang==='nl' ? 'Open Deurdag' : 'Open House';
+    const title = lang==='nl' ? 'Opendeurdag' : 'Open House';
     const free  = lang==='nl' ? 'Gratis · geen inschrijving' : 'Free · no booking needed';
     const prog  = lang==='nl' ? 'Volledig programma →' : 'Full programme →';
     el.innerHTML = `<span><b>✦</b> ${title} · ${dateStr}${o.time ? ' · ' + o.time : ''} · ${free}</span>` + (o.url ? ` <a href="${o.url}" target="_blank" rel="noopener">${prog}</a>` : '');
