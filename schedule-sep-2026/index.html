@@ -262,7 +262,8 @@
     /* Late starters — a class that does NOT begin with the rest of the term. */
     .tag--from { border: 1px solid var(--purple-deep); color: var(--purple-deep); font-weight: 800; }
     .tt__tags { display: block; margin-top: 5px; line-height: 1.8; }
-    .tt__slot .tag { font-size: .52rem; margin: 0 4px 0 0; padding: 1px 5px; }
+    .tt__slot .tt__tags { line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: clip; }
+    .tt__slot .tag { font-size: .46rem; margin: 0 3px 0 0; padding: 1px 4px; }
     .row__studio { display: flex; align-items: center; gap: .5rem; justify-self: end; white-space: nowrap; }
     .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
     .row__studio span { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
@@ -322,7 +323,7 @@
     .tt__brk { position:absolute; left:48px; right:0; display:flex; align-items:center; color:var(--muted-soft); font-size:.7rem; transform:translateY(-50%); }
     .tt__brk::before, .tt__brk::after { content:''; flex:1; height:1px; background:repeating-linear-gradient(to right,var(--line) 0 5px,transparent 5px 10px); }
     .tt__brk span { padding:0 .6rem; }
-    .tt__slot { position:absolute; left:3px; right:3px; display:flex; flex-direction:column; justify-content:center; background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--mk,var(--purple)); border-radius:var(--radius); padding:8px 11px; overflow:hidden; color:inherit; transition:box-shadow .15s; }
+    .tt__slot { position:absolute; left:3px; right:3px; display:flex; flex-direction:column; justify-content:flex-start; background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--mk,var(--purple)); border-radius:var(--radius); padding:8px 11px; overflow:hidden; color:inherit; transition:box-shadow .15s; }
     .tt__slot:hover { z-index:5; box-shadow:0 6px 18px rgba(0,0,0,.12); }
     .tt__slot--faded { opacity:.16; pointer-events:none; }
     .tt__slot .tm { display:block; font-family:'Marcellus',serif; font-size:.74rem; color:var(--muted); }
