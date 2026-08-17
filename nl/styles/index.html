@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- This page handles EN/NL via in-page JS toggle. External translation tools (Weglot, Google Translate) should skip it. -->
+<meta name="google" content="notranslate">
+<meta name="weglot-translate" content="no">
+<title>All Dance Styles — Shoonya Dance Centre Ghent</title>
+<meta name="description" content="Explore all dance styles at Shoonya Dance Centre in Ghent: Ballet, Flamenco, Cuban Salsa, Bachata, Tango, Bollywood, Tap Dance, Kathak, Burlesque, Kizomba, and more.">
+<meta name="robots" content="noindex, nofollow" />
+<!-- STAGING: remove via `node _build/build-styles-hub.mjs --publish` at cutover -->
+<link rel="alternate" hreflang="en" href="https://schedule.shoonyadance.com/styles/" />
+<link rel="alternate" hreflang="nl" href="https://schedule.shoonyadance.com/nl/styles/" />
+<link rel="alternate" hreflang="x-default" href="https://schedule.shoonyadance.com/styles/" />
+<link rel="canonical" href="https://schedule.shoonyadance.com/nl/styles/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Shoonya Dance Centre" />
+<meta property="og:url" content="https://schedule.shoonyadance.com/nl/styles/" />
+<meta property="og:title" content="All Dance Styles — Shoonya Dance Centre Ghent" />
+<meta property="og:description" content="Explore all dance styles at Shoonya Dance Centre in Ghent: Ballet, Flamenco, Cuban Salsa, Bachata, Tango, Bollywood, Tap Dance, Kathak, Burlesque, Kizomba, and more." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@shoonyadance" />
+<meta name="twitter:title" content="All Dance Styles — Shoonya Dance Centre Ghent" />
+<meta name="twitter:description" content="Explore all dance styles at Shoonya Dance Centre in Ghent: Ballet, Flamenco, Cuban Salsa, Bachata, Tango, Bollywood, Tap Dance, Kathak, Burlesque, Kizomba, and more." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:           #000000;
+    --muted:         #5a5a5a;
+    --purple:        #B564F7;
+    --purple-deep:   #7E4FBF;
+    --purple-soft:   #F5ECFF;
+    --yellow:        #FBC70F;
+    --yellow-soft:   #FDF1B8;
+    --golden:        #FFCF5A;
+    --yellow-ink:    #6B4F00;
+    --salmon:        #F9D9C9;
+    --salmon-deep:   #C04A1F;
+    --salmon-ink:    #8A2F0E;
+    --border:        #e4e0db;
+    --bg:            #ffffff;
+    --hero-bg:       #000000;
+    --radius:        0px;
+    --radius-sm:     0px;
+    --new-badge:     #ff6b4a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Skip-to-content (visible only on keyboard focus) */
+  .skip-link {
+    position: absolute; top: 0; left: 0;
+    transform: translateY(-100%);
+    background: var(--ink); color: #fff;
+    padding: .75rem 1.25rem;
+    font-weight: 700; font-size: .85rem; letter-spacing: .04em;
+    text-decoration: none;
+    z-index: 200;
+    border-radius: 0 0 6px 0;
+    transition: transform .15s;
+    font-family: 'PT Serif', serif;
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+    outline: 2px solid var(--purple);
+    outline-offset: -2px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'PT Serif', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Site nav ──────────────────────────────────────────────── */
+  .site-nav {
+    position: sticky; top: 0; z-index: 200;
+    display: flex; align-items: center;
+    padding: 0 1.5rem; height: 52px;
+    background: #fff; border-bottom: 1px solid var(--border);
+  }
+  .site-nav__brand {
+    font-family: 'Marcellus', serif; font-size: .85rem;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none; margin-right: auto;
+  }
+  .site-nav__links {
+    display: flex; align-items: center; gap: 1.5rem; margin-right: 1.5rem;
+  }
+  .site-nav__links a {
+    font-size: .75rem; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    transition: color .15s; white-space: nowrap;
+  }
+  .site-nav__links a:hover, .site-nav__links a.active { color: var(--ink); }
+  .lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 99px; overflow: hidden; }
+  .lang-btn {
+    padding: .65rem 1rem; font-size: .72rem; font-weight: 700;
+    letter-spacing: .06em; border: none; background: none;
+    cursor: pointer; color: var(--muted); font-family: 'PT Serif', serif;
+  }
+  .lang-btn.active { background: #000; color: #fff; border-radius: 99px; }
+  @media (max-width: 540px) { .site-nav__links { display: none; } }
+
+  /* ── Breadcrumb ───────────────────────────────────────────────── */
+  .breadcrumb {
+    padding: 1rem 1.5rem;
+    font-size: .82rem;
+    color: var(--muted);
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--ink); }
+  .breadcrumb span { margin: 0 .4rem; }
+
+  /* ── Hero ─────────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('./images/alex-lenka.jpg') center top/cover no-repeat;
+    color: #fff;
+    padding: 4rem 1.5rem 3.5rem;
+    text-align: center;
+  }
+  .hero-label {
+    display: inline-block;
+    background: var(--purple);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .3rem 1rem;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Marcellus', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: .75rem;
+  }
+  .hero p {
+    font-size: 1rem;
+    color: rgba(255,255,255,.72);
+    max-width: 580px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.65;
+  }
+  .hero-trial {
+    display: inline-block;
+    background: var(--yellow);
+    color: #1a1200;
+    font-size: .82rem;
+    font-weight: 700;
+    padding: .45rem 1.1rem;
+    border-radius: 99px;
+  }
+
+  /* ── Category nav strip ───────────────────────────────────────── */
+  .cat-nav {
+    background: #fafafa;
+    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .cat-nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cat-nav-inner::-webkit-scrollbar { display: none; }
+  .cat-nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: .85rem 1.2rem;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color .15s, border-color .15s;
+    cursor: pointer;
+  }
+  .cat-nav-link:hover,
+  .cat-nav-link:focus-visible { color: var(--ink); border-color: rgba(181,100,247,.35); }
+  .cat-nav-link.is-active     { color: var(--ink); border-color: var(--purple); }
+
+  /* ── Tab filter (hide non-active bands) ───────────────────────── */
+  body[data-filter="partner"]   #classical,
+  body[data-filter="partner"]   #culture,
+  body[data-filter="classical"] #partner,
+  body[data-filter="classical"] #culture,
+  body[data-filter="culture"]   #partner,
+  body[data-filter="culture"]   #classical { display: none; }
+
+  /* ── Category band (full-bleed) ───────────────────────────────── */
+  .cat-band { padding: 3.5rem 1.5rem 3.75rem; scroll-margin-top: 72px; }
+  .cat-photo {
+    display: block;
+    width: calc(100% + 3rem);
+    height: 220px;
+    object-fit: cover;
+    margin: -3.5rem -1.5rem 2.5rem;
+    border-radius: 0;
+  }
+  .cat-photo-wrap {
+    display: block;
+    position: relative;
+    width: calc(100% + 3rem);
+    height: 220px;
+    margin: -3.5rem -1.5rem 2.5rem;
+    overflow: hidden;
+  }
+  .cat-photo-wrap .cat-photo {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .cat-credit {
+    position: absolute;
+    bottom: .4rem;
+    right: .6rem;
+    font-size: .6rem;
+    letter-spacing: .04em;
+    color: rgba(255,255,255,0.72);
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    pointer-events: none;
+  }
+  .cat-partner   { background: var(--purple-soft); }
+  .cat-classical { background: var(--salmon); }
+  .cat-culture   { background: var(--golden); }
+
+  .cat-inner { max-width: 1080px; margin: 0 auto; }
+
+  .cat-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: .6rem 1rem; margin-bottom: 1.5rem; text-align: center; }
+  .cat-pill {
+    display: inline-block;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .3rem .9rem;
+    border-radius: 99px;
+    flex-shrink: 0;
+  }
+  .cat-partner   .cat-pill { background: var(--purple);      color: #fff; }
+  .cat-classical .cat-pill { background: var(--salmon-deep); color: #fff; }
+  .cat-culture   .cat-pill { background: #000000;            color: var(--yellow); }
+
+  .cat-header h2 {
+    font-family: 'Marcellus', serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.15;
+    flex: 1 1 auto;
+  }
+  .cat-partner   .cat-header h2 { color: #2a1845; }
+  .cat-classical .cat-header h2 { color: #4a1808; }
+  .cat-culture   .cat-header h2 { color: #1a1200; }
+
+  .cat-header a.cat-browse {
+    font-size: .82rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: .02em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cat-partner   .cat-browse { color: var(--purple-deep); }
+  .cat-classical .cat-browse { color: var(--salmon-ink);  }
+  .cat-culture   .cat-browse { color: var(--yellow-ink);  }
+  .cat-header a.cat-browse:hover { text-decoration: underline; }
+
+  .cat-sub {
+    flex: 1 1 100%;
+    font-size: .92rem;
+    max-width: 720px;
+    line-height: 1.55;
+    margin-top: -.1rem;
+  }
+  .cat-partner   .cat-sub { color: #4a3868; }
+  .cat-classical .cat-sub { color: #6a2818; }
+  .cat-culture   .cat-sub { color: #3a2a00; }
+
+  /* ── Editorial strip rows ─────────────────────────────────────── */
+  .strip-list {
+    background: rgba(255,255,255,.65);
+    border-radius: var(--radius);
+    overflow: hidden;
+    backdrop-filter: blur(2px);
+  }
+  .strip {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 22px;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    transition: background .15s, padding-left .15s;
+  }
+  .strip:last-child { border-bottom: none; }
+  .strip:hover,
+  .strip:focus-visible {
+    background: rgba(255,255,255,.95);
+    padding-left: 26px;
+    outline: none;
+  }
+  .strip:hover .strip-arrow,
+  .strip:focus-visible .strip-arrow { transform: translateX(4px); }
+
+  .strip-day {
+    flex: 0 0 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Marcellus', serif;
+    font-size: 17px;
+    line-height: 1;
+  }
+  /* Multi-day badges carry 2–3 day abbreviations ("M/Th", "M/W/Th"), which
+     overflow the 48px circle at the single-letter size. Step them down. */
+  .strip-day.is-multi  { font-size: 12px; letter-spacing: -.02em; }
+  .strip-day.is-multi3 { font-size: 10px; letter-spacing: -.03em; }
+  .cat-partner   .strip-day { background: var(--purple);      color: #fff; }
+  .cat-classical .strip-day { background: var(--salmon-deep); color: #fff; }
+  .cat-culture   .strip-day { background: #000000;            color: var(--yellow); }
+
+  .strip-body { flex: 1 1 auto; min-width: 0; }
+  .strip-body h3 {
+    font-family: 'Marcellus', serif;
+    font-weight: 400;
+    font-size: 1.18rem;
+    line-height: 1.2;
+    margin-bottom: 3px;
+    color: var(--ink);
+  }
+  .strip-meta {
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .strip-meta + .strip-meta { margin-top: .12rem; }
+  .cat-partner   .strip-meta { color: var(--purple-deep); }
+  .cat-classical .strip-meta { color: var(--salmon-ink);  }
+  .cat-culture   .strip-meta { color: var(--yellow-ink);  }
+
+  .strip-arrow {
+    flex: 0 0 auto;
+    font-size: 1.2rem;
+    transition: transform .15s;
+  }
+  .cat-partner   .strip-arrow { color: var(--purple-deep); }
+  .cat-classical .strip-arrow { color: var(--salmon-ink);  }
+  .cat-culture   .strip-arrow { color: var(--yellow-ink);  }
+
+  /* ── Badges ───────────────────────────────────────────────────── */
+  .badge {
+    display: inline-block;
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: .15rem .5rem;
+    border-radius: 3px;
+    margin-left: .5rem;
+    vertical-align: 2px;
+  }
+  .badge-new  { background: var(--new-badge); color: #fff; }
+  .badge-mini { background: #fff; color: var(--purple); border: 1px solid var(--purple); }
+  .badge-starter { background: var(--purple); color: #fff; }
+
+  /* ── Footer CTA band ──────────────────────────────────────────── */
+  .footer-wrap { max-width: 1180px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+  .footer-band {
+    background: #000;
+    color: #fff;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    border-radius: var(--radius);
+  }
+  .footer-band h2 {
+    font-family: 'Marcellus', serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    margin-bottom: .75rem;
+  }
+  .footer-band p {
+    font-size: .95rem;
+    color: rgba(255,255,255,.72);
+    max-width: 520px;
+    margin: 0 auto 1.75rem;
+    line-height: 1.6;
+  }
+  .footer-btns { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+  .footer-band .btn {
+    display: inline-block;
+    background: var(--purple);
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .75rem 1.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity .15s;
+  }
+  .footer-band .btn:hover { opacity: .88; }
+  .footer-band .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .75rem 1.5rem;
+    border: 1.5px solid rgba(255,255,255,.4);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border-color .15s;
+  }
+  .footer-band .btn-outline:hover { border-color: #fff; }
+
+  /* ── Responsive ───────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .cat-band  { padding: 2.5rem 1rem 2.75rem; }
+    .strip     { padding: 14px 16px; gap: 12px; }
+    .strip-day { flex: 0 0 42px; height: 42px; font-size: 15px; }
+    .strip-day.is-multi  { font-size: 11px; }
+    .strip-day.is-multi3 { font-size: 9px; }
+    .strip-body h3 { font-size: 1.05rem; }
+    .strip-meta    { font-size: .72rem; }
+    .footer-wrap   { padding: 3rem 1rem 4rem; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "name": "Dance Styles at Shoonya Dance Centre Ghent",
+      "description": "All 25 dance styles taught at Shoonya Dance Centre in Ghent, Belgium — from Argentine Tango and Ballet to Bollywood, Bhangra, and Burlesque.",
+      "numberOfItems": 25,
+      "url": "https://schedule.shoonyadance.com/styles/",
+      "itemListElement": [
+        {
+          "@type": "ListItem", "position": 1,
+          "item": { "@type": "Course", "name": "Argentine Tango", "description": "Partner dance focusing on improvised connection, lead-follow technique, and musicality. Taught on Thursdays at Levels 1 and 2.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/partner-social/" }
+        },
+        {
+          "@type": "ListItem", "position": 2,
+          "item": { "@type": "Course", "name": "Bachata", "description": "Sensual Dominican partner dance with close embrace, body waves, and footwork patterns. Levels 1, 2 and 3 on Tuesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/partner-social/" }
+        },
+        {
+          "@type": "ListItem", "position": 3,
+          "item": { "@type": "Course", "name": "Bachata Solo Style", "description": "Solo Bachata technique and styling — footwork, isolations, and musicality without a partner. Miniseries format on Thursdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/partner-social/" }
+        },
+        {
+          "@type": "ListItem", "position": 4,
+          "item": { "@type": "Course", "name": "Cuban Salsa", "description": "Circular Cuban Salsa (Casino) with turns, body movement, and partner connection. Levels 1–4 on Mondays and Thursdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/partner-social/" }
+        },
+        {
+          "@type": "ListItem", "position": 5,
+          "item": { "@type": "Course", "name": "Kizomba", "description": "Slow, connected Angolan partner dance with smooth weight transfers and melodic music. Levels 1, 2, and 3 on Wednesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/partner-social/" }
+        },
+        {
+          "@type": "ListItem", "position": 6,
+          "item": { "@type": "Course", "name": "Lindy Hop", "description": "Authentic swing partner dance from the Harlem Renaissance — playful, musical, improvised. Levels 1 and 2 on Wednesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/partner-social/" }
+        },
+        {
+          "@type": "ListItem", "position": 7,
+          "item": { "@type": "Course", "name": "Rueda de Casino", "description": "Group Cuban Salsa in a circle with a caller — community dance combining Casino technique and coordinated formations. Levels 1 and 2 on Thursdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/partner-social/" }
+        },
+        {
+          "@type": "ListItem", "position": 8,
+          "item": { "@type": "Course", "name": "Ballet", "description": "Classical ballet technique building strength, alignment, and artistry from the ground up. Levels 1, 2, and 3 on Fridays, plus an Int/Adv morning class on Mondays and Thursdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/classical-technique/" }
+        },
+        {
+          "@type": "ListItem", "position": 9,
+          "item": { "@type": "Course", "name": "Contemporary dance", "description": "Morning contemporary training for professional and semi-professional dancers, Mondays and Thursdays with Tono Ferriol. Sold as flexible class passes.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "en", "url": "https://schedule.shoonyadance.com/styles/classical-technique/" }
+        },
+        {
+          "@type": "ListItem", "position": 10,
+          "item": { "@type": "Course", "name": "Flamenco", "description": "Spanish art form combining footwork (zapateado), arm styling (braceo), and expressive upper body. Levels 1, 2, and 3 on Tuesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/classical-technique/" }
+        },
+        {
+          "@type": "ListItem", "position": 11,
+          "item": { "@type": "Course", "name": "Indian Dance Technique", "description": "Foundational technique class drawing on classical Indian dance vocabulary — posture, isolations, mudras, and rhythm. Open level on Tuesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/classical-technique/" }
+        },
+        {
+          "@type": "ListItem", "position": 12,
+          "item": { "@type": "Course", "name": "Indian Semi-Classical (Kathak)", "description": "North Indian classical dance (Kathak-inspired) blending intricate footwork, storytelling, and expressive mime. Level 2 on Wednesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/classical-technique/" }
+        },
+        {
+          "@type": "ListItem", "position": 13,
+          "item": { "@type": "Course", "name": "Oriental Flow", "description": "New at Shoonya — fluid contemporary Oriental dance technique for body awareness and expressive movement. Level 1 on Saturdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/classical-technique/" }
+        },
+        {
+          "@type": "ListItem", "position": 14,
+          "item": { "@type": "Course", "name": "Solo Jazz", "description": "American vernacular jazz dance with syncopated footwork, personality, and swing-era authenticity. Open level on Wednesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/classical-technique/" }
+        },
+        {
+          "@type": "ListItem", "position": 15,
+          "item": { "@type": "Course", "name": "Tap Dance", "description": "Percussive dance using metal-tipped shoes to create rhythm. Multiple levels (L1–L6) taught Monday through Thursday by three teachers.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/classical-technique/" }
+        },
+        {
+          "@type": "ListItem", "position": 16,
+          "item": { "@type": "Course", "name": "African Congolese Dance", "description": "Energetic traditional Congolese dance forms rooted in West African rhythm and community expression. Open level on Saturdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 17,
+          "item": { "@type": "Course", "name": "Bhangra", "description": "Vibrant Punjabi folk dance known for its high energy, big arm movements, and celebratory spirit. Level 2 on Wednesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 18,
+          "item": { "@type": "Course", "name": "Bollyfolk", "description": "Bollywood-meets-folk fusion — high-energy choreography blending Bollywood moves with Indian folk dance styles. Open level and Level 2 on Tuesdays and Wednesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 19,
+          "item": { "@type": "Course", "name": "Bollywood", "description": "High-energy Indian film dance combining classical vocabulary, folk styles, and contemporary flair. Levels 2 and 3 on Thursdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 20,
+          "item": { "@type": "Course", "name": "Burlesque", "description": "Empowering cabaret performance art blending theatrical presence, burlesque history, and body confidence. Levels 1 and 2 on Mondays and Tuesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 21,
+          "item": { "@type": "Course", "name": "Cissy Ball", "description": "Ballroom-inspired community dance celebrating the Cissy Ball culture — expressive, inclusive, and joyful. Open level on Mondays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 22,
+          "item": { "@type": "Course", "name": "Dance & Fit", "description": "New at Shoonya — dance-based fitness class combining movement and conditioning for all levels. Open level on Wednesday mornings. Drop-in welcome.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 23,
+          "item": { "@type": "Course", "name": "Pilates for Dancers", "description": "New at Shoonya — Pilates adapted for dancers to build core strength, flexibility, and body awareness. Open level on Tuesdays and Wednesday mornings. Drop-in welcome.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 24,
+          "item": { "@type": "Course", "name": "Raqs Sharqi (Belly Dance)", "description": "Egyptian-rooted belly dance tradition combining fluid isolations, musicality, and expressive arms. Levels 1, 2, and 3 on Mondays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        },
+        {
+          "@type": "ListItem", "position": 25,
+          "item": { "@type": "Course", "name": "Yoga", "description": "Movement and breathwork class supporting dancers' flexibility, recovery, and mindfulness. Open level on Tuesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://schedule.shoonyadance.com/styles/culture-wellness/" }
+        }
+      ]
+    },
+    {
+      "@type": "DanceSchool",
+      "@id": "https://www.shoonyadance.com/#organization",
+      "name": "Shoonya Dance Centre",
+      "url": "https://www.shoonyadance.com",
+      "logo": "https://www.shoonyadance.com/assets/shoonya-logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Stapelplein 41",
+        "addressLocality": "Ghent",
+        "postalCode": "9000",
+        "addressCountry": "BE"
+      },
+      "telephone": "+3293953379",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "url": "https://www.shoonyadance.com/contact"
+      },
+      "sameAs": [
+        "https://www.instagram.com/shoonyadance",
+        "https://www.facebook.com/shoonyadance"
+      ],
+      "isPartOf": { "@type": "WebSite", "url": "https://www.shoonyadance.com" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Skip to content (accessibility — visible only on keyboard focus) -->
+<a href="#main-content" class="skip-link" data-i18n="skip_link">Naar inhoud</a>
+
+<header class="site-nav">
+  <a class="site-nav__brand" href="https://www.shoonyadance.com">Shoonya</a>
+  <nav class="site-nav__links" aria-label="Site navigation">
+    <a href="https://schedule.shoonyadance.com/" data-i18n="snav-schedule">Rooster</a>
+    <a href="https://info.shoonyadance.com/" data-i18n="snav-new">Nieuw hier?</a>
+    <a href="https://schedule.shoonyadance.com/nl/styles/" class="active" data-i18n="snav-styles">Alle stijlen</a>
+  </nav>
+  <div class="lang-toggle" role="group" aria-label="Language">
+    <a class="lang-btn" href="https://schedule.shoonyadance.com/styles/" hreflang="en">EN</a>
+    <a class="lang-btn active" href="https://schedule.shoonyadance.com/nl/styles/" hreflang="nl">NL</a>
+  </div>
+</header>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="https://shoonyadance.com" data-i18n="bc_home">Home</a>
+  <span aria-hidden="true">›</span>
+  <span data-i18n="bc_current">Alle dansstijlen</span>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="main-content" tabindex="-1">
+  <div class="hero-label" data-i18n="hero_label">Danscentrum · Gent</div>
+  <h1 data-i18n="hero_h1">Alle dansstijlen bij Shoonya</h1>
+  <p data-i18n="hero_p">Meer dan 40 wekelijkse lessen in drie families. Blader per familie hieronder — elke stijl linkt naar de volledige pagina met prijzen, data en leraars.</p>
+  <span class="hero-trial" data-i18n="hero_trial">✦ Free trial week: Sep 14–19, 2026</span>
+</header>
+
+<!-- Category nav (filter tabs) -->
+<nav class="cat-nav" id="all" aria-label="Filter by category">
+  <div class="cat-nav-inner">
+    <a class="cat-nav-link" href="#all"       data-filter="all"       data-i18n="nav_all">Alle stijlen</a>
+    <a class="cat-nav-link" href="#partner"   data-filter="partner"   data-i18n="nav_partner">Partner &amp; Sociaal</a>
+    <a class="cat-nav-link" href="#classical" data-filter="classical" data-i18n="nav_classical">Klassiek &amp; Techniek</a>
+    <a class="cat-nav-link" href="#culture"   data-filter="culture"   data-i18n="nav_culture">Cultuur &amp; Wellness</a>
+    <a class="cat-nav-link" href="https://schedule.shoonyadance.com/" data-i18n="nav_schoolyear">Schooljaar →</a>
+  </div>
+</nav>
+
+<!-- ───────── PARTNER & SOCIAL (soft purple band) ───────── -->
+<section class="cat-band cat-partner" id="partner">
+  <img class="cat-photo" src="../../images/rueda.jpg" alt="Rueda de Casino class at Shoonya" loading="lazy" style="object-position: center 45%;">
+  <div class="cat-inner">
+    <div class="cat-header">
+      <span class="cat-pill"     data-i18n="cat_partner_pill">Partner &amp; Sociaal</span>
+      <h2                         data-i18n="cat_partner_h2">Welke partnerdans lessen biedt Shoonya aan in Gent?</h2>
+      <a class="cat-browse" href="#partner" data-i18n="cat_partner_count">7 styles</a>
+      <p class="cat-sub"          data-i18n="cat_partner_sub">Dans met iemand in je armen of in een cirkel. De meeste lessen zijn open voor solo's en koppels.</p>
+    </div>
+    <div class="strip-list">
+
+      <a class="strip" href="https://www.shoonyadance.com/argentijnse-tango-danslessen-gent">
+        <span class="strip-day" data-i18n="day_th">Do</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_tango_h">Argentijnse Tango</h3>
+          <p class="strip-meta" data-i18n="c_tango_meta">Do · Niveaus 1 &amp; 2 · Gisela &amp; Sergio · 16+</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/bachata-dance-classes-in-ghent">
+        <span class="strip-day" data-i18n="day_t">Di</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_bachata_h">Bachata</h3>
+          <p class="strip-meta" data-i18n="c_bachata_meta">Di · Niveaus 1–3 · Alex &amp; Lenka</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/bachata-solo-style-gent">
+        <span class="strip-day" data-i18n="day_th">Do</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_bachata_ls_h">Bachata Solo Style</h3>
+          <p class="strip-meta" data-i18n="c_bachata_ls_meta">Do · 10 weken · 8 okt → 17 dec · Ioanna</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/cuban-salsa-in-gent">
+        <span class="strip-day is-multi" data-i18n="day_m_th">Ma/Do</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_salsa_h">Cubaanse Salsa</h3>
+          <p class="strip-meta" data-i18n="c_salsa_meta">Ma &amp; Do · Niveaus 1–4 · Alex &amp; Ioanna</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/kizomba-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_w">Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_kizomba_h">Kizomba</h3>
+          <p class="strip-meta" data-i18n="c_kizomba_meta">Wo · Niveaus 1–3 · Sonja KikiZomba</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/lindy-hop-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_w">Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_lindy_h">Lindy Hop</h3>
+          <p class="strip-meta" data-i18n="c_lindy_meta">Wo · Niveaus 1 &amp; 2 · Upside Down</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/rueda-de-casino-danslessen-gent">
+        <span class="strip-day" data-i18n="day_th">Do</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_rueda_h">Rueda de Casino</h3>
+          <p class="strip-meta" data-i18n="c_rueda_meta">Do · Niveaus 1 &amp; 2 · Alex &amp; Ioanna</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CLASSICAL & TECHNIQUE (soft salmon band) ───────── -->
+<section class="cat-band cat-classical" id="classical">
+  <figure class="cat-photo-wrap">
+    <img class="cat-photo" src="../../images/flamenco-2.jpg" alt="Flamenco class at Shoonya Dance Centre" loading="lazy" style="object-position: center 30%;">
+    <figcaption class="cat-credit">© Stijn Dejonckheere</figcaption>
+  </figure>
+  <div class="cat-inner">
+    <div class="cat-header">
+      <span class="cat-pill"     data-i18n="cat_classical_pill">Klassiek &amp; Techniek</span>
+      <h2                         data-i18n="cat_classical_h2">Welke klassieke dansstijlen kun je volgen bij Shoonya?</h2>
+      <a class="cat-browse" href="#classical" data-i18n="cat_classical_count">7 styles</a>
+      <p class="cat-sub"          data-i18n="cat_classical_sub">Gestructureerde opbouw — begin op Niveau 1 en groei door de jaren.</p>
+    </div>
+    <div class="strip-list">
+
+      <a class="strip" href="https://www.shoonyadance.com/ballet-voor-volwassenen-in-gent">
+        <span class="strip-day is-multi3" data-i18n="day_m_th_f">Ma/Do/Vr</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_ballet_h">Ballet</h3>
+          <p class="strip-meta" data-i18n="c_ballet_shirley_meta">Vr · N1/N2/N3 · Shirley De Muer</p>
+          <p class="strip-meta" data-i18n="c_ballet_tono_meta">Int/Gev ochtenden met Tono Ferriol → zie Professional Morning Training hieronder</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="strip" href="https://www.shoonyadance.com/professional-morning-training-gent">
+        <span class="strip-day is-multi" data-i18n="day_m_th">Ma/Do</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_contemporary_h">Professional Morning Training</h3>
+          <p class="strip-meta" data-i18n="c_contemporary_meta">Ballet &amp; hedendaags · ma- &amp; do-ochtend · Int/Gev · Tono Ferriol</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/flamenco-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_t">Di</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_flamenco_h">Flamenco</h3>
+          <p class="strip-meta" data-i18n="c_flamenco_meta">Di · Alle niveaus · La Liz</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/indian-dance-in-belgium">
+        <span class="strip-day" data-i18n="day_t">Di</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_indian_h">Indiase Danstechniek</h3>
+          <p class="strip-meta" data-i18n="c_indian_meta">Di · Open niveau · Swapnil</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/kathak-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_w">Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_kathak_h">Indiaas Semi-klassiek (Kathak)</h3>
+          <p class="strip-meta" data-i18n="c_kathak_meta">Wo · Niveau 2 · Swapnil</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/oriental-flow-gent">
+        <span class="strip-day" data-i18n="day_sa">Za</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_oriental_h">Oriental Flow</h3>
+          <p class="strip-meta" data-i18n="c_oriental_meta">Za · Open niveau · Nathalie El Ghoul</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/solo-jazz-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_w">Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_jazz_h">Solo Jazz</h3>
+          <p class="strip-meta" data-i18n="c_jazz_meta">Wo · Open niveau · Upside Down</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/tapdans-lessen-in-gent">
+        <span class="strip-day is-multi3" data-i18n="day_m_w_th">Ma/Wo/Do</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_tap_h">Tapdans</h3>
+          <p class="strip-meta" data-i18n="c_tap_meta">Ma, Wo &amp; Do · 6 niveaus · Tapdance Promotion</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CULTURE & WELLNESS (soft yellow band) ───────── -->
+<section class="cat-band cat-culture" id="culture">
+  <figure class="cat-photo-wrap">
+    <img class="cat-photo" src="../../images/kathak.jpg" alt="Kathak dance class at Shoonya Dance Centre" loading="lazy" style="object-position: center 35%;">
+    <figcaption class="cat-credit">© Stijn Dejonckheere</figcaption>
+  </figure>
+  <div class="cat-inner">
+    <div class="cat-header">
+      <span class="cat-pill"     data-i18n="cat_culture_pill">Cultuur &amp; Wellness</span>
+      <h2                         data-i18n="cat_culture_h2">Welke culturele dans en wellness lessen geeft Shoonya?</h2>
+      <a class="cat-browse" href="#culture" data-i18n="cat_culture_count">10 styles</a>
+      <p class="cat-sub"          data-i18n="cat_culture_sub">Culturele tradities, expressieve vormen en bewegingspraktijken voor je welzijn.</p>
+    </div>
+    <div class="strip-list">
+
+      <a class="strip" href="https://www.shoonyadance.com/afrikaanse-congolese-dans-gent">
+        <span class="strip-day" data-i18n="day_sa">Za</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_afro_h">Afrikaanse Congolese Dans</h3>
+          <p class="strip-meta" data-i18n="c_afro_meta">Za · Open niveau · Joseph Saidi Simako</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/bhangra-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_w">Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_bhangra_h">Bhangra</h3>
+          <p class="strip-meta" data-i18n="c_bhangra_meta">Wo · Niveau 2 · Swapnil</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/bollyfolk-danslessen-in-gent">
+        <span class="strip-day is-multi" data-i18n="day_t_w">Di/Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_bollyfolk_h">Bollyfolk</h3>
+          <p class="strip-meta" data-i18n="c_bollyfolk_meta">Di N2 · Wo Open · Swapnil</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/bollywood-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_th">Do</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_bollywood_h">Bollywood</h3>
+          <p class="strip-meta" data-i18n="c_bollywood_meta">Do · Niveaus 2 &amp; 3 · Swapnil</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/burlesque-lessen-in-gent">
+        <span class="strip-day is-multi" data-i18n="day_m_t">Ma/Di</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_burlesque_h">Burlesque</h3>
+          <p class="strip-meta" data-i18n="c_burlesque_meta">Ma (N1) · Di (N2) · Zoe Bizoe</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/cissy-ball-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_m">Ma</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_cissy_h">Cissy Ball</h3>
+          <p class="strip-meta" data-i18n="c_cissy_meta">Ma · Open niveau · solo · Hendrik Lebon</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/dance-fit-gent">
+        <span class="strip-day" data-i18n="day_w">Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_dancefit_h">Dance &amp; Fit</h3>
+          <p class="strip-meta" data-i18n="c_dancefit_meta">Wo 09:45 · Open niveau · Lenka Badriyah</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/pilates-voor-dansers-gent">
+        <span class="strip-day is-multi" data-i18n="day_t_w">Di/Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_pilates_h">Pilates voor Dansers</h3>
+          <p class="strip-meta" data-i18n="c_pilates_meta">Di 17:20 · Wo 10:45 · Open · Lenka Badriyah</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/raqs-sharqi-danslessen-in-gent">
+        <span class="strip-day" data-i18n="day_m">Ma</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_raqs_h">Raqs Sharqi (Buikdans)</h3>
+          <p class="strip-meta" data-i18n="c_raqs_meta">Ma · Niveaus 1–3 · Lenka Badriyah</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/yoga-lessen-in-gent">
+        <span class="strip-day is-multi" data-i18n="day_t_w">Di/Wo</span>
+        <div class="strip-body">
+          <h3 data-i18n="c_yoga_h">Yoga</h3>
+          <p class="strip-meta" data-i18n="c_yoga_meta">Di &amp; Wo · Open niveau · Swapnil</p>
+        </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer CTA -->
+<div class="footer-wrap">
+  <div class="footer-band">
+    <h2 data-i18n="footer_h">Weet je niet waar te beginnen?</h2>
+    <p  data-i18n="footer_p">Come to the free trial week and try any class — no registration, no commitment. The teachers will help you find your level.</p>
+    <div class="footer-btns">
+      <a class="btn"         href="https://info.shoonyadance.com/"  data-i18n="footer_btn">Begin hier →</a>
+      <a class="btn-outline" href="https://schedule.shoonyadance.com/" data-i18n="footer_btn2">Bekijk het volledige schooljaar</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page footer (matches other redesigned pages) -->
+<footer style="border-top: 1px solid var(--border); padding: 1.75rem 1.5rem; max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .82rem; color: var(--muted);">
+  <div style="font-weight: 700;">Shoonya Dance Centre · Ghent</div>
+  <nav style="display: flex; gap: 1.25rem; flex-wrap: wrap;" aria-label="Footer navigation">
+    <a href="https://www.shoonyadance.com" style="color: var(--muted);">home</a>
+    <a href="https://schedule.shoonyadance.com/" data-i18n="footer_nav_year" style="color: var(--muted);">schooljaar</a>
+    <a href="https://info.shoonyadance.com/" data-i18n="footer_nav_new" style="color: var(--muted);">nieuw bij shoonya</a>
+    <a href="https://www.shoonyadance.com/about" style="color: var(--muted);">about</a>
+  </nav>
+</footer>
+
+<script src="../../data/site-config.js"></script>
+<script>
+/* Language is BAKED into this file (see _build/build-styles-hub.mjs).
+   Only these five strings depend on data/site-config.js, so they stay dynamic and
+   keep their single source of truth. */
+(function () {
+  var S = window.SHOONYA;
+  if (!S) return;
+  var c = S.cfg.counts || {}, d = (S.display && S.display['nl']) || {};
+  var trial = d.trial_week_short || "Sep 14–19, 2026";
+  var map = {
+    hero_trial: "✦ Gratis proefweek: " + trial,
+    cat_partner_count: (c.partner_social || '') + " stijlen",
+    cat_classical_count: (c.classical_technique || '') + " stijlen",
+    cat_culture_count: (c.culture_wellness || '') + " stijlen"
+  };
+  Object.keys(map).forEach(function (k) {
+    document.querySelectorAll('[data-i18n="' + k + '"]').forEach(function (el) {
+      if (map[k] && map[k].trim()) el.textContent = map[k];
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
