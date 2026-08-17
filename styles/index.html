@@ -732,7 +732,7 @@
     <div class="cat-header">
       <span class="cat-pill"     data-i18n="cat_classical_pill">Classical &amp; Technique</span>
       <h2                         data-i18n="cat_classical_h2">Which classical and technique styles can I study at Shoonya?</h2>
-      <a class="cat-browse" href="#classical" data-i18n="cat_classical_count">7 styles</a>
+      <a class="cat-browse" href="#classical" data-i18n="cat_classical_count">8 styles</a>
       <p class="cat-sub"          data-i18n="cat_classical_sub">Structured progression — start at Level 1 and grow over years.</p>
     </div>
     <div class="strip-list">
@@ -926,7 +926,7 @@
 <div class="footer-wrap">
   <div class="footer-band">
     <h2 data-i18n="footer_h">Not sure where to start?</h2>
-    <p  data-i18n="footer_p">Come to the free trial week and try any class — no registration, no commitment. The teachers will help you find your level.</p>
+    <p  data-i18n="footer_p">Come to the free trial week (Sep 14–19, 2026) and try any class — no registration, no commitment. The teachers will help you find your level.</p>
     <div class="footer-btns">
       <a class="btn"         href="https://info.shoonyadance.com/"  data-i18n="footer_btn">Start here →</a>
       <a class="btn-outline" href="https://schedule.shoonyadance.com/" data-i18n="footer_btn2">See the full school year</a>
@@ -955,11 +955,12 @@
   if (!S) return;
   var c = S.cfg.counts || {}, d = (S.display && S.display['en']) || {};
   var trial = d.trial_week_short || "Sep 14–19, 2026";
+  var unit = " styles";
   var map = {
     hero_trial: "✦ Free trial week: " + trial,
-    cat_partner_count: (c.partner_social || '') + " styles",
-    cat_classical_count: (c.classical_technique || '') + " styles",
-    cat_culture_count: (c.culture_wellness || '') + " styles"
+    cat_partner_count: c.partner_social ? c.partner_social + unit : '',
+    cat_classical_count: c.classical_technique ? c.classical_technique + unit : '',
+    cat_culture_count: c.culture_wellness ? c.culture_wellness + unit : ''
   };
   Object.keys(map).forEach(function (k) {
     document.querySelectorAll('[data-i18n="' + k + '"]').forEach(function (el) {

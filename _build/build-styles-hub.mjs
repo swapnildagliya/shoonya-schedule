@@ -69,7 +69,14 @@ try {
   process.exit(1);
 }
 
-// The 5 keys whose value depends on config — these must stay dynamic, not baked.
+// The 5 config-driven keys. They ARE baked (with the real config values, in the right
+// language) so the pre-JS HTML that crawlers read is correct and localised — and they are
+// ALSO refreshed at runtime from data/site-config.js so the count stays single-sourced.
+//
+// Baking them was not optional: skipping it left the source's own markup in place, which
+// meant (a) the stale `|| 7` fallback for classical_technique shipped as "7 styles" when
+// canonical is 8, and (b) the Dutch page showed English in all five slots. Both were caught
+// by rendering the built page, not by reading the build output.
 const DYNAMIC = new Set(['hero_trial', 'footer_p', 'cat_partner_count', 'cat_classical_count', 'cat_culture_count']);
 
 /* ── 2 · build one language ─────────────────────────────────────────────────── */
@@ -84,7 +91,7 @@ function build(lang) {
   // 2a · bake static prose into every data-i18n element (attribute kept so the runtime
   //      can still refresh the dynamic five).
   for (const [key, val] of Object.entries(t)) {
-    if (DYNAMIC.has(key) || typeof val !== 'string') continue;
+    if (typeof val !== 'string') continue;
     const re = new RegExp(`(<([a-z0-9]+)([^>]*\\sdata-i18n="${key}"[^>]*)>)([\\s\\S]*?)(</\\2>)`, 'g');
     h = h.replace(re, (m, open, tag, attrs, inner, close) => {
       const badge = (inner.match(/<span class="badge"[\s\S]*?<\/span>/) || [''])[0];
@@ -94,6 +101,24 @@ function build(lang) {
 
   // 2b · <html lang>
   h = h.replace(/<html[^>]*>/, `<html lang="${lang}">`);
+
+  // 2b2 · head metadata must be in the page's language.
+  //   The source's runtime toggle never touched <head>, so styles. serves an ENGLISH title,
+  //   description and og:* even when displaying Dutch. That is precisely why a JS toggle
+  //   cannot deliver Dutch SEO — the title tag is the single strongest on-page signal.
+  //   We reuse the page's OWN approved Dutch strings (hero h1 + hero paragraph) rather than
+  //   authoring new marketing copy.
+  if (lang === 'nl') {
+    const nlTitle = `${t.hero_h1} — Shoonya Dance Centre Gent`;   // "Gent" in Dutch, "Ghent" in English
+    const nlDesc = t.hero_p;
+    h = h.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(nlTitle)}</title>`);
+    h = h.replace(/(<meta name="description" content=")[^"]*(")/, `$1${escapeHtml(nlDesc)}$2`);
+    h = h.replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${escapeHtml(nlTitle)}$2`);
+    h = h.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${escapeHtml(nlDesc)}$2`);
+    h = h.replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${escapeHtml(nlTitle)}$2`);
+    h = h.replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${escapeHtml(nlDesc)}$2`);
+    h = h.replace(/(<meta property="og:locale" content=")[^"]*(")/, `$1nl_BE$2`);
+  }
 
   // 2c · head — canonical, og:url, hreflang, robots
   h = h.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${selfUrl}" />`);
@@ -146,11 +171,12 @@ function dynamicRuntime(lang, t) {
   if (!S) return;
   var c = S.cfg.counts || {}, d = (S.display && S.display['${lang}']) || {};
   var trial = d.trial_week_short || ${JSON.stringify((t.hero_trial || '').replace(/^[^:]*:\s*/, ''))};
+  var unit = ${JSON.stringify(lang === 'en' ? ' styles' : ' stijlen')};
   var map = {
-    hero_trial: ${JSON.stringify(lang === 'en' ? '✦ Free trial week: ' : '✦ Gratis proefweek: ')} + trial,
-    cat_partner_count: (c.partner_social || '') + ${JSON.stringify(lang === 'en' ? ' styles' : ' stijlen')},
-    cat_classical_count: (c.classical_technique || '') + ${JSON.stringify(lang === 'en' ? ' styles' : ' stijlen')},
-    cat_culture_count: (c.culture_wellness || '') + ${JSON.stringify(lang === 'en' ? ' styles' : ' stijlen')}
+    hero_trial: ${JSON.stringify(t.hero_trial.replace(/:.*$/, ': '))} + trial,
+    cat_partner_count: c.partner_social ? c.partner_social + unit : '',
+    cat_classical_count: c.classical_technique ? c.classical_technique + unit : '',
+    cat_culture_count: c.culture_wellness ? c.culture_wellness + unit : ''
   };
   Object.keys(map).forEach(function (k) {
     document.querySelectorAll('[data-i18n="' + k + '"]').forEach(function (el) {
