@@ -326,8 +326,8 @@
     .tt__slot:hover { z-index:5; box-shadow:0 6px 18px rgba(0,0,0,.12); }
     .tt__slot--faded { opacity:.16; pointer-events:none; }
     .tt__slot .tm { display:block; font-family:'Marcellus',serif; font-size:.74rem; color:var(--muted); }
-    .tt__slot b { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; font-size:1.02rem; line-height:1.16; overflow:hidden; margin:2px 0; }
-    .tt__slot .tc { display:block; font-size:.72rem; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .tt__slot b { display:block; min-height:1.16em; flex-shrink:0; font-size:1.02rem; line-height:1.16; overflow:hidden; margin:2px 0; }
+    .tt__slot .tc { display:block; min-height:1em; flex-shrink:0; font-size:.72rem; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
     /* ── Accordion (mobile list) + responsive views ─────── */
     .day__chev { font-size:.66rem; color:var(--muted-soft); transition:transform .25s; padding-left:.3rem; }
