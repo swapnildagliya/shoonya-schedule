@@ -142,6 +142,11 @@ function build(lang) {
     `  </div>`
   );
 
+  // 2e2 · info. links -> the hub's own /new/ page. The hub must be self-contained before
+  //       cutover: once info. becomes a shim, a hub page linking to info. would bounce the
+  //       visitor back through a redirect for content the hub already hosts.
+  h = h.replace(/https:\/\/info\.shoonyadance\.com\/?/g, lang === 'en' ? `${HUB}/new/` : `${HUB}/nl/new/`);
+
   // 2e · nav + asset paths for the new depth
   h = h.replace('<a href="/" class="active" data-i18n="snav-styles">', `<a href="${selfUrl}" class="active" data-i18n="snav-styles">`);
   h = h.replace(/src="\.\/data\/site-config\.js"/, `src="${depth}/data/site-config.js"`);
@@ -149,6 +154,64 @@ function build(lang) {
 
   // 2f · JSON-LD + any remaining self-references -> hub
   h = h.replace(new RegExp(OLD.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '/?', 'g'), `${HUB}/styles/`);
+
+  // 2f2 · JSON-LD repairs. Three defects, all inherited from styles. and made WORSE by the
+  //       blanket host rewrite above:
+  //   (a) Course.url pointed at category stubs (/partner-social/ etc). Those existed on
+  //       styles.; on the hub they 404, so the rewrite produced 25 DEAD schema URLs.
+  //       Each Course's real home is its own www style page - and the page already lists
+  //       them, one per card. Map name -> card href.
+  //   (b) inLanguage was "nl" on 24 of 25 Courses regardless of page language.
+  //   (c) On the NL page the ItemList name/description and addressLocality stayed English.
+  {
+    // Build the name->href map from the SOURCE, not the baked output: Course.name is
+    // English in both files, but the NL page's card headings are Dutch, so matching against
+    // the baked page failed for 10 of 25 NL Courses.
+    const cards = [...src.matchAll(/<a class="strip" href="([^"]+)"[\s\S]{0,240}?<h3[^>]*>([^<]+)/g)];
+    // decode entities before normalising: the card reads "Dance &amp; Fit" while the
+    // Course name reads "Dance & Fit", which otherwise never matches.
+    const decode = x => x.replace(/&amp;/g, '&').replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"');
+    const norm = x => decode(x).toLowerCase().replace(/[^a-z0-9]/g, '');
+    const byName = new Map(cards.map(c => [norm(c[2]), c[1]]));
+    // "Contemporary dance" has no card of its own — it is taught on the Professional Morning
+    // Training page (Tono Ferriol, ballet + contemporary), the same mapping the schedule
+    // page's own JSON-LD uses.
+    byName.set(norm('Contemporary dance'), 'https://www.shoonyadance.com/professional-morning-training-gent');
+
+    const ld = h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    if (ld) {
+      let obj;
+      try { obj = JSON.parse(ld[1]); } catch { obj = null; }
+      if (obj) {
+        const list = (obj['@graph'] || []).find(n => n['@type'] === 'ItemList');
+        let unmatched = [];
+        if (list) {
+          for (const it of list.itemListElement) {
+            const c = it.item;
+            if (!c || c['@type'] !== 'Course') continue;
+            const href = byName.get(norm(c.name || ''));
+            if (href) c.url = href; else unmatched.push(c.name);
+            c.inLanguage = lang;                                  // (b)
+            if (c.provider?.url) c.provider.url = 'https://www.shoonyadance.com';
+          }
+          if (lang === 'nl') {                                    // (c)
+            list.name = 'Dansstijlen bij Shoonya Dance Centre Gent';
+            list.description = t.hero_p;
+            list.url = selfUrl;
+          }
+        }
+        for (const n of (obj['@graph'] || [])) {
+          if (n.address?.addressLocality) n.address.addressLocality = lang === 'nl' ? 'Gent' : 'Ghent';
+          if (lang === 'nl' && typeof n.description === 'string' && /\bGhent\b/.test(n.description)) {
+            n.description = n.description.replace(/\bGhent\b/g, 'Gent');
+          }
+        }
+        if (unmatched.length) console.error(`  ⚠ ${lang}: ${unmatched.length} Course(s) had no matching card: ${unmatched.join(', ')}`);
+        h = h.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+          '<script type="application/ld+json">\n' + JSON.stringify(obj, null, 2) + '\n</script>');
+      }
+    }
+  }
 
   // 2g · replace the toggle runtime with a small one that only refreshes the dynamic five
   const runtimeStart = h.indexOf('<script>\nvar S = window.SHOONYA;');

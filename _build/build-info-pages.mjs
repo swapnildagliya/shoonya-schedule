@@ -178,6 +178,26 @@ function build(page, lang) {
       h = h.replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(nlTitle)}$2`);
     }
     h = h.replace(/(<meta property="og:locale" content=")[^"]*(")/, `$1nl_BE$2`);
+
+    // Dutch meta/og description. The source's toggle never touched <head>, so every "Dutch"
+    // info. page serves an ENGLISH description today - the second-strongest on-page signal
+    // after the title. Derive it from the page's own first SUBSTANTIAL Dutch paragraph
+    // (>=60 chars skips kickers like "Inschrijving - Schooljaar 2026-2027"); never author
+    // new marketing copy. If no such paragraph exists, leave English and REPORT it.
+    const paras = [...h.matchAll(/<p[^>]*>([\s\S]{0,400}?)<\/p>/g)]
+      .map(m => m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim())
+      .filter(x => x.length >= 60);
+    if (paras.length) {
+      const d = esc(paras[0].slice(0, 300));
+      h = h.replace(/(<meta name="description" content=")[^"]*(")/, `$1${d}$2`);
+      h = h.replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${d}$2`);
+      h = h.replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${d}$2`);
+    } else {
+      console.log(`     \u24d8 ${page.slug} (nl): no Dutch paragraph long enough for a description - left English`);
+    }
+
+    // JSON-LD on the Dutch page should also be Dutch where it is mechanical
+    h = h.replace(/"addressLocality":\s*"Ghent"/g, '"addressLocality": "Gent"');
   }
 
   // language switcher: setLang() buttons -> real cross-links
@@ -227,6 +247,12 @@ function build(page, lang) {
       h = h.replace(/<\/style>/, `${mem.css}</style>`);
     } else if (!mem.html) { console.error('  ⚠ membership fold produced nothing'); problems++; }
   }
+
+  // og:image and schema url still pointed at info. - the hub hosts its own copies of these
+  // assets, and a schema url must be the page's own URL, not the page it was ported from.
+  h = h.replace(/https:\/\/info\.shoonyadance\.com\/assets\//g, `${HUB}/assets/`);
+  h = h.replace(new RegExp('"url":\\s*"https://info\\.shoonyadance\\.com/' + page.slug + '/?"', 'g'), `"url": "${selfUrl}"`);
+  h = h.replace(/"url":\s*"https:\/\/info\.shoonyadance\.com\/?"/g, `"url": "${HUB}/${lang === 'nl' ? 'nl/' : ''}new/"`);
 
   // internal links -> hub paths
   const map = linkMap(lang);
