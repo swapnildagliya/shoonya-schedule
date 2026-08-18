@@ -38,6 +38,7 @@ const PAGES = [
   { src: 'index.html', slug: 'new' },
   { src: 'about/index.html', slug: 'about' },
   { src: 'our-studios/index.html', slug: 'studios' },
+  { src: 'register/index.html', slug: 'register' },
 ];
 
 /* Internal links on info. are root-absolute and must be remapped to hub paths, in the
@@ -47,9 +48,10 @@ function linkMap(lang) {
   return {
     '/about/': `${p}/about/`,
     '/our-studios/': `${p}/studios/`,
-    // The hub has no /register/ yet. Point at the canonical live registration page rather
-    // than ship a 404; re-point when the hub's own /register/ lands.
-    '/register/': 'https://www.shoonyadance.com/register',
+    // The hub now HAS its own /register/ (the registration-intent hub: Shoonya ID band,
+    // route cards, FAQ - all via /go/ shims). www/register stays the Squarespace conversion
+    // page; the two are cross-linked rather than duplicated.
+    '/register/': `${p}/register/`,
     '/who-is-a-shoonya-member/': 'https://info.shoonyadance.com/who-is-a-shoonya-member/',
   };
 }
@@ -154,6 +156,20 @@ function build(page, lang) {
   h = h.replace(/^\s*body\.nl \[data-lang="en"\][^\n]*\n/m, '');
   h = h.replace(/^\s*body:not\(\.nl\) \[data-lang="nl"\][^\n]*\n/m, '');
 
+  // ── Dutch-page place names ──────────────────────────────────────────────────────
+  //  INHERITED, not introduced: info. never language-paired its <meta>, JSON-LD or the
+  //  hero location line, so its Dutch view already says "Ghent · Belgium". Estate
+  //  convention (CLAUDE.md) is Gent in Dutch, Ghent in English — including
+  //  schema addressLocality, which should match the page's language.
+  //  Scope is deliberately narrow: place names only. alt/aria text is real copy and is
+  //  NOT machine-translated here — see the build report.
+  if (lang === 'nl') {
+    h = h.replace(/>([^<]*)\bGhent\b([^<]*)</g, (m, a, b) => `>${a}Gent${b}<`);
+    h = h.replace(/"addressLocality":\s*"Ghent"/g, '"addressLocality": "Gent"');
+    h = h.replace(/(<meta[^>]+content="[^"]*?)\bGhent\b/g, '$1Gent');
+    h = h.replace(/>([^<]*)\bBelgium\b([^<]*)</g, (m, a, b) => `>${a}Belgi\u00eb${b}<`);
+  }
+
   // internal links -> hub paths
   const map = linkMap(lang);
   for (const [from, to] of Object.entries(map)) {
@@ -185,6 +201,13 @@ for (const page of PAGES) {
     const leftover = els;
     const wrongLang = els.filter(l => l !== lang).length;
     const setLangLeft = /function setLang/.test(html) ? 1 : 0;
+    if (lang === 'nl') {
+      // Not an error: alt/aria text is copy, inherited untranslated from info., and is not
+      // machine-translated here. Reported so it is a known gap, not a silent one.
+      const alts = [...html.matchAll(/alt="([^"]{4,})"/g)].map(m => m[1]);
+      const arias = [...html.matchAll(/aria-label="([^"]{4,})"/g)].map(m => m[1]);
+      if (alts.length || arias.length) console.log(`     ⓘ NL copy gap (inherited): ${alts.length} alt, ${arias.length} aria-label still English`);
+    }
     if (setLangLeft) { console.error('  ✗ setLang runtime survived — would blank the page'); problems++; }
     const unmapped = [...html.matchAll(/href="(\/(?!nl\/)[a-z-]+\/)"/g)].map(m => m[1])
       .filter(p => !['/about/', '/studios/', '/new/', '/styles/', '/register/'].includes(p));
@@ -194,11 +217,20 @@ for (const page of PAGES) {
   }
 }
 
-/* asset used by every info page */
+/* copy every /assets/ file the built pages actually reference — discovered, not hard-coded,
+   so a new page bringing a new image cannot silently ship a broken <img>. */
 mkdirSync(join(REPO, 'assets'), { recursive: true });
-const oo = join(SRCREPO, 'assets', 'shoonya-oo-mark-white.png');
-if (existsSync(oo)) { copyFileSync(oo, join(REPO, 'assets', 'shoonya-oo-mark-white.png')); console.log('  ↳ assets/shoonya-oo-mark-white.png'); }
-else { console.error('  ⚠ missing oo-mark asset'); problems++; }
+const wanted = new Set();
+for (const page of PAGES) for (const lang of ['en', 'nl']) {
+  const f = lang === 'en' ? join(REPO, page.slug, 'index.html') : join(REPO, 'nl', page.slug, 'index.html');
+  if (!existsSync(f)) continue;
+  for (const m of readFileSync(f, 'utf8').matchAll(/["'(]\/assets\/([^"')?#]+)/g)) wanted.add(m[1]);
+}
+for (const a of wanted) {
+  const from = join(SRCREPO, 'assets', a);
+  if (existsSync(from)) { copyFileSync(from, join(REPO, 'assets', a)); console.log(`  ↳ assets/${a}`); }
+  else { console.error(`  ⚠ MISSING asset referenced by a built page: assets/${a}`); problems++; }
+}
 
 console.log(problems ? `\n⚠ ${problems} problem(s) — do not publish until resolved.` : '\n✓ clean build');
 process.exit(problems ? 1 : 0);
