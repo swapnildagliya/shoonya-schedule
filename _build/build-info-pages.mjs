@@ -27,6 +27,7 @@
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { applyNlA11y, remainingEnglish } from './nl-a11y-strings.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = join(HERE, '..');
@@ -198,6 +199,10 @@ function build(page, lang) {
 
     // JSON-LD on the Dutch page should also be Dutch where it is mechanical
     h = h.replace(/"addressLocality":\s*"Ghent"/g, '"addressLocality": "Gent"');
+
+    // alt / aria-label: info. never language-paired these, so the Dutch view has always
+    // announced English to screen readers. Shared map keeps both generators in step.
+    h = applyNlA11y(h);
   }
 
   // language switcher: setLang() buttons -> real cross-links
@@ -286,11 +291,8 @@ for (const page of PAGES) {
     const wrongLang = els.filter(l => l !== lang).length;
     const setLangLeft = /function setLang/.test(html) ? 1 : 0;
     if (lang === 'nl') {
-      // Not an error: alt/aria text is copy, inherited untranslated from info., and is not
-      // machine-translated here. Reported so it is a known gap, not a silent one.
-      const alts = [...html.matchAll(/alt="([^"]{4,})"/g)].map(m => m[1]);
-      const arias = [...html.matchAll(/aria-label="([^"]{4,})"/g)].map(m => m[1]);
-      if (alts.length || arias.length) console.log(`     ⓘ NL copy gap (inherited): ${alts.length} alt, ${arias.length} aria-label still English`);
+      const left = remainingEnglish(html);
+      if (left.length) { console.error(`     ✗ NL a11y strings still English: ${left.join(' | ')}`); problems++; }
     }
     if (setLangLeft) { console.error('  ✗ setLang runtime survived — would blank the page'); problems++; }
     const unmapped = [...html.matchAll(/href="(\/(?!nl\/)[a-z-]+\/)"/g)].map(m => m[1])

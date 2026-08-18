@@ -32,6 +32,7 @@
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { applyNlA11y, remainingEnglish } from './nl-a11y-strings.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = join(HERE, '..');
@@ -220,6 +221,8 @@ function build(lang) {
     h = h.slice(0, runtimeStart) + dynamicRuntime(lang, t) + h.slice(runtimeEnd);
   }
 
+  if (lang === 'nl') h = applyNlA11y(h);
+
   return h;
 }
 
@@ -266,6 +269,10 @@ for (const { lang, out } of targets) {
   const courses = (html.match(/"@type":\s*"Course"/g) || []).length;
   const hreflang = (html.match(/rel="alternate"/g) || []).length;
   const leftover = (html.match(/styles\.shoonyadance\.com/g) || []).length;
+  if (lang === 'nl') {
+    const left = remainingEnglish(html);
+    if (left.length) console.error(`  ✗ NL a11y strings still English: ${left.join(' | ')}`);
+  }
   console.log(`✓ ${out.replace(REPO + '/', '')}  ${html.length} B · ${courses} Course · ${hreflang} hreflang · noindex=${STAGING} · stale styles.-refs=${leftover}`);
 }
 
