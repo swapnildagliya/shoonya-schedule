@@ -52,7 +52,7 @@ function linkMap(lang) {
     // route cards, FAQ - all via /go/ shims). www/register stays the Squarespace conversion
     // page; the two are cross-linked rather than duplicated.
     '/register/': `${p}/register/`,
-    '/who-is-a-shoonya-member/': 'https://info.shoonyadance.com/who-is-a-shoonya-member/',
+    '/who-is-a-shoonya-member/': `${p}/register/#membership`,
   };
 }
 
@@ -82,6 +82,55 @@ function stripLang(html, drop) {
 }
 
 function esc(s) { return String(s).replace(/&(?![a-z#0-9]+;)/gi, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+/* ── fold who-is-a-shoonya-member INTO /register/ as a #membership section ────────
+   Decision (Swapnil, 2026-08-17): the member page is small and ORPHANED — nothing on
+   the estate links to it, not even info.'s own nav. Its content IS the membership
+   condition, and D-094 permits publishing a member price only WITH that condition
+   stated, so hosting it on the register page makes that compliance natural. Its own
+   CTA already said "Register now".
+
+   The old URL becomes a shim to /register/#membership at cutover — hence the id.
+   The source page's CTA band is dropped: redundant once the content lives on /register/.
+   Its 8 CSS classes were verified unused in register/, so they carry over unscoped. */
+function membershipSection(lang) {
+  const src = join(SRCREPO, 'who-is-a-shoonya-member', 'index.html');
+  if (!existsSync(src)) return { html: '', css: '' };
+  let m = readFileSync(src, 'utf8');
+  m = stripLang(m, lang === 'en' ? 'nl' : 'en');
+
+  // content: <div class="page"> … </div>, depth-tracked (the CTA band sits AFTER it)
+  const openIdx = m.search(/<div class="page">/);
+  if (openIdx < 0) return { html: '', css: '' };
+  const tagRe = /<div\b[^>]*>|<\/div>/gi;
+  tagRe.lastIndex = openIdx;
+  let depth = 0, end = -1, t;
+  while ((t = tagRe.exec(m))) {
+    if (t[0][1] === '/') { if (--depth === 0) { end = t.index + t[0].length; break; } }
+    else depth++;
+  }
+  if (end < 0) return { html: '', css: '' };
+  const inner = m.slice(openIdx, end);
+
+  // carry only the CSS rules those blocks need
+  const want = ['page', 'kicker', 'page-h1', 'def-box', 'content-section', 'section-h3', 'note-box', 'note-label'];
+  const css = (m.match(/<style>([\s\S]*?)<\/style>/) || ['', ''])[1]
+    .split('\n')
+    .filter(l => want.some(c => new RegExp('^\\s*\\.' + c + '[\\s,{:]').test(l)))
+    .join('\n');
+
+  // The source page is standalone, so its heading is an <h1>. Folded into /register/ —
+  // which already has its own <h1> — that would give the page two h1s and a broken
+  // heading hierarchy. Demote to <h2> and give it the id that aria-labelledby targets.
+  const demoted = inner
+    .replace(/<h1 class="page-h1">/, '<h2 class="page-h1" id="membership-h">')
+    .replace(/<\/h1>/, '</h2>');
+
+  return {
+    html: `\n  <section id="membership" aria-labelledby="membership-h">\n${demoted}\n  </section>\n`,
+    css: `\n/* folded from who-is-a-shoonya-member (D-095) */\n${css}\n`,
+  };
+}
 
 function build(page, lang) {
   const srcPath = join(SRCREPO, page.src);
@@ -168,6 +217,15 @@ function build(page, lang) {
     h = h.replace(/"addressLocality":\s*"Ghent"/g, '"addressLocality": "Gent"');
     h = h.replace(/(<meta[^>]+content="[^"]*?)\bGhent\b/g, '$1Gent');
     h = h.replace(/>([^<]*)\bBelgium\b([^<]*)</g, (m, a, b) => `>${a}Belgi\u00eb${b}<`);
+  }
+
+  // fold the membership explainer into /register/, before the FAQ
+  if (page.slug === 'register') {
+    const mem = membershipSection(lang);
+    if (mem.html && /<section class="faq-section"/.test(h)) {
+      h = h.replace(/(\s*)<section class="faq-section"/, `${mem.html}$1<section class="faq-section"`);
+      h = h.replace(/<\/style>/, `${mem.css}</style>`);
+    } else if (!mem.html) { console.error('  ⚠ membership fold produced nothing'); problems++; }
   }
 
   // internal links -> hub paths
