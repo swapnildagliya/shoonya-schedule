@@ -38,6 +38,25 @@ const MAP = {
     'classical-technique':   { en: '/styles/#classical', nl: '/nl/styles/#classical' },
     'culture-wellness':      { en: '/styles/#culture',   nl: '/nl/styles/#culture' },
   },
+  // The three CATEGORY STUBS exist on THREE hosts and all currently point at
+  // styles.#anchor. Left alone they would double-hop at cutover (stub -> styles. shim ->
+  // hub) and their canonicals would point at a redirect page. Repoint them straight at the
+  // hub in the same pass.
+  //   ⚠️ shoonya-styles/partner-social uses a RELATIVE /#partner in both its canonical and
+  //      its body link, unlike its siblings — a find-and-replace of the absolute pattern
+  //      silently misses it. Regenerating the whole file sidesteps that entirely.
+  //   ⚠️ schooljaar. (shoonya-website) is a staging shell (D-027) but it is LIVE and serves
+  //      its own copies, so it must be in scope or it keeps pointing at a shimmed host.
+  'shoonya-classes': {
+    'partner-social':      { en: '/styles/#partner',   nl: '/nl/styles/#partner' },
+    'classical-technique': { en: '/styles/#classical', nl: '/nl/styles/#classical' },
+    'culture-wellness':    { en: '/styles/#culture',   nl: '/nl/styles/#culture' },
+  },
+  'shoonya-website': {
+    'partner-social':      { en: '/styles/#partner',   nl: '/nl/styles/#partner' },
+    'classical-technique': { en: '/styles/#classical', nl: '/nl/styles/#classical' },
+    'culture-wellness':    { en: '/styles/#culture',   nl: '/nl/styles/#culture' },
+  },
   'shoonya-info': {
     '':                        { en: '/new/',      nl: '/nl/new/' },
     'about':                   { en: '/about/',    nl: '/nl/about/' },
