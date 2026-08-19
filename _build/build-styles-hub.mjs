@@ -36,7 +36,13 @@ import { applyNlA11y, remainingEnglish } from './nl-a11y-strings.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = join(HERE, '..');
-const SRC = join(REPO, '..', 'shoonya-styles', 'index.html');
+/* SOURCE OF TRUTH FOR THE BUILD — preserved 2026-08-19, and it must stay that way.
+ * This used to read from the LIVE sibling repo. The P3 cutover replaced those files with
+ * redirect shims, which (a) made the builder fail outright and (b) — before the two-phase
+ * guard below — made it overwrite good hub pages with ~1.3 KB stubs.
+ * These frozen copies are the last pre-shim versions. Edit content HERE, not in the shimmed
+ * repo, and the cutover can never orphan the generator again. */
+const SRC = join(REPO, '_build', '_src-styles', 'index.html');
 
 const STAGING = !process.argv.includes('--publish');
 const HUB = 'https://schedule.shoonyadance.com';

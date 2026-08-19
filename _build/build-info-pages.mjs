@@ -31,7 +31,13 @@ import { applyNlA11y, remainingEnglish } from './nl-a11y-strings.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = join(HERE, '..');
-const SRCREPO = join(REPO, '..', 'shoonya-info');
+/* SOURCE OF TRUTH FOR THE BUILD — preserved 2026-08-19, and it must stay that way.
+ * This used to read from the LIVE sibling repo. The P3 cutover replaced those files with
+ * redirect shims, which (a) made the builder fail outright and (b) — before the two-phase
+ * guard below — made it overwrite good hub pages with ~1.3 KB stubs.
+ * These frozen copies are the last pre-shim versions. Edit content HERE, not in the shimmed
+ * repo, and the cutover can never orphan the generator again. */
+const SRCREPO = join(REPO, '_build', '_src');
 const STAGING = !process.argv.includes('--publish');
 const HUB = 'https://schedule.shoonyadance.com';
 
@@ -273,16 +279,42 @@ function build(page, lang) {
 
 /* ── write ─────────────────────────────────────────────────────────────────────── */
 let problems = 0;
+
+/* TWO-PHASE BUILD — build + validate everything in memory, write NOTHING until every
+ * page passes. Before 2026-08-19 this loop called writeFileSync BEFORE its checks, so a
+ * failing build still overwrote the live pages and only then said "do not publish".
+ * On 2026-08-19 that gutted 8 hub pages from 22-33 KB to ~1.3 KB (the cutover runbook's
+ * step order fed the builder a 1 KB redirect shim as its source). Reverted unpushed —
+ * but only because someone had recorded the file sizes beforehand.
+ * A build that destroys its output and reports afterwards is worse than one that crashes. */
+const pending = [];
+
 for (const page of PAGES) {
   for (const lang of ['en', 'nl']) {
     const out = lang === 'en'
       ? join(REPO, page.slug, 'index.html')
       : join(REPO, 'nl', page.slug, 'index.html');
-    mkdirSync(dirname(out), { recursive: true });
     let html;
     try { html = build(page, lang); }
     catch (e) { console.error(`✗ ${page.slug} (${lang}): ${e.message}`); problems++; continue; }
-    writeFileSync(out, html);
+
+    /* SANITY FLOOR — the 2026-08-19 gutting printed "kept 0 en blocks" as a ✓ SUCCESS line.
+     * Zero kept blocks means the source was not the page it claims to be (a shim, a stub,
+     * a truncated file). Refuse it, and refuse anything that collapses against the file
+     * already on disk — a real edit never removes 60% of a page. */
+    const keptNow = [...html.matchAll(/<[a-z0-9]+[^>]*\sdata-lang="(en|nl)"/gi)].length;
+    if (keptNow === 0) {
+      console.error(`  ✗ ${page.slug} (${lang}): kept 0 ${lang} blocks — source is not a real page (shim/stub?). REFUSING.`);
+      problems++; continue;
+    }
+    if (existsSync(out)) {
+      const prev = readFileSync(out, 'utf8').length;
+      if (prev > 4000 && html.length < prev * 0.4) {
+        console.error(`  ✗ ${page.slug} (${lang}): ${prev} B → ${html.length} B is a collapse, not an edit. REFUSING.`);
+        problems++; continue;
+      }
+    }
+    pending.push({ out, html, page, lang });
 
     // count ELEMENTS carrying data-lang, not every textual occurrence — CSS selectors
     // mention data-lang too and are not content.
@@ -299,8 +331,19 @@ for (const page of PAGES) {
       .filter(p => !['/about/', '/studios/', '/new/', '/styles/', '/register/'].includes(p));
     if (wrongLang) { console.error(`  ✗ ${wrongLang} ${lang === 'en' ? 'nl' : 'en'} elements survived`); problems++; }
     if (unmapped.length) { console.error(`  ⚠ unmapped internal links: ${[...new Set(unmapped)].join(', ')}`); problems++; }
-    console.log(`✓ ${out.replace(REPO + '/', '').padEnd(26)} ${String(html.length).padStart(6)} B · kept ${leftover.length} ${lang} blocks · noindex=${STAGING}`);
+    console.log(`· ${out.replace(REPO + '/', '').padEnd(26)} ${String(html.length).padStart(6)} B · kept ${leftover.length} ${lang} blocks · noindex=${STAGING}`);
   }
+}
+
+/* THE GATE — nothing has touched the disk yet. */
+if (problems) {
+  console.error(`\n⚠ ${problems} problem(s) — NOTHING WAS WRITTEN. Existing pages are untouched.`);
+  process.exit(1);
+}
+for (const { out, html } of pending) {
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, html);
+  console.log(`✓ wrote ${out.replace(REPO + '/', '')}`);
 }
 
 /* copy every /assets/ file the built pages actually reference — discovered, not hard-coded,
