@@ -908,13 +908,14 @@
           "item": {
             "@type": "Course",
             "name": "Solo Jazz",
-            "description": "Wednesdays 21:00–22:00 · Open level · Teacher: Ann-Sofie · Art Deco 1. American vernacular jazz dance with syncopated footwork.",
+            "description": "Wednesdays 21:00–22:00 · Open level · Teachers: Sep Vermeersch, Leni Denorme & Ann-Sofie Van Enis (Upside Down) · Art Deco 1. American vernacular jazz dance with syncopated footwork.",
             "startDate": "2026-09-14",
             "endDate": "2027-02-03",
-            "instructor": {
-              "@type": "Person",
-              "name": "Ann-Sofie"
-            },
+            "instructor": [
+              { "@type": "Person", "name": "Sep Vermeersch" },
+              { "@type": "Person", "name": "Leni Denorme" },
+              { "@type": "Person", "name": "Ann-Sofie Van Enis" }
+            ],
             "provider": {
               "@type": "Organization",
               "name": "Shoonya Dance Centre",
@@ -1468,7 +1469,7 @@
             <tr><td style="padding:3px 8px;">Wednesday</td><td>19:45–21:00</td><td>Lindy Hop</td><td>L2</td><td>Ann-Sofie (Upside Down)</td><td>Art Deco 1</td></tr>
             <tr><td style="padding:3px 8px;">Wednesday</td><td>20:00–21:00</td><td>Kizomba</td><td>L2</td><td>Sonja KikiZomba</td><td>Art Deco 2</td></tr>
             <tr><td style="padding:3px 8px;">Wednesday</td><td>20:30–21:45</td><td>Indian Semi-Classical (Kathak)</td><td>L2</td><td>Swapnil</td><td>Aakash</td></tr>
-            <tr><td style="padding:3px 8px;">Wednesday</td><td>21:00–22:00</td><td>Solo Jazz</td><td>Open</td><td>Ann-Sofie (Upside Down)</td><td>Art Deco 1</td></tr>
+            <tr><td style="padding:3px 8px;">Wednesday</td><td>21:00–22:00</td><td>Solo Jazz</td><td>Open</td><td>Upside Down</td><td>Art Deco 1</td></tr>
             <tr><td style="padding:3px 8px;">Wednesday</td><td>21:00–22:00</td><td>Kizomba</td><td>L3</td><td>Sonja KikiZomba</td><td>Art Deco 2</td></tr>
             <tr><td style="padding:3px 8px;">Wednesday</td><td>21:00–22:10</td><td>Tap Dance</td><td>L1</td><td>Teddy</td><td>Ananta 1</td></tr>
             <tr><td style="padding:3px 8px;">Thursday</td><td>18:30–19:30</td><td>Bollywood</td><td>L2</td><td>Swapnil</td><td>Aakash</td></tr>
@@ -1569,7 +1570,7 @@
     { day:'wed', time:'19:45–21:00', style:'Lindy Hop', level:'L2', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1' },
     { day:'wed', time:'20:00–21:00', style:'Kizomba', level:'L2', teacher:'Sonja KikiZomba', studio:'AD2', studioName:'Art Deco 2' },
     { day:'wed', time:'20:30–21:45', style:'Indian Semi-Classical', level:'L2', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', slotDates:['2026-09-16','2026-09-23','2026-09-30','2026-10-07','2026-10-14','2026-10-21','2026-10-28','2026-11-11','2026-11-18','2026-11-25','2026-12-02','2027-01-13','2027-01-20','2027-01-27'] },
-    { day:'wed', time:'21:00–22:00', style:'Solo Jazz', level:'Open', teacher:'Ann-Sofie', studio:'AD1', studioName:'Art Deco 1' },
+    { day:'wed', time:'21:00–22:00', style:'Solo Jazz', level:'Open', teacher:'Upside Down', teacherFull:'Sep Vermeersch, Leni Denorme & Ann-Sofie Van Enis (Upside Down)', studio:'AD1', studioName:'Art Deco 1' },
     { day:'wed', time:'21:00–22:00', style:'Kizomba', level:'L3', teacher:'Sonja KikiZomba', studio:'AD2', studioName:'Art Deco 2' },
     { day:'wed', time:'21:00–22:10', style:'Tap Dance', level:'L1', teacher:'Teddy', studio:'AN1', studioName:'Ananta 1' },
 
@@ -1726,7 +1727,7 @@
     const stamp = new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
     const summary  = e2(s.style + ' · Shoonya');
     const location = e2(s.studioName + ' · Shoonya Dance Centre, Stapelplein 41, 9000 Gent');
-    const descr    = e2(s.level + ' · with ' + s.teacher + '. Class times only — book your spot via ' + (s.href || styleHref(s.style)));
+    const descr    = e2(s.level + ' · with ' + (s.teacherFull || s.teacher) + '. Class times only — book your spot via ' + (s.href || styleHref(s.style)));
     const L = [
       'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Shoonya Dance Centre//Schedule//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH',
       'BEGIN:VTIMEZONE','TZID:Europe/Brussels',
@@ -1838,7 +1839,7 @@
   function match(s) {
     if (beginner && !isBeginner(s.level)) return false;
     if (!query) return true;
-    const hay = (s.style+' '+s.teacher+' '+s.level+' '+s.studioName+' '+UI[lang].dl[s.day]+' '+UI.en.dl[s.day]).toLowerCase();
+    const hay = (s.style+' '+s.teacher+' '+(s.teacherFull||'')+' '+s.level+' '+s.studioName+' '+UI[lang].dl[s.day]+' '+UI.en.dl[s.day]).toLowerCase();
     return query.toLowerCase().split(/\s+/).every(tok => hay.includes(tok));
   }
 
@@ -1896,7 +1897,7 @@
       const [start, end] = s.time.split('–');
       const calLabel = t.icsLabel(sd.length);
       const calBtn = sd.length ? `<span class="ics-cal" role="button" tabindex="0" data-i="${SLOTS.indexOf(s)}" aria-label="${calLabel}" title="${calLabel}">${ICS_ICON}<span>${t.icsShort}</span></span>` : '';
-      return `<a class="row${faded}" style="--rowmk:var(--st-${s.studio})" href="${s.href || styleHref(s.style)}" target="_blank" rel="noopener">
+      return `<a class="row${faded}" style="--rowmk:var(--st-${s.studio})" href="${s.href || styleHref(s.style)}" target="_blank" rel="noopener"${s.teacherFull ? ` title="${esc(s.teacherFull)}"` : ''}>
         <span class="row__time">${start}<small>${end}</small></span>
         <span class="row__main">
           <span class="row__title">${esc(s.style)}${tags}<span class="ar">${t.ar}</span></span>
@@ -1945,7 +1946,7 @@
         const tagsLine = tg ? `<span class="tt__tags">${tg}</span>` : '';
         const gsd = sessionDates(p.s);
         const cal = gsd.length ? `<span class="ics-btn ics-btn--grid" role="button" tabindex="0" data-i="${SLOTS.indexOf(p.s)}" aria-label="Add to calendar (${gsd.length} sessions)" title="Add to calendar · ${gsd.length} sessions">${ICS_ICON}</span>` : '';
-        return `<a class="tt__slot${faded}" style="top:${top}px;height:${h}px;--mk:var(--st-${c})" href="${p.s.href || styleHref(p.s.style)}" target="_blank" rel="noopener">
+        return `<a class="tt__slot${faded}" style="top:${top}px;height:${h}px;--mk:var(--st-${c})" href="${p.s.href || styleHref(p.s.style)}" target="_blank" rel="noopener"${p.s.teacherFull ? ` title="${esc(p.s.teacherFull)}"` : ''}>
           ${cal}<span class="tm">${p.a}–${p.b}</span><b>${esc(p.s.style)}</b><span class="tc">${esc(p.s.level)} · ${esc(p.s.teacher)}</span>${tagsLine}</a>`;
       }).join('');
       return `<div class="tt__col">${cards}</div>`;
@@ -2075,6 +2076,11 @@
         if (s.href) o.href = s.href;
         else { const _h = HREF_KEYS.get(s.style + '|' + s.day); if (_h) o.href = _h; }
         if (Array.isArray(s.slotDates) && s.slotDates.length) o.slotDates = s.slotDates;
+        // Solo Jazz is taught by the full Upside Down team (Sep Vermeersch, Leni Denorme,
+        // Ann-Sofie Van Enis) — the sheet's single "Slot Teacher" field can't carry all
+        // three, so the compact views always show the org credit regardless of what the
+        // feed returns; the full roster lives in teacherFull (title attr + calendar export).
+        if (o.style === 'Solo Jazz') { o.teacher = 'Upside Down'; o.teacherFull = 'Sep Vermeersch, Leni Denorme & Ann-Sofie Van Enis (Upside Down)'; }
         return o;
       });
       const known = new Set(DAYS);
