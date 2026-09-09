@@ -261,6 +261,7 @@
     .tag--starter { background: #F3EAFE; color: var(--purple-deep); }
     /* Late starters — a class that does NOT begin with the rest of the term. */
     .tag--from { border: 1px solid var(--purple-deep); color: var(--purple-deep); font-weight: 800; }
+    .tag--full { background: var(--ink); color: #fff; }
     .tt__tags { display: block; margin-top: 5px; line-height: 1.8; }
     .tt__slot .tt__tags { line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: clip; }
     .tt__slot .tag { font-size: .46rem; margin: 0 3px 0 0; padding: 1px 4px; }
@@ -1552,7 +1553,7 @@
     { day:'tue', time:'19:00–20:00', style:'Bachata', level:'L1', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', slotDates:['2026-09-15','2026-09-22','2026-09-29','2026-10-06','2026-10-13','2026-10-20','2026-11-10','2026-11-17','2026-11-24','2026-12-01','2026-12-08','2026-12-15','2027-01-12','2027-01-19','2027-01-26'] },
     { day:'tue', time:'19:00–20:30', style:'Burlesque', level:'L2 early', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1' },
     { day:'tue', time:'19:30–20:30', style:'Flamenco', level:'L3', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1' },
-    { day:'tue', time:'19:35–20:35', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', slotDates:['2026-09-15','2026-09-22','2026-09-29','2026-10-06','2026-10-13','2026-10-20','2026-10-27','2026-11-10','2026-11-17','2026-11-24','2026-12-01','2027-01-12','2027-01-19','2027-01-26'] },
+    { day:'tue', time:'19:35–20:35', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', isFull:true, slotDates:['2026-09-15','2026-09-22','2026-09-29','2026-10-06','2026-10-13','2026-10-20','2026-10-27','2026-11-10','2026-11-17','2026-11-24','2026-12-01','2027-01-12','2027-01-19','2027-01-26'] },
     { day:'tue', time:'20:00–21:00', style:'Bachata', level:'L2', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', slotDates:['2026-09-15','2026-09-22','2026-09-29','2026-10-06','2026-10-13','2026-10-20','2026-11-10','2026-11-17','2026-11-24','2026-12-01','2026-12-08','2026-12-15','2027-01-12','2027-01-19','2027-01-26'] },
     { day:'tue', time:'20:30–22:00', style:'Burlesque', level:'L2 late', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1' },
     { day:'tue', time:'20:40–21:40', style:'Flamenco', level:'L1', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1' },
@@ -1656,7 +1657,7 @@
       'close-sub':'Tap any class to jump to its style page — pricing, teacher, registration, all in one place.',
       'close-cta':'Browse all 25 styles →','f-home':'Home','f-styles':'All styles','f-new':'New here?','f-contact':'Contact','f-spring':'Spring 2026','f-schoolyear':'School year','f-addr':'Stapelplein 41 · 9000 Ghent','f-trial':'✦ New here? Free trial week · Sep 14–19, 2026 →','skip':'Skip to schedule',
       ar:'→', cAll:n=>n+(n===1?' class':' classes'), cFil:(n,t)=>n+' of '+t, none:'No classes match',
-      dCount:n=>n===1?'1 class':n+' classes', tagNew:'New', tagMini:'Miniseries', tagDrop:'3 / 5-session pass', tagStarter:'+ Starter series', tagStarterTip:'First 4 weeks of the weekly class — a beginner on-ramp into Level 2.', tagMiniTip:'A short, time-bound series of a few weeks.', tagFrom:'From', tagFromTip:'This class starts later in the term — it does not run during the free trial week.', clearAll:'Clear all', today:'Today',
+      dCount:n=>n===1?'1 class':n+' classes', tagNew:'New', tagMini:'Miniseries', tagDrop:'3 / 5-session pass', tagStarter:'+ Starter series', tagStarterTip:'First 4 weeks of the weekly class — a beginner on-ramp into Level 2.', tagMiniTip:'A short, time-bound series of a few weeks.', tagFrom:'From', tagFromTip:'This class starts later in the term — it does not run during the free trial week.', tagFull:'Full', tagFullTip:'This class is fully booked for the semester.', clearAll:'Clear all', today:'Today',
       icsLabel:n=>'Add to calendar · '+n+(n===1?' session':' sessions'), icsShort:'+ Calendar'
     },
     nl: {
@@ -1673,7 +1674,7 @@
       'close-sub':'Klik op een les voor de stijlpagina — prijzen, leraar, inschrijving, alles op één plek.',
       'close-cta':'Bekijk alle 25 stijlen →','f-home':'Home','f-styles':'Alle stijlen','f-new':'Nieuw hier?','f-contact':'Contact','f-spring':'Lente 2026','f-schoolyear':'Schooljaar','f-addr':'Stapelplein 41 · 9000 Gent','f-trial':'✦ Nieuw hier? Gratis proefweek · 14–19 sep 2026 →','skip':'Naar het rooster',
       ar:'→', cAll:n=>n+(n===1?' les':' lessen'), cFil:(n,t)=>n+' van '+t, none:'Geen lessen passen',
-      dCount:n=>n===1?'1 les':n+' lessen', tagNew:'Nieuw', tagMini:'Minireeks', tagDrop:'3- of 5-beurtenkaart', tagStarter:'+ Starterreeks', tagStarterTip:'Eerste 4 weken van de wekelijkse les — instap voor beginners naar niveau 2.', tagMiniTip:'Een korte reeks van enkele weken.', tagFrom:'Vanaf', tagFromTip:'Deze les start later in het semester — niet tijdens de gratis proefweek.', clearAll:'Alles wissen', today:'Vandaag',
+      dCount:n=>n===1?'1 les':n+' lessen', tagNew:'Nieuw', tagMini:'Minireeks', tagDrop:'3- of 5-beurtenkaart', tagStarter:'+ Starterreeks', tagStarterTip:'Eerste 4 weken van de wekelijkse les — instap voor beginners naar niveau 2.', tagMiniTip:'Een korte reeks van enkele weken.', tagFrom:'Vanaf', tagFromTip:'Deze les start later in het semester — niet tijdens de gratis proefweek.', tagFull:'Vol', tagFullTip:'Deze les zit vol voor dit semester.', clearAll:'Alles wissen', today:'Vandaag',
       icsLabel:n=>'Toevoegen aan agenda · '+n+(n===1?' sessie':' sessies'), icsShort:'+ Agenda'
     }
   };
@@ -1863,6 +1864,10 @@
   function slotTagDefs(s) {
     const k = (s.style || '').replace(/\s+/g, '').toLowerCase();
     const t = UI[lang], defs = [];
+    // Hand-set per class when registration hits capacity — no live feed carries
+    // this, so it's a manual flag on the slot object. Check Zoho (All_Courses,
+    // Registered_Students vs Max_Number_of_student) before removing or adding one.
+    if (s.isFull) defs.push({ cls: 'tag--full', text: t.tagFull, title: t.tagFullTip });
     /* Late starters. The hero advertises the free trial week (Sep 14–19) over the
        whole grid, so a class that only begins weeks later reads as if you could
        try it in that week. Tono Ferriol's mornings start 28 Sep / 1 Oct (he is
@@ -2082,6 +2087,9 @@
         // three, so the compact views always show the org credit regardless of what the
         // feed returns; the full roster lives in teacherFull (title attr + calendar export).
         if (o.style === 'Solo Jazz' || o.style === 'Lindy Hop') { o.teacher = 'Upside Down'; o.teacherFull = 'Sep Vermeersch, Leni Denorme & Ann-Sofie Van Enis (Upside Down)'; }
+        // Tuesday Yoga hit capacity (30/30 in Zoho, checked 2026-09-09) — the feed carries
+        // no capacity field, so this is a manual flag. Re-check Zoho before removing.
+        if (o.style === 'Yoga' && o.day === 'tue') o.isFull = true;
         return o;
       });
       const known = new Set(DAYS);
