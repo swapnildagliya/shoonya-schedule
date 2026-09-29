@@ -21,8 +21,11 @@
       //   Co-teacher columns of all 59 class rows, split cells on '·' (some name
       //   two teachers), and merge 'Swapnil' with 'Swapnil Dagliya'. Counting
       //   cells instead gives 24 — wrong. Tono is inside the 22.
-      styles: 25, teachers: 22, studios: 5,
-      partner_social: 7, classical_technique: 8, culture_wellness: 10
+      // 2026-09-29: Dance & Fit is not running Semester 1 (its only slot, Wed, was
+      //   cancelled) → 24 styles, culture_wellness 10→9, weekly class rows 59→57
+      //   (Pilates Wed slot also cancelled; Pilates stays, so teachers stays 22).
+      styles: 24, teachers: 22, studios: 5,
+      partner_social: 7, classical_technique: 8, culture_wellness: 9
     },
     semester: {
       start: '2026-09-14',
