@@ -63,11 +63,17 @@ for (const k of ['styles', 'teachers', 'studios', 'partner_social', 'classical_t
   const m = cfgSrc.match(new RegExp(`${k}\\s*:\\s*(\\d+)`));
   if (m) counts[k] = Number(m[1]);
 }
-const trialShort = (cfgSrc.match(/trial_week_short\s*:\s*'([^']+)'/) || [])[1] || 'Sep 14–19, 2026';
+// trial_week_short is COMPUTED in site-config.js (next trial week still ahead), so run the
+// config in a stub DOM and read the real per-language display strings. Never hard-code a date here.
+import vm from 'node:vm';
+const _win = {};
+vm.runInNewContext(cfgSrc, { window: _win, document: { readyState: 'complete', querySelectorAll: () => [] } });
+const trialEn = _win.SHOONYA.display.en.trial_week_short;
+const trialNl = _win.SHOONYA.display.nl.trial_week_short;
 
 const trBlock = src.slice(src.indexOf('const translations'), src.indexOf('function applyLang'));
 const _c = counts;
-const _d = { en: { trial_week_short: trialShort }, nl: { trial_week_short: trialShort } };
+const _d = { en: { trial_week_short: trialEn }, nl: { trial_week_short: trialNl } };
 let translations;
 try {
   translations = new Function('_c', '_d', `${trBlock.replace(/^const /, 'var ')}; return translations;`)(_c, _d);
