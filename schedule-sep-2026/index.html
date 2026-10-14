@@ -1521,7 +1521,7 @@
     { day:'tue', time:'19:00–20:00', style:'Bachata', level:'L1', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', slotDates:['2026-09-15','2026-09-22','2026-09-29','2026-10-06','2026-10-13','2026-10-20','2026-11-10','2026-11-17','2026-11-24','2026-12-01','2026-12-08','2026-12-15','2027-01-12','2027-01-19','2027-01-26'] },
     { day:'tue', time:'19:00–20:30', style:'Burlesque', level:'L2 early', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1', isAlmostFull:true },
     { day:'tue', time:'19:30–20:30', style:'Flamenco', level:'L3', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1' },
-    { day:'tue', time:'19:35–20:35', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', isFull:true, slotDates:['2026-09-15','2026-09-22','2026-09-29','2026-10-06','2026-10-13','2026-10-20','2026-10-27','2026-11-10','2026-11-17','2026-11-24','2026-12-01','2027-01-12','2027-01-19','2027-01-26'] },
+    { day:'tue', time:'19:35–20:35', style:'Yoga', level:'Open', teacher:'Swapnil', studio:'AKH', studioName:'Aakash', dropIn:true, slotDates:['2026-09-15','2026-09-22','2026-09-29','2026-10-06','2026-10-13','2026-10-20','2026-10-27','2026-11-10','2026-11-17','2026-11-24','2026-12-01','2027-01-12','2027-01-19','2027-01-26'] },
     { day:'tue', time:'20:00–21:00', style:'Bachata', level:'L2', teacher:'Alex (Lenka)', studio:'AD2', studioName:'Art Deco 2', slotDates:['2026-09-15','2026-09-22','2026-09-29','2026-10-06','2026-10-13','2026-10-20','2026-11-10','2026-11-17','2026-11-24','2026-12-01','2026-12-08','2026-12-15','2027-01-12','2027-01-19','2027-01-26'] },
     { day:'tue', time:'20:30–22:00', style:'Burlesque', level:'L2 late', teacher:'Zoe Bizoe', studio:'AD1', studioName:'Art Deco 1' },
     { day:'tue', time:'20:40–21:40', style:'Flamenco', level:'L1', teacher:'La Liz', studio:'AN1', studioName:'Ananta 1' },
@@ -1809,7 +1809,7 @@
 
   /* Slot tags — style-keyed (drop-in / miniseries), shared by list + grid.
      Mirrors the live page so tags survive even if the data flags change.
-       · drop-in   → Pilates / Wednesday Yoga
+       · session pass → Pilates / Tuesday and Wednesday Yoga
        · miniseries→ Bachata Solo Style */
   /* First class date across the whole term, cached per SLOTS array (the live
      feed swaps SLOTS wholesale, so identity is a safe cache key). */
@@ -1842,7 +1842,7 @@
       defs.push({ cls: 'tag--from', text: t.tagFrom + ' ' + (+a[2]) + ' ' + TW_MONTHS[lang][+a[1] - 1],
                   title: t.tagFromTip });
     }
-    if (k === 'pilatesfordancers' || (k === 'yoga' && s.day === 'wed'))
+    if (k === 'pilatesfordancers' || (k === 'yoga' && (s.day === 'tue' || s.day === 'wed')))
       defs.push({ cls: 'tag--drop', text: t.tagDrop });
     if (k.indexOf('bachatasolo') === 0)
       defs.push({ cls: 'tag--mini', text: t.tagMini, title: t.tagMiniTip });
@@ -2047,9 +2047,6 @@
         // three, so the compact views always show the org credit regardless of what the
         // feed returns; the full roster lives in teacherFull (title attr + calendar export).
         if (o.style === 'Solo Jazz' || o.style === 'Lindy Hop') { o.teacher = 'Upside Down'; o.teacherFull = 'Sep Vermeersch, Leni Denorme & Ann-Sofie Van Enis (Upside Down)'; }
-        // Tuesday Yoga hit capacity (30/30 in Zoho, checked 2026-09-09) — the feed carries
-        // no capacity field, so this is a manual flag. Re-check Zoho before removing.
-        if (o.style === 'Yoga' && o.day === 'tue') o.isFull = true;
         // Burlesque L2 Early (Tue 19:00) is close to capacity (20/25 in Zoho,
         // checked 2026-09-09) — re-check before extending or removing this.
         if (o.style === 'Burlesque' && o.day === 'tue' && o.time === '19:00–20:30') o.isAlmostFull = true;
