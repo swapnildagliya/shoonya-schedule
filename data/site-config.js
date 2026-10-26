@@ -34,10 +34,10 @@
       trialWeek: { start: '2026-09-14', end: '2026-09-19' }
     },
     pricing: {
-      60:  { full: 198, student: 175 },
-      70:  { full: 223, student: 197 },
-      75:  { full: 231, student: 204 },
-      90:  { full: 248, student: 219 }
+      60:  { full: 198, student: 174.24 },
+      70:  { full: 223, student: 196.24 },
+      75:  { full: 231, student: 203.28 },
+      90:  { full: 248, student: 218.24 }
     },
     discounts: { student_pct: 12, uitpas_pct: 80 },
     // Prune dates here as they pass. open_door_1/2/next filter by date anyway, so
