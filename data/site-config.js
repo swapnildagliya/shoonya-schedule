@@ -48,7 +48,19 @@
     trialWeeks: [
       { start: '2026-09-14', end: '2026-09-19' },
       { start: '2027-02-15', end: '2027-02-20' }
-    ]
+    ],
+    // The current semester's timetable page. schedule.shoonyadance.com/ is a gateway, not
+    // the timetable, so there is no semester-stable URL — this slug turns over with the
+    // semester. build-trial-banner.mjs warns once semester.end has passed.
+    scheduleUrl: 'https://schedule.shoonyadance.com/schedule-sep-2026/',
+    // Calendar event page per date — keyed by open-door date, or by a trial week's START.
+    // The banner CTA points here when a programme exists; a date with no entry falls back
+    // to the schedule, so a future door can never link to a 404. Slugs are per-edition:
+    // add next season's line when its calendar event is published.
+    eventUrls: {
+      '2026-09-13': 'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-13-september',
+      '2026-09-14': 'https://www.shoonyadance.com/calendar/free-trial-week-14-19-september'
+    }
   };
 
   var MF = {
