@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="dark" />
   <!-- Bilingual via in-page JS toggle. External translation tools should skip. -->
   <meta name="google" content="notranslate" />
   <meta name="weglot-translate" content="no" />
   <title>Schedule · Shoonya Dance Centre · Ghent</title>
-  <meta name="description" content="Choose your semester at Shoonya Dance Centre. September 2026 brings a new school year with 24 styles across 5 studios. Spring 2026 is in its final weeks." />
+  <meta name="description" content="Choose your semester at Shoonya Dance Centre. September 2026 brings a new school year with 24 styles across 5 studios." />
   <link rel="canonical" href="https://schedule.shoonyadance.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Shoonya Dance Centre" />
@@ -22,496 +22,171 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&family=Marcellus&family=PT+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --ink:           #000000;
-      --muted:         #5a5a5a;
-      --muted-soft:    #888;
-      --purple:        #B564F7;
-      --purple-deep:   #7E4FBF;
-      --purple-soft:   #F5ECFF;
-      --yellow:        #FBC70F;
-      --yellow-soft:   #FDF1B8;
-      --golden:        #FFCF5A;
-      --yellow-ink:    #6B4F00;
-      --salmon:        #F9D9C9;
-      --salmon-deep:   #C04A1F;
-      --salmon-ink:    #8A2F0E;
-      --border:        #e4e0db;
-      --bg:            #ffffff;
-      --hero-bg:       #000000;
-      --radius:        0px;
-      --radius-sm:     0px;
-    }
+:root{
+  --void-black:#000000;
+  --bone:#F4F1EB;
+  --void-white:#FFFFFF;
+  --mist:#D6D6D6;
+  --charcoal:#4A4A4A;
+  --vibrant-purple:#B564F7;
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  --font-display:"Marcellus","Playfair Display",Georgia,serif;
+  --font-italic:"PT Serif",Georgia,serif;
+  --font-body:"PT Serif",Georgia,serif;
+  --font-data:"Geist Mono",ui-monospace,monospace;
+  --font-ui:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
 
-    /* Skip-to-content (visible only on keyboard focus) */
-    .skip-link {
-      position: absolute; top: 0; left: 0;
-      transform: translateY(-100%);
-      background: var(--ink); color: #fff;
-      padding: .75rem 1.25rem;
-      font-weight: 700; font-size: .85rem; letter-spacing: .04em;
-      text-decoration: none;
-      z-index: 200;
-      border-radius: 0 0 6px 0;
-      transition: transform .15s;
-      font-family: 'PT Serif', serif;
-    }
-    .skip-link:focus {
-      transform: translateY(0);
-      outline: 2px solid var(--purple);
-      outline-offset: -2px;
-    }
+  --pad:clamp(20px,4vw,56px);
+}
+html{
+  --bg:var(--void-black); --fg:var(--void-white); --muted:var(--mist);
+  --rule:var(--charcoal); --focus:var(--vibrant-purple);
+}
 
-    body {
-      font-family: 'PT Serif', Georgia, serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:18px;line-height:1.55;font-weight:400}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+h1,h2,h3,p{margin:0;font-weight:400}
+:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
 
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
-    :focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+.skip{position:absolute;left:12px;top:-80px;z-index:100;background:var(--void-white);color:var(--void-black);padding:12px 16px;font:500 16px var(--font-ui);text-decoration:none}
+.skip:focus{top:12px;outline:3px solid var(--vibrant-purple);outline-offset:2px}
 
-    .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-    }
+/* ---------- Header ---------- */
+.site-header{background:var(--void-black);color:var(--void-white);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 24px;padding:10px var(--pad)}
+.brand{display:inline-flex;align-items:center;min-height:44px}
+.brand img{height:52px;width:auto}
+.site-nav{display:flex;flex-wrap:wrap;gap:0 6px;order:2}
+.site-nav a,.lang-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font:500 16px/1 var(--font-ui);text-decoration:none;color:var(--void-white)}
+.site-nav a:hover,.lang-btn:hover{text-decoration:underline;text-underline-offset:6px}
+.site-nav a[aria-current="page"]{text-decoration:underline;text-decoration-color:var(--vibrant-purple);text-decoration-thickness:2px;text-underline-offset:10px}
+.lang{display:flex;align-items:center;order:3;color:var(--mist)}
+.lang-btn{color:var(--mist);min-width:44px;justify-content:center}
+.lang-btn[aria-pressed="true"]{color:var(--void-white);text-decoration:underline;text-decoration-color:var(--vibrant-purple);text-decoration-thickness:2px;text-underline-offset:10px}
+.lang i{font-style:normal;color:var(--charcoal)}
+@media (min-width:900px){
+  .site-header{flex-wrap:nowrap}
+  .brand{order:1}
+  .site-nav{order:2;margin-left:auto;margin-right:20px}
+  .lang{order:3}
+}
+@media (max-width:899px){
+  .brand{order:1}
+  .lang{order:2;margin-left:auto}
+  .site-nav{order:3;flex-basis:100%;margin-left:-10px}
+}
+@media (max-width:480px){
+  .site-nav{flex-wrap:nowrap;justify-content:space-between;gap:0;margin-left:-6px;margin-right:-6px}
+  .site-nav a{padding:0 6px;font-size:14px}
+}
 
-    /* ── Site nav ──────────────────────────────────────────────── */
-    .site-nav {
-      position: sticky; top: 0; z-index: 200;
-      display: flex; align-items: center;
-      padding: 0 1.5rem; height: 52px;
-      background: #fff; border-bottom: 1px solid var(--border);
-    }
-    .site-nav__brand {
-      font-family: 'Marcellus', serif; font-size: .85rem;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--ink); text-decoration: none; margin-right: auto;
-    }
-    .site-nav__links {
-      display: flex; align-items: center; gap: 1.5rem; margin-right: 1.5rem;
-    }
-    .site-nav__links a {
-      font-size: .75rem; font-weight: 700; letter-spacing: .06em;
-      text-transform: uppercase; color: var(--muted); text-decoration: none;
-      transition: color .15s; white-space: nowrap;
-    }
-    .site-nav__links a:hover, .site-nav__links a.active { color: var(--ink); }
-    .lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 99px; overflow: hidden; }
-    .lang-btn {
-      padding: .65rem 1rem; font-size: .72rem; font-weight: 700;
-      letter-spacing: .06em; border: none; background: none;
-      cursor: pointer; color: var(--muted); font-family: 'PT Serif', serif;
-    }
-    .lang-btn.active { background: #000; color: #fff; border-radius: 99px; }
-    @media (max-width: 540px) { .site-nav__links { display: none; } }
+/* ---------- School navigation row ---------- */
+.school{display:flex;flex-wrap:nowrap;gap:0 6px;padding:0 var(--pad);border-bottom:1px solid var(--rule);background:var(--void-black)}
+.school a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font:500 15px/1 var(--font-ui);color:var(--muted);text-decoration:none;white-space:nowrap}
+.school a:first-child{padding-left:0}
+.school a:hover{color:var(--void-white);text-decoration:underline;text-underline-offset:6px}
+.school a[aria-current="page"]{color:var(--void-white);text-decoration:underline;text-decoration-color:var(--vibrant-purple);text-decoration-thickness:2px;text-underline-offset:10px}
+@media (max-width:480px){
+  .school{gap:0}
+  .school a{padding:0 8px 0 0;margin-right:8px;font-size:14px}
+}
 
-    /* ── Hero ─────────────────────────────────────────────────── */
-    .hero {
-      background: linear-gradient(rgba(0,0,0,.50), rgba(0,0,0,.50)), url('./images/social-event.jpg') center/cover no-repeat;
-      color: #fff;
-      padding: 4rem 1.5rem 3.5rem;
-      text-align: center;
-    }
-    .hero__pill {
-      display: inline-block;
-      background: var(--purple);
-      color: #fff;
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: .3rem 1rem;
-      border-radius: 99px;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-family: 'Marcellus', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: .75rem;
-    }
-    .hero h1 em { color: var(--purple); font-style: italic; }
-    .hero__sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,.72);
-      max-width: 560px;
-      margin: 0 auto 1.25rem;
-      line-height: 1.65;
-    }
-    .hero__cta {
-      display: inline-block;
-      background: var(--purple);
-      color: #fff;
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: .8rem 1.75rem;
-      border-radius: 6px;
-      margin-bottom: 1.5rem;
-      transition: opacity .15s, transform .15s;
-    }
-    .hero__cta:hover { opacity: .9; transform: translateY(-1px); }
-    .hero__year {
-      display: block;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-    }
+/* ---------- Lead poster ---------- */
+main:focus{outline:none}
+.poster{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,54%);align-items:end;background:var(--void-black);color:var(--void-white);overflow:hidden}
+.poster-img{grid-column:2;grid-row:1;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:50% 50%}
+.poster-copy{grid-column:1;grid-row:1;padding:clamp(32px,5vw,64px) var(--pad) clamp(36px,6vw,64px)}
+.poster-title{font-family:var(--font-display);font-size:clamp(36px,4.4vw,62px);line-height:1.04;letter-spacing:-.012em;text-wrap:balance}
+.poster-title em{display:block;font-family:var(--font-italic);font-style:italic}
+.poster-line{margin-top:22px;font-size:clamp(19px,1.8vw,24px);line-height:1.4;color:var(--void-white);max-width:34ch}
+.textlink{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;font-size:20px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.textlink:hover{text-decoration-thickness:3px}
+.year{display:block;margin-top:14px;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-size:17px;color:var(--muted)}
 
-    /* ── Page wrap ────────────────────────────────────────────── */
-    .wrap {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+@media (max-width:760px){
+  .poster{display:flex;flex-direction:column;align-items:stretch}
+  .poster-img{order:1;width:100%;height:auto;aspect-ratio:3/2}
+  .poster-copy{order:2;padding:28px var(--pad) 40px}
+  .poster-title{font-size:clamp(34px,10.5vw,52px)}
+  .year{font-size:16px}
+}
 
-    /* ── Timeline section ─────────────────────────────────────── */
-    .timeline-wrap { padding: 4rem 1.5rem 5rem; background: var(--golden); }
-    .timeline-header {
-      max-width: 720px;
-      margin: 0 auto 3rem;
-      text-align: center;
-    }
-    .timeline-header__kicker {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--purple-deep);
-      margin-bottom: .5rem;
-    }
-    .timeline-header h2 {
-      font-family: 'Marcellus', serif;
-      font-weight: 400;
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
-      line-height: 1.15;
-      margin-bottom: .5rem;
-    }
-    .timeline-header h2 em { color: var(--purple); font-style: italic; }
-    .timeline-header__sub {
-      font-size: .95rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+/* ---------- Sections ---------- */
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.prog{background:var(--bg);color:var(--fg);padding:clamp(56px,8vw,104px) 0 0}
+.sec-head{padding-bottom:clamp(28px,4vw,44px)}
+.sec-head h2{font-family:var(--font-display);font-size:clamp(34px,4.4vw,56px);line-height:1.08;letter-spacing:-.01em;max-width:22ch;text-wrap:balance}
+.sec-head h2 em{font-style:normal}
+.sec-head p{margin-top:14px;max-width:60ch;color:var(--muted);font-size:19px}
 
-    .timeline {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 0 12px;
-    }
-    .timeline__rail {
-      position: absolute;
-      top: 48px; left: 0; right: 0;
-      height: 3px;
-      background: var(--border);
-      border-radius: 3px;
-    }
-    .timeline__rail-fill {
-      position: absolute;
-      top: 0; left: 0;
-      height: 100%;
-      background: var(--purple);
-      border-radius: 3px;
-      transition: width .5s ease;
-    }
-    .timeline__nodes {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .timeline__node {
-      flex: 1 1 0;
-      text-align: center;
-      padding: 0 4px;
-      min-width: 0;
-      text-decoration: none;
-      color: inherit;
-    }
-    .timeline__dot {
-      display: block;
-      box-sizing: border-box;
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      background: #fff;
-      border: 3px solid var(--border);
-      margin: 8px auto 0;
-      position: relative;
-      transition: transform .15s, border-color .15s;
-    }
-    .timeline__node--past .timeline__dot {
-      background: var(--purple);
-      border-color: var(--purple);
-    }
-    .timeline__node--past .timeline__dot::after {
-      content: '✓';
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 9px;
-      font-weight: 700;
-      line-height: 1;
-    }
-    .timeline__node--now .timeline__dot {
-      background: var(--purple);
-      border-color: var(--purple);
-      box-shadow: 0 0 0 5px rgba(181,100,247,.22);
-      width: 18px; height: 18px;
-      margin-top: 7px;
-    }
-    .timeline__node--now { color: var(--purple-deep); }
-    .timeline__node--spring-end .timeline__dot { border-color: var(--salmon-deep); }
-    .timeline__node--open-house .timeline__dot { border-color: var(--yellow); background: #fffceb; }
-    .timeline__node--trial-week .timeline__dot { border-color: var(--ink); }
-    .timeline__node--sem-end    .timeline__dot { border-color: var(--purple); }
-    .timeline__node--year-end   .timeline__dot { border-color: var(--salmon-deep); background: #fff5ef; }
+/* ---------- Semester rows ---------- */
+.rows{border-top:1px solid var(--rule)}
+.row{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(28px,4vw,44px) 0;border-bottom:1px solid var(--rule);text-decoration:none;color:inherit}
+.row:focus-visible{outline-offset:-3px}
+/* The spring row is hidden by default and revealed by applyDateBasedVisibility() only while
+   the spring semester is still relevant (hidden-by-default is the safe failure mode).
+   Do not give #card-spring a display value here. */
+#card-spring{display:none}
+.row .big{display:block;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.1}
+.row .sub{display:block;margin-top:12px;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-size:17px;line-height:1.45;color:var(--muted)}
+.row:hover .big{text-decoration:underline;text-decoration-color:var(--vibrant-purple);text-decoration-thickness:3px;text-underline-offset:8px}
+@media (max-width:760px){.row .sub{font-size:16px}}
 
-    /* "Happening now" milestones get the pulsing purple highlight too */
-    .timeline__node--now:not(.timeline__node--synthetic) .timeline__dot {
-      background: var(--purple);
-      border-color: var(--purple);
-    }
-    .timeline__node--now:not(.timeline__node--synthetic) .timeline__dot::after {
-      content: '';
-    }
+/* ---------- Timeline ---------- */
+.timeline-wrap{padding-bottom:0}
+.timeline{position:relative;padding:32px 0 8px}
+.timeline__rail{position:absolute;top:46px;left:0;right:0;height:1px;background:var(--rule)}
+.timeline__rail-fill{position:absolute;top:-.5px;left:0;height:2px;background:var(--vibrant-purple);transition:width .5s ease}
+.timeline__nodes{position:relative;display:flex;justify-content:space-between;align-items:flex-start}
+.timeline__node{flex:1 1 0;min-width:0;padding:0 8px 0 0;text-align:left;text-decoration:none;color:inherit}
+.timeline__dot{display:block;width:11px;height:11px;border-radius:50%;background:var(--void-black);border:1px solid var(--void-white);margin:8px 0 0;position:relative}
+.timeline__node--past .timeline__dot{background:var(--mist);border-color:var(--mist)}
+.timeline__node--now .timeline__dot{background:var(--vibrant-purple);border-color:var(--vibrant-purple);width:15px;height:15px;margin:6px 0 0 -2px}
+.timeline__label{display:block;margin-top:16px;font:500 15px/1.3 var(--font-ui);color:var(--void-white)}
+.timeline__node--past .timeline__label{color:var(--muted)}
+.timeline__node--now .timeline__label{color:var(--vibrant-purple)}
+.timeline__date{display:block;margin-top:6px;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-size:16px;line-height:1.35;color:var(--muted)}
+a.timeline__node:hover .timeline__label{text-decoration:underline;text-underline-offset:5px}
+a.timeline__node:focus-visible{outline-offset:6px}
 
-    .timeline__label {
-      display: block;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      margin-top: 14px;
-      color: var(--ink);
-      line-height: 1.25;
-    }
-    .timeline__node--past .timeline__label { color: var(--muted-soft); }
-    .timeline__node--now .timeline__label  { color: var(--purple-deep); }
-    .timeline__date {
-      display: block;
-      font-size: .8rem;
-      color: var(--muted);
-      margin-top: 3px;
-      font-family: 'PT Serif', serif;
-      letter-spacing: 0;
-      text-transform: none;
-      font-weight: 400;
-    }
-    a.timeline__node:hover .timeline__dot { transform: scale(1.1); }
+@media (max-width:720px){
+  .timeline{padding:0}
+  .timeline__rail{top:8px;bottom:8px;left:14px;right:auto;width:1px;height:auto}
+  .timeline__rail-fill{display:none}
+  .timeline__nodes{flex-direction:column;align-items:stretch;gap:4px}
+  .timeline__node{flex:none;width:100%;display:grid;grid-template-columns:29px 1fr;column-gap:14px;padding:0;min-height:44px;align-content:center}
+  .timeline__dot{grid-row:1 / 3;margin:5px 0 0 9px}
+  .timeline__node--now .timeline__dot{margin:3px 0 0 7px}
+  .timeline__label{margin-top:0}
+  .timeline__date{margin-top:2px}
+}
 
-    /* ── Semester cards ───────────────────────────────────────── */
-    .cards-wrap { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 4rem; }
-    .cards-wrap__label {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--muted-soft);
-      margin-bottom: 1.25rem;
-    }
-    .card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 36px 32px;
-      border-radius: var(--radius);
-      margin-bottom: 16px;
-      text-decoration: none;
-      color: inherit;
-      transition: opacity .15s;
-    }
-    .card:last-child { margin-bottom: 0; }
-    /* The spring card is hidden by default and revealed by applyDateBasedVisibility()
-       only while the spring semester is still relevant. It used to ship visible and
-       get hidden after the script ran, which flashed an ended semester on every load
-       — and left it permanently visible if the script never ran. Hidden-by-default is
-       the safe failure mode: worst case a visitor misses a card that is out of date
-       anyway. Do not give #card-spring a display value here. */
-    #card-spring { display: none; }
-    .card:hover { opacity: .88; }
-    .card:hover .card__arrow { transform: translateX(4px); }
+/* ---------- Closing ---------- */
+.closing{padding:clamp(64px,9vw,112px) 0 clamp(56px,8vw,96px)}
+.closing h2{font-family:var(--font-display);font-size:clamp(34px,4.4vw,56px);line-height:1.08;letter-spacing:-.01em;max-width:22ch;text-wrap:balance}
+.closing h2 em{font-style:normal}
+.closing__sub{margin-top:18px;max-width:46ch;font-size:22px;line-height:1.45}
+.closing__meta{display:block;margin-top:8px;font:400 15px/1.4 var(--font-ui);color:var(--muted)}
 
-    .card--spring { background: var(--salmon); }
-    .card--sep    { background: var(--purple-soft); }
+/* ---------- Footer ---------- */
+.site-footer{background:var(--void-black);color:var(--void-white);padding:56px 0;border-top:1px solid var(--rule)}
+.foot{display:grid;grid-template-columns:1fr auto;gap:28px 48px;align-items:start}
+.foot-brand{font-family:var(--font-display);font-size:28px;line-height:1.2;text-wrap:balance}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 8px}
+.foot li a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font:500 16px/1 var(--font-ui);text-decoration:none}
+.foot li a:hover{text-decoration:underline;text-underline-offset:6px}
+@media (max-width:760px){
+  .foot{grid-template-columns:1fr}
+  .foot ul{margin-left:-12px}
+}
 
-    .card__chip {
-      flex-shrink: 0;
-      background: var(--salmon-deep);
-      color: #fff;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 99px;
-    }
-    .card--sep .card__chip { background: var(--purple); }
-
-    .card__body { flex: 1 1 auto; min-width: 0; }
-    .card__title {
-      font-family: 'Marcellus', serif;
-      font-weight: 400;
-      font-size: 1.55rem;
-      line-height: 1.2;
-      margin-bottom: 5px;
-    }
-    .card__meta {
-      font-size: .88rem;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-    .card--spring .card__meta { color: var(--salmon-ink); }
-    .card--sep    .card__meta { color: var(--purple-deep); }
-
-    .card__arrow {
-      flex-shrink: 0;
-      font-size: 1.6rem;
-      font-family: 'Marcellus', serif;
-      transition: transform .15s;
-    }
-    .card--spring .card__arrow { color: var(--salmon-ink); }
-    .card--sep    .card__arrow { color: var(--purple-deep); }
-
-    .card--past { opacity: .55; pointer-events: none; }
-    .card--past .card__chip { background: var(--muted-soft); }
-
-    /* ── Closing CTA ──────────────────────────────────────────── */
-    .closing {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;   /* top gap = white separation between the yellow timeline and the black CTA band */
-    }
-    .closing__band {
-      background: #000;
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .closing__kicker {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: .75rem;
-    }
-    .closing h2 {
-      font-family: 'Marcellus', serif;
-      font-weight: 400;
-      font-size: clamp(1.5rem, 3vw, 2.1rem);
-      line-height: 1.15;
-      margin-bottom: .75rem;
-    }
-    .closing h2 em { color: var(--purple); font-style: italic; }
-    .closing__sub {
-      font-size: .95rem;
-      color: rgba(255,255,255,.7);
-      max-width: 480px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.55;
-    }
-    .closing__cta {
-      display: inline-block;
-      background: var(--purple);
-      color: #fff;
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: .8rem 1.75rem;
-      border-radius: 6px;
-      transition: opacity .15s;
-    }
-    .closing__cta:hover { opacity: .88; }
-    .closing__cta-meta {
-      display: block;
-      font-size: .75rem;
-      color: rgba(255,255,255,.5);
-      margin-top: .9rem;
-      letter-spacing: .04em;
-    }
-
-    /* ── Footer ───────────────────────────────────────────────── */
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 1.75rem 1.5rem;
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: .75rem 1.5rem;
-      font-size: .82rem;
-      color: var(--muted);
-    }
-    .footer__brand { font-weight: 700; }
-    .footer__nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    .footer__nav a { color: var(--muted); }
-    .footer__nav a:hover { color: var(--ink); }
-
-    /* ── Responsive ───────────────────────────────────────────── */
-    @media (max-width: 720px) {
-      .timeline { padding: 0; }
-      /* Mobile: rotate rail to vertical, anchored under the dot column */
-      .timeline__rail {
-        top: 8px;
-        bottom: 8px;
-        left: 11px;
-        right: auto;
-        width: 3px;
-        height: auto;
-      }
-      .timeline__rail-fill { display: none; }
-      .timeline__nodes {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 22px;
-      }
-      .timeline__node {
-        flex: none;
-        width: 100%;
-        text-align: left;
-        display: grid;
-        grid-template-columns: 28px 1fr;
-        column-gap: 14px;
-        padding: 0;
-      }
-      .timeline__dot {
-        grid-row: 1 / 3;
-        margin: 2px 0 0;
-        justify-self: center;
-      }
-      .timeline__label { margin-top: 0; }
-      .timeline__date  { margin-top: 2px; }
-    }
-    @media (max-width: 480px) {
-      .hero { padding: 3rem 1rem 2.75rem; }
-      .timeline-wrap { padding: 2.75rem 1rem 2rem; }
-      .cards-wrap { padding: 3rem 1rem 3rem; }
-      .closing { padding: 2.25rem 1rem 4rem; }
-      .closing__band { padding: 2.5rem 1.25rem; }
-      .card { padding: 14px 16px; gap: 10px; }
-      .card__title { font-size: 1.05rem; }
-    }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
   </style>
 <script type="application/ld+json">
 {
@@ -559,93 +234,107 @@
 <body>
 
   <!-- Skip to content (accessibility — visible only on keyboard focus) -->
-  <a href="#main-content" class="skip-link" data-i18n="skip-link">Skip to content</a>
+  <a href="#main-content" class="skip" data-i18n="skip-link">Skip to content</a>
 
-  <header class="site-nav">
-    <a class="site-nav__brand" href="https://www.shoonyadance.com">Shoonya</a>
-    <nav class="site-nav__links" aria-label="Site navigation">
-      <a href="/" class="active" data-i18n="snav-schedule">Schedule</a>
-      <a href="https://info.shoonyadance.com" data-i18n="snav-new">New here?</a>
-      <a href="https://styles.shoonyadance.com/" data-i18n="snav-styles">All styles</a>
+  <header class="site-header">
+    <a class="brand" href="https://www.shoonyadance.com"><img src="assets/shoonya-logo-script-purple.png" alt="Shoonya Dance Centre"></a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="https://schedule.shoonyadance.com" aria-current="page" data-i18n="hnav-classes">Classes</a>
+      <a href="https://workshops.shoonyadance.com/" data-i18n="hnav-workshops">Workshops</a>
+      <a href="https://festivals.shoonyadance.com/" data-i18n="hnav-festivals">Festivals</a>
+      <a href="https://performances.shoonyadance.com/" data-i18n="hnav-performances">Performances</a>
     </nav>
-    <div class="lang-toggle" role="group" aria-label="Language">
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="nl">NL</button>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true" lang="en">EN</button><i aria-hidden="true">/</i><button type="button" class="lang-btn" data-lang="nl" aria-pressed="false" lang="nl">NL</button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <header class="hero" id="main-content" tabindex="-1">
-    <div class="hero__pill" data-i18n="hero-pill">The dance year</div>
-    <h1 data-i18n="hero-h1">What dance classes does Shoonya offer <em>this school year?</em></h1>
-    <p class="hero__sub" data-i18n="hero-sub">Two semesters, an open house, and a free trial week. Pick where to land.</p>
-    <a class="hero__cta" href="/schedule-sep-2026" data-i18n="hero-cta">browse the september schedule →</a>
-    <span class="hero__year" data-cfg="schoolYearWide">2026 — 2027</span>
-  </header>
+  <nav class="school" aria-label="Site navigation">
+    <a href="/" aria-current="page" data-i18n="snav-schedule">Schedule</a>
+    <a href="https://info.shoonyadance.com" data-i18n="snav-new">New here?</a>
+    <a href="https://styles.shoonyadance.com/" data-i18n="snav-styles">All styles</a>
+  </nav>
 
-  <!-- Two compact semester cards — above the timeline so the schedule is reachable fast (esp. mobile) -->
-  <section class="cards-wrap" aria-label="Semesters">
-    <p class="cards-wrap__label" data-i18n="cards-label">Pick your semester</p>
+  <main id="main-content" tabindex="-1">
 
-    <a class="card card--spring" id="card-spring" href="/schedule-spring-2026">
-      <span class="card__chip" data-i18n="spring-chip">Spring</span>
-      <div class="card__body">
-        <div class="card__title" data-i18n="spring-title">Spring 2026</div>
-        <div class="card__meta" id="spring-meta" data-i18n="spring-meta">running until 13 June · sem 2 of 2025-2026</div>
+    <!-- Lead poster -->
+    <section class="poster" aria-labelledby="hero-title">
+      <img class="poster-img" src="images/kathak.jpg" alt="A group of dancers in white dresses and bright sashes stand in a line on a dark stage, arms stretched to one side, a man in white at the centre." fetchpriority="high" decoding="async">
+      <div class="poster-copy">
+        <h1 class="poster-title" id="hero-title" data-i18n="hero-h1">What dance classes does Shoonya offer <em>this school year?</em></h1>
+        <p class="poster-line" data-i18n="hero-sub">Two semesters, an open house, and a free trial week. Pick where to land.</p>
+        <a class="textlink" href="/schedule-sep-2026" data-i18n="hero-cta">See the weekly schedule →</a>
+        <span class="year" data-cfg="schoolYearWide">2026 — 2027</span>
       </div>
-      <span class="card__arrow" aria-hidden="true">→</span>
-    </a>
+    </section>
 
-    <a class="card card--sep" id="card-sep" href="/schedule-sep-2026">
-      <span class="card__chip" data-i18n="sep-chip">Sep</span>
-      <div class="card__body">
-        <div class="card__title" data-i18n="sep-title">Sep 2026 → Jan 2027</div>
-        <div class="card__meta" id="sep-meta" data-i18n="sep-meta">registration open · 24 styles · 22 teachers · 5 studios</div>
+    <!-- Semesters -->
+    <section class="prog" aria-labelledby="cards-label">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="cards-label" data-i18n="cards-label">Pick your semester</h2>
+        </div>
+
+        <div class="rows">
+          <a class="row" id="card-spring" href="/schedule-spring-2026">
+            <span class="big" data-i18n="spring-title">Spring 2026</span>
+            <span class="sub" id="spring-meta" data-i18n="spring-meta">running until 13 June · sem 2 of 2025-2026</span>
+          </a>
+
+          <a class="row" id="card-sep" href="/schedule-sep-2026">
+            <span class="big" data-i18n="sep-title">Sep 2026 → Jan 2027</span>
+            <span class="sub" id="sep-meta" data-i18n="sep-meta">registration open · 24 styles · 22 teachers · 5 studios</span>
+          </a>
+        </div>
       </div>
-      <span class="card__arrow" aria-hidden="true">→</span>
-    </a>
-  </section>
+    </section>
 
-  <!-- Timeline -->
-  <section class="timeline-wrap" id="timeline-section" aria-label="School year timeline">
-    <div class="timeline-header">
-      <div class="timeline-header__kicker" data-i18n="tl-kicker">Your year ahead</div>
-      <h2 data-i18n="tl-h2">When are the key <em>dates and deadlines</em> this school year?</h2>
-      <p class="timeline-header__sub" data-i18n="tl-sub">Where you are now, and what's next.</p>
-    </div>
+    <!-- Timeline -->
+    <section class="prog timeline-wrap" id="timeline-section" aria-label="School year timeline">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 data-i18n="tl-h2">When are the key <em>dates and deadlines</em> this school year?</h2>
+          <p data-i18n="tl-sub">Where you are now, and what's next.</p>
+        </div>
 
-    <div class="timeline" id="timeline" aria-hidden="false">
-      <div class="timeline__rail">
-        <div class="timeline__rail-fill" id="rail-fill" style="width: 0%;"></div>
+        <div class="timeline" id="timeline" aria-hidden="false">
+          <div class="timeline__rail">
+            <div class="timeline__rail-fill" id="rail-fill" style="width: 0%;"></div>
+          </div>
+          <div class="timeline__nodes" id="timeline-nodes">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
       </div>
-      <div class="timeline__nodes" id="timeline-nodes">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Closing CTA -->
-  <section class="closing" aria-label="Open the September schedule">
-    <div class="closing__band">
-      <div class="closing__kicker" data-i18n="closing-kicker">Next on stage</div>
-      <h2 data-i18n="closing-h1">Ready to join a dance class <em>in Ghent this September?</em></h2>
-      <p class="closing__sub" data-i18n="closing-sub">Browse all 24 styles, find your slot, click through to register on the style page.</p>
-      <a class="closing__cta" href="/schedule-sep-2026" data-i18n="closing-cta">browse the new school year →</a>
-      <span class="closing__cta-meta" data-i18n="closing-meta">no account required to browse</span>
-    </div>
-  </section>
+    <!-- Closing -->
+    <section class="closing" aria-label="Open the weekly schedule">
+      <div class="wrap">
+        <h2 data-i18n="closing-h1">Ready to join a dance class <em>in Ghent?</em></h2>
+        <p class="closing__sub" data-i18n="closing-sub">Browse all 24 styles, find your slot, click through to register on the style page.</p>
+        <a class="textlink" href="/schedule-sep-2026" data-i18n="closing-cta">See the weekly schedule →</a>
+        <span class="closing__meta" data-i18n="closing-meta">no account required to browse</span>
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer__brand">Shoonya Dance Centre · Ghent</div>
-    <nav class="footer__nav">
-      <a href="https://www.shoonyadance.com" data-i18n="footer-home">home</a>
-      <a href="/schedule-sep-2026" data-i18n="footer-schedule">schedule</a>
-      <a href="https://info.shoonyadance.com" data-i18n="footer-new">new to shoonya</a>
-      <a href="https://styles.shoonyadance.com/" data-i18n="footer-styles">all styles</a>
-      <a href="https://www.shoonyadance.com/about" data-i18n="footer-teachers">about</a>
-      <a href="https://www.shoonyadance.com/contact" data-i18n="footer-contact">contact</a>
-    </nav>
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <div class="foot-brand">Shoonya Dance Centre · Ghent</div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="https://www.shoonyadance.com" data-i18n="footer-home">home</a></li>
+          <li><a href="/schedule-sep-2026" data-i18n="footer-schedule">schedule</a></li>
+          <li><a href="https://info.shoonyadance.com" data-i18n="footer-new">new to shoonya</a></li>
+          <li><a href="https://styles.shoonyadance.com/" data-i18n="footer-styles">all styles</a></li>
+          <li><a href="https://www.shoonyadance.com/about" data-i18n="footer-teachers">about</a></li>
+          <li><a href="https://www.shoonyadance.com/contact" data-i18n="footer-contact">contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </footer>
 
   <script src="/data/site-config.js"></script>
@@ -754,15 +443,17 @@
        ─────────────────────────────────────────── */
     const LANDING_STRINGS = {
       en: {
-        'hero-pill':      'The dance year',
         'hero-h1':        'What dance classes does Shoonya offer <em>this school year?</em>',
         'hero-sub':       'Two semesters, an open house, and a free trial week. Pick where to land.',
-        'hero-cta':       'browse the september schedule →',
+        'hero-cta':       'See the weekly schedule →',
         'cards-label':    'Pick your semester',
-        'tl-kicker':      'Your year ahead',
         'tl-h2':          'When are the key <em>dates and deadlines</em> this school year?',
         'tl-sub':         'Where you are now, and what\'s next.',
         'skip-link':           'Skip to content',
+        'hnav-classes':        'Classes',
+        'hnav-workshops':      'Workshops',
+        'hnav-festivals':      'Festivals',
+        'hnav-performances':   'Performances',
         'snav-schedule':       'Schedule',
         'snav-new':            'New here?',
         'snav-styles':         'All styles',
@@ -785,10 +476,9 @@
         'sep-meta-oh-today':   'Open House today · trial week ' + (_d.en ? _d.en.trial_week_short : '14–19 Sep 2026'),
         'sep-meta-trial':      'trial week running · try any class free',
         'sep-meta-running':    'school year in progress · live schedule',
-        'closing-kicker': 'Next on stage',
-        'closing-h1':     'Ready to join a dance class <em>in Ghent this September?</em>',
+        'closing-h1':     'Ready to join a dance class <em>in Ghent?</em>',
         'closing-sub':    'Browse all ' + (_c.styles || 24) + ' styles, find your slot, click through to register on the style page.',
-        'closing-cta':    'browse the new school year →',
+        'closing-cta':    'See the weekly schedule →',
         'closing-meta':   'no account required to browse',
         'footer-home':    'home',
         'footer-schedule':'schedule',
@@ -806,15 +496,17 @@
         }
       },
       nl: {
-        'hero-pill':      'Het dansjaar',
         'hero-h1':        'Welke danslessen biedt Shoonya aan <em>dit schooljaar?</em>',
         'hero-sub':       'Twee semesters, een Opendeurdag, en een gratis proefweek. Kies waar je begint.',
-        'hero-cta':       'bekijk het septemberrooster →',
+        'hero-cta':       'Bekijk het weekrooster →',
         'cards-label':    'Kies je semester',
-        'tl-kicker':      'Het jaar in beeld',
         'tl-h2':          'Wanneer zijn de <em>belangrijke data</em> dit schooljaar?',
         'tl-sub':         'Waar je nu staat, en wat volgt.',
         'skip-link':           'Naar inhoud',
+        'hnav-classes':        'Lessen',
+        'hnav-workshops':      'Workshops',
+        'hnav-festivals':      'Festivals',
+        'hnav-performances':   'Voorstellingen',
         'snav-schedule':       'Rooster',
         'snav-new':            'Nieuw hier?',
         'snav-styles':         'Alle stijlen',
@@ -837,10 +529,9 @@
         'sep-meta-oh-today':   'Opendeurdag vandaag · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
         'sep-meta-trial':      'proefweek bezig · probeer elke les gratis',
         'sep-meta-running':    'schooljaar bezig · live rooster',
-        'closing-kicker': 'Volgende op het podium',
-        'closing-h1':     'Klaar om te dansen in <em>Gent deze september?</em>',
+        'closing-h1':     'Klaar om te dansen in <em>Gent?</em>',
         'closing-sub':    'Bekijk alle ' + (_c.styles || 24) + ' stijlen, vind je tijdslot, en ga door naar de stijlpagina om je in te schrijven.',
-        'closing-cta':    'bekijk het nieuwe schooljaar →',
+        'closing-cta':    'Bekijk het weekrooster →',
         'closing-meta':   'geen account nodig om te bladeren',
         'footer-home':    'home',
         'footer-schedule':'rooster',
@@ -1044,6 +735,7 @@
       });
       document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.classList.toggle('active', btn.dataset.lang === l);
+        btn.setAttribute('aria-pressed', btn.dataset.lang === l ? 'true' : 'false');
       });
       localStorage.setItem('shoonya-lang', l);
       renderTimeline();
