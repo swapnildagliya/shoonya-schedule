@@ -581,12 +581,13 @@ a.timeline__node:focus-visible{outline-offset:6px}
         // Sem 2 milestones (trial-week-2, school-year-end) take NO link until a spring 2027
         // schedule page exists — the only spring page is last school year's archive.
         if (m.id === 'trial-week-1' || m.id === 'sem-1-end') el.href = './schedule-sep-2026';
-        // June 14 is past, so that node renders as a div and never takes an href.
-        // The September Opendeurdag points at its own calendar event, not the
-        // generic /try-a-class page.
-        else if (m.type === 'open-house') el.href = m.id === 'open-house-1'
-          ? 'https://www.shoonyadance.com/calendar/movement-without-borders-open-door-day-june-14th-'
-          : 'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-13-september';
+        // Each Opendeurdag links ONLY to its own calendar event, by id. open-house-4
+        // (13 Jun 2027) has no event page yet, so it takes NO link. The 2027 entries used to
+        // fall through to the 13 September 2026 event (fixed 11 Nov 2026). When the June
+        // event page exists, add it here.
+        else if (m.id === 'open-house-1') el.href = 'https://www.shoonyadance.com/calendar/movement-without-borders-open-door-day-june-14th-';
+        else if (m.id === 'open-house-2') el.href = 'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-13-september';
+        else if (m.id === 'open-house-3') el.href = 'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-31-januari';
         else if (m.id === 'spring-end')   el.href = './schedule-spring-2026';
       }
 
