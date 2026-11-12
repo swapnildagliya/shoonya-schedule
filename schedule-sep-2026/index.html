@@ -283,6 +283,40 @@
       .sty__name{font-size:26px}
     }
 
+    /* ── Grid view (third view, ≥900px): per day, studios as columns on a time axis ──
+       Vertical scale = --px per minute; block top/height are minutes × --px (set inline as --bt / --bh).
+       Gaps of 90+ minutes between classes are collapsed to one marker band (16 minute-units). */
+    .view-grid{display:none}
+    @media (min-width:900px){ body[data-view="grid"] .view-grid{display:block} }
+    @media (max-width:899px){
+      body[data-view="grid"] .view-list{display:block}
+      .view-toggle button[data-view="grid"]{display:none}
+    }
+    .gd{--px:2.1px;margin-bottom:clamp(40px,4vw,56px)}
+    .gd:last-child{margin-bottom:0}
+    .gd__heads{display:flex;margin-left:56px;padding-bottom:6px}
+    .gd__heads span{flex:1 1 0;min-width:0;padding-left:9px;font:500 15px/1.3 var(--font-ui);color:var(--fg)}
+    .gd__t{position:relative;margin-left:56px;height:calc(var(--H) * var(--px));border-top:1px solid var(--rule);margin-bottom:12px}
+    .gd__hr{position:absolute;left:0;right:0;top:calc(var(--y) * var(--px));border-top:1px solid var(--rule)}
+    .gd__hl{position:absolute;left:-56px;width:48px;top:calc(var(--y) * var(--px) - 10px);text-align:right;font:400 14px/20px var(--font-data);font-variant-numeric:tabular-nums;color:var(--muted)}
+    .gd__brk{position:absolute;left:0;right:0;top:calc(var(--y) * var(--px));height:calc(16 * var(--px));display:flex;align-items:center;justify-content:center;border-top:1px dashed var(--rule);border-bottom:1px dashed var(--rule);font:400 14px/1 var(--font-data);color:var(--muted)}
+    .gd__cols{position:absolute;left:0;right:0;top:0;bottom:0;display:flex}
+    .gd__c{position:relative;flex:1 1 0;min-width:0;border-left:1px solid var(--rule)}
+    .gd__c:last-child{border-right:1px solid var(--rule)}
+    .gp{position:absolute;top:calc(var(--bt) * var(--px));height:calc(var(--bh) * var(--px) - 4px);left:calc(100% * var(--ln) / var(--ln-n) + 3px);width:calc(100% / var(--ln-n) - 6px)}
+    .gb{display:block;position:relative;height:100%;overflow:hidden;padding:7px 6px 7px 8px;color:inherit}
+    .gb[data-fam]{background:oklch(0.918 0.055 var(--h));border-left:5px solid oklch(0.55 0.158 var(--h))}
+    .gp:hover .gb__s{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+    .gb__s{display:block;font:400 16px/1.25 var(--font-body);color:var(--fg);padding-right:24px;overflow-wrap:anywhere}
+    .gb__l2{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin-top:3px;line-height:1.35}
+    .gb__t{font:400 15px/1.35 var(--font-data);font-variant-numeric:tabular-nums;color:var(--fg);white-space:nowrap}
+    .gb__lv{font:400 14px/1.35 var(--font-data);font-variant-numeric:tabular-nums;color:var(--fg);min-width:0;overflow-wrap:anywhere}
+    .gb__l3{display:block;margin-top:2px;font:400 14px/1.4 var(--font-ui);color:var(--fg);overflow-wrap:anywhere}
+    .gb__l4{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin-top:2px;line-height:1.4}
+    .ics-btn--gb{position:absolute;top:2px;right:2px;width:28px;height:28px;margin:0;color:var(--muted)}
+    @media (min-width:1024px) and (max-width:1099px){ .gd{--px:2.7px} }
+    @media (min-width:900px) and (max-width:1023px){ .gd{--px:3.1px} }
+
     /* ── Scroll-reveal: off (D-120), content always visible ── */
     .reveal{opacity:1;transform:none}
 
@@ -1254,6 +1288,7 @@
         <div class="view-toggle" role="group" aria-label="View">
           <button id="v-grid" data-view="week" aria-pressed="true"  data-i18n="v-week">Week</button>
           <button id="v-list" data-view="style" aria-pressed="false" data-i18n="v-style">By style</button>
+          <button id="v-day" data-view="grid" aria-pressed="false" data-i18n="v-daygrid">Grid</button>
         </div>
       </div>
     </div>
@@ -1502,7 +1537,7 @@
       'close-eyebrow':'Found your class?','close-h2':'Every style has its own <em>home page.</em>',
       'close-sub':'Tap any class to jump to its style page — pricing, teacher, registration, all in one place.',
       'close-cta':'Browse all 24 styles →','f-home':'Home','f-styles':'All styles','f-new':'New here?','f-contact':'Contact','f-spring':'Spring 2026','f-schoolyear':'School year','f-addr':'Stapelplein 41 · 9000 Ghent','f-trial':'✦ New here? Free trial week · Feb 15–20, 2027 →','skip':'Skip to schedule',
-      'v-week':'Week','v-style':'By style',
+      'v-week':'Week','v-style':'By style','v-daygrid':'Grid',
       'sp-label':'Style','fam-label':'Dance family',
       'fam':{indian:'Indian',tap:'Tap',ballet:'Ballet',latin:'Salsa · Bachata · Kizomba',tango:'Tango',swing:'Swing & jazz',flamenco:'Flamenco',oriental:'Oriental',burlesque:'Burlesque & Cissy Ball',african:'African',body:'Yoga & Pilates'},
       ar:'→', cAll:n=>n+(n===1?' class':' classes'), cFil:(n,t)=>n+' of '+t, none:'No classes match',
@@ -1523,7 +1558,7 @@
       'close-eyebrow':'Les gevonden?','close-h2':'Elke stijl heeft zijn eigen <em>pagina.</em>',
       'close-sub':'Klik op een les voor de stijlpagina — prijzen, leraar, inschrijving, alles op één plek.',
       'close-cta':'Bekijk alle 24 stijlen →','f-home':'Home','f-styles':'Alle stijlen','f-new':'Nieuw hier?','f-contact':'Contact','f-spring':'Lente 2026','f-schoolyear':'Schooljaar','f-addr':'Stapelplein 41 · 9000 Gent','f-trial':'✦ Nieuw hier? Gratis proefweek · 15–20 feb 2027 →','skip':'Naar het rooster',
-      'v-week':'Week','v-style':'Per stijl',
+      'v-week':'Week','v-style':'Per stijl','v-daygrid':'Rooster',
       'sp-label':'Stijl','fam-label':'Dansfamilie',
       'fam':{indian:'Indiaas',tap:'Tap',ballet:'Ballet',latin:'Salsa · Bachata · Kizomba',tango:'Tango',swing:'Swing & jazz',flamenco:'Flamenco',oriental:'Oriëntaals',burlesque:'Burlesque & Cissy Ball',african:'Afrikaans',body:'Yoga & Pilates'},
       ar:'→', cAll:n=>n+(n===1?' les':' lessen'), cFil:(n,t)=>n+' van '+t, none:'Geen lessen passen',
@@ -1873,6 +1908,71 @@
     }).join('');
   }
 
+  /* ── Grid view (≥900px): per day, a time axis on the left and a column per studio.
+        Block top/height are minutes (a long hole between classes is collapsed to a marker band);
+        CSS multiplies by --px. Same match()/famAttr()/tagsHtml()/calBtn()/linkAttrs() as the other views. ── */
+  const GRID_GAP = 16, GRID_HOLE = 90;   // collapsed band height (minute-units); holes shorter than this stay true-to-scale
+  function buildGrid(days, vis) {
+    const t = UI[lang];
+    return days.map(d => {
+      const items = vis.filter(s => s.day === d).sort(byTime);
+      const P = items.map(s => { const [a, b] = s.time.split('–'); return { s, a, b, sMin: toMin(a), eMin: toMin(b) }; });
+      const merged = [];
+      P.map(p => [p.sMin, p.eMin]).sort((x, y) => x[0] - y[0]).forEach(([a, b]) => {
+        const last = merged[merged.length - 1];
+        if (last && a - last[1] < GRID_HOLE) last[1] = Math.max(last[1], b); else merged.push([a, b]);
+      });
+      let y = 0; const segs = [];
+      merged.forEach((m, i) => { segs.push({ start: m[0], end: m[1], y }); y += m[1] - m[0]; if (i < merged.length - 1) y += GRID_GAP; });
+      const H = y;
+      const mapY = min => { const sg = segs.find(g => min >= g.start && min <= g.end); return sg.y + min - sg.start; };
+
+      // columns: the five studios in fixed order; any other studio name in the data gets its own column after them
+      const names = STUD.map(c => STUD_NAME[c]);
+      const colOf = s => { let i = STUD.indexOf(s.studio); if (i < 0) i = names.indexOf(s.studioName); if (i < 0) { names.push(s.studioName); i = names.length - 1; } return i; };
+      const byCol = names.map(() => []);
+      P.forEach(p => { p.col = colOf(p.s); while (byCol.length < names.length) byCol.push([]); byCol[p.col].push(p); });
+
+      const cols = byCol.map(list => {
+        // side by side when two classes overlap in one studio
+        list.sort((a, b) => a.sMin - b.sMin || a.eMin - b.eMin);
+        let cluster = [], maxEnd = -1, laneEnds = [];
+        const close = () => { const n = laneEnds.length || 1; cluster.forEach(p => p.n = n); cluster = []; laneEnds = []; maxEnd = -1; };
+        list.forEach(p => {
+          if (cluster.length && p.sMin >= maxEnd) close();
+          let ln = laneEnds.findIndex(e => e <= p.sMin); if (ln < 0) { ln = laneEnds.length; laneEnds.push(0); }
+          laneEnds[ln] = p.eMin; p.ln = ln; cluster.push(p); maxEnd = Math.max(maxEnd, p.eMin);
+        });
+        close();
+        const blocks = list.map(p => {
+          const s = p.s, tg = tagsHtml(s);
+          return `<div class="gp" style="--bt:${mapY(p.sMin)};--bh:${p.eMin - p.sMin};--ln:${p.ln};--ln-n:${p.n}"><a class="gb"${famAttr(s)} ${linkAttrs(s)}>
+            <span class="gb__s">${esc(s.style)}</span>
+            <span class="gb__l2"><span class="gb__t">${s.time}</span><span class="gb__lv">${esc(s.level)}</span></span>
+            <span class="gb__l3"><span class="tc">${esc(s.teacher)}</span></span>
+            ${tg ? `<span class="gb__l4">${tg}</span>` : ''}
+            ${calBtn(s, 'ics-btn--gb')}
+          </a></div>`;
+        }).join('');
+        return `<div class="gd__c">${blocks}</div>`;
+      }).join('');
+
+      let marks = '';
+      segs.forEach(sg => { for (let h = Math.ceil(sg.start / 60); h <= Math.floor(sg.end / 60); h++) {
+        const yy = mapY(h * 60);
+        marks += `<div class="gd__hr" style="--y:${yy}"></div><span class="gd__hl" style="--y:${yy}">${String(h).padStart(2, '0')}:00</span>`;
+      } });
+      for (let i = 0; i < segs.length - 1; i++) marks += `<div class="gd__brk" aria-hidden="true" style="--y:${segs[i].y + segs[i].end - segs[i].start}">⋯</div>`;
+
+      const today = d === todayCode;
+      return `<section class="gd">
+        <div class="wk__head"><h2 class="wk__day${today ? ' is-today' : ''}">${t.dl[d]}${today ? `<span class="sr-only"> (${t.today})</span>` : ''}</h2><span class="wk__n">${t.dCount(items.length)}</span></div>
+        <div class="gd__heads">${names.map(n => `<span>${esc(n)}</span>`).join('')}</div>
+        <div class="gd__t" style="--H:${H}">${marks}<div class="gd__cols">${cols}</div></div>
+      </section>`;
+    }).join('');
+  }
+
   function render() {
     const t = UI[lang];
     const total = SLOTS.length;
@@ -1883,7 +1983,8 @@
     $('#body').innerHTML = shown
       ? `<div class="view-week">${buildWeek(days, vis)}</div>` +
         `<div class="view-list">${days.map(d => buildList(d, vis, openDay)).join('')}</div>` +
-        `<div class="view-style">${buildStyle(vis)}</div>`
+        `<div class="view-style">${buildStyle(vis)}</div>` +
+        `<div class="view-grid">${buildGrid(days, vis)}</div>`
       : `<p class="day-empty">${t.none}</p>`;
     $('#count').textContent = (beginner || query || activeDays.size || stylePick || fams.size) ? t.cFil(shown, total) : t.cAll(total);
     document.querySelectorAll('.view-list .day__head').forEach(h =>
@@ -1926,7 +2027,7 @@
   }
   function restoreFromHash() {
     const p = new URLSearchParams(location.hash.slice(1));
-    view = p.get('view') === 'style' ? 'style' : 'week';
+    view = ['style', 'grid'].includes(p.get('view')) ? p.get('view') : 'week';
     beginner = p.get('beginner') === '1';
     query = p.get('q') || '';
     stylePick = p.get('style') || '';
@@ -1936,9 +2037,14 @@
     $('#q').value = query;
     $('#beg').setAttribute('aria-pressed', beginner);
     $('#style-pick').value = stylePick;
-    document.body.dataset.view = view;
-    document.querySelectorAll('.view-toggle button').forEach(x => x.setAttribute('aria-pressed', x.dataset.view === view));
+    const ev = effView();
+    document.body.dataset.view = ev;
+    document.querySelectorAll('.view-toggle button').forEach(x => x.setAttribute('aria-pressed', x.dataset.view === ev));
   }
+  // Grid needs ≥900px; below that a view=grid link shows the Week list (the hash keeps view=grid)
+  const gridOk = matchMedia('(min-width:900px)');
+  const effView = () => (view === 'grid' && !gridOk.matches) ? 'week' : view;
+  gridOk.addEventListener('change', syncControls);
 
   /* Wire up */
   $('#q').addEventListener('input', e => { query = e.target.value.trim(); render(); });
