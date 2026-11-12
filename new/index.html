@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#000000">
 <title>New to Shoonya? — Shoonya Dance Centre, Ghent</title>
 <meta name="description" content="No experience, no partner, no rhythm needed. Discover 24 dance styles at Shoonya Dance Centre in Ghent. Open Door Days and a free trial week every semester.">
 <link rel="alternate" hreflang="en" href="https://schedule.shoonyadance.com/new/" />
@@ -17,7 +19,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="New to Shoonya? — Shoonya Dance Centre, Ghent">
 <meta name="twitter:image" content="https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/6888b2cd-37fe-452a-8995-1bc380ce725b/IMG_9423.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&family=Marcellus&family=PT+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -91,169 +95,204 @@
       "name": "How much does a dance class cost at Shoonya Dance Centre in Ghent?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Classes start from €198 for a full semester of 16 sessions. A student tier is available at €175. UiTPAS kansentarief holders receive an 80% discount. The first week of every new semester is free for everyone."
+        "text": "Classes start from €198 for a full semester of 16 sessions. A reduced rate of €174.24 applies to anyone under 25 (student status is not required) or to anyone taking two or more weekly classes — register them in the same booking and each class is €174.24. UiTPAS kansentarief holders receive an 80% discount. The first week of every new semester is free for everyone."
       }
     }
   ]
 }
 </script>
 <style>
-:root {
-  --purple: #B564F7;
-  --purple-deep: #7E4FBF;
-  --purple-soft: #F5ECFF;
-  --ink: #000000;
-  --muted: #666;
-  --muted-soft: #999;
-  --border: #e4e0db;
-  --radius: 0px;
-  --salmon: #f5d7c5;
-  --salmon-deep: #c0522c;
-  --salmon-ink: #7a3015;
-  --yellow: #FBC70F;
-  --yellow-soft: #fff8e1;
-  --yellow-ink: #7a5800;
-  --golden: #FEF3C7;
+:root{
+  --void-black:#000000;
+  --bone:#F4F1EB;
+  --void-white:#FFFFFF;
+  --mist:#D6D6D6;
+  --charcoal:#4A4A4A;
+  --vibrant-purple:#B564F7;
+
+  --font-display:"Marcellus","Playfair Display",Georgia,serif;
+  --font-body:"PT Serif",Georgia,serif;
+  --font-data:"Geist Mono",ui-monospace,monospace;
+  --font-ui:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
+
+  --pad:clamp(20px,4vw,56px);
+  --gutter:max(var(--pad),calc((100% - 1360px) / 2 + var(--pad)));
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'PT Serif', Georgia, serif; color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; }
-
-.skip-link { position: absolute; left: -9999px; top: 0; background: var(--purple); color: #fff; padding: .5rem 1rem; font-size: .82rem; font-weight: 700; z-index: 100; border-radius: 0; }
-.skip-link:focus { left: 1rem; }
-
-/* Nav */
-.site-nav { display: flex; align-items: center; gap: 1.5rem; padding: .85rem 1.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 50; }
-.site-nav__brand { font-family: 'Marcellus', serif; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 400; white-space: nowrap; margin-right: auto; }
-.site-nav__links { display: flex; gap: 1.25rem; }
-.site-nav__links a { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .15s; white-space: nowrap; }
-.site-nav__links a:hover, .site-nav__links a.active { color: var(--ink); }
-.lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 0; overflow: hidden; }
-.lang-btn { padding: .55rem .9rem; font-size: .72rem; font-weight: 700; letter-spacing: .06em; border: none; background: none; cursor: pointer; color: var(--muted); font-family: 'PT Serif', serif; }
-.lang-btn.active { background: #000; color: #fff; border-radius: 0; }
-@media (max-width: 600px) { .site-nav__links { display: none; } }
-
-/* Hero */
-.hero {
-  position: relative; overflow: hidden; color: #fff;
-  padding: 4rem 1.5rem 3.5rem; text-align: center;
-  background: linear-gradient(rgba(0,0,0,.50), rgba(0,0,0,.50)),
-    url('https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/7ea5a9db-4826-4fd1-9803-30aae8e55598/IMG_1881.JPG') center 40%/cover no-repeat;
+/* Working page (D-131): light bone body under the black site header, in-site row and footer.
+   Everything below uses the aliases; the black chrome redefines them in its own scope. */
+html{
+  --bg:var(--bone); --fg:var(--void-black); --muted:var(--charcoal);
+  --rule:var(--mist); --focus:var(--void-black); --mark:var(--void-black);
 }
-.hero__pill { display: inline-block; color: var(--purple); font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: .85rem; }
-.hero h1 { font-family: 'Marcellus', serif; font-weight: 400; font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.1; margin-bottom: .75rem; }
-.hero h1 em { color: var(--purple); font-style: normal; }
-.hero__sub { font-size: 1rem; color: rgba(255,255,255,.72); max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.65; }
-.hero__ctas { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-bottom: 1.75rem; }
-.btn-primary { display: inline-block; background: var(--purple); color: #fff; font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .75rem 1.5rem; border-radius: 0; transition: opacity .15s; }
-.btn-primary:hover { opacity: .88; }
-.btn-outline { display: inline-block; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.55); font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .75rem 1.5rem; border-radius: 0; transition: border-color .15s, background .15s; }
-.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); }
-.hero__strip { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .5rem .9rem; justify-content: center; padding: .55rem 1.1rem; background: transparent; border: 0.5px solid rgba(255,255,255,.25); font-size: .82rem; color: rgba(255,255,255,.8); }
-.hero__strip-label { color: var(--yellow); font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-.hero__strip-dot { width: 3px; height: 3px; background: rgba(255,255,255,.4); border-radius: 50%; }
-.hero__strip strong { color: #fff; }
-@media (max-width: 640px) { .hero { padding: 3rem 1rem 2.75rem; } }
+@supports (color:color-mix(in srgb,red,blue)){
+  html{--rule:color-mix(in srgb,var(--charcoal) 35%,var(--bone))}
+}
+.site-header,.school,.site-footer{
+  --bg:var(--void-black); --fg:var(--void-white); --muted:var(--mist);
+  --rule:var(--charcoal); --focus:var(--vibrant-purple); --mark:var(--vibrant-purple);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:18px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,p{font-weight:400}
+strong,b{font-family:var(--font-ui);font-weight:500;font-size:.94em}
+em{font-style:normal}
+:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+main:focus{outline:none}
+[data-cfg]{font-family:var(--font-data);font-variant-numeric:tabular-nums;font-size:1em}
 
-/* Sections */
-.section { max-width: 1080px; margin: 0 auto; padding: 4rem 1.5rem; }
-.kicker { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-soft); }
-.kicker--purple { color: var(--purple-deep); }
-.kicker--yellow { color: var(--yellow-ink); }
-.section__h2 { font-family: 'Marcellus', serif; font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.15; margin: .35rem 0 .65rem; }
-.section__h2 em { color: var(--purple); font-style: normal; }
-.section__lead { font-size: 1rem; color: var(--muted); line-height: 1.6; margin-bottom: 2rem; max-width: 640px; }
-@media (max-width: 640px) { .section { padding: 3rem 1rem; } }
+/* Language toggle */
+
+/* Skip link */
+.skip-link{position:absolute;left:12px;top:-80px;z-index:100;background:var(--fg);color:var(--bg);padding:12px 16px;font:500 16px var(--font-ui);text-decoration:none}
+.skip-link:focus{top:12px;outline:3px solid var(--mark);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- Header ---------- */
+.site-header{background:var(--bg);color:var(--fg);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 24px;padding:10px var(--pad)}
+.brand{display:inline-flex;align-items:center;min-height:44px}
+.brand img{height:52px;width:auto}
+.site-nav{display:flex;flex-wrap:wrap;gap:0 6px;order:2}
+.site-nav a,.lang-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font:500 16px/1 var(--font-ui);text-decoration:none;color:var(--fg)}
+.site-nav a:hover,.lang-btn:hover{text-decoration:underline;text-underline-offset:6px}
+.site-nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--mark);text-decoration-thickness:2px;text-underline-offset:10px}
+.lang{display:flex;align-items:center;order:3;color:var(--muted)}
+.lang-btn{color:var(--muted);min-width:44px;justify-content:center}
+.lang-btn.active{color:var(--fg);text-decoration:underline;text-decoration-color:var(--mark);text-decoration-thickness:2px;text-underline-offset:10px}
+#btn-nl::before{content:"";display:block;width:1px;height:16px;background:var(--rule);margin-right:20px}
+@media (min-width:900px){
+  .site-header{flex-wrap:nowrap}
+  .brand{order:1}
+  .site-nav{order:2;margin-left:auto;margin-right:20px}
+  .lang{order:3}
+}
+@media (max-width:899px){
+  .brand{order:1}
+  .lang{order:2;margin-left:auto}
+  .site-nav{order:3;flex-basis:100%;margin-left:-10px}
+}
+@media (max-width:480px){
+  .site-nav{flex-wrap:nowrap;justify-content:space-between;gap:0;margin-left:-6px;margin-right:-6px}
+  .site-nav a{padding:0 6px;font-size:14px}
+}
+
+/* ---------- School navigation row ---------- */
+.school{display:flex;flex-wrap:nowrap;gap:0 6px;padding:0 var(--pad);border-bottom:1px solid var(--rule);background:var(--bg)}
+.school a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font:500 15px/1 var(--font-ui);color:var(--muted);text-decoration:none;white-space:nowrap}
+.school a:first-child{padding-left:0}
+.school a:hover{color:var(--fg);text-decoration:underline;text-underline-offset:6px}
+.school a[aria-current="page"]{color:var(--fg);text-decoration:underline;text-decoration-color:var(--mark);text-decoration-thickness:2px;text-underline-offset:10px}
+@media (max-width:480px){
+  .school{gap:0}
+  .school a{padding:0 8px 0 0;margin-right:8px;font-size:14px}
+}
+
+/* ---------- Hero (text beside the photo, never on it) ---------- */
+.hero{position:relative;overflow:hidden;background:var(--bg);color:var(--fg);padding:clamp(32px,5vw,64px) calc(54% + var(--pad)) clamp(36px,6vw,64px) var(--gutter)}
+.hero::after{content:"";position:absolute;top:0;right:0;bottom:0;width:54%;background:url('https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/7ea5a9db-4826-4fd1-9803-30aae8e55598/IMG_1881.JPG') center 40%/cover no-repeat}
+.hero__pill{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:18px}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.2vw,58px);line-height:1.05;letter-spacing:-.012em;text-wrap:balance;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:inherit}
+.hero__sub{font-size:clamp(18px,1.7vw,22px);line-height:1.45;color:var(--fg);max-width:36ch;margin-bottom:24px}
+.hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:0 24px;margin-bottom:20px}
+.btn-primary{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:var(--fg);color:var(--bg);font:500 17px/1 var(--font-ui);text-decoration:none}
+.btn-primary:hover{text-decoration:underline;text-underline-offset:5px}
+.btn-outline{display:inline-flex;align-items:center;min-height:44px;font:500 17px/1.2 var(--font-ui);color:var(--fg);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.btn-outline:hover{text-decoration-thickness:3px}
+.hero__strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px 28px;padding-top:18px;border-top:1px solid var(--rule);font:400 16px/1.4 var(--font-data);font-variant-numeric:tabular-nums;color:var(--fg)}
+.hero__strip-label{font:500 15px/1.3 var(--font-ui);color:var(--muted)}
+.hero__strip-dot{display:none}
+.hero__strip strong{font-family:var(--font-data);font-weight:500;font-size:1em}
+@media (max-width:900px){
+  .hero{display:flex;flex-direction:column;padding:0 var(--pad) 40px}
+  .hero::after{position:static;order:-1;flex:none;width:auto;aspect-ratio:3/2;margin:0 calc(-1 * var(--pad)) 28px}
+  .hero__sub{max-width:44ch}
+}
+@media (max-width:640px){
+  .hero__strip{flex-direction:column;align-items:flex-start}
+}
+
+/* ---------- Sections ---------- */
+.section,.step1-band,.step3-band,.closing-wrap{padding:clamp(56px,8vw,104px) var(--gutter);border-top:1px solid var(--rule)}
+.kicker{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:12px}
+.section__h2{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,4vw,52px);line-height:1.08;letter-spacing:-.01em;margin:0 0 clamp(16px,2vw,24px);max-width:22ch;text-wrap:balance}
+.section__h2 em{font-style:normal;color:inherit}
+.section__lead{font-size:19px;line-height:1.5;color:var(--muted);max-width:56ch;margin-bottom:clamp(28px,4vw,44px)}
 
 /* Step 1 — choose your world */
-.step1-band { background: #FAFAF8; padding: 4.5rem 1.5rem; }
-.step1-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
-.step1-inner .section__lead { color: var(--muted); margin-left: auto; margin-right: auto; }
-.step1-inner .kicker--purple { display: block; margin-bottom: .35rem; }
-.step1-layout { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; text-align: left; }
-@media (min-width: 860px) { .step1-layout { grid-template-columns: 280px 1fr; align-items: start; gap: 2.5rem; } }
-.step1-img { width: 100%; border-radius: var(--radius); display: block; aspect-ratio: 3/4; object-fit: cover; }
-.style-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-.style-card { display: flex; flex-direction: column; background: #fff; border-radius: var(--radius); border: 0.5px solid #e4e0db; padding: 1.1rem 1.3rem; transition: background .15s; }
-.style-card:hover { background: #f7f5f2; }
-.style-card--partner   { border-top: 3px solid var(--purple); }
-.style-card--classical { border-top: 3px solid var(--salmon-deep); }
-.style-card--culture   { border-top: 3px solid var(--yellow); }
-.style-card__h3 { font-family: 'Marcellus', serif; font-weight: 400; font-size: 1.15rem; line-height: 1.2; margin: .1rem 0 .3rem; }
-.style-card__tag { display: inline-block; font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .15rem .55rem; border-radius: 0; margin-bottom: .55rem; }
-.tag-partner { background: #FAFAF8; color: var(--purple-deep); }
-.tag-solo    { background: #f3eee5; color: var(--salmon-ink); }
-.tag-open    { background: var(--yellow-soft); color: var(--yellow-ink); }
-.style-card__p { font-size: .88rem; color: var(--muted); line-height: 1.55; margin-bottom: .75rem; flex: 1 1 auto; }
-.style-card__note { font-size: .78rem; color: var(--muted-soft); margin: .2rem 0 .5rem; font-style: normal; }
-.style-card__link { font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--purple-deep); }
-.style-card--classical .style-card__link { color: var(--salmon-ink); }
-.style-card--culture   .style-card__link { color: var(--yellow-ink); }
-@media (max-width: 640px) { .step1-band { padding: 3rem 1rem; } }
+.step1-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+@media (min-width:860px){.step1-layout{grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:start}}
+.step1-img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover}
+.style-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.style-card{display:flex;flex-direction:column;align-items:flex-start;padding:22px 0 18px;border-top:1px solid var(--rule)}
+.style-card__h3{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,2.4vw,30px);line-height:1.2;margin:0 0 6px}
+.style-card__tag{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:10px}
+.style-card__p{font-size:18px;line-height:1.6;color:var(--fg);margin-bottom:10px;max-width:62ch}
+.style-card__note{font-size:17px;line-height:1.5;color:var(--muted);margin:0 0 10px;max-width:62ch}
+.style-card__link{display:inline-flex;align-items:center;min-height:44px;font:500 16px/1 var(--font-ui);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.style-card:hover .style-card__link{text-decoration-thickness:3px}
 
 /* Step 2 — how it works */
-.step2 { padding-top: 4.5rem; }
-.step2__header { text-align: center; margin-bottom: 2.5rem; }
-.step2__header .section__lead { margin-left: auto; margin-right: auto; }
-.steps { display: flex; flex-direction: column; gap: 2rem; max-width: 720px; margin: 0 auto; }
-.step { display: flex; align-items: flex-start; gap: 1.5rem; }
-.step__num { flex-shrink: 0; font-family: 'Marcellus', serif; font-size: 3.25rem; line-height: 1; width: 56px; text-align: right; }
-.step:nth-child(1) .step__num { color: var(--purple); }
-.step:nth-child(2) .step__num { color: var(--salmon-deep); }
-.step:nth-child(3) .step__num { color: var(--yellow-ink); }
-.step__body { flex: 1 1 auto; min-width: 0; }
-.step__h3 { font-family: 'Marcellus', serif; font-weight: 400; font-size: 1.3rem; line-height: 1.2; margin-bottom: .35rem; }
-.step__p { font-size: .95rem; color: var(--muted); margin-bottom: .65rem; line-height: 1.6; }
-.step__badge { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: .25rem .65rem; border-radius: 0; }
-.step:nth-child(1) .step__badge { background: #FAFAF8; color: var(--purple-deep); }
-.step:nth-child(2) .step__badge { background: var(--salmon); color: var(--salmon-ink); }
-.step:nth-child(3) .step__badge { background: var(--yellow-soft); color: var(--yellow-ink); }
-.step__actions { display: flex; gap: .6rem; flex-wrap: wrap; margin: .5rem 0 .6rem; }
-.step__cta { font-size: .85rem; font-weight: 600; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-.step__cta:hover { color: var(--purple); }
-@media (max-width: 640px) { .step { gap: 1rem; } .step__num { font-size: 2.5rem; width: 44px; } }
+.steps{display:flex;flex-direction:column;max-width:760px}
+.step{display:flex;align-items:flex-start;gap:clamp(16px,3vw,32px);padding:28px 0;border-top:1px solid var(--rule)}
+.step:last-child{border-bottom:1px solid var(--rule)}
+.step__num{flex:none;width:36px;font:400 clamp(28px,3vw,40px)/1 var(--font-data);font-variant-numeric:tabular-nums;color:var(--fg)}
+.step__body{flex:1 1 auto;min-width:0}
+.step__h3{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,2.4vw,30px);line-height:1.2;margin-bottom:10px}
+.step__p{font-size:18px;line-height:1.6;color:var(--fg);margin-bottom:12px;max-width:62ch}
+.step__badge{display:block;font:500 16px/1.4 var(--font-ui);color:var(--muted);margin-top:6px}
+.step__actions{display:flex;flex-wrap:wrap;gap:0 28px;margin:2px 0 6px}
+.step__cta{display:inline-flex;align-items:center;min-height:44px;font:500 17px/1.2 var(--font-ui);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.step__cta:hover{text-decoration-thickness:3px}
 
 /* Step 3 — pricing teaser */
-.step3-band { background: var(--golden); padding: 3rem 1.5rem 3.25rem; text-align: center; }
-.step3-inner { max-width: 720px; margin: 0 auto; }
-.step3-inner .kicker--yellow { display: block; margin-bottom: .35rem; }
-.step3-inner h2 { font-family: 'Marcellus', serif; font-weight: 400; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.15; margin-bottom: .65rem; color: #1a1200; }
-.step3-inner h2 em { color: var(--salmon-deep); font-style: normal; }
-.step3-inner__sub { font-size: .88rem; color: #3a2a00; margin-bottom: 1rem; }
-.step3-inner__link { font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #1a1200; border-bottom: 2px solid var(--salmon-deep); padding-bottom: 2px; }
-@media (max-width: 640px) { .step3-band { padding: 2.5rem 1rem; } }
-
+.step3-inner{max-width:760px}
+.step3-inner h2{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.1;letter-spacing:-.01em;margin:0 0 18px;text-wrap:balance}
+.step3-inner h2 em{font-style:normal;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-size:.9em}
+.step3-inner__sub{font:400 16px/1.6 var(--font-data);font-variant-numeric:tabular-nums;color:var(--fg);max-width:62ch;margin-bottom:12px}
+.step3-inner__note{font-size:18px;line-height:1.55;color:var(--fg);max-width:56ch;margin:0 0 12px}
+.step3-inner__link{display:inline-flex;align-items:center;min-height:44px;font:500 17px/1.2 var(--font-ui);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.step3-inner__link:hover{text-decoration-thickness:3px}
 
 /* Good to know */
-.expect-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 1.5rem; }
-@media (min-width: 640px) { .expect-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 980px) { .expect-grid { grid-template-columns: repeat(3,1fr); } }
-.expect-card { background: #fff; border: 0.5px solid #e4e0db; border-radius: var(--radius); padding: 1.25rem 1.4rem; }
-.expect-card__label { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--purple-deep); margin-bottom: .55rem; }
-.expect-card p { font-size: .92rem; color: var(--ink); line-height: 1.55; }
-.expect-card strong { font-weight: 700; }
+.expect-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0 clamp(24px,4vw,56px)}
+@media (min-width:640px){.expect-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:980px){.expect-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.expect-card{border-top:1px solid var(--rule);padding:20px 0 30px}
+.expect-card__label{font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:10px}
+.expect-card p{font-size:18px;line-height:1.6;color:var(--fg)}
 
 /* Closing CTA */
-.closing-wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 5rem; }
-.closing { background: #000; color: #fff; border-radius: var(--radius); padding: 3.5rem 2rem; text-align: center; }
-.closing__kicker { color: var(--purple); margin-bottom: .75rem; display: block; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.closing__h2 { font-family: 'Marcellus', serif; font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.15; margin-bottom: .75rem; }
-.closing__h2 em { color: var(--purple); font-style: normal; }
-.closing__sub { font-size: .95rem; color: rgba(255,255,255,.7); max-width: 480px; margin: 0 auto 1.75rem; line-height: 1.55; }
-.closing__cta-cluster { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
-.closing__cta { display: inline-block; background: transparent; color: #fff; border: 1px solid #fff; font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .85rem 1.85rem; border-radius: 0; transition: background .2s, border-color .2s; }
-.closing__cta:hover { background: var(--purple); border-color: var(--purple); }
-.closing__cta-link { font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.8); border-bottom: 1.5px solid rgba(255,255,255,.4); padding-bottom: 2px; }
-.closing__cta-link:hover { color: #fff; border-color: #fff; }
-@media (max-width: 640px) { .closing-wrap { padding: 0 1rem 3.5rem; } .closing { padding: 2.5rem 1.25rem; } }
+.closing{max-width:760px}
+.closing__kicker{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:12px}
+.closing__h2{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,4vw,52px);line-height:1.08;letter-spacing:-.01em;max-width:22ch;text-wrap:balance;margin-bottom:18px}
+.closing__h2 em{font-style:normal;color:inherit}
+.closing__sub{font-size:20px;line-height:1.45;color:var(--fg);max-width:46ch;margin-bottom:12px}
+.closing__cta-cluster{display:flex;flex-direction:column;align-items:flex-start}
+.closing__cta,.closing__cta-link{display:inline-flex;align-items:center;min-height:44px;font-size:20px;line-height:1.2;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.closing__cta-link{color:var(--muted)}
+.closing__cta:hover,.closing__cta-link:hover{text-decoration-thickness:3px}
+.closing__cta-link:hover{color:var(--fg)}
 
-/* Footer */
-.footer { border-top: 1px solid var(--border); padding: 1.75rem 1.5rem; max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .75rem 1.5rem; font-size: .82rem; color: var(--muted); }
-.footer__brand { font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 7px; }
-.footer__brand .oo-mark { height: 13px; width: auto; filter: invert(1); opacity: 0.55; }
-.footer__nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-.footer__nav a { color: var(--muted); }
-.footer__nav a:hover { color: var(--ink); }
+/* ---------- Footer ---------- */
+.site-footer{background:var(--bg);color:var(--fg);padding:56px 0;border-top:1px solid var(--rule)}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.foot{display:grid;grid-template-columns:auto 1fr;gap:28px 48px;align-items:start}
+.foot-brand{font-family:var(--font-display);font-size:28px;line-height:1.2;display:flex;align-items:center;gap:0 12px}
+.foot-brand .oo-mark{height:20px;width:20px;flex:none}
+.foot ul{justify-content:flex-end}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 8px}
+.foot li a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font:500 16px/1 var(--font-ui);text-decoration:none;color:var(--fg)}
+.foot li a:hover{text-decoration:underline;text-underline-offset:6px}
+.foot-address{grid-column:1 / -1;font:400 16px/1.4 var(--font-ui);color:var(--muted)}
+@media (max-width:760px){
+  .foot{grid-template-columns:1fr}
+  .foot ul{margin-left:-12px;justify-content:flex-start}
+  .foot-brand{flex-wrap:wrap}
+}
 </style>
 </head>
 <body>
@@ -263,20 +302,25 @@ a { color: inherit; text-decoration: none; }
   
 </a>
 
-<header class="site-nav">
-  <a class="site-nav__brand" href="https://www.shoonyadance.com">Shoonya</a>
-  <nav class="site-nav__links" aria-label="Site navigation">
-    <a href="/about/"><span data-lang="en">About</span></a>
-    <a href="/studios/"><span data-lang="en">Studios</span></a>
-    <a href="https://www.shoonyadance.com/try-a-class/"><span data-lang="en">Try a class</span></a>
-    <a href="/register/"><span data-lang="en">Register</span></a>
-    <a href="https://schedule.shoonyadance.com/"><span data-lang="en">Schedule</span></a>
+<header class="site-header">
+  <a class="brand" href="https://www.shoonyadance.com"><img src="https://schedule.shoonyadance.com/assets/shoonya-logo-script-purple.png" alt="" width="262" height="120"><span class="sr">Shoonya Dance Centre</span></a>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://schedule.shoonyadance.com" aria-current="true"><span data-lang="en">Classes</span></a>
+    <a href="https://workshops.shoonyadance.com/"><span data-lang="en">Workshops</span></a>
+    <a href="https://festivals.shoonyadance.com/"><span data-lang="en">Festivals</span></a>
+    <a href="https://performances.shoonyadance.com/"><span data-lang="en">Performances</span></a>
   </nav>
-  <div class="lang-toggle" role="group" aria-label="Language selection">
+  <div class="lang" role="group" aria-label="Language selection">
     <a class="lang-btn active" id="btn-en" href="https://schedule.shoonyadance.com/new/" hreflang="en">EN</a>
       <a class="lang-btn" id="btn-nl" href="https://schedule.shoonyadance.com/nl/new/" hreflang="nl">NL</a>
   </div>
 </header>
+
+<nav class="school">
+  <a href="/"><span data-lang="en">Schedule</span></a>
+  <a data-lang="en" href="/new/" aria-current="page">New here?</a>
+  <a data-lang="en" href="/styles/">All styles</a>
+</nav>
 
 <main id="main-content" tabindex="-1">
 
@@ -335,7 +379,7 @@ a { color: inherit; text-decoration: none; }
       <span data-lang="en">What kind of dance <em>calls to you?</em></span>
       
     </h2>
-    <p class="section__lead" data-lang="en"><span data-cfg="counts.styles">25</span> styles across three worlds. Pick what sounds like you — Level 1 is always for absolute beginners.</p>
+    <p class="section__lead" data-lang="en"><span data-cfg="counts.styles">24</span> styles across three worlds. Pick what sounds like you — Level 1 is always for absolute beginners.</p>
     
 
     <div class="step1-layout">
@@ -372,7 +416,7 @@ a { color: inherit; text-decoration: none; }
             <span data-lang="en">Solo</span>
             
           </span>
-          <p class="style-card__p" data-lang="en"><span data-cfg="counts.classical_technique">7</span> styles — Ballet, Tap Dance, Flamenco, Oriental Flow, Indian Semi-Classical, Indian Dance Technique, Solo Jazz. Structured progression.</p>
+          <p class="style-card__p" data-lang="en"><span data-cfg="counts.classical_technique">8</span> styles — Ballet, Tap Dance, Flamenco, Oriental Flow, Indian Semi-Classical, Indian Dance Technique, Solo Jazz. Structured progression.</p>
           
           <span class="style-card__link">
             <span data-lang="en">Explore →</span>
@@ -493,7 +537,9 @@ a { color: inherit; text-decoration: none; }
       <span data-lang="en">From <em>€<span data-cfg="pricing.60.full">198</span></em> for a full semester</span>
       
     </h2>
-    <p class="step3-inner__sub" data-lang="en"><span data-cfg="semester.sessions">16</span> sessions · Student tier €<span data-cfg="pricing.60.student">175</span> · UiTPAS <span data-cfg="discounts.uitpas_pct">80</span>% off · Registration open first 3 weeks</p>
+    <p class="step3-inner__sub" data-lang="en"><span data-cfg="semester.sessions">16</span> sessions · Under-25 or 2-class rate €<span data-cfg="pricing.60.student">174.24</span> · UiTPAS <span data-cfg="discounts.uitpas_pct">80</span>% off · Registration open first 3 weeks</p>
+    <p class="step3-inner__note" data-lang="en">Under 25, or taking two classes? Register them in the <b>same booking</b> and each one is €<span data-cfg="pricing.60.student">174.24</span> — you do not need to be a student.</p>
+    
     
     <a href="https://schedule.shoonyadance.com/" class="step3-inner__link">
       <span data-lang="en">Full schedule + pricing →</span>
@@ -563,7 +609,7 @@ a { color: inherit; text-decoration: none; }
         <span data-lang="en">Payment</span>
         
       </div>
-      <p data-lang="en">Online only — Bancontact or Visa. Student discount (under 25 or 2+ classes) and UiTPAS rates are applied at registration.</p>
+      <p data-lang="en">Online only — Bancontact or Visa. The reduced rate (anyone under 25, or 2 or more classes registered in the same booking) and UiTPAS rates are applied at registration.</p>
       
     </div>
 
@@ -581,7 +627,7 @@ a { color: inherit; text-decoration: none; }
       <span data-lang="en">Find your <em>first class</em></span>
       
     </h2>
-    <p class="closing__sub" data-lang="en">Browse all <span data-cfg="counts.styles">25</span> styles, check the September schedule, and register online. Your first week is free.</p>
+    <p class="closing__sub" data-lang="en">Browse all <span data-cfg="counts.styles">24</span> styles, check the September schedule, and register online. Your first week is free.</p>
     
     <div class="closing__cta-cluster">
       <a href="https://schedule.shoonyadance.com/styles/" class="closing__cta">
@@ -598,14 +644,23 @@ a { color: inherit; text-decoration: none; }
 
 </main>
 
-<footer class="footer">
-  <span class="footer__brand"><img class="oo-mark" src="/assets/shoonya-oo-mark-white.png" alt="">Shoonya Dance Centre<img class="oo-mark" src="/assets/shoonya-oo-mark-white.png" alt=""></span>
-  <nav class="footer__nav" aria-label="Footer links">
-    <a href="https://www.shoonyadance.com">shoonyadance.com</a>
-    <a href="https://www.shoonyadance.com/contact">Contact</a>
-    <a href="https://www.instagram.com/shoonyadance" rel="noopener">@shoonyadance</a>
-  </nav>
-  <span>Stapelplein 41, 9000 Gent</span>
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div class="foot-brand"><img class="oo-mark" src="/assets/shoonya-oo-mark-white.png" alt="">Shoonya Dance Centre<img class="oo-mark" src="/assets/shoonya-oo-mark-white.png" alt=""></div>
+    <nav aria-label="Footer links">
+      <ul>
+        <li><a href="/about/"><span data-lang="en">About</span></a></li>
+        <li><a href="/studios/"><span data-lang="en">Studios</span></a></li>
+        <li><a href="https://www.shoonyadance.com/try-a-class/"><span data-lang="en">Try a class</span></a></li>
+        <li><a href="/register/"><span data-lang="en">Register</span></a></li>
+        <li><a href="https://schedule.shoonyadance.com/"><span data-lang="en">Schedule</span></a></li>
+        <li><a href="https://www.shoonyadance.com">shoonyadance.com</a></li>
+        <li><a href="https://www.shoonyadance.com/contact">Contact</a></li>
+        <li><a href="https://www.instagram.com/shoonyadance" rel="noopener">@shoonyadance</a></li>
+      </ul>
+    </nav>
+    <span class="foot-address">Stapelplein 41, 9000 Gent</span>
+  </div>
 </footer>
 
 
