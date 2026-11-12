@@ -136,9 +136,8 @@ main:focus{outline:none}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,54%);align-items:end;background:var(--void-black);color:var(--void-white);overflow:hidden}
 .hero::after{content:"";grid-column:2;grid-row:1;display:block;width:100%;aspect-ratio:3/2;background:url('https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/7ea5a9db-4826-4fd1-9803-30aae8e55598/IMG_1881.JPG') center/cover no-repeat}
 .hero-inner{grid-column:1;grid-row:1;padding:clamp(32px,5vw,64px) var(--pad) clamp(36px,6vw,64px)}
-.hero-kicker{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:18px}
 .hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1.04;letter-spacing:-.012em;text-wrap:balance}
-.hero-lead{margin-top:22px;font-size:clamp(19px,1.8vw,24px);line-height:1.4;color:var(--void-white);max-width:36ch}
+.hero-lead{margin-top:22px;font-size:22px;line-height:1.5;color:var(--void-white);max-width:46ch}
 @media (max-width:760px){
   .hero{display:flex;flex-direction:column;align-items:stretch}
   .hero::after{order:1;aspect-ratio:3/2}
@@ -148,64 +147,28 @@ main:focus{outline:none}
 
 /* ---------- Sections ---------- */
 .section{padding:clamp(56px,8vw,104px) var(--gutter);border-top:1px solid var(--rule)}
-.kicker{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:12px}
 .section-h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.08;letter-spacing:-.01em;color:var(--void-white);margin:0 0 clamp(24px,3vw,36px);max-width:22ch;text-wrap:balance}
-
-/* Why Shoonya */
-.why-grid{display:grid;grid-template-columns:1fr;gap:40px}
-@media (min-width:720px){.why-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}}
-.why-sanskrit{font-size:18px;color:var(--muted);line-height:1.5;font-style:italic;margin-top:4px;max-width:34ch}
-.why-body p{font-size:19px;color:var(--void-white);line-height:1.65;margin:0 0 20px;max-width:62ch}
-.why-body p:last-child{margin-bottom:0}
-
-/* Values */
-.values-band{padding:clamp(56px,8vw,104px) var(--gutter);border-top:1px solid var(--rule)}
-.values-inner{max-width:none;margin:0}
-.values-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:8px}
-@media (min-width:960px){.values-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}}
-.val-card{border-top:1px solid var(--rule);padding:20px 0 0}
-.val-card__num{display:block;font:400 17px/1 var(--font-data);font-variant-numeric:tabular-nums;color:var(--muted);margin-bottom:16px}
-.val-card h3{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,2.4vw,30px);color:var(--void-white);margin:0 0 12px;line-height:1.2}
-.val-card p{font-size:18px;color:var(--muted);line-height:1.6;margin:0}
+.prose p{font-size:19px;color:var(--void-white);line-height:1.65;margin:0 0 20px;max-width:62ch}
+.prose p:last-child{margin-bottom:0}
+.prose [data-cfg]{font-family:var(--font-data);white-space:nowrap}
 
 /* Photo banner */
 .photo-banner{width:100%;height:clamp(200px,28vw,380px);overflow:hidden;border-top:1px solid var(--rule)}
 .photo-banner img{width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%}
 
 /* Founders */
-.founders-grid{display:grid;grid-template-columns:1fr;gap:48px;margin-top:8px}
-@media (min-width:720px){.founders-grid{grid-template-columns:1fr 1fr;gap:56px}}
+.founders-grid{display:grid;grid-template-columns:1fr;gap:48px}
+@media (min-width:720px){.founders-grid{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
 .person{display:flex;flex-direction:column}
 .person__photo{width:100%;height:clamp(260px,30vw,380px);object-fit:cover;object-position:50% 20%;display:block;background:var(--void-black)}
 .person__body{padding:24px 0 0}
-.person__name{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,2.6vw,32px);color:var(--void-white);margin:0 0 4px;line-height:1.2}
-.person__role{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:16px}
-.person__bio{font-size:18px;color:var(--void-white);line-height:1.65;margin:0}
-.person__det{margin-top:8px}
-.person__toggle{cursor:pointer;display:inline-flex;align-items:center;min-height:44px;color:var(--void-white);font:500 16px/1 var(--font-ui);list-style:none;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;user-select:none}
-.person__toggle::-webkit-details-marker{display:none}
-.person__toggle:hover{text-decoration-thickness:3px}
-.person__full{font-size:18px;color:var(--muted);line-height:1.65;padding-top:16px;border-top:1px solid var(--rule);margin-top:8px}
-.person__full p{margin:0 0 14px}
-.person__full p:last-child{margin-bottom:0}
+.person__name{font-family:var(--font-display);font-weight:400;font-size:28px;color:var(--void-white);margin:0 0 4px;line-height:1.2}
+.person__role{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:20px}
 
-/* Numbers */
-.numbers-band{padding:clamp(48px,6vw,80px) var(--gutter);border-top:1px solid var(--rule);background:var(--void-black);color:var(--void-white)}
-.numbers-grid{display:flex;justify-content:flex-start;gap:32px clamp(32px,6vw,80px);flex-wrap:wrap}
-.num-val{display:block;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.1;color:var(--void-white);margin-bottom:8px}
-.num-label{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted)}
-
-/* Closing call to action */
-.cta-section{padding:clamp(64px,9vw,112px) var(--gutter) clamp(56px,8vw,96px);border-top:1px solid var(--rule)}
-.cta-band{max-width:none;margin:0;background:none;padding:0;text-align:left}
-.cta-band .kicker{margin-bottom:12px}
-.cta-band h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.08;letter-spacing:-.01em;color:var(--void-white);margin:0;max-width:22ch;text-wrap:balance}
-.cta-band p{font-size:22px;line-height:1.45;color:var(--void-white);max-width:46ch;margin:18px 0 12px}
-.cta-cluster{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+/* Try a class first: the two links, one per line */
+.cta-cluster{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:12px}
 .btn-primary,.btn-text{display:inline-flex;align-items:center;min-height:44px;font-size:20px;color:var(--void-white);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;background:none;border:0;padding:0}
 .btn-primary:hover,.btn-text:hover{text-decoration-thickness:3px}
-.btn-text{color:var(--muted)}
-.btn-text:hover{color:var(--void-white)}
 
 /* ---------- Footer ---------- */
 .site-footer{background:var(--void-black);color:var(--void-white);padding:56px 0;border-top:1px solid var(--rule)}
@@ -254,84 +217,31 @@ main:focus{outline:none}
 
 <main id="main-content" tabindex="-1">
 
-<!-- Hero -->
+<!-- Opening -->
 <section class="hero" aria-labelledby="hero-h1">
   <div class="hero-inner">
-    <span class="hero-kicker">
-      <span data-lang="en">About us</span>
-      
-    </span>
     <h1 id="hero-h1">
-      <span data-lang="en">Where every body <em>dances</em></span>
+      <span data-lang="en">About Shoonya</span>
       
     </h1>
-    <p class="hero-lead" data-lang="en">Shoonya Dance Centre is a home for 24 dance styles under one roof in Ghent. We welcome every background, every body, every level — because dance connects what words cannot.</p>
+    <p class="hero-lead" data-lang="en">Shoonya Dance Centre is a dance school at Stapelplein 41 in Ghent. Swapnil Dagliya and Wim Boussery opened it in 2015. Today <span data-cfg="counts.teachers">22</span> teachers give weekly classes in <span data-cfg="counts.styles">24</span> styles, in five studios. Everyone is welcome, whatever your background, orientation, body or experience.</p>
     
   </div>
 </section>
 
 <!-- Why Shoonya -->
 <section class="section" aria-labelledby="why-h2">
-  <div class="why-grid">
-    <div>
-      <span class="kicker">
-        <span data-lang="en">The name</span>
-        
-      </span>
-      <h2 class="section-h2" id="why-h2">
-        <span data-lang="en">Why <em>Shoonya</em>?</span>
-        
-      </h2>
-      <p class="why-sanskrit" data-lang="en">Sanskrit — "void", "zero", "the space from which everything begins"</p>
-      
-    </div>
-    <div class="why-body">
-      <p data-lang="en"><strong>Shoonya</strong> is a Sanskrit word that means both zero and the infinite potential it carries. In the philosophies of India and China, it points to a deeper truth: that everything in existence is interconnected, and that emptiness is not absence — it is possibility.</p>
-      
-      <p data-lang="en">We chose the name because dance starts the same way. A single step. An empty floor. From that zero, complexity and meaning grow — one movement at a time, one class at a time, one connection at a time.</p>
-      
-      <p data-lang="en">At Shoonya Dance Centre, we believe dance is a way to tap into that interconnectedness — to explore parts of the human experience that words cannot reach. The name is both a beginning and a reminder: even the most intricate choreography is built on simple, honest steps.</p>
-      
-    </div>
+  <h2 class="section-h2" id="why-h2">
+    <span data-lang="en">Why Shoonya?</span>
+    
+  </h2>
+  <div class="prose">
+    <p data-lang="en">Shoonya is a Sanskrit word for zero, or emptiness. In Indian and Chinese philosophy that emptiness is where everything starts.</p>
+    
+    <p data-lang="en">We chose the name because a dance starts the same way: with an empty floor and one step.</p>
+    
   </div>
 </section>
-
-<!-- Values band -->
-<div class="values-band" aria-labelledby="values-h2">
-  <div class="values-inner">
-    <span class="kicker">
-      <span data-lang="en">What drives us</span>
-      
-    </span>
-    <h2 class="section-h2" id="values-h2">
-      <span data-lang="en">Built on <em>three beliefs</em></span>
-      
-    </h2>
-    <div class="values-grid">
-      <div class="val-card">
-        <span class="val-card__num">01</span>
-        <h3 data-lang="en">Diversity is the repertoire</h3>
-        
-        <p data-lang="en">24 styles from Bollywood to Ballet, Tango to Tap, Flamenco to Burlesque. We don't teach one tradition — we celebrate the full spectrum of movement, under one roof, side by side.</p>
-        
-      </div>
-      <div class="val-card">
-        <span class="val-card__num">02</span>
-        <h3 data-lang="en">Everyone belongs</h3>
-        
-        <p data-lang="en">Every background, orientation, shape, and experience level. Our classes are designed so that beginners feel welcome and advanced dancers stay challenged — in the same community.</p>
-        
-      </div>
-      <div class="val-card">
-        <span class="val-card__num">03</span>
-        <h3 data-lang="en">Growth through community</h3>
-        
-        <p data-lang="en">Dance is personal, but it doesn't happen alone. We invest in teachers, spaces, and shared experiences — from weekly classes to festivals — so that every step forward is taken together.</p>
-        
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Photo banner -->
 <div class="photo-banner" aria-hidden="true">
@@ -340,12 +250,8 @@ main:focus{outline:none}
 
 <!-- Founders -->
 <section class="section" aria-labelledby="founders-h2">
-  <span class="kicker">
-    <span data-lang="en">The founders</span>
-    
-  </span>
   <h2 class="section-h2" id="founders-h2">
-    <span data-lang="en">Two paths, <em>one vision</em></span>
+    <span data-lang="en">The founders</span>
     
   </h2>
   <div class="founders-grid">
@@ -355,25 +261,17 @@ main:focus{outline:none}
       <div class="person__body">
         <h3 class="person__name">Swapnil Dagliya</h3>
         <span class="person__role">
-          <span data-lang="en">Artistic Director &amp; Co-founder</span>
+          <span data-lang="en">Artistic director and co-founder</span>
           
         </span>
-        <p class="person__bio" data-lang="en">Born in Pune, India — near Mumbai, the heart of Bollywood — Swapnil blends his Indian roots with training in ballet, jazz, modern, and contemporary dance. He co-founded Shoonya in 2015 to make the world's dance traditions accessible in one place.</p>
-        
-        <details class="person__det">
-          <summary class="person__toggle">
-            <span data-lang="en">Full bio</span>
-            
-          </summary>
-          <div class="person__full">
-            <p data-lang="en">Swapnil holds a diploma in Indian folk dance and is a certified Learn Bhangra&reg; instructor, with deep expertise in Garba, Ghoomar, Kalbeliya, and other folk traditions from across India. He graduated from Broadway Dance Center in New York and completed advanced training at Opus Ballet in Florence, Italy.</p>
-            
-            <p data-lang="en">From 2008 to 2018, he directed his own school in India — SPACE (Swapnil's Performing Arts &amp; Contemporary Ensemble) — and taught dance and theory at the University of Pune and Flame University. His movement journey started in childhood through yoga, guided by his grandmother, a student of B.K.S. Iyengar. He completed his yoga teacher training in Pune in 2011.</p>
-            
-            <p data-lang="en">Now based in Belgium, Swapnil teaches six styles at Shoonya, leads ABC a Bollywood Company, and curates the annual Gent India Dans Festival.</p>
-            
-          </div>
-        </details>
+        <div class="prose">
+          <p data-lang="en">Swapnil was born in Pune, India. He trained in Indian folk dance, ballet, jazz, modern and contemporary dance. He holds a diploma in Indian folk dance, is a certified Learn Bhangra&reg; instructor and specialises in Garba, Ghoomar, Kalbeliya and other folk dances from India. He graduated from Broadway Dance Center in New York and did advanced training at Opus Ballet in Florence.</p>
+          
+          <p data-lang="en">From 2008 to 2018 he ran his own school in India, SPACE (Swapnil's Performing Arts &amp; Contemporary Ensemble). He also taught dance and theory at the University of Pune and at Flame University. He started yoga as a child with his grandmother, a student of B.K.S. Iyengar, and completed his yoga teacher training in Pune in 2011.</p>
+          
+          <p data-lang="en">He co-founded Shoonya in 2015. He teaches six styles here, leads ABC a Bollywood Company and curates the yearly Gent India Dans Festival.</p>
+          
+        </div>
       </div>
     </div>
 
@@ -382,82 +280,42 @@ main:focus{outline:none}
       <div class="person__body">
         <h3 class="person__name">Wim Boussery</h3>
         <span class="person__role">
-          <span data-lang="en">Co-founder &amp; Director</span>
+          <span data-lang="en">Co-founder and director</span>
           
         </span>
-        <p class="person__bio" data-lang="en">Wim discovered salsa in the late 1980s, at a time when the dance style was still largely unknown in Belgium and rapidly evolving worldwide. Driven by curiosity and passion, he trained extensively with a wide range of teachers, both nationally and internationally. He began teaching salsa in 1999, and by 2004, dance became his full-time profession. In 2015, he co-founded Shoonya Dance Centre, contributing significantly to its vision and growth.</p>
-        
-        <details class="person__det">
-          <summary class="person__toggle">
-            <span data-lang="en">More</span>
-            
-          </summary>
-          <div class="person__full">
-            <p data-lang="en">In 2025, as the dance centre continued to expand, Wim stepped back from active teaching. He remains actively involved behind the scenes, contributing to the organisation, development, and long-term direction of Shoonya Dance Centre.</p>
-            
-          </div>
-        </details>
+        <div class="prose">
+          <p data-lang="en">Wim discovered salsa in the late 1980s, when few people in Belgium knew the dance. He trained with teachers in Belgium and abroad, started teaching salsa in 1999, and has worked in dance full time since 2004. He co-founded Shoonya Dance Centre in 2015.</p>
+          
+          <p data-lang="en">In 2025 he stopped teaching. He still works behind the scenes on the organisation and the long-term direction of the school.</p>
+          
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- Numbers band -->
-<div class="numbers-band">
-  <div class="numbers-grid">
-    <div>
-      <span class="num-val">2015</span>
-      <span class="num-label" data-lang="en">Founded</span>
-      
-    </div>
-    <div>
-      <span class="num-val" data-cfg="counts.styles">24</span>
-      <span class="num-label" data-lang="en">Dance styles</span>
-      
-    </div>
-    <div>
-      <span class="num-val" data-cfg="counts.teachers">22</span>
-      <span class="num-label" data-lang="en">Teachers</span>
-      
-    </div>
-    <div>
-      <span class="num-val" data-cfg="counts.studios">5</span>
-      <span class="num-label" data-lang="en">Studios</span>
-      
-    </div>
-    <div>
-      <span class="num-val">Gent</span>
-      <span class="num-label">Stapelplein 41</span>
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
-<div class="cta-section">
-  <div class="cta-band">
-    <span class="kicker">
-      <span data-lang="en">Come dance with us</span>
-      
-    </span>
-    <h2>
-      <span data-lang="en">Your first class is <em>free</em></span>
-      
-    </h2>
-    <p data-lang="en">Walk in during an Open Door Day or the first week of the semester. No registration, no commitment — just show up.</p>
+<!-- Try a class first -->
+<section class="section" aria-labelledby="try-h2">
+  <h2 class="section-h2" id="try-h2">
+    <span data-lang="en">Try a class first</span>
     
-    <div class="cta-cluster">
-      <a href="https://www.shoonyadance.com/try-a-class/" class="btn-primary">
-        <span data-lang="en">Try a class for free →</span>
-        
-      </a>
-      <a href="https://schedule.shoonyadance.com/styles/" class="btn-text">
-        <span data-lang="en">Browse all 24 styles →</span>
-        
-      </a>
-    </div>
+  </h2>
+  <div class="prose">
+    <p data-lang="en">The first week of every semester is free for everyone. The next one is <span data-cfg="trial_week_long">15–20 February 2027</span>. Open House days: <span data-cfg="open_door_next">31 Jan + 13 Jun 2027</span>.</p>
+    
   </div>
-</div>
+  <div class="cta-cluster">
+    <a href="https://www.shoonyadance.com/try-a-class/" class="btn-primary">
+      <span data-lang="en">Try a class for free →</span>
+      
+    </a>
+    <a href="https://schedule.shoonyadance.com/styles/" class="btn-text">
+      <span data-lang="en">Browse all 24 styles →</span>
+      
+    </a>
+  </div>
+</section>
 
 </main>
 
