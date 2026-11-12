@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
 <title>About — Shoonya Dance Centre, Ghent</title>
 <meta name="description" content="Shoonya Dance Centre is home to 24 dance styles under one roof in Ghent. Learn about our story, values, and the founders — Swapnil Dagliya and Wim Boussery.">
 <link rel="canonical" href="https://info.shoonyadance.com/about/">
@@ -14,7 +16,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About — Shoonya Dance Centre, Ghent">
 <meta name="twitter:image" content="https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/7ea5a9db-4826-4fd1-9803-30aae8e55598/IMG_1881.JPG">
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&family=Marcellus&family=PT+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,198 +50,178 @@
 }
 </script>
 <style>
-:root {
-  --purple: #B564F7;
-  --purple-deep: #7E4FBF;
-  --purple-soft: #F5ECFF;
-  --ink: #000000;
-  --muted: #666;
-  --muted-soft: #999;
-  --border: #e4e0db;
-  --radius: 0px;
+:root{
+  --void-black:#000000;
+  --bone:#F4F1EB;
+  --void-white:#FFFFFF;
+  --mist:#D6D6D6;
+  --charcoal:#4A4A4A;
+  --vibrant-purple:#B564F7;
+
+  --font-display:"Marcellus","Playfair Display",Georgia,serif;
+  --font-italic:"PT Serif",Georgia,serif;
+  --font-body:"PT Serif",Georgia,serif;
+  --font-data:"Geist Mono",ui-monospace,monospace;
+  --font-ui:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
+
+  --pad:clamp(20px,4vw,56px);
+  --gutter:max(var(--pad),calc((100% - 1360px) / 2 + var(--pad)));
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'PT Serif', Georgia, serif; color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; }
+html{
+  --bg:var(--void-black); --fg:var(--void-white); --muted:var(--mist);
+  --rule:var(--charcoal); --focus:var(--vibrant-purple);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:18px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+h1,h2,h3,p{margin:0;font-weight:400}
+strong,b{font-weight:500}
+em{font-style:normal}
+:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+main:focus{outline:none}
 
 /* Language toggle */
 body.nl [data-lang="en"] { display: none; }
 body:not(.nl) [data-lang="nl"] { display: none; }
 
 /* Skip link */
-.skip-link {
-  position: absolute; left: -9999px; top: 0; background: var(--purple); color: #fff;
-  padding: .5rem 1rem; font-size: .82rem; font-weight: 700; z-index: 100;
-  border-radius: 0;
-}
-.skip-link:focus { left: 1rem; }
+.skip-link{position:absolute;left:12px;top:-80px;z-index:100;background:var(--void-white);color:var(--void-black);padding:12px 16px;font:500 16px var(--font-ui);text-decoration:none}
+.skip-link:focus{top:12px;outline:3px solid var(--vibrant-purple);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* Site nav */
-.site-nav {
-  display: flex; align-items: center; gap: 1.5rem;
-  padding: .85rem 1.5rem; border-bottom: 0.5px solid var(--border);
-  position: sticky; top: 0; background: #fff; z-index: 50;
+/* ---------- Header ---------- */
+.site-header{background:var(--void-black);color:var(--void-white);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 24px;padding:10px var(--pad)}
+.brand{display:inline-flex;align-items:center;min-height:44px}
+.brand img{height:52px;width:auto}
+.site-nav{display:flex;flex-wrap:wrap;gap:0 6px;order:2}
+.site-nav a,.lang-btn{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font:500 16px/1 var(--font-ui);text-decoration:none;color:var(--void-white)}
+.site-nav a:hover,.lang-btn:hover{text-decoration:underline;text-underline-offset:6px}
+.site-nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--vibrant-purple);text-decoration-thickness:2px;text-underline-offset:10px}
+.lang{display:flex;align-items:center;order:3;color:var(--mist)}
+.lang-btn{color:var(--mist);min-width:44px;justify-content:center}
+.lang-btn.active{color:var(--void-white);text-decoration:underline;text-decoration-color:var(--vibrant-purple);text-decoration-thickness:2px;text-underline-offset:10px}
+#btn-nl::before{content:"";display:block;width:1px;height:16px;background:var(--rule);margin-right:20px}
+@media (min-width:900px){
+  .site-header{flex-wrap:nowrap}
+  .brand{order:1}
+  .site-nav{order:2;margin-left:auto;margin-right:20px}
+  .lang{order:3}
 }
-.site-nav__brand {
-  font-family: 'Marcellus', serif; font-size: .95rem; letter-spacing: .06em;
-  text-transform: uppercase; font-weight: 400; white-space: nowrap; margin-right: auto;
+@media (max-width:899px){
+  .brand{order:1}
+  .lang{order:2;margin-left:auto}
+  .site-nav{order:3;flex-basis:100%;margin-left:-10px}
 }
-.site-nav__links { display: flex; gap: 1.25rem; }
-.site-nav__links a {
-  font-size: .75rem; font-weight: 700; letter-spacing: .06em;
-  text-transform: uppercase; color: var(--muted); text-decoration: none;
-  transition: color .15s; white-space: nowrap;
+@media (max-width:480px){
+  .site-nav{flex-wrap:nowrap;justify-content:space-between;gap:0;margin-left:-6px;margin-right:-6px}
+  .site-nav a{padding:0 6px;font-size:14px}
 }
-.site-nav__links a:hover, .site-nav__links a.active { color: var(--ink); }
-.lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 0; overflow: hidden; }
-.lang-btn {
-  padding: .55rem .9rem; font-size: .72rem; font-weight: 700; letter-spacing: .06em;
-  border: none; background: none; cursor: pointer; color: var(--muted); font-family: 'PT Serif', serif;
-}
-.lang-btn.active { background: #000; color: #fff; border-radius: 0; }
-@media (max-width: 600px) { .site-nav__links { display: none; } }
 
-/* Hero */
-.hero {
-  position: relative; overflow: hidden; color: #fff;
-  padding: 5rem 1.5rem 4.5rem; text-align: center;
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-    url('https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/7ea5a9db-4826-4fd1-9803-30aae8e55598/IMG_1881.JPG') center/cover no-repeat;
+/* ---------- School navigation row ---------- */
+.school{display:flex;flex-wrap:nowrap;gap:0 6px;padding:0 var(--pad);border-bottom:1px solid var(--rule);background:var(--void-black)}
+.school a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font:500 15px/1 var(--font-ui);color:var(--muted);text-decoration:none;white-space:nowrap}
+.school a:first-child{padding-left:0}
+.school a:hover{color:var(--void-white);text-decoration:underline;text-underline-offset:6px}
+@media (max-width:480px){
+  .school{gap:0}
+  .school a{padding:0 8px 0 0;margin-right:8px;font-size:14px}
 }
-.hero-inner { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
-.hero-kicker {
-  display: block; font-size: .68rem; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--purple); margin-bottom: 1.25rem;
-}
-.hero h1 {
-  font-family: 'Marcellus', serif; font-weight: 400;
-  font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.1; margin: 0 0 1rem;
-}
-.hero h1 em { color: var(--purple); font-style: normal; }
-.hero-lead {
-  font-size: 1.05rem; color: rgba(255,255,255,.72);
-  max-width: 540px; margin: 0 auto; line-height: 1.6;
-}
-@media (max-width: 480px) { .hero { padding: 3.5rem 1rem; } }
 
-/* Sections */
-.section { max-width: 1040px; margin: 0 auto; padding: 4rem 1.5rem; }
-.kicker {
-  display: block; font-size: .68rem; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--purple-deep); margin-bottom: .5rem;
+/* ---------- Hero (text beside the photo, never on it) ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,54%);align-items:end;background:var(--void-black);color:var(--void-white);overflow:hidden}
+.hero::after{content:"";grid-column:2;grid-row:1;display:block;width:100%;aspect-ratio:3/2;background:url('https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/7ea5a9db-4826-4fd1-9803-30aae8e55598/IMG_1881.JPG') center/cover no-repeat}
+.hero-inner{grid-column:1;grid-row:1;padding:clamp(32px,5vw,64px) var(--pad) clamp(36px,6vw,64px)}
+.hero-kicker{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:18px}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:1.04;letter-spacing:-.012em;text-wrap:balance}
+.hero-lead{margin-top:22px;font-size:clamp(19px,1.8vw,24px);line-height:1.4;color:var(--void-white);max-width:36ch}
+@media (max-width:760px){
+  .hero{display:flex;flex-direction:column;align-items:stretch}
+  .hero::after{order:1;aspect-ratio:3/2}
+  .hero-inner{order:2;padding:28px var(--pad) 40px}
+  .hero h1{font-size:clamp(34px,10.5vw,52px)}
 }
-.section-h2 {
-  font-family: 'Marcellus', serif; font-weight: 400;
-  font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15;
-  color: var(--ink); margin: 0 0 1.25rem;
-}
-.section-h2 em { color: var(--purple); font-style: normal; }
-@media (max-width: 480px) { .section { padding: 3rem 1rem; } }
 
-/* Why Shoonya — two-col layout */
-.why-grid {
-  display: grid; grid-template-columns: 1fr; gap: 2.5rem;
-}
-@media (min-width: 720px) { .why-grid { grid-template-columns: 260px 1fr; gap: 3rem; align-items: start; } }
-.why-sanskrit { font-size: .82rem; color: var(--muted-soft); line-height: 1.5; font-style: italic; margin-top: .3rem; }
-.why-body p { font-size: .95rem; color: #444; line-height: 1.7; margin: 0 0 1.1rem; }
-.why-body p:last-child { margin-bottom: 0; }
-.why-body strong { color: var(--ink); }
+/* ---------- Sections ---------- */
+.section{padding:clamp(56px,8vw,104px) var(--gutter);border-top:1px solid var(--rule)}
+.kicker{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:12px}
+.section-h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.08;letter-spacing:-.01em;color:var(--void-white);margin:0 0 clamp(24px,3vw,36px);max-width:22ch;text-wrap:balance}
 
-/* Values band */
-.values-band { background: #FAFAF8; padding: 4rem 1.5rem; }
-.values-inner { max-width: 1040px; margin: 0 auto; }
-.values-grid {
-  display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 1.75rem;
-}
-@media (min-width: 600px) { .values-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 960px) { .values-grid { grid-template-columns: repeat(3,1fr); } }
-.val-card { background: #fff; border-radius: var(--radius); border: 0.5px solid #e4e0db; padding: 1.4rem 1.5rem; }
-.val-card__num { font-size: .62rem; font-weight: 700; letter-spacing: .14em; color: var(--purple); margin-bottom: .5rem; display: block; }
-.val-card h3 { font-family: 'Marcellus', serif; font-weight: 400; font-size: 1.15rem; color: var(--ink); margin: 0 0 .45rem; line-height: 1.2; }
-.val-card p { font-size: .88rem; color: #555; line-height: 1.6; margin: 0; }
-@media (max-width: 480px) { .values-band { padding: 3rem 1rem; } }
+/* Why Shoonya */
+.why-grid{display:grid;grid-template-columns:1fr;gap:40px}
+@media (min-width:720px){.why-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}}
+.why-sanskrit{font-size:18px;color:var(--muted);line-height:1.5;font-style:italic;margin-top:4px;max-width:34ch}
+.why-body p{font-size:19px;color:var(--void-white);line-height:1.65;margin:0 0 20px;max-width:62ch}
+.why-body p:last-child{margin-bottom:0}
+
+/* Values */
+.values-band{padding:clamp(56px,8vw,104px) var(--gutter);border-top:1px solid var(--rule)}
+.values-inner{max-width:none;margin:0}
+.values-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:8px}
+@media (min-width:960px){.values-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}}
+.val-card{border-top:1px solid var(--rule);padding:20px 0 0}
+.val-card__num{display:block;font:400 17px/1 var(--font-data);font-variant-numeric:tabular-nums;color:var(--muted);margin-bottom:16px}
+.val-card h3{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,2.4vw,30px);color:var(--void-white);margin:0 0 12px;line-height:1.2}
+.val-card p{font-size:18px;color:var(--muted);line-height:1.6;margin:0}
 
 /* Photo banner */
-.photo-banner { width: 100%; height: 320px; overflow: hidden; }
-.photo-banner img { width: 100%; height: 100%; object-fit: cover; display: block; object-position: 50% 55%; }
-@media (max-width: 480px) { .photo-banner { height: 200px; } }
+.photo-banner{width:100%;height:clamp(200px,28vw,380px);overflow:hidden;border-top:1px solid var(--rule)}
+.photo-banner img{width:100%;height:100%;object-fit:cover;display:block;object-position:50% 55%}
 
 /* Founders */
-.founders-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 2rem; }
-@media (min-width: 720px) { .founders-grid { grid-template-columns: 1fr 1fr; } }
-.person {
-  display: flex; flex-direction: column;
-  background: #faf9f7; border-radius: var(--radius); border: 0.5px solid #e4e0db; overflow: hidden;
-}
-.person__photo { width: 100%; height: 320px; object-fit: cover; object-position: 50% 20%; display: block; }
-.person__body { padding: 1.5rem 1.75rem 1.75rem; }
-.person__name { font-family: 'Marcellus', serif; font-weight: 400; font-size: 1.3rem; color: var(--ink); margin: 0 0 .15rem; line-height: 1.2; }
-.person__role { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--purple-deep); margin-bottom: .75rem; display: block; }
-.person__bio { font-size: .88rem; color: #555; line-height: 1.65; margin: 0; }
-.person__det { margin-top: .5rem; }
-.person__toggle {
-  cursor: pointer; color: var(--ink); font-size: .78rem; font-weight: 500;
-  list-style: none; display: inline; text-decoration: underline;
-  text-underline-offset: 2px; padding: .3rem 0; user-select: none;
-}
-.person__toggle::-webkit-details-marker { display: none; }
-.person__full {
-  font-size: .85rem; color: #666; line-height: 1.65;
-  padding-top: .75rem; border-top: 1px solid var(--border); margin-top: .5rem;
-}
-.person__full p { margin: 0 0 .75rem; }
-.person__full p:last-child { margin-bottom: 0; }
-@media (max-width: 480px) {
-  .person__photo { height: 260px; }
-  .person__body { padding: 1.25rem 1.25rem 1.5rem; }
-}
+.founders-grid{display:grid;grid-template-columns:1fr;gap:48px;margin-top:8px}
+@media (min-width:720px){.founders-grid{grid-template-columns:1fr 1fr;gap:56px}}
+.person{display:flex;flex-direction:column}
+.person__photo{width:100%;height:clamp(260px,30vw,380px);object-fit:cover;object-position:50% 20%;display:block;background:var(--void-black)}
+.person__body{padding:24px 0 0}
+.person__name{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,2.6vw,32px);color:var(--void-white);margin:0 0 4px;line-height:1.2}
+.person__role{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted);margin-bottom:16px}
+.person__bio{font-size:18px;color:var(--void-white);line-height:1.65;margin:0}
+.person__det{margin-top:8px}
+.person__toggle{cursor:pointer;display:inline-flex;align-items:center;min-height:44px;color:var(--void-white);font:500 16px/1 var(--font-ui);list-style:none;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;user-select:none}
+.person__toggle::-webkit-details-marker{display:none}
+.person__toggle:hover{text-decoration-thickness:3px}
+.person__full{font-size:18px;color:var(--muted);line-height:1.65;padding-top:16px;border-top:1px solid var(--rule);margin-top:8px}
+.person__full p{margin:0 0 14px}
+.person__full p:last-child{margin-bottom:0}
 
-/* Numbers band */
-.numbers-band { background: var(--ink); color: #fff; padding: 3rem 1.5rem 3.5rem; text-align: center; }
-.numbers-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
-.num-val { font-family: 'Marcellus', serif; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--purple); line-height: 1; margin-bottom: .25rem; display: block; }
-.num-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); }
-@media (max-width: 480px) { .numbers-band { padding: 2.5rem 1rem; } .numbers-grid { gap: 2rem; } }
+/* Numbers */
+.numbers-band{padding:clamp(48px,6vw,80px) var(--gutter);border-top:1px solid var(--rule);background:var(--void-black);color:var(--void-white)}
+.numbers-grid{display:flex;justify-content:flex-start;gap:32px clamp(32px,6vw,80px);flex-wrap:wrap}
+.num-val{display:block;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.1;color:var(--void-white);margin-bottom:8px}
+.num-label{display:block;font:500 15px/1.3 var(--font-ui);color:var(--muted)}
 
-/* CTA band */
-.cta-section { padding: 4rem 1.5rem; }
-.cta-band {
-  max-width: 1040px; margin: 0 auto;
-  background: #000; border-radius: var(--radius);
-  padding: 3rem 2rem; text-align: center;
-}
-.cta-band h2 { font-family: 'Marcellus', serif; font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; color: #fff; margin: .5rem 0 .75rem; }
-.cta-band h2 em { color: var(--purple); font-style: normal; }
-.cta-band p { font-size: .95rem; color: rgba(255,255,255,.65); max-width: 480px; margin: 0 auto 1.75rem; line-height: 1.55; }
-.cta-cluster { display: flex; flex-direction: column; align-items: center; gap: .65rem; }
-.btn-primary {
-  display: inline-block; background: transparent; color: #fff;
-  border: 1px solid #fff;
-  font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-  padding: .85rem 1.85rem; border-radius: 0; text-decoration: none; transition: background .2s, border-color .2s;
-}
-.btn-primary:hover { background: var(--purple); border-color: var(--purple); }
-.btn-text {
-  font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-  color: rgba(255,255,255,.7); border-bottom: 1.5px solid rgba(255,255,255,.3);
-  padding-bottom: 2px; text-decoration: none; transition: color .15s, border-color .15s;
-}
-.btn-text:hover { color: #fff; border-color: #fff; }
-@media (max-width: 480px) { .cta-section { padding: 3rem 1rem; } .cta-band { padding: 2.5rem 1.25rem; } }
+/* Closing call to action */
+.cta-section{padding:clamp(64px,9vw,112px) var(--gutter) clamp(56px,8vw,96px);border-top:1px solid var(--rule)}
+.cta-band{max-width:none;margin:0;background:none;padding:0;text-align:left}
+.cta-band .kicker{margin-bottom:12px}
+.cta-band h2{font-family:var(--font-display);font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.08;letter-spacing:-.01em;color:var(--void-white);margin:0;max-width:22ch;text-wrap:balance}
+.cta-band p{font-size:22px;line-height:1.45;color:var(--void-white);max-width:46ch;margin:18px 0 12px}
+.cta-cluster{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.btn-primary,.btn-text{display:inline-flex;align-items:center;min-height:44px;font-size:20px;color:var(--void-white);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;background:none;border:0;padding:0}
+.btn-primary:hover,.btn-text:hover{text-decoration-thickness:3px}
+.btn-text{color:var(--muted)}
+.btn-text:hover{color:var(--void-white)}
 
-/* Footer */
-.footer {
-  border-top: 1px solid var(--border); padding: 1.75rem 1.5rem;
-  max-width: 1040px; margin: 0 auto;
-  display: flex; justify-content: space-between; flex-wrap: wrap;
-  gap: .75rem 1.5rem; font-size: .82rem; color: var(--muted);
+/* ---------- Footer ---------- */
+.site-footer{background:var(--void-black);color:var(--void-white);padding:56px 0;border-top:1px solid var(--rule)}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.foot{display:grid;grid-template-columns:auto 1fr;gap:28px 48px;align-items:start}
+.foot-brand{font-family:var(--font-display);font-size:28px;line-height:1.2;display:flex;align-items:center;gap:0 12px}
+.foot-brand .oo-mark{height:20px;width:20px;flex:none}
+.foot ul{justify-content:flex-end}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 8px}
+.foot li a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font:500 16px/1 var(--font-ui);text-decoration:none;color:var(--void-white)}
+.foot li a:hover{text-decoration:underline;text-underline-offset:6px}
+.foot-address{grid-column:1 / -1;font:400 16px/1.4 var(--font-ui);color:var(--muted)}
+@media (max-width:760px){
+  .foot{grid-template-columns:1fr}
+  .foot ul{margin-left:-12px;justify-content:flex-start}
+  .foot-brand{flex-wrap:wrap}
 }
-.footer__brand { font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 7px; }
-.footer__brand .oo-mark { height: 13px; width: auto; filter: invert(1); opacity: 0.55; }
-.footer__nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-.footer__nav a { color: var(--muted); }
-.footer__nav a:hover { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -247,20 +231,25 @@ body:not(.nl) [data-lang="nl"] { display: none; }
   <span data-lang="nl">Naar inhoud</span>
 </a>
 
-<header class="site-nav">
-  <a class="site-nav__brand" href="https://www.shoonyadance.com">Shoonya</a>
-  <nav class="site-nav__links" aria-label="Site navigation">
-    <a href="/about/" class="active"><span data-lang="en">About</span><span data-lang="nl">Over ons</span></a>
-    <a href="/our-studios/"><span data-lang="en">Studios</span><span data-lang="nl">Studio's</span></a>
-    <a href="https://www.shoonyadance.com/try-a-class/"><span data-lang="en">Try a class</span><span data-lang="nl">Proefles</span></a>
-    <a href="/register/"><span data-lang="en">Register</span><span data-lang="nl">Inschrijven</span></a>
-    <a href="https://schedule.shoonyadance.com/"><span data-lang="en">Schedule</span><span data-lang="nl">Rooster</span></a>
+<header class="site-header">
+  <a class="brand" href="https://www.shoonyadance.com"><img src="https://schedule.shoonyadance.com/assets/shoonya-logo-script-purple.png" alt="" width="262" height="120"><span class="sr">Shoonya Dance Centre</span></a>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://schedule.shoonyadance.com" aria-current="true"><span data-lang="en">Classes</span><span data-lang="nl">Lessen</span></a>
+    <a href="https://workshops.shoonyadance.com/"><span data-lang="en">Workshops</span><span data-lang="nl">Workshops</span></a>
+    <a href="https://festivals.shoonyadance.com/"><span data-lang="en">Festivals</span><span data-lang="nl">Festivals</span></a>
+    <a href="https://performances.shoonyadance.com/"><span data-lang="en">Performances</span><span data-lang="nl">Voorstellingen</span></a>
   </nav>
-  <div class="lang-toggle" role="group" aria-label="Language selection">
+  <div class="lang" role="group" aria-label="Language selection">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
     <button class="lang-btn" id="btn-nl" onclick="setLang('nl')" aria-pressed="false">NL</button>
   </div>
 </header>
+
+<nav class="school">
+  <a href="/"><span data-lang="en">Schedule</span><span data-lang="nl">Rooster</span></a>
+  <a data-lang="en" href="/new/">New here?</a><a data-lang="nl" href="/nl/new/">Nieuw hier?</a>
+  <a data-lang="en" href="/styles/">All styles</a><a data-lang="nl" href="/nl/styles/">Alle stijlen</a>
+</nav>
 
 <main id="main-content" tabindex="-1">
 
@@ -388,7 +377,7 @@ body:not(.nl) [data-lang="nl"] { display: none; }
     </div>
 
     <div class="person">
-      <img class="person__photo" src="https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/3320d570-7687-4f1d-8666-794eccc45227/Wim.png" alt="Wim Boussery" loading="lazy" style="background:#d4c8a8;">
+      <img class="person__photo" src="https://images.squarespace-cdn.com/content/v1/643161d3f0077c58bb466e03/3320d570-7687-4f1d-8666-794eccc45227/Wim.png" alt="Wim Boussery" loading="lazy">
       <div class="person__body">
         <h3 class="person__name">Wim Boussery</h3>
         <span class="person__role">
@@ -471,14 +460,22 @@ body:not(.nl) [data-lang="nl"] { display: none; }
 
 </main>
 
-<footer class="footer">
-  <span class="footer__brand"><img class="oo-mark" src="/assets/shoonya-oo-mark-white.png" alt="">Shoonya Dance Centre<img class="oo-mark" src="/assets/shoonya-oo-mark-white.png" alt=""></span>
-  <nav class="footer__nav" aria-label="Footer links">
-    <a href="https://www.shoonyadance.com">shoonyadance.com</a>
-    <a href="https://www.shoonyadance.com/contact">Contact</a>
-    <a href="https://www.instagram.com/shoonyadance" rel="noopener">@shoonyadance</a>
-  </nav>
-  <span>Stapelplein 41, 9000 Gent</span>
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div class="foot-brand"><img class="oo-mark" src="/assets/shoonya-oo-mark-white.png" alt="">Shoonya Dance Centre<img class="oo-mark" src="/assets/shoonya-oo-mark-white.png" alt=""></div>
+    <nav aria-label="Footer links">
+      <ul>
+        <li><a href="/about/"><span data-lang="en">About</span><span data-lang="nl">Over ons</span></a></li>
+        <li><a href="/our-studios/"><span data-lang="en">Studios</span><span data-lang="nl">Studio's</span></a></li>
+        <li><a href="https://www.shoonyadance.com/try-a-class/"><span data-lang="en">Try a class</span><span data-lang="nl">Proefles</span></a></li>
+        <li><a href="/register/"><span data-lang="en">Register</span><span data-lang="nl">Inschrijven</span></a></li>
+        <li><a href="https://www.shoonyadance.com">shoonyadance.com</a></li>
+        <li><a href="https://www.shoonyadance.com/contact">Contact</a></li>
+        <li><a href="https://www.instagram.com/shoonyadance" rel="noopener">@shoonyadance</a></li>
+      </ul>
+    </nav>
+    <span class="foot-address">Stapelplein 41, 9000 Gent</span>
+  </div>
 </footer>
 
 <script>
