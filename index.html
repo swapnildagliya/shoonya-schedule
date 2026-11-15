@@ -263,7 +263,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
       <div class="poster-copy">
         <h1 class="poster-title" id="hero-title" data-i18n="hero-h1">What dance classes does Shoonya offer <em>this school year?</em></h1>
         <p class="poster-line" data-i18n="hero-sub">Two semesters, an open house, and a free trial week. Pick where to land.</p>
-        <a class="textlink" href="/schedule-sep-2026" data-i18n="hero-cta">See the weekly schedule →</a>
+        <a class="textlink" href="/schedule-spring-2027" data-i18n="hero-cta">See the weekly schedule →</a>
         <span class="year" data-cfg="schoolYearWide">2026 — 2027</span>
       </div>
     </section>
@@ -276,6 +276,11 @@ a.timeline__node:focus-visible{outline-offset:6px}
         </div>
 
         <div class="rows">
+          <a class="row" id="card-spring27" href="/schedule-spring-2027">
+            <span class="big" data-i18n="spring27-title">Feb → Jun 2027</span>
+            <span class="sub" data-i18n="spring27-meta">preliminary timetable · more classes are added as teachers confirm</span>
+          </a>
+
           <a class="row" id="card-spring" href="/schedule-spring-2026">
             <span class="big" data-i18n="spring-title">Spring 2026</span>
             <span class="sub" id="spring-meta" data-i18n="spring-meta">running until 13 June · sem 2 of 2025-2026</span>
@@ -313,7 +318,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
       <div class="wrap">
         <h2 data-i18n="closing-h1">Ready to join a dance class <em>in Ghent?</em></h2>
         <p class="closing__sub" data-i18n="closing-sub">Browse all 24 styles, find your slot, click through to register on the style page.</p>
-        <a class="textlink" href="/schedule-sep-2026" data-i18n="closing-cta">See the weekly schedule →</a>
+        <a class="textlink" href="/schedule-spring-2027" data-i18n="closing-cta">See the weekly schedule →</a>
         <span class="closing__meta" data-i18n="closing-meta">no account required to browse</span>
       </div>
     </section>
@@ -327,7 +332,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
       <nav aria-label="Footer">
         <ul>
           <li><a href="https://www.shoonyadance.com" data-i18n="footer-home">home</a></li>
-          <li><a href="/schedule-sep-2026" data-i18n="footer-schedule">schedule</a></li>
+          <li><a href="/schedule-spring-2027" data-i18n="footer-schedule">schedule</a></li>
           <li><a href="https://info.shoonyadance.com" data-i18n="footer-new">new to shoonya</a></li>
           <li><a href="https://styles.shoonyadance.com/" data-i18n="footer-styles">all styles</a></li>
           <li><a href="https://www.shoonyadance.com/about" data-i18n="footer-teachers">about</a></li>
@@ -465,6 +470,8 @@ a.timeline__node:focus-visible{outline-offset:6px}
         'school-year-end-label':'School year ends',
         'today':               'today',
         'spring-chip':         'Spring',
+        'spring27-title':      'Feb → Jun 2027',
+        'spring27-meta':       'preliminary timetable · more classes are added as teachers confirm',
         'spring-title':        'Spring 2026',
         'spring-meta':         'running until 13 June · sem 2 of 2025-2026',
         'spring-meta-ended-pre-oh': 'season ended · Open House 14 June',
@@ -518,6 +525,8 @@ a.timeline__node:focus-visible{outline-offset:6px}
         'school-year-end-label':'Schooljaar eindigt',
         'today':               'vandaag',
         'spring-chip':         'Lente',
+        'spring27-title':      'Feb → jun 2027',
+        'spring27-meta':       'voorlopig rooster · er komen lessen bij naarmate leraren bevestigen',
         'spring-title':        'Lente 2026',
         'spring-meta':         'loopt tot 13 juni · sem 2 van 2025-2026',
         'spring-meta-ended-pre-oh': 'lente afgelopen · Opendeurdag 14 juni',
@@ -578,8 +587,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
 
       if (!isPast) {
         // Sem 1 milestones → the Sep schedule (extension-less: the .html URL is a 404 on Pages).
-        // Sem 2 milestones (trial-week-2, school-year-end) take NO link until a spring 2027
-        // schedule page exists — the only spring page is last school year's archive.
+        // Sem 2 milestones (trial-week-2, school-year-end) → the spring 2027 schedule (added 15 Nov 2026).
         if (m.id === 'trial-week-1' || m.id === 'sem-1-end') el.href = './schedule-sep-2026';
         // Each Opendeurdag links ONLY to its own calendar event, by id. open-house-4
         // (13 Jun 2027) has no event page yet, so it takes NO link. The 2027 entries used to
@@ -589,6 +597,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
         else if (m.id === 'open-house-2') el.href = 'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-13-september';
         else if (m.id === 'open-house-3') el.href = 'https://www.shoonyadance.com/calendar/opendeurdag-gratis-dansen-gent-31-januari';
         else if (m.id === 'spring-end')   el.href = './schedule-spring-2026';
+        else if (m.id === 'trial-week-2' || m.id === 'school-year-end') el.href = './schedule-spring-2027';
       }
 
       const label = strings[m.labelKey] || m.id;
