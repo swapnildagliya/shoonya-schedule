@@ -35,11 +35,11 @@
           if (h.indexOf('links.shoonyadance.com/go/') < 0 &&
               h.indexOf('portal.shoonyadance.com') < 0 &&
               h.indexOf('tickets.shoonyadance.com') < 0) return;
-          window.gtag('event', 'register_click', {
-            link_url: h,
-            link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
-            transport_type: 'beacon'
-          });
+          var u = new URL(h, location.href);
+          var txt = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+          var ev = { link_url: u.origin + u.pathname, transport_type: 'beacon' };
+          if (txt && txt.indexOf('@') < 0) ev.link_text = txt;
+          window.gtag('event', 'register_click', ev);
         } catch (err) {}
       }, true);
     }
