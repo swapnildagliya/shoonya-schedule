@@ -395,7 +395,7 @@ main:focus{outline:none}
       
     </h2>
     <p class="cards-intro">
-      <span data-lang="en">Pick the card for what you want to join: weekly classes, workshops and events, or tickets. Registration for the spring semester (15 Feb – 12 Jun 2027) opens on Monday 7 December at 09:00; current students can register from Monday 30 November at 09:00. All three need a free Shoonya ID.</span>
+      <span data-lang="en">Pick the card for what you want to join: weekly classes, workshops and events, or tickets. <span data-reg="pre">Registration for the spring semester (15 Feb – 12 Jun 2027) opens on Monday 7 December at 09:00; current students can register from Monday 30 November at 09:00.</span><span data-reg="open" hidden>Registration for the spring semester (15 Feb – 12 Jun 2027) is open.</span> All three need a free Shoonya ID.</span>
       
     </p>
     <div class="cards-grid">
@@ -587,7 +587,7 @@ main:focus{outline:none}
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-a" id="faq-a3">
-            <p data-lang="en">The spring semester runs from 15 February to 12 June 2027. The first week, 15–20 February, is a free trial week. Registration opens on Monday 7 December at 09:00; current students can register from Monday 30 November at 09:00.</p>
+            <p data-lang="en">The spring semester runs from 15 February to 12 June 2027. The first week, 15–20 February, is a free trial week. <span data-reg="pre">Registration opens on Monday 7 December at 09:00; current students can register from Monday 30 November at 09:00.</span><span data-reg="open" hidden>Registration is open.</span></p>
             
           </div>
         </div>
@@ -672,6 +672,7 @@ document.querySelectorAll('.faq-q').forEach(function(btn) {
   });
 });
 </script>
+<script>/* Registration text follows the clock: from Mon 7 Dec 2026 09:00 Brussels (UTC+1) the 'opens on' sentences give way to 'is open'. */(function(){var open=Date.now()>=Date.parse('2026-12-07T09:00:00+01:00');document.querySelectorAll('[data-reg]').forEach(function(e){e.hidden=(e.getAttribute('data-reg')==='open')!==open;});})();</script>
 <script src="https://schedule.shoonyadance.com/assets/sdc-consent.js" defer></script>
 </body>
 </html>
