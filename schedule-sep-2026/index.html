@@ -1568,7 +1568,8 @@
     }
   };
 
-  let lang = localStorage.getItem('shoonya-lang') || (navigator.language && navigator.language.startsWith('nl') ? 'nl' : 'en');
+  const _qLang = new URLSearchParams(location.search).get('lang');   // ?lang=nl from the Dutch spring 2027 page
+  let lang = (_qLang === 'nl' || _qLang === 'en') ? _qLang : (localStorage.getItem('shoonya-lang') || (navigator.language && navigator.language.startsWith('nl') ? 'nl' : 'en'));
   let view = 'week';
   let activeDays = new Set();
   let beginner = false;

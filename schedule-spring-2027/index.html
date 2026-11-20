@@ -49,6 +49,9 @@ i{font-style:normal;color:var(--muted)}
 @media (max-width:480px){.site-nav{flex-wrap:nowrap;justify-content:space-between;gap:0;margin-left:-6px;margin-right:-6px}.site-nav a{padding:0 6px;font-size:14px}.school{gap:0}.school a{padding:0 8px 0 0;margin-right:8px;font-size:14px}.brand img{height:40px}}
 /* intro */
 .intro{padding:32px 0 8px}
+.nownote{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-bottom:16px;padding:14px 18px;background:#000;color:#fff;font:500 17px/1.4 Inter,sans-serif}
+.nownote a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px;text-decoration-color:var(--accent)}
+.nownote a:hover{text-decoration-thickness:3px}
 .prelim{border:1px solid var(--ink);padding:14px 18px;display:flex;flex-wrap:wrap;gap:4px 18px;align-items:baseline;margin-bottom:28px}
 .prelim b{font-size:15px;letter-spacing:.04em;text-transform:uppercase}
 .prelim span{font-size:15px}
@@ -136,6 +139,8 @@ body[data-view=grid] #week{display:block}
 <header class="site-header"><a class="brand" href="https://www.shoonyadance.com"><img src="/assets/shoonya-logo-script-purple.png" alt="Shoonya Dance Centre"></a><nav class="site-nav" aria-label="Site"><a href="https://schedule.shoonyadance.com" aria-current="true">Classes</a><a href="https://workshops.shoonyadance.com/">Workshops</a><a href="https://festivals.shoonyadance.com/">Festivals</a><a href="https://performances.shoonyadance.com/">Performances</a></nav><div class="lang" role="group" aria-label="Language"><a href="/schedule-spring-2027/" class="active" aria-current="true">EN</a><a href="/nl/schedule-spring-2027/">NL</a></div></header><nav class="school" aria-label="Schedule"><a href="#schedule" class="active">Schedule</a><a href="https://info.shoonyadance.com">New here?</a><a href="https://styles.shoonyadance.com/">All styles</a></nav>
 
 <section class="intro"><div class="wrap">
+  <p class="nownote" id="nownote" data-until="2027-01-30"><span>Looking for the classes running now?</span><a href="https://schedule.shoonyadance.com/schedule-sep-2026/">Current timetable (Sep 2026 → Jan 2027) →</a></p>
+  <script>(function(){var n=document.getElementById('nownote');if(n&&new Date()>new Date(n.dataset.until+'T23:59:59'))n.remove();})();</script>
   <p class="prelim" role="note"><b>Preliminary timetable</b><span>More classes are added as teachers confirm.</span><span class="upd">Last updated: 19 November 2026, 11:04</span></p>
   <div class="head">
     <div><h1>Weekly timetable spring 2027</h1><p class="sub">Classes from 15 Feb 2027 to 12 Jun 2027 · 56 approved classes</p></div>
