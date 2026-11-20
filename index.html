@@ -264,7 +264,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
       <div class="poster-copy">
         <h1 class="poster-title" id="hero-title" data-i18n="hero-h1">What dance classes does Shoonya offer <em>this school year?</em></h1>
         <p class="poster-line" data-i18n="hero-sub">Two semesters, an open house, and a free trial week. Pick where to land.</p>
-        <a class="textlink" href="/schedule-spring-2027" data-i18n="hero-cta">See the weekly schedule →</a>
+        <a class="textlink" id="hero-cta-link" href="/schedule-sep-2026" data-i18n="hero-cta">See the weekly schedule →</a>
         <span class="year" data-cfg="schoolYearWide">2026 — 2027</span>
       </div>
     </section>
@@ -276,12 +276,10 @@ a.timeline__node:focus-visible{outline-offset:6px}
           <h2 id="cards-label" data-i18n="cards-label">Pick your semester</h2>
         </div>
 
+        <!-- Order = time order: the semester that is running comes first (20 Nov 2026: visitors
+             could not find the current timetable because spring 2027 was listed first and every
+             CTA pointed at it). applyDateBasedVisibility() hides #card-sep once it has ended. -->
         <div class="rows">
-          <a class="row" id="card-spring27" href="/schedule-spring-2027">
-            <span class="big" data-i18n="spring27-title">Feb → Jun 2027</span>
-            <span class="sub" data-i18n="spring27-meta">preliminary timetable · more classes are added as teachers confirm</span>
-          </a>
-
           <a class="row" id="card-spring" href="/schedule-spring-2026">
             <span class="big" data-i18n="spring-title">Spring 2026</span>
             <span class="sub" id="spring-meta" data-i18n="spring-meta">running until 13 June · sem 2 of 2025-2026</span>
@@ -290,6 +288,11 @@ a.timeline__node:focus-visible{outline-offset:6px}
           <a class="row" id="card-sep" href="/schedule-sep-2026">
             <span class="big" data-i18n="sep-title">Sep 2026 → Jan 2027</span>
             <span class="sub" id="sep-meta" data-i18n="sep-meta">registration open · 24 styles · 22 teachers · 5 studios</span>
+          </a>
+
+          <a class="row" id="card-spring27" href="/schedule-spring-2027">
+            <span class="big" data-i18n="spring27-title">Feb → Jun 2027</span>
+            <span class="sub" data-i18n="spring27-meta">preliminary timetable · more classes are added as teachers confirm</span>
           </a>
         </div>
       </div>
@@ -319,7 +322,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
       <div class="wrap">
         <h2 data-i18n="closing-h1">Ready to join a dance class <em>in Ghent?</em></h2>
         <p class="closing__sub" data-i18n="closing-sub">Browse all 24 styles, find your slot, click through to register on the style page.</p>
-        <a class="textlink" href="/schedule-spring-2027" data-i18n="closing-cta">See the weekly schedule →</a>
+        <a class="textlink" id="closing-cta-link" href="/schedule-sep-2026" data-i18n="closing-cta">See the weekly schedule →</a>
         <span class="closing__meta" data-i18n="closing-meta">no account required to browse</span>
       </div>
     </section>
@@ -333,7 +336,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
       <nav aria-label="Footer">
         <ul>
           <li><a href="https://www.shoonyadance.com" data-i18n="footer-home">home</a></li>
-          <li><a href="/schedule-spring-2027" data-i18n="footer-schedule">schedule</a></li>
+          <li><a href="/" data-i18n="footer-schedule">schedule</a></li>
           <li><a href="https://info.shoonyadance.com" data-i18n="footer-new">new to shoonya</a></li>
           <li><a href="https://styles.shoonyadance.com/" data-i18n="footer-styles">all styles</a></li>
           <li><a href="https://www.shoonyadance.com/about" data-i18n="footer-teachers">about</a></li>
@@ -451,7 +454,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
       en: {
         'hero-h1':        'What dance classes does Shoonya offer <em>this school year?</em>',
         'hero-sub':       'Two semesters, an open house, and a free trial week. Pick where to land.',
-        'hero-cta':       'See the weekly schedule →',
+        'hero-cta':       'See this semester’s schedule →',
         'cards-label':    'Pick your semester',
         'tl-h2':          'When are the key <em>dates and deadlines</em> this school year?',
         'tl-sub':         'Where you are now, and what\'s next.',
@@ -483,10 +486,10 @@ a.timeline__node:focus-visible{outline-offset:6px}
         'sep-meta':            'registration open · ' + (_c.styles || 24) + ' styles · trial week ' + (_d.en ? _d.en.trial_week_short : '14–19 Sep 2026'),
         'sep-meta-oh-today':   'Open House today · trial week ' + (_d.en ? _d.en.trial_week_short : '14–19 Sep 2026'),
         'sep-meta-trial':      'trial week running · try any class free',
-        'sep-meta-running':    'school year in progress · live schedule',
+        'sep-meta-running':    'running now · current timetable, classes until ' + new Date(SEMESTERS.sep.endISO + 'T00:00:00').toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' }),
         'closing-h1':     'Ready to join a dance class <em>in Ghent?</em>',
         'closing-sub':    'Browse all ' + (_c.styles || 24) + ' styles, find your slot, click through to register on the style page.',
-        'closing-cta':    'See the weekly schedule →',
+        'closing-cta':    'See this semester’s schedule →',
         'closing-meta':   'no account required to browse',
         'footer-home':    'home',
         'footer-schedule':'schedule',
@@ -506,7 +509,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
       nl: {
         'hero-h1':        'Welke danslessen biedt Shoonya aan <em>dit schooljaar?</em>',
         'hero-sub':       'Twee semesters, een Opendeurdag, en een gratis proefweek. Kies waar je begint.',
-        'hero-cta':       'Bekijk het weekrooster →',
+        'hero-cta':       'Bekijk het rooster van dit semester →',
         'cards-label':    'Kies je semester',
         'tl-h2':          'Wanneer zijn de <em>belangrijke data</em> dit schooljaar?',
         'tl-sub':         'Waar je nu staat, en wat volgt.',
@@ -538,10 +541,10 @@ a.timeline__node:focus-visible{outline-offset:6px}
         'sep-meta':            'inschrijvingen open · ' + (_c.styles || 24) + ' stijlen · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
         'sep-meta-oh-today':   'Opendeurdag vandaag · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
         'sep-meta-trial':      'proefweek bezig · probeer elke les gratis',
-        'sep-meta-running':    'schooljaar bezig · live rooster',
+        'sep-meta-running':    'loopt nu · huidig rooster, lessen tot ' + new Date(SEMESTERS.sep.endISO + 'T00:00:00').toLocaleDateString('nl-BE', { day:'numeric', month:'long', year:'numeric' }),
         'closing-h1':     'Klaar om te dansen in <em>Gent?</em>',
         'closing-sub':    'Bekijk alle ' + (_c.styles || 24) + ' stijlen, vind je tijdslot, en ga door naar de stijlpagina om je in te schrijven.',
-        'closing-cta':    'Bekijk het weekrooster →',
+        'closing-cta':    'Bekijk het rooster van dit semester →',
         'closing-meta':   'geen account nodig om te bladeren',
         'footer-home':    'home',
         'footer-schedule':'rooster',
@@ -722,6 +725,13 @@ a.timeline__node:focus-visible{outline-offset:6px}
 
       // ─── Sep card ──────────────────────────────────────────────────
       const sepMeta = document.getElementById('sep-meta');
+      const sepEnd  = new Date(SEMESTERS.sep.endISO + 'T23:59:59');
+      const sepOver = today > sepEnd;
+      document.getElementById('card-sep').style.display = sepOver ? 'none' : 'flex';
+      const currentHref = sepOver ? '/schedule-spring-2027' : '/schedule-sep-2026';
+      ['hero-cta-link', 'closing-cta-link'].forEach(function(id) {
+        const a = document.getElementById(id); if (a) a.href = currentHref;
+      });
       if (today >= sepOH && today <= sepOHEnd) {
         sepMeta.textContent = strings['sep-meta-oh-today'];
       } else if (today >= trialStart && today <= trialEnd) {
