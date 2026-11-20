@@ -252,9 +252,9 @@ function dynamicRuntime(lang, t) {
   var unit = ${JSON.stringify(lang === 'en' ? ' styles' : ' stijlen')};
   var map = {
     hero_trial: ${JSON.stringify(t.hero_trial.replace(/:.*$/, ': '))} + trial,
-    cat_partner_count: c.partner_social ? c.partner_social + unit : '',
-    cat_classical_count: c.classical_technique ? c.classical_technique + unit : '',
-    cat_culture_count: c.culture_wellness ? c.culture_wellness + unit : ''
+    cat_partner_count: '',
+    cat_classical_count: '',
+    cat_culture_count: ''
   };
   Object.keys(map).forEach(function (k) {
     document.querySelectorAll('[data-i18n="' + k + '"]').forEach(function (el) {
