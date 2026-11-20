@@ -127,7 +127,15 @@ main:focus{outline:none}
 
 /* ---------- Semester rows ---------- */
 .rows{border-top:1px solid var(--rule)}
-.row{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(28px,4vw,44px) 0;border-bottom:1px solid var(--rule);text-decoration:none;color:inherit}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px 40px;padding:clamp(28px,4vw,44px) 0;border-bottom:1px solid var(--rule);text-decoration:none;color:inherit}
+.row .txt{min-width:0}
+/* Status tag + button make the choice obvious (20 Nov 2026: plain rows did not read as clickable). */
+.tag{display:inline-block;margin-bottom:16px;padding:7px 12px;border:1px solid var(--mist);font:600 14px/1 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--mist)}
+.tag:empty{display:none}
+.tag--now{background:var(--vibrant-purple);border-color:var(--vibrant-purple);color:var(--void-black)}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border:2px solid var(--void-white);font:600 18px/1.2 var(--font-ui);color:var(--void-white);white-space:nowrap}
+.cta--primary{background:var(--void-white);color:var(--void-black)}
+.row:hover .cta{background:var(--vibrant-purple);border-color:var(--vibrant-purple);color:var(--void-black)}
 .row:focus-visible{outline-offset:-3px}
 /* The spring row is hidden by default and revealed by applyDateBasedVisibility() only while
    the spring semester is still relevant (hidden-by-default is the safe failure mode).
@@ -136,7 +144,7 @@ main:focus{outline:none}
 .row .big{display:block;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.1}
 .row .sub{display:block;margin-top:12px;font-family:var(--font-data);font-variant-numeric:tabular-nums;font-size:17px;line-height:1.45;color:var(--muted)}
 .row:hover .big{text-decoration:underline;text-decoration-color:var(--vibrant-purple);text-decoration-thickness:3px;text-underline-offset:8px}
-@media (max-width:760px){.row .sub{font-size:16px}}
+@media (max-width:760px){.row .sub{font-size:16px}.row{grid-template-columns:minmax(0,1fr)}.cta{width:100%;white-space:normal;text-align:center}}
 
 /* ---------- Timeline ---------- */
 .timeline-wrap{padding-bottom:0}
@@ -281,18 +289,29 @@ a.timeline__node:focus-visible{outline-offset:6px}
              CTA pointed at it). applyDateBasedVisibility() hides #card-sep once it has ended. -->
         <div class="rows">
           <a class="row" id="card-spring" href="/schedule-spring-2026">
-            <span class="big" data-i18n="spring-title">Spring 2026</span>
-            <span class="sub" id="spring-meta" data-i18n="spring-meta">running until 13 June · sem 2 of 2025-2026</span>
+            <span class="txt">
+              <span class="big" data-i18n="spring-title">Spring 2026</span>
+              <span class="sub" id="spring-meta" data-i18n="spring-meta">running until 13 June · sem 2 of 2025-2026</span>
+            </span>
+            <span class="cta" data-i18n="spring-cta">Spring 2026 timetable →</span>
           </a>
 
           <a class="row" id="card-sep" href="/schedule-sep-2026">
-            <span class="big" data-i18n="sep-title">Sep 2026 → Jan 2027</span>
-            <span class="sub" id="sep-meta" data-i18n="sep-meta">registration open · 24 styles · 22 teachers · 5 studios</span>
+            <span class="txt">
+              <span class="tag tag--now" id="sep-tag">Now running</span>
+              <span class="big" data-i18n="sep-title">Sep 2026 → Jan 2027</span>
+              <span class="sub" id="sep-meta" data-i18n="sep-meta">registration open · 24 styles · 22 teachers · 5 studios</span>
+            </span>
+            <span class="cta cta--primary" id="sep-cta">Current timetable →</span>
           </a>
 
           <a class="row" id="card-spring27" href="/schedule-spring-2027">
-            <span class="big" data-i18n="spring27-title">Feb → Jun 2027</span>
-            <span class="sub" data-i18n="spring27-meta">preliminary timetable · more classes are added as teachers confirm</span>
+            <span class="txt">
+              <span class="tag" id="spring27-tag">Next semester</span>
+              <span class="big" data-i18n="spring27-title">Feb → Jun 2027</span>
+              <span class="sub" data-i18n="spring27-meta">preliminary timetable · more classes are added as teachers confirm</span>
+            </span>
+            <span class="cta" id="spring27-cta">Spring 2027 timetable →</span>
           </a>
         </div>
       </div>
@@ -486,7 +505,13 @@ a.timeline__node:focus-visible{outline-offset:6px}
         'sep-meta':            'registration open · ' + (_c.styles || 24) + ' styles · trial week ' + (_d.en ? _d.en.trial_week_short : '14–19 Sep 2026'),
         'sep-meta-oh-today':   'Open House today · trial week ' + (_d.en ? _d.en.trial_week_short : '14–19 Sep 2026'),
         'sep-meta-trial':      'trial week running · try any class free',
-        'sep-meta-running':    'running now · current timetable, classes until ' + new Date(SEMESTERS.sep.endISO + 'T00:00:00').toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' }),
+        'sep-meta-running':    'classes until ' + new Date(SEMESTERS.sep.endISO + 'T00:00:00').toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' }),
+        'tag-now':             'Now running',
+        'tag-next':            'Next semester',
+        'cta-current':         'Current timetable →',
+        'sep-cta':             'Sep 2026 timetable →',
+        'spring27-cta':        'Spring 2027 timetable →',
+        'spring-cta':          'Spring 2026 timetable →',
         'closing-h1':     'Ready to join a dance class <em>in Ghent?</em>',
         'closing-sub':    'Browse all ' + (_c.styles || 24) + ' styles, find your slot, click through to register on the style page.',
         'closing-cta':    'See this semester’s schedule →',
@@ -541,7 +566,13 @@ a.timeline__node:focus-visible{outline-offset:6px}
         'sep-meta':            'inschrijvingen open · ' + (_c.styles || 24) + ' stijlen · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
         'sep-meta-oh-today':   'Opendeurdag vandaag · proefweek ' + (_d.nl ? _d.nl.trial_week_short : '14–19 sep 2026'),
         'sep-meta-trial':      'proefweek bezig · probeer elke les gratis',
-        'sep-meta-running':    'loopt nu · huidig rooster, lessen tot ' + new Date(SEMESTERS.sep.endISO + 'T00:00:00').toLocaleDateString('nl-BE', { day:'numeric', month:'long', year:'numeric' }),
+        'sep-meta-running':    'lessen tot ' + new Date(SEMESTERS.sep.endISO + 'T00:00:00').toLocaleDateString('nl-BE', { day:'numeric', month:'long', year:'numeric' }),
+        'tag-now':             'Loopt nu',
+        'tag-next':            'Volgend semester',
+        'cta-current':         'Huidig rooster →',
+        'sep-cta':             'Rooster sep 2026 →',
+        'spring27-cta':        'Rooster voorjaar 2027 →',
+        'spring-cta':          'Rooster lente 2026 →',
         'closing-h1':     'Klaar om te dansen in <em>Gent?</em>',
         'closing-sub':    'Bekijk alle ' + (_c.styles || 24) + ' stijlen, vind je tijdslot, en ga door naar de stijlpagina om je in te schrijven.',
         'closing-cta':    'Bekijk het rooster van dit semester →',
@@ -721,13 +752,26 @@ a.timeline__node:focus-visible{outline-offset:6px}
         showSpring = false;
       }
 
-      springCard.style.display = showSpring ? 'flex' : 'none';
+      springCard.style.display = showSpring ? '' : 'none';
 
       // ─── Sep card ──────────────────────────────────────────────────
       const sepMeta = document.getElementById('sep-meta');
       const sepEnd  = new Date(SEMESTERS.sep.endISO + 'T23:59:59');
       const sepOver = today > sepEnd;
-      document.getElementById('card-sep').style.display = sepOver ? 'none' : 'flex';
+      document.getElementById('card-sep').style.display = sepOver ? 'none' : '';
+      // Tag + button: the running semester gets "Now running" and the filled button.
+      const s27Start = new Date(SEMESTERS.spring2027.startISO + 'T00:00:00');
+      const sepRunning = today >= new Date(SEMESTERS.sep.startISO + 'T00:00:00') && !sepOver;
+      const s27Running = today >= s27Start;
+      function setCard(tagId, ctaId, running, ctaKey) {
+        const tag = document.getElementById(tagId), cta = document.getElementById(ctaId);
+        tag.textContent = running ? strings['tag-now'] : strings['tag-next'];
+        tag.classList.toggle('tag--now', running);
+        cta.textContent = running ? strings['cta-current'] : strings[ctaKey];
+        cta.classList.toggle('cta--primary', running);
+      }
+      setCard('sep-tag', 'sep-cta', sepRunning, 'sep-cta');
+      setCard('spring27-tag', 'spring27-cta', s27Running, 'spring27-cta');
       const currentHref = sepOver ? '/schedule-spring-2027' : '/schedule-sep-2026';
       ['hero-cta-link', 'closing-cta-link'].forEach(function(id) {
         const a = document.getElementById(id); if (a) a.href = currentHref;
