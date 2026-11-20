@@ -594,7 +594,8 @@ a.timeline__node:focus-visible{outline-offset:6px}
       }
     };
 
-    let landingLang = localStorage.getItem('shoonya-lang') || (navigator.language.startsWith('nl') ? 'nl' : 'en');
+    const _qLang = new URLSearchParams(location.search).get('lang');   // ?lang=nl from the Dutch www menu
+    let landingLang = (_qLang === 'nl' || _qLang === 'en') ? _qLang : (localStorage.getItem('shoonya-lang') || (navigator.language.startsWith('nl') ? 'nl' : 'en'));
 
     /* ─────────────────────────────────────────────
        Compute state for a single milestone, given today.
