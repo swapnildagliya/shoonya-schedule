@@ -46,13 +46,14 @@ def load(item):
   # The public endpoint omits dates: single-day workshops are unambiguous; multi-day courses retain their date range, never invent recurrence dates.
   for s in schedules or [{}]:
    sessions.append({'date':item['fromDate'],'start':s.get('start_time','')[:5] if s.get('start_time') else None,'end':s.get('end_time','')[:5] if s.get('end_time') else None,'name':item['title'],'name_nl':None,'price':item['priceFrom'],'full':item['full'],'partner':item['partnerRequired']})
+ if item['kind']=='event' and detail.get('sessions') and not sessions:return []
  if slug=='round-trip-to-cuba':
   sessions=[{'date':'2027-01-23','start':'15:00','end':'18:30','name':'Saturday masterclasses','name_nl':'Masterclasses zaterdag','price':item['passFrom'],'full':item['full'],'partner':True},{'date':'2027-01-24','start':'12:00','end':'15:30','name':'Sunday masterclasses','name_nl':'Masterclasses zondag','price':item['passFrom'],'full':item['full'],'partner':True}]
  rows=[]
  days=sorted(set(s['date'] for s in sessions if s['date']))
  if not days:days=[item['fromDate']]
  for day in days:
-  if not day or (item['toDate'] or day)<TODAY:continue
+  if not day or (item['toDate'] or day)<TODAY or (item['kind']=='event' and day<TODAY):continue
   ss=[s for s in sessions if s['date']==day]
   starts=[s['start'] for s in ss if s['start']];ends=[s['end'] for s in ss if s['end']]
   prices=[s['price'] for s in ss if s['price'] is not None]
