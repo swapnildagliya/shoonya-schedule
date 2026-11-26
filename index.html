@@ -802,6 +802,17 @@ a.timeline__node:focus-visible{outline-offset:6px}
       localStorage.setItem('shoonya-lang', l);
       renderTimeline();
       applyDateBasedVisibility();
+      // The spring timetable has separate EN/NL pages; older timetables use ?lang=.
+      document.querySelectorAll('a[href]').forEach(function(a) {
+        var u = new URL(a.href, location.href);
+        if (u.origin !== location.origin) return;
+        if (/^\/(nl\/)?schedule-spring-2027\/?$/.test(u.pathname)) {
+          u.pathname = (l === 'nl' ? '/nl' : '') + '/schedule-spring-2027/';
+          u.searchParams.delete('lang'); a.href = u.pathname + u.search + u.hash;
+        } else if (/^\/schedule-(sep-2026|spring-2026)\/?$/.test(u.pathname)) {
+          u.searchParams.set('lang', l); a.href = u.pathname + u.search + u.hash;
+        }
+      });
     }
 
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
