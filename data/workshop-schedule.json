@@ -358,6 +358,41 @@
       "book": "https://portal.shoonyadance.com/register/event/round-trip-to-cuba"
     },
     {
+      "id": "6655defd-9ea9-4abb-b6eb-0fe3aa7af4c6",
+      "slug": "sevillanas-refresh",
+      "kind": "event",
+      "date": "2027-03-13",
+      "endDate": "2027-03-13",
+      "start": "10:00",
+      "end": "12:00",
+      "en": "Sevillanas refresh",
+      "nl": "Sevillanas opfrissen",
+      "style": "Sevillanas",
+      "level_en": "See workshop details",
+      "level_nl": "Bekijk de workshopdetails",
+      "teachers": [
+        "La Liz"
+      ],
+      "location": "Studio Ananta",
+      "price": 30,
+      "fromPrice": true,
+      "full": false,
+      "sessions": [
+        {
+          "date": "2027-03-13",
+          "start": "10:00",
+          "end": "12:00",
+          "name": "Coplas 1 & 2",
+          "name_nl": null,
+          "price": 30,
+          "full": false,
+          "partner": false
+        }
+      ],
+      "details": "https://workshops.shoonyadance.com/sevillanas-refresh/",
+      "book": "https://portal.shoonyadance.com/register/event/sevillanas-refresh"
+    },
+    {
       "id": "7beb3e0f-f55d-4789-a6f1-77b9c3f9d6a1",
       "slug": "saaidi-variations",
       "kind": "workshop",
@@ -391,6 +426,41 @@
       ],
       "details": "https://portal.shoonyadance.com/register/workshop/saaidi-variations",
       "book": "https://portal.shoonyadance.com/register/workshop/saaidi-variations"
+    },
+    {
+      "id": "6655defd-9ea9-4abb-b6eb-0fe3aa7af4c6",
+      "slug": "sevillanas-refresh",
+      "kind": "event",
+      "date": "2027-03-14",
+      "endDate": "2027-03-14",
+      "start": "10:00",
+      "end": "12:00",
+      "en": "Sevillanas refresh",
+      "nl": "Sevillanas opfrissen",
+      "style": "Sevillanas",
+      "level_en": "See workshop details",
+      "level_nl": "Bekijk de workshopdetails",
+      "teachers": [
+        "La Liz"
+      ],
+      "location": "Studio Ananta",
+      "price": 30,
+      "fromPrice": true,
+      "full": false,
+      "sessions": [
+        {
+          "date": "2027-03-14",
+          "start": "10:00",
+          "end": "12:00",
+          "name": "Coplas 3 & 4",
+          "name_nl": null,
+          "price": 30,
+          "full": false,
+          "partner": false
+        }
+      ],
+      "details": "https://workshops.shoonyadance.com/sevillanas-refresh/",
+      "book": "https://portal.shoonyadance.com/register/event/sevillanas-refresh"
     },
     {
       "id": "2bc3570b-3036-4dfd-884d-42b68a3bd057",
