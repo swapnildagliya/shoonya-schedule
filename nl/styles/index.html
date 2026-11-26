@@ -10,6 +10,8 @@
 <meta name="weglot-translate" content="no">
 <title>Alle dansstijlen bij Shoonya — Shoonya Dance Centre Gent</title>
 <meta name="description" content="Bekijk zeven groepen of zoek een dansstijl, dansen voor 55+ of wedstrijdtraining.">
+<meta name="robots" content="noindex, nofollow" />
+<!-- STAGING: remove via `node _build/build-styles-hub.mjs --publish` at cutover -->
 <link rel="alternate" hreflang="en" href="https://schedule.shoonyadance.com/styles/" />
 <link rel="alternate" hreflang="nl" href="https://schedule.shoonyadance.com/nl/styles/" />
 <link rel="alternate" hreflang="x-default" href="https://schedule.shoonyadance.com/styles/" />
@@ -769,7 +771,7 @@ body[data-filter="culture"]   #classical { display: none; }
 
 <!-- Category nav (filter tabs) -->
 <section id="class-discovery"><label for="class-search" data-i18n="find_label">Zoek een dansstijl of interesse</label><input id="class-search" type="search"><div class="find-tools"><button type="button" data-query="55+" data-i18n="find_55">55+</button><button type="button" data-query="competition" data-i18n="find_comp">Wedstrijdtraining</button><button type="button" data-query="" data-i18n="find_all">Toon alles</button></div><p data-i18n="find_count">28 stijlen en programma’s · 7 groepen</p><p id="find-result" role="status"></p>
-<details><summary><span data-i18n="group_0">Partner- en sociale dans</span><span class="group-count">7</span></summary><div class="group-items">
+<details id="partner-social"><summary><span data-i18n="group_0">Partner- en sociale dans</span><span class="group-count">7</span></summary><div class="group-items">
 <a class="strip" href="https://www.shoonyadance.com/argentijnse-tango-danslessen-gent" data-search="Argentine Tango"><div class="strip-body"><h3 data-i18n="c_tango_h">Argentijnse Tango</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/bachata-dance-classes-in-ghent" data-search="Bachata"><div class="strip-body"><h3 data-i18n="c_bachata_h">Bachata</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/cuban-salsa-in-gent" data-search="Cuban Salsa"><div class="strip-body"><h3 data-i18n="c_salsa_h">Cubaanse Salsa</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
@@ -778,36 +780,36 @@ body[data-filter="culture"]   #classical { display: none; }
 <a class="strip" href="https://www.shoonyadance.com/lindy-hop-danslessen-in-gent" data-search="Lindy Hop"><div class="strip-body"><h3 data-i18n="c_lindy_h">Lindy Hop</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/rueda-de-casino-danslessen-gent" data-search="Rueda de Casino"><div class="strip-body"><h3 data-i18n="c_rueda_h">Rueda de Casino</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 </div></details>
-<details><summary><span data-i18n="group_1">Ballet &amp; hedendaagse dans</span><span class="group-count">4</span></summary><div class="group-items">
+<details id="ballet-contemporary"><summary><span data-i18n="group_1">Ballet &amp; hedendaagse dans</span><span class="group-count">4</span></summary><div class="group-items">
 <a class="strip" href="https://www.shoonyadance.com/ballet-voor-volwassenen-in-gent" data-search="Ballet"><div class="strip-body"><h3 data-i18n="c_ballet_h">Ballet</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/contemporary-dance-technique-gent" data-search="Contemporary Dance Technique"><div class="strip-body"><h3>Contemporary Dance Technique</h3><span class="badge badge-new" data-i18n="badge_new">Nieuw</span></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/contemporary-modern-gent" data-search="Contemporary Modern"><div class="strip-body"><h3>Contemporary Modern</h3><span class="badge badge-new" data-i18n="badge_new">Nieuw</span></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/professional-morning-training-gent" data-search="Professional Morning Training"><div class="strip-body"><h3 data-i18n="c_contemporary_h">Professional Morning Training</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 </div></details>
-<details><summary><span data-i18n="group_2">Jazz &amp; tap</span><span class="group-count">2</span></summary><div class="group-items">
+<details id="jazz-tap"><summary><span data-i18n="group_2">Jazz &amp; tap</span><span class="group-count">2</span></summary><div class="group-items">
 <a class="strip" href="https://www.shoonyadance.com/solo-jazz-danslessen-in-gent" data-search="Solo Jazz"><div class="strip-body"><h3 data-i18n="c_jazz_h">Solo Jazz</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/tapdans-lessen-in-gent" data-search="Tap Dance"><div class="strip-body"><h3 data-i18n="c_tap_h">Tapdans</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 </div></details>
-<details><summary><span data-i18n="group_3">Indiase dans</span><span class="group-count">5</span></summary><div class="group-items">
+<details id="indian-dance"><summary><span data-i18n="group_3">Indiase dans</span><span class="group-count">5</span></summary><div class="group-items">
 <a class="strip" href="https://www.shoonyadance.com/bhangra-danslessen-in-gent" data-search="Bhangra"><div class="strip-body"><h3 data-i18n="c_bhangra_h">Bhangra</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/bollyfolk-danslessen-in-gent" data-search="Bollyfolk"><div class="strip-body"><h3 data-i18n="c_bollyfolk_h">Bollyfolk</h3><p class="strip-meta" data-i18n="c_bollyfolk_meta">Di N2 · Wo Open · Swapnil</p></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/bollywood-danslessen-in-gent" data-search="Bollywood"><div class="strip-body"><h3 data-i18n="c_bollywood_h">Bollywood</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/indian-dance-in-belgium" data-search="Indian Dance Flow"><div class="strip-body"><h3 data-i18n="c_indian_h">Indische Dans Flow</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/kathak-danslessen-in-gent" data-search="Indian Semi-Classical"><div class="strip-body"><h3 data-i18n="c_kathak_h">Indisch Semi-klassiek (Kathak)</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 </div></details>
-<details><summary><span data-i18n="group_4">Danstradities uit de hele wereld</span><span class="group-count">4</span></summary><div class="group-items">
+<details id="world-dance"><summary><span data-i18n="group_4">Danstradities uit de hele wereld</span><span class="group-count">4</span></summary><div class="group-items">
 <a class="strip" href="https://www.shoonyadance.com/afrikaanse-congolese-dans-gent" data-search="African Congolese Dance"><div class="strip-body"><h3 data-i18n="c_afro_h">Afrikaanse Congolese Dans</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/flamenco-danslessen-in-gent" data-search="Flamenco"><div class="strip-body"><h3 data-i18n="c_flamenco_h">Flamenco</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/oriental-flow-gent" data-search="Oriental Flow"><div class="strip-body"><h3 data-i18n="c_oriental_h">Oriental Flow</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/raqs-sharqi-danslessen-in-gent" data-search="Raqs Sharqi (Belly Dance)"><div class="strip-body"><h3 data-i18n="c_raqs_h">Raqs Sharqi (Buikdans)</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 </div></details>
-<details><summary><span data-i18n="group_5">Performance &amp; expressie</span><span class="group-count">4</span></summary><div class="group-items">
+<details id="performance-expression"><summary><span data-i18n="group_5">Performance &amp; expressie</span><span class="group-count">4</span></summary><div class="group-items">
 <a class="strip" href="https://www.shoonyadance.com/bachata-solo-style-gent" data-search="Bachata Solo Style"><div class="strip-body"><h3 data-i18n="c_bachata_ls_h">Bachata Solo Style</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/burlesque-lessen-in-gent" data-search="Burlesque"><div class="strip-body"><h3 data-i18n="c_burlesque_h">Burlesque</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/cissy-ball-danslessen-in-gent" data-search="Cissy Ball"><div class="strip-body"><h3 data-i18n="c_cissy_h">Cissy Ball</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/competition-team-gent" data-search="Competition Team"><div class="strip-body"><h3>Competition Team</h3><span class="badge badge-new" data-i18n="badge_new">Nieuw</span><p class="strip-meta" data-i18n="comp_detail">Wedstrijdtraining in salsa, bachata, ballroom &amp; Latin</p></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 </div></details>
-<details><summary><span data-i18n="group_6">Beweging &amp; welzijn</span><span class="group-count">2</span></summary><div class="group-items">
+<details id="movement-wellbeing"><summary><span data-i18n="group_6">Beweging &amp; welzijn</span><span class="group-count">2</span></summary><div class="group-items">
 <a class="strip" href="https://www.shoonyadance.com/pilates-voor-dansers-gent" data-search="Pilates for Dancers"><div class="strip-body"><h3 data-i18n="c_pilates_h">Pilates voor Dansers</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 <a class="strip" href="https://www.shoonyadance.com/yoga-lessen-in-gent" data-search="Yoga"><div class="strip-body"><h3 data-i18n="c_yoga_h">Yoga</h3></div><span class="strip-arrow" aria-hidden="true">→</span></a>
 </div></details>
@@ -839,6 +841,7 @@ body[data-filter="culture"]   #classical { display: none; }
 <script>
 (function(){var root=document.getElementById('class-discovery'),input=document.getElementById('class-search');
 function filter(){var q=input.value.trim().toLowerCase(),n=0;root.querySelectorAll('details').forEach(function(g){var hits=0;g.querySelectorAll('a.strip').forEach(function(a){var yes=!q||(a.textContent+' '+a.dataset.search).toLowerCase().indexOf(q)!==-1;a.hidden=!yes;if(yes)hits++;});g.hidden=hits===0;g.open=!!q&&hits>0;n+=hits;});document.getElementById('find-result').textContent=q?(/^nl/.test(document.documentElement.lang)?'Resultaten: ':'Results: ')+n:'';}
+function openHash(){var old={partner:'partner-social',classical:'',culture:'','classical-technique':'','culture-wellness':''};var key=location.hash.slice(1);if(Object.prototype.hasOwnProperty.call(old,key))key=old[key];var el=document.getElementById(key);if(el&&el.tagName==='DETAILS'){el.open=true;el.scrollIntoView({block:'start'});}}window.addEventListener('hashchange',openHash);openHash();
 input.addEventListener('input',filter);root.querySelectorAll('[data-query]').forEach(function(b){b.addEventListener('click',function(){input.value=b.dataset.query==='competition'&&/^nl/.test(document.documentElement.lang)?'wedstrijd':b.dataset.query;filter();});});})();
 </script>
 <script>
@@ -852,10 +855,7 @@ input.addEventListener('input',filter);root.querySelectorAll('[data-query]').for
   var trial = d.trial_week_short || "15–20 feb 2027";
   var unit = " stijlen";
   var map = {
-    hero_trial: "✦ Gratis proefweek: " + trial,
-    cat_partner_count: '',
-    cat_classical_count: '',
-    cat_culture_count: ''
+    hero_trial: "✦ Gratis proefweek: " + trial
   };
   Object.keys(map).forEach(function (k) {
     document.querySelectorAll('[data-i18n="' + k + '"]').forEach(function (el) {

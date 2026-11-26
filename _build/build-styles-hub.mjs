@@ -59,7 +59,7 @@ const src = readFileSync(SRC, 'utf8');
 // so baked strings match what the live page renders today.
 const cfgSrc = readFileSync(join(REPO, 'data', 'site-config.js'), 'utf8');
 const counts = {};
-for (const k of ['styles', 'teachers', 'studios', 'partner_social', 'classical_technique', 'culture_wellness']) {
+for (const k of ['styles', 'teachers', 'studios', 'partner_social', 'ballet_contemporary', 'jazz_tap', 'indian_dance', 'world_dance', 'performance_expression', 'movement_wellbeing']) {
   const m = cfgSrc.match(new RegExp(`${k}\\s*:\\s*(\\d+)`));
   if (m) counts[k] = Number(m[1]);
 }
@@ -90,7 +90,7 @@ try {
 // meant (a) the stale `|| 7` fallback for classical_technique shipped as "7 styles" when
 // canonical is 8, and (b) the Dutch page showed English in all five slots. Both were caught
 // by rendering the built page, not by reading the build output.
-const DYNAMIC = new Set(['hero_trial', 'footer_p', 'cat_partner_count', 'cat_classical_count', 'cat_culture_count']);
+const DYNAMIC = new Set(['hero_trial', 'footer_p']);
 
 /* ── 2 · build one language ─────────────────────────────────────────────────── */
 function build(lang) {
@@ -251,10 +251,7 @@ function dynamicRuntime(lang, t) {
   var trial = d.trial_week_short || ${JSON.stringify((t.hero_trial || '').replace(/^[^:]*:\s*/, ''))};
   var unit = ${JSON.stringify(lang === 'en' ? ' styles' : ' stijlen')};
   var map = {
-    hero_trial: ${JSON.stringify(t.hero_trial.replace(/:.*$/, ': '))} + trial,
-    cat_partner_count: '',
-    cat_classical_count: '',
-    cat_culture_count: ''
+    hero_trial: ${JSON.stringify(t.hero_trial.replace(/:.*$/, ': '))} + trial
   };
   Object.keys(map).forEach(function (k) {
     document.querySelectorAll('[data-i18n="' + k + '"]').forEach(function (el) {

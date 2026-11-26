@@ -25,7 +25,7 @@
       //   cancelled) → 24 styles, culture_wellness 10→9, weekly class rows 59→57
       //   (Pilates Wed slot also cancelled; Pilates stays, so teachers stays 22).
       styles: 26, teachers: 22, studios: 5,
-      partner_social: 7, classical_technique: 10, culture_wellness: 9
+      partner_social: 7, ballet_contemporary: 4, jazz_tap: 2, indian_dance: 5, world_dance: 4, performance_expression: 4, movement_wellbeing: 2, programmes: 2, offerings: 28
     },
     semester: {
       start: '2026-09-14',
