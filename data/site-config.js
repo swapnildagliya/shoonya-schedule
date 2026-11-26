@@ -24,8 +24,8 @@
       // 2026-09-29: Dance & Fit is not running Semester 1 (its only slot, Wed, was
       //   cancelled) → 24 styles, culture_wellness 10→9, weekly class rows 59→57
       //   (Pilates Wed slot also cancelled; Pilates stays, so teachers stays 22).
-      styles: 24, teachers: 22, studios: 5,
-      partner_social: 7, classical_technique: 8, culture_wellness: 9
+      styles: 26, teachers: 22, studios: 5,
+      partner_social: 7, classical_technique: 10, culture_wellness: 9
     },
     semester: {
       start: '2026-09-14',

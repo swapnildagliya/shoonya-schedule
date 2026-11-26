@@ -204,8 +204,8 @@ body[data-filter="culture"]   #classical { display: none; }
     {
       "@type": "ItemList",
       "name": "Dance Styles at Shoonya Dance Centre Ghent",
-      "description": "All 24 dance styles taught at Shoonya Dance Centre in Ghent, Belgium — from Argentine Tango and Ballet to Bollywood, Bhangra, and Burlesque.",
-      "numberOfItems": 24,
+      "description": "All 26 dance styles taught at Shoonya Dance Centre in Ghent, Belgium — from Argentine Tango and Ballet to Bollywood, Bhangra, and Burlesque.",
+      "numberOfItems": 26,
       "url": "https://styles.shoonyadance.com/",
       "itemListElement": [
         {
@@ -303,7 +303,9 @@ body[data-filter="culture"]   #classical { display: none; }
         {
           "@type": "ListItem", "position": 24,
           "item": { "@type": "Course", "name": "Yoga", "description": "Movement and breathwork class supporting dancers' flexibility, recovery, and mindfulness. Open level on Tuesdays.", "provider": { "@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com" }, "courseMode": "onsite", "inLanguage": "nl", "url": "https://styles.shoonyadance.com/culture-wellness/" }
-        }
+        },
+        {"@type": "ListItem", "position": 25, "item": {"@type": "Course", "name": "Contemporary Modern", "description": "Mon · 17:00–18:00 · Tono Ferriol", "provider": {"@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com"}, "courseMode": "onsite", "url": "https://www.shoonyadance.com/contemporary-modern-gent"}},
+        {"@type": "ListItem", "position": 26, "item": {"@type": "Course", "name": "Contemporary Dance Technique", "description": "Sat · 12:00–13:30 · Nathalie El Ghoul", "provider": {"@type": "Organization", "name": "Shoonya Dance Centre", "url": "https://www.shoonyadance.com"}, "courseMode": "onsite", "url": "https://www.shoonyadance.com/contemporary-dance-technique-gent"}}
       ]
     },
     {
@@ -496,6 +498,17 @@ body[data-filter="culture"]   #classical { display: none; }
           <h3 data-i18n="c_contemporary_h">Professional Morning Training</h3>
           <p class="strip-meta" data-i18n="c_contemporary_meta">Mon &amp; Thu mornings · Int/Adv · Tono Ferriol</p>
         </div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="strip" href="https://www.shoonyadance.com/contemporary-modern-gent">
+        <span class="strip-day" data-i18n="day_m">M</span>
+        <div class="strip-body"><h3>Contemporary Modern</h3><p class="strip-meta" data-i18n="c_modern_meta">Mon · 17:00–18:00 · Tono Ferriol</p></div>
+        <span class="strip-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="strip" href="https://www.shoonyadance.com/contemporary-dance-technique-gent">
+        <span class="strip-day" data-i18n="day_sa">Sa</span>
+        <div class="strip-body"><h3>Contemporary Dance Technique</h3><p class="strip-meta" data-i18n="c_technique_meta">Sat · 12:00–13:30 · Nathalie El Ghoul</p></div>
         <span class="strip-arrow" aria-hidden="true">→</span>
       </a>
 
@@ -706,7 +719,7 @@ const translations = {
 
     cat_classical_pill: "Classical & Technique",
     cat_classical_h2: "Which classical and technique styles can I study at Shoonya?",
-    cat_classical_count: (_c.classical_technique || 7) + " styles",
+    cat_classical_count: (_c.classical_technique || 10) + " styles",
     cat_classical_sub: "Structured progression — start at Level 1 and grow over years.",
 
     cat_culture_pill: "Culture & Wellness",
@@ -730,6 +743,8 @@ const translations = {
     c_ballet_h: "Ballet",
     c_ballet_shirley_meta: "Fri · L1/L2/L3 · Shirley De Muer",
     c_ballet_tono_meta: "Int/Adv mornings with Tono Ferriol → see Professional Morning Training below",
+    c_modern_meta: "Mon · 17:00–18:00 · Tono Ferriol",
+    c_technique_meta: "Sat · 12:00–13:30 · Nathalie El Ghoul",
     c_contemporary_h: "Professional Morning Training", c_contemporary_meta: "Ballet & contemporary · Mon & Thu mornings · Int/Adv · Tono Ferriol",
     c_flamenco_h: "Flamenco",            c_flamenco_meta: "Tue · All levels · La Liz",
     c_indian_h: "Indian Dance Flow",c_indian_meta: "Tue · Open level · Swapnil",
@@ -775,7 +790,7 @@ const translations = {
 
     cat_classical_pill: "Klassiek & Techniek",
     cat_classical_h2: "Welke klassieke dansstijlen kun je volgen bij Shoonya?",
-    cat_classical_count: (_c.classical_technique || 7) + " stijlen",
+    cat_classical_count: (_c.classical_technique || 10) + " stijlen",
     cat_classical_sub: "Gestructureerde opbouw — begin op Niveau 1 en groei door de jaren.",
 
     cat_culture_pill: "Cultuur & Wellness",
@@ -799,6 +814,8 @@ const translations = {
     c_ballet_h: "Ballet",
     c_ballet_shirley_meta: "Vr · N1/N2/N3 · Shirley De Muer",
     c_ballet_tono_meta: "Int/Gev ochtenden met Tono Ferriol → zie Professional Morning Training hieronder",
+    c_modern_meta: "Ma · 17:00–18:00 · Tono Ferriol",
+    c_technique_meta: "Za · 12:00–13:30 · Nathalie El Ghoul",
     c_contemporary_h: "Professional Morning Training",  c_contemporary_meta: "Ballet & hedendaags · ma- & do-ochtend · Int/Gev · Tono Ferriol",
     c_flamenco_h: "Flamenco",             c_flamenco_meta: "Di · Alle niveaus · La Liz",
     c_indian_h: "Indische Dans Flow",   c_indian_meta: "Di · Open niveau · Swapnil",
