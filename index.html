@@ -260,6 +260,7 @@ a.timeline__node:focus-visible{outline-offset:6px}
 
   <nav class="school" aria-label="Site navigation">
     <a href="/" aria-current="page" data-i18n="snav-schedule">Schedule</a>
+    <a href="/workshops/" data-workshop-schedule>Workshop schedule</a>
     <a href="https://info.shoonyadance.com" data-i18n="snav-new">New here?</a>
     <a href="https://styles.shoonyadance.com/" data-i18n="snav-styles">All styles</a>
   </nav>
@@ -826,5 +827,6 @@ a.timeline__node:focus-visible{outline-offset:6px}
     }
   </script>
 <script src="https://schedule.shoonyadance.com/assets/sdc-consent.js" defer></script>
+<script>(function(){function sync(){var nl=document.documentElement.lang.indexOf('nl')===0;document.querySelectorAll('[data-workshop-schedule]').forEach(function(a){a.textContent=nl?'Workshopoverzicht':'Workshop schedule';a.href=nl?'/nl/workshops/':'/workshops/';});}sync();new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});})();</script>
 </body>
 </html>

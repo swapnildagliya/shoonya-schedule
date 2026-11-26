@@ -1,0 +1,48 @@
+name: Refresh public workshop schedule
+on:
+  schedule:
+    - cron: '17 4,5 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: workshop-schedule-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run at 06:17 Brussels time
+        id: clock
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(TZ=Europe/Brussels date +%H)" = "06" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.clock.outputs.run == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - if: steps.clock.outputs.run == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - if: steps.clock.outputs.run == 'true'
+        name: Rebuild from public booking APIs
+        run: python3 _build/build-workshop-schedule.py
+      - if: steps.clock.outputs.run == 'true'
+        name: Check generated schedule
+        run: python3 _build/check-workshop-schedule.py
+      - if: steps.clock.outputs.run == 'true'
+        name: Publish only generated workshop files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add workshops/index.html nl/workshops/index.html data/workshop-schedule.json
+          if ! git diff --cached --quiet; then
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refresh public workshop schedule'
+          git push origin HEAD:main
+          fi
+          gh api --method POST repos/${{ github.repository }}/pages/builds
