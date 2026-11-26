@@ -46,7 +46,7 @@ const PAGES = [
   { src: 'about/index.html', slug: 'about' },
   { src: 'our-studios/index.html', slug: 'studios' },
   { src: 'register/index.html', slug: 'register' },
-];
+].filter(page => !process.argv.some(arg => arg.startsWith('--page=')) || process.argv.includes('--page=' + page.slug));
 
 /* Internal links on info. are root-absolute and must be remapped to hub paths, in the
    right language. Anything unmapped is reported rather than silently shipped. */
